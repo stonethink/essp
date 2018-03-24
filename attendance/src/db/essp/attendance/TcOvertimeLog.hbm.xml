@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+
+<class  name="db.essp.attendance.TcOvertimeLog"  table="tc_overtime_log" lazy="true" dynamic-insert="true" dynamic-update="true">
+    <id name="rid" type="java.lang.Long" column="RID">
+        <generator class="assigned" />
+    </id>
+
+    <property name="loginId" type="java.lang.String" column="LOGIN_ID" length="100" />
+    <property name="decision" type="java.lang.String"  column="DECISION" length="10" />
+    <property name="logDate" type="java.util.Date"  column="LOG_DATE" length="10" />
+    <property name="datetimeStart" type="java.util.Date" column="DATETIME_START" length="19" />
+    <property name="datetimeFinish" type="java.util.Date" column="DATETIME_FINISH" length="19" />
+    <property name="totalHours" type="java.lang.Double" column="TOTAL_HOURS" length="8" />
+    <property name="isEachDay" type="java.lang.Boolean" column="IS_EACH_DAY" length="1" />
+    <property name="comments" type="java.lang.String" column="COMMENTS" length="500" />
+    <property name="seq" type="java.lang.Long" column="SEQ" length="8" >
+    </property>
+    <property name="rst" type="java.lang.String" column="RST" length="1">
+    </property>
+    <property name="rct" type="java.util.Date" column="RCT" length="19" >
+    </property>
+    <property name="rut" type="java.util.Date" column="RUT" length="19">
+    </property>
+
+    <!-- Associations -->
+
+    <!-- bi-directional many-to-one association to TcOvertime -->
+    <many-to-one
+        name="tcOvertime"
+        class="db.essp.attendance.TcOvertime"
+        not-null="true"
+    >
+        <column name="OVERTIME_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TcOvertimeLogDetail -->
+    <set
+        name="tcOvertimeLogDetails"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="LOG_ID" />
+        </key>
+        <one-to-many
+            class="db.essp.attendance.TcOvertimeLogDetail"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

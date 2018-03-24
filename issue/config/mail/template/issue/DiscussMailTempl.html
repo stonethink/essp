@@ -1,0 +1,48 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ESSP System Mail</title>
+</head>
+
+<body>
+
+Dear,$addressee:
+<br><br>
+#foreach($dd in $content)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Issue: <strong>$!dd.issue</strong> in the Account: <strong>$!dd.account</strong> append a title or reply, please look through it!
+
+<br><br>
+<table width="787" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF" >
+<tr>
+  <td width="188" bgcolor="#94aad6">Title</td>
+  <td colspan="3">$!dd.title&nbsp;</td>
+</tr>
+<tr>
+  <td width="214" bgcolor="#94aad6">Description</td>
+  <td colspan="3">$!dd.description&nbsp;</td>
+</tr>
+<tr>
+  <td width="188" bgcolor="#94aad6">Filled By</td>
+  <td width="175">$!dd.fillby&nbsp;</td>
+  <td width="214" bgcolor="#94aad6">Filled Date</td>
+  <td width="187">$!dd.filldate&nbsp;</td>
+</tr>
+<tr>
+  <td width="188" bgcolor="#94aad6">Attachment Description</td>
+  <td colspan="3">$!dd.attachmentdesc&nbsp;</td>
+</tr>
+
+
+</table>
+<br />
+#end
+--------------------------------------------------
+<br />
+Best regard!<br />
+The above information was sent by ESSP automatically, you need not reply.<br />
+<br />
+$addresser<br />
+$date
+</body>
+</html>

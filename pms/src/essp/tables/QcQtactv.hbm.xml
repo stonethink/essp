@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="essp.tables.QcQtactv" 
+    table="qc_qtactv"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="qc_qtactv"
+    </meta>
+
+    <id
+        name="rid"
+        type="java.lang.Long"
+        column="RID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="RID"
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="projectId"
+        type="java.lang.Long"
+        column="PROJECT_ID"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PROJECT_ID"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="activityId"
+        type="java.lang.Long"
+        column="ACTIVITY_ID"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTIVITY_ID"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="type"
+        type="java.lang.String"
+        column="TYPE"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TYPE"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="qualityActivity"
+        type="java.lang.String"
+        column="QUALITY_ACTIVITY"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="QUALITY_ACTIVITY"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="production"
+        type="java.lang.String"
+        column="PRODUCTION"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PRODUCTION"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="productionUnit"
+        type="java.lang.String"
+        column="PRODUCTION_UNIT"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PRODUCTION_UNIT"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="method"
+        type="java.lang.String"
+        column="METHOD"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="METHOD"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="criterion"
+        type="java.lang.String"
+        column="CRITERION"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CRITERION"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="productionSizePlan"
+        type="java.math.BigDecimal"
+        column="PRODUCTION_SIZE_PLAN"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PRODUCTION_SIZE_PLAN"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="densityPlan"
+        type="java.math.BigDecimal"
+        column="DENSITY_PLAN"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DENSITY_PLAN"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="defectRatePlan"
+        type="java.math.BigDecimal"
+        column="DEFECT_RATE_PLAN"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DEFECT_RATE_PLAN"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="productionSizeAct"
+        type="java.math.BigDecimal"
+        column="PRODUCTION_SIZE_ACT"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PRODUCTION_SIZE_ACT"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="densityAct"
+        type="java.math.BigDecimal"
+        column="DENSITY_ACT"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DENSITY_ACT"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="defectRateAct"
+        type="java.math.BigDecimal"
+        column="DEFECT_RATE_ACT"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DEFECT_RATE_ACT"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="caseAct"
+        type="java.lang.Long"
+        column="CASE_ACT"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CASE_ACT"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="defectAct"
+        type="java.lang.Long"
+        column="DEFECT_ACT"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DEFECT_ACT"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="remark"
+        type="java.lang.String"
+        column="REMARK"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="REMARK"
+            length="65535"
+        </meta>    
+    </property>
+    <property
+        name="rst"
+        type="java.lang.String"
+        column="RST"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RST"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="rut"
+        type="java.util.Date"
+        column="RUT"
+        length="19"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RUT"
+            length="19"
+        </meta>    
+    </property>
+    <property
+        name="rct"
+        type="java.util.Date"
+        column="RCT"
+        length="19"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RCT"
+            length="19"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

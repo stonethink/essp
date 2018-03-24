@@ -1,0 +1,25 @@
+#input_common{
+    width:125;
+}
+#file_name{
+    width:100;
+}
+#select_range{
+   width:45
+}
+#input_file{
+ 	width:200;
+}
+#text_area{
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+ 	width:360;
+}
+.list_range1
+{
+	text-align : right;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+}

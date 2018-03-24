@@ -1,0 +1,232 @@
+﻿<html>
+<body >
+<script type="text/javascript" language="JavaScript" src="/essp/js/queryAccount.js"></script>
+<script type="text/javascript">
+function HashMap()
+{
+    this.length = 0;
+    this.prefix = "hashmap_prefix_20040716_";
+}
+/**
+ * ��HashMap������������
+ */
+HashMap.prototype.put = function (key, value)
+{
+    this[this.prefix + key] = value;
+    this.length ++;
+}
+/**
+ * ��HashMap������value��
+ */
+HashMap.prototype.get = function(key)
+{
+    return typeof this[this.prefix + key] == "undefined" 
+            ? null : this[this.prefix + key];
+}
+/**
+ * ��HashMap����������key����������������������
+ */
+HashMap.prototype.keySet = function()
+{
+    var arrKeySet = new Array();
+    var index = 0;
+    for(var strKey in this)
+    {
+        if(strKey.substring(0,this.prefix.length) == this.prefix)
+            arrKeySet[index ++] = strKey.substring(this.prefix.length);
+    }
+    return arrKeySet.length == 0 ? null : arrKeySet;
+}
+/**
+ * ��HashMap������value����������������������
+ */
+HashMap.prototype.values = function()
+{
+    var arrValues = new Array();
+    var index = 0;
+    for(var strKey in this)
+    {
+        if(strKey.substring(0,this.prefix.length) == this.prefix)
+            arrValues[index ++] = this[strKey];
+    }
+    return arrValues.length == 0 ? null : arrValues;
+}
+/**
+ * ����HashMap��value������
+ */
+HashMap.prototype.size = function()
+{
+    return this.length;
+}
+/**
+ * ������������
+ */
+HashMap.prototype.remove = function(key)
+{
+    delete this[this.prefix + key];
+    this.length --;
+}
+/**
+ * ����HashMap
+ */
+HashMap.prototype.clear = function()
+{
+    for(var strKey in this)
+    {
+        if(strKey.substring(0,this.prefix.length) == this.prefix)
+            delete this[strKey];   
+    }
+    this.length = 0;
+}
+/**
+ * ����HashMap��������
+ */
+HashMap.prototype.isEmpty = function()
+{
+    return this.length == 0;
+}
+/**
+ * ����HashMap������������key
+ */
+HashMap.prototype.containsKey = function(key)
+{
+    for(var strKey in this)
+    {
+       if(strKey == this.prefix + key)
+          return true;  
+    }
+    return false;
+}
+/**
+ * ����HashMap������������value
+ */
+HashMap.prototype.containsValue = function(value)
+{
+    for(var strKey in this)
+    {
+       if(this[strKey] == value)
+          return true;  
+    }
+    return false;
+}
+/**
+ * ������HashMap����������������HashMap��������������HashMap
+ */
+HashMap.prototype.putAll = function(map)
+{
+    if(map == null)
+        return;
+    if(map.constructor != HashMap)
+        return;
+    var arrKey = map.keySet();
+    var arrValue = map.values();
+    for(var i in arrKey)
+       this.put(arrKey[i],arrValue[i]);
+}
+//toString
+HashMap.prototype.toString = function()
+{
+    var str = "";
+    for(var strKey in this)
+    {
+        if(strKey.substring(0,this.prefix.length) == this.prefix)
+              str += strKey.substring(this.prefix.length) 
+                  + " : " + this[strKey] + "\r\n";
+    }
+    return str;
+}
+ function onSearch(){
+        var param = new HashMap();
+        if(document.getElementById("usable1").checked) {
+          var contextValue = new Array(document.getElementById("cValue1").value,document.getElementById("cText1").value);
+          param.put(document.getElementById("column1").value,contextValue);
+        }
+        if(document.getElementById("usable2").checked) {
+          var contextValue = new Array(document.getElementById("cValue2").value,document.getElementById("cText2").value);
+          param.put(document.getElementById("column2").value,contextValue);
+        }
+        var result = queryAccount(param);
+        var collTextarea = document.getElementById("textAreaForTooltip");
+        var strTitle = "Account Id: "+result.acnt_id+", \nAccount Name: "+result.acnt_name+"\nAccount Full Name: "+result.acnt_full_name+", \nProject_Type: "+result.rel_prj_type+", \nProject_Id: "+result.rel_prj_id
+                            +", \nCustomer_Id: "+result.customer_id+", \nAchieve_Belong: "+result.achieve_belong+", \nExec_Site: "+result.exec_site+", \nExec_Unit_Id: "+result.exec_unit_id+", \nCost_Attach_BD: "+result.cost_attach_bd+", \nBiz_Source: "+result.biz_source
+                            +", \nProduct_Name: "+result.product_name+", \nAcnt_Attribute: "+result.acnt_attribute+", \nAcnt_Type: "+result.acnt_type+", \nAcnt_Anticipated_Start: "+result.acnt_anticipated_start
+                            +", \nAcnt_Anticipated_Finish: "+result.acnt_anticipated_finish+", \nAcnt_Planned_Start: "+result.acnt_planned_start+", \nAcnt_Planned_Finish: "+result.acnt_planned_finish+", \nAcnt_Actual_Start: "+result.acnt_actual_start
+                            +", \nAcnt_Actual_Finish: "+result.acnt_actual_finish+", \nEst_Manmonth: "+result.est_manmonth+", \nActual_Manmonth: "+result.actual_manmonth+", \nAcnt_Organization: "+result.acnt_organization
+                            +", \nAcnt_Currency: "+result.acnt_currency+", \nEst_Size: "+result.est_size+", \nAcnt_Status: "+result.acnt_status+", \nAcnt_Brief: "+result.acnt_brief+", \nacnt_inner: "+result.acnt_inner
+                            +", \nIs_Template: "+result.is_template+", \nImport_Template_Rid: "+result.import_template_rid;
+	    collTextarea.value = strTitle;
+ }
+ 
+</script>
+<form name="mains">
+<br/>
+<br/>
+<br/>
+<br/>
+<table align="center">
+   <tr>
+ <td width="120px"><INPUT id="usable1" type="checkbox">是否有效
+   </td>
+   <td width="80px">限制字段1:
+   </td>
+   <td width="60px"><input name="column1" type="text" value="rel_prj_type" style="width:60px;">
+   </td>
+   <td>值:
+   </td>
+   <td width="60px"><input name="cValue1" type="text" value="Master" style="width:60px;">
+   </td>
+   <td>显示:
+   </td>
+   <td width="60px"><input name="cText1" type="text" value="专案类型" style="width:60px;">
+   </td>
+   </tr>
+   <tr>
+ <td width="120px"><INPUT id="usable2" type="checkbox">是否有效
+   </td>
+   <td width="80px">限制字段2:
+   </td>
+   <td width="60px"><input name="column2" type="text" value="acnt_attribute" style="width:60px;">
+   </td>
+   <td>值:
+   </td>
+   <td width="60px"><input name="cValue2" type="text" value="Dept" style="width:60px;">
+   </td>
+   <td>显示:
+   </td>
+   <td width="60px"><input name="cText2" type="text" value="专案属性" style="width:60px;">
+   </td>
+   </tr>
+</table>
+   <table name="tb1" align="center">
+    <tr name="tr1">
+    <td>
+    <input type="button" value="Query Account"  onclick="onSearch()">
+    </td>
+    <td>
+    <input type="hidden" value="lochost AD multi"  onclick="onAllocMulti('ad')">
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <input type="hidden" value="lochost DB single"  onclick="onAllocSingleInDB()">
+    </td>
+    <td>
+    <input type="hidden" value="lochost DB multi"  onclick="onAllocMultiInDB()">
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <input type="hidden" value="lochost ALL single"  onclick="onAllocSingle('all')">
+    </td>
+    <td>
+    <input type="hidden" value="lochost ALL multi"  onclick="onAllocMulti('all')">
+    </td>
+    </tr>
+    <tr></tr>
+  </table>
+  <center>
+     <TEXTAREA COLS=100 ROWS=17 id="textAreaForTooltip" style="font-family: Arial, Helvetica, sans-serif;font-size: 15px; font-style: normal;">Reslut Test Area</TEXTAREA>
+  </center>
+</form>
+</body>
+</html>

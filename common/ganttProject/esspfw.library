@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+<!--JBuilder Library Definition File-->
+<fullname>esspfw</fullname>
+<class>
+<path>[D%|/project/essp2/esspfw/build/esspfw.jar]</path>
+<path>[D%|/project/essp2/essp/build/esspcom.jar]</path>
+</class>
+<lastmodsaved>1159440061906</lastmodsaved>
+</library>

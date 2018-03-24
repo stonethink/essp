@@ -1,0 +1,46 @@
+#input_common{
+    width:125;
+}
+#file_name{
+    width:100;
+}
+#input_file{
+ 	width:200;
+}
+#text_area{
+ 	width:640;
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+#attachment{
+ 	width:280;
+}
+#attachment2{
+width:300
+}
+#title_display{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 12px;
+   width:300;
+}
+#title_display_all{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 12px;
+   width:100%;
+}
+#title_display_w282{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 12px;
+   width:282;
+}
+#title_display_w200{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 12px;
+   width:222;
+}
+#text_display{
+   width:240;
+}
+#tab_display{
+   width:80%;
+}

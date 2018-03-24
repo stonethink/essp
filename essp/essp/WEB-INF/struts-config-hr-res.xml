@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="userAllocDirectForm" type="server.essp.common.humanAllocate.form.AfUserAllocDirect" />
+    <form-bean name="userAllocConditionForm" type="server.essp.common.humanAllocate.form.AfUserAllocCondition" />
+    <form-bean name="userAllocInADForm" type="server.essp.common.humanAllocate.form.AfUserAllocInAD" />
+  </form-beans>
+  <action-mappings>
+    <!-- User Allocate -->
+    <action  path="/common/humanAllocate/alloc/UserAlloc" scope="request" type="server.essp.common.humanAllocate.action.AcUserAlloc" validate="true">
+        <forward name="success" path="/common/humanAllocate/alloc/AllocMultiUser.jsp" redirect="false"/>
+    </action>
+    <action  name="userAllocInADForm" path="/common/humanAllocate/alloc/UserAllocInAD" scope="request" type="server.essp.common.humanAllocate.action.AcUserAllocInAD" validate="true">
+        <forward name="success" path="/common/humanAllocate/alloc/UserAllocInADPre.do" redirect="false"/>
+    </action>
+    <action  name="userAllocInADForm" path="/common/humanAllocate/alloc/UserAllocInADGroup" scope="request" type="server.essp.common.humanAllocate.action.AcUserAllocInADGroup" validate="true">
+        <forward name="success" path="/common/humanAllocate/alloc/IfmSearchADGroup.jsp" redirect="false"/>
+    </action>
+    <action   path="/common/humanAllocate/alloc/UserAllocInADPre" scope="request" type="server.essp.common.humanAllocate.action.AcUserAllocInADPre" validate="true">
+        <forward name="success" path="/common/humanAllocate/alloc/IfmSearchAD.jsp" redirect="false"/>
+    </action>
+    <action name="userAllocDirectForm" path="/common/humanAllocate/alloc/UserAllocDirect" scope="request" type="server.essp.common.humanAllocate.action.AcUserAllocDirect" validate="true">
+        <forward name="success" path="/common/humanAllocate/alloc/IfmCertain.jsp" redirect="false"/>
+    </action>
+    <action  path="/common/humanAllocate/alloc/UserAllocByOBSPre" scope="request" type="server.essp.common.humanAllocate.action.AcUserAllocByOBSPre" validate="true">
+        <forward name="success" path="/common/humanAllocate/alloc/IfmOBS.jsp" redirect="false"/>
+    </action>
+    <action  path="/common/humanAllocate/alloc/UserAllocByOBS" scope="request" type="server.essp.common.humanAllocate.action.AcUserAllocByOBS" validate="true">
+        <forward name="success" path="/common/humanAllocate/alloc/UserAllocByOBSPre.do" redirect="false"/>
+    </action>
+    <action  path="/common/humanAllocate/alloc/UserAllocByConPre" scope="request" type="server.essp.common.humanAllocate.action.AcUserAllocByConPre" validate="true">
+        <forward name="success" path="/common/humanAllocate/alloc/IfmCondition.jsp" redirect="false"/>
+    </action>
+    <action  name="userAllocConditionForm" path="/common/humanAllocate/alloc/UserAllocByCondition" scope="request" type="server.essp.common.humanAllocate.action.AcUserAllocByCondition" validate="true">
+        <forward name="success" path="/common/humanAllocate/alloc/UserAllocByConPre.do" redirect="false"/>
+    </action>
+
+  </action-mappings>
+  <!--message-resources  key="issue" parameter="server/essp/issue/resources/application" /-->
+</struts-config>

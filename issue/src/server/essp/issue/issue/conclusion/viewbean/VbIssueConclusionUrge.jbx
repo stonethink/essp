@@ -1,0 +1,19 @@
+[PropertyInfo]
+accountId,String,false,false, , ,false,<default>
+attachment,String,false,false, , ,false,<default>
+attachmentdesc,String,false,false, , ,false,<default>
+description,String,false,false, , ,false,<default>
+isPrincipal,String,false,false, , ,false,<default>
+issueRid,String,false,false, , ,false,<default>
+rid,String,false,false, , ,false,<default>
+rst,String,false,false, , ,false,<default>
+urgDate,String,false,false, , ,false,<default>
+urgedBy,String,false,false, , ,false,<default>
+urgeTo,String,false,false, , ,false,<default>
+urgeToScope,String,false,false,urgeToScope,urgeToScope,true,<default>
+urgedByScope,String,false,false,urgedByScope,urgedByScope,true,<default>
+[IconNames]
+
+
+
+

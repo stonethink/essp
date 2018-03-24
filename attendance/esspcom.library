@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <!--JBuilder Library Definition File-->
+  <fullname>esspcom</fullname>
+  <class>
+    <path>[lib/esspcom_client.jar]</path>
+    <path>[lib/esspcom_server.jar]</path>
+  </class>
+  <source>
+    <path>[../essp/build/esspcom_client_src.jar]</path>
+    <path>[../essp/build/esspcom_server_src.jar]</path>
+  </source>
+  <lastmodsaved>1129880192578</lastmodsaved>
+</library>

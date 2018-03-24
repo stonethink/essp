@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <!--JBuilder Library Definition File-->
+  <fullname>LIB</fullname>
+  <class>
+    <path>[lib/commons-beanutils.jar]</path>
+    <path>[lib/commons-collections.jar]</path>
+    <path>[lib/commons-digester.jar]</path>
+    <path>[lib/commons-logging.jar]</path>
+    <path>[lib/junit.jar]</path>
+    <path>[lib/jakarta-oro-2.0.8.jar]</path>
+  </class>
+  <lastmodsaved>1110851120666</lastmodsaved>
+</library>

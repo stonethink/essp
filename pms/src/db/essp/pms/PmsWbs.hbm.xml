@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+  <class name="db.essp.pms.Wbs" table="PMS_WBS" lazy="true" dynamic-update="true" dynamic-insert="true">
+    <id name="pk" type="db.essp.pms.WbsUserType">
+      <column name="ACNT_RID"/>
+      <column name="WBS_RID"/>
+      <generator class="assigned"/>
+    </id>
+
+    <many-to-one name="account"
+        class="db.essp.pms.Account"
+        column="ACNT_RID" insert="false" update="false" cascade="none"/>
+
+    <many-to-one name="parent" class="db.essp.pms.Wbs" index="seq">
+        <column name="PARENT_ACNT_RID"/>
+        <column name="PARENT_RID"/>
+    </many-to-one>
+
+    <property name="code" type="string" column="CODE" not-null="false" length="50"/>
+    <property name="name" type="string" column="NAME" length="100"/>
+    <property name="manager" type="string" column="MANAGER" length="50"/>
+    <property name="weight" type="double" column="WEIGHT"/>
+    <property name="brief" type="string" column="BRIEF" length="2000"/>
+    <!--<property name="milestone" type="string" column="IS_MILESTONE" length="20"/>-->
+    <property name="anticipatedStart" type="date" column="ANTICIPATED_START"/>
+    <property name="anticipatedFinish" type="date" column="ANTICIPATED_FINISH"/>
+    <property name="plannedStart" type="date" column="PLANNED_START"/>
+    <property name="plannedFinish" type="date" column="PLANNED_FINISH"/>
+    <property name="actualStart" type="date" column="ACTUAL_START"/>
+    <property name="actualFinish" type="date" column="ACTUAL_FINISH"/>
+    <property name="completeRate" type="double" column="COMPLETE_RATE"/>
+    <property name="completeMethod" type="string" column="COMPLETE_METHOD" length="10"/>
+    <property name="ectMethod" type="string" column="ETC_METHOD" length="10"/>
+
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date" column="RCT"/>
+    <property name="rut" type="date" column="RUT"/>
+<!--
+    <set name="checkPoints" table="PMS_WBS_CHECKPOINT" outer-join="false">
+		<key>
+			<column name="ACNT_RID"/>
+    		<column name="WBS_RID"/>
+		</key>
+		<one-to-many class="db.essp.pms.CheckPoint"/>
+	</set>
+-->
+	<list name="childs" lazy="false">
+		<key>
+            <column name="PARENT_ACNT_RID"/>
+            <column name="PARENT_RID"/>
+		</key>
+		<index column="seq"/>
+		<one-to-many  class="db.essp.pms.Wbs"/>
+	</list>
+
+    <list name="activities" lazy="false">
+		<key>
+            <column name="WBS_ACNT_RID"/>
+            <column name="WBS_RID"/>
+		</key>
+		<index column="seq"/>
+		<one-to-many  class="db.essp.pms.Activity"/>
+	</list>
+
+    <!--add by xh-->
+    <set name="wbsCodes" lazy="true" inverse="false" table="PMS_WBS_CODE">
+        <key>
+            <column name="ACNT_RID" />
+            <column name="WBS_RID" />
+        </key>
+        <many-to-many class="db.essp.code.CodeValue" column="VALUE_RID"/>
+    </set>
+<!--
+	<one-to-one name="milestoneData" class="db.essp.pms.Milestone" cascade="all"  />
+-->
+  </class>
+</hibernate-mapping>

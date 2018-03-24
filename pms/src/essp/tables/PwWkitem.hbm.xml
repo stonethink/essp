@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="essp.tables.PwWkitem"
+    table="pw_wkitem"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="pw_wkitem"
+    </meta>
+
+    <id
+        name="rid"
+        type="java.lang.Long"
+        column="RID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="RID"
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="projectId"
+        type="java.lang.Long"
+        column="PROJECT_ID"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PROJECT_ID"
+            length="8"
+        </meta>
+    </property>
+
+    <property
+        name="activityId"
+        type="java.lang.Long"
+        column="ACTIVITY_RID"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTIVITY_RID"
+            length="8"
+        </meta>
+    </property>
+
+    <property
+        name="wpId"
+        type="java.lang.Long"
+        column="WP_ID"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_ID"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="wkitemOwner"
+        type="java.lang.String"
+        column="WKITEM_OWNER"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WKITEM_OWNER"
+            length="50"
+        </meta>
+    </property>
+    <property
+        name="wkitemPlace"
+        type="java.lang.String"
+        column="WKITEM_PLACE"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WKITEM_PLACE"
+            length="100"
+        </meta>
+    </property>
+
+    <property
+        name="wkitemBelongto"
+        type="java.lang.String"
+        column="WKITEM_BELONGTO"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WKITEM_BELONGTO"
+            length="100"
+        </meta>
+    </property>
+
+    <property
+        name="wkitemName"
+        type="java.lang.String"
+        column="WKITEM_NAME"
+        not-null="true"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WKITEM_NAME"
+            length="65535"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="wkitemDate"
+        type="java.util.Date"
+        column="WKITEM_DATE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WKITEM_DATE"
+            length="10"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="wkitemStarttime"
+        type="java.sql.Timestamp"
+        column="WKITEM_STARTTIME"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WKITEM_STARTTIME"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="wkitemFinishtime"
+        type="java.sql.Timestamp"
+        column="WKITEM_FINISHTIME"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WKITEM_FINISHTIME"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="wkitemWkhours"
+        type="java.math.BigDecimal"
+        column="WKITEM_WKHOURS"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WKITEM_WKHOURS"
+            length="8"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="wkitemIsdlrpt"
+        type="java.lang.String"
+        column="WKITEM_ISDLRPT"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WKITEM_ISDLRPT"
+            length="1"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="wkitemCopyfrom"
+        type="java.lang.Long"
+        column="WKITEM_COPYFROM"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WKITEM_COPYFROM"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="rst"
+        type="java.lang.String"
+        column="RST"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RST"
+            length="1"
+        </meta>
+    </property>
+    <property
+        name="rct"
+        type="java.util.Date"
+        column="RCT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RCT"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="rut"
+        type="java.util.Date"
+        column="RUT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RUT"
+            length="10"
+        </meta>
+    </property>
+
+    <!-- Associations -->
+
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+ 	
+    
+    <!--cbs-->
+    <mapping resource="db/essp/cbs/SysSubject.hbm.xml"/>
+    <mapping resource="db/essp/cbs/SysPrice.hbm.xml"/>
+    <mapping resource="db/essp/cbs/PmsAcntCost.hbm.xml"/>
+    <mapping resource="db/essp/cbs/CbsBudgetLog.hbm.xml"/>
+    <mapping resource="db/essp/cbs/CbsBudget.hbm.xml"/>
+    <mapping resource="db/essp/cbs/CbsBgtLabor.hbm.xml"/>
+    <mapping resource="db/essp/cbs/CbsBgtLaborMon.hbm.xml"/>
+    <mapping resource="db/essp/cbs/CbsCostLabor.hbm.xml"/>
+    <mapping resource="db/essp/cbs/PmsActivityCost.hbm.xml"/>
+    <mapping resource="db/essp/cbs/PmsCostItem.hbm.xml"/>
+
+  </session-factory>
+</hibernate-configuration>

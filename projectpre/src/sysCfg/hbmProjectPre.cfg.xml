@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+<hibernate-configuration>
+<session-factory>
+	<mapping resource="server/essp/projectpre/db/Site.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PcCustomer.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PcCustomerApplication.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PpAcnt.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PpAcntApp.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PpAcntCustContactor.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PpAcntCustContactorApp.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PpAcntPerson.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PpAcntPersonApp.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PpAcntTechinfo.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PpAcntTechinfoApp.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PpBd.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PpIdSetting.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PpLastRud.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PpParameter.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PpAcntContApp.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/QueryAcntView.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PPLog.hbm.xml" />
+	<mapping resource="server/essp/projectpre/db/PpAcntQueryPrivilege.hbm.xml" />
+    <mapping resource="server/essp/projectpre/db/PpSyncException.hbm.xml" />
+    <mapping resource="server/essp/projectpre/db/MailPrivilege.hbm.xml" />
+
+</session-factory>
+</hibernate-configuration>

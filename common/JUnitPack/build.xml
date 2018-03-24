@@ -1,0 +1,50 @@
+<project name="${project.name}" default="compile" basedir=".">
+  <!-- Local system paths -->
+  <property file="build.properties"/>
+  <property environment="env"/>
+  <path id="id.classes">
+    <pathelement path="${project.classes}"/>
+    <fileset dir="${project.lib}">
+      <include name="*.jar"/>
+    </fileset>
+    <fileset dir="${project.home}/../lib">
+      <include name="servlet-api.jar"/>
+    </fileset>
+  </path>
+
+  <!-- Check timestamp on files -->
+  <target name="prepare">
+    <tstamp/>
+    <mkdir dir="${project.classes}"/>
+  </target>
+
+  <!-- clean -->
+  <target name="clean" description="Prepare for clean build">
+    <delete dir="${project.classes}"/>
+    <mkdir dir="${project.classes}"/>
+  </target>
+
+
+  <!-- compile -->
+  <target name="compile" depends="prepare">
+    <echo message="欢迎使用${project.name} 编译系统"/>
+    <echo message="请您确定在运行ANT之前你已经正确配置了build.properties文件,另外您还需要设置JAVA_HOME和PATH环境变量哦"/>
+    <echo message=""/>
+    <echo message="您当前使用的JDK位于${env.JAVA_HOME}"/>
+    <echo message="将编译除test外的所有文件。"/>
+    <javac srcdir="${project.src}" 
+           excludes="test/**/*" 
+           destdir="${project.classes}" debug="${project.debug}">
+      <classpath refid="id.classes"/>
+    </javac>
+  </target>
+  
+  <target name="buildjar" depends="compile">
+	<jar destfile="${project.build}/junitpack.jar">
+      <fileset dir="${project.classes}">
+        <include name="**/*.*"/>
+        <include name="*.*"/>
+      </fileset>
+    </jar>
+  </target>
+</project>

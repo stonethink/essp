@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="essp.tables.SysCustomize"
+    table="essp_sys_customize"
+>
+
+    <composite-id name="pk" class="essp.tables.SysCustomizePk">
+        <key-property name="userid" column="USERID" length="50" type="string"/>
+        <key-property name="name" column="NAME" length="50" type="string"/>
+        <key-property name="condition" column="CONDITION" length="200" type="string"/>
+    </composite-id>
+
+<!--
+<id name="pk" type="essp.tables.SysCustomizePk">
+    <column name="USERID"/>
+    <column name="NAME"/>
+    <generator class="assign"/>
+</id>-->
+
+    <property
+        name="value"
+        type="java.lang.String"
+        column="VALUE"
+        length="500"
+    />
+    <!-- Associations -->
+
+
+</class>
+</hibernate-mapping>

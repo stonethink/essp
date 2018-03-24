@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+ 	
+    <!--timecard-->
+    <mapping resource="essp/tables/TcPeriod.hbm.xml"/>
+    <mapping resource="essp/tables/TcTimecard.hbm.xml"/>
+    <mapping resource="essp/tables/TcTm.hbm.xml"/>
+    <mapping resource="essp/tables/TcWorktime.hbm.xml"/>
+
+    <mapping resource="db/essp/tc/TcByWorkerAccount.hbm.xml"/>
+    <mapping resource="db/essp/tc/TcWeeklyReport.hbm.xml"/>
+    <mapping resource="db/essp/tc/TcStandardTimecard.hbm.xml"/>
+    <mapping resource="db/essp/tc/TcWeeklyReportLock.hbm.xml"/>
+    <mapping resource="db/essp/tc/TcAttendance.hbm.xml"/>
+    <mapping resource="db/essp/tc/TcNonAtten.hbm.xml"/>
+    <mapping resource="db/essp/tc/TcOutWorker.hbm.xml"/>
+    <mapping resource="db/essp/tc/TcProcess.hbm.xml"/>
+    
+  </session-factory>
+</hibernate-configuration>

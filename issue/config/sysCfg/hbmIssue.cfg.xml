@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+ 	
+    
+    
+	<!--issue type define-->
+    <mapping resource="db/essp/issue/IssueScope.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssuePriority.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueCategoryType.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueCategoryValue.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueRisk.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueType.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueStatus.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueStatusHistory.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueRiskHistory.hbm.xml"/>
+
+	<!--issue application-->
+    <mapping resource="db/essp/issue/IssueResolutionInflue.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueResolutionCategory.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueResolution.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueDiscussTitle.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueDiscussReply.hbm.xml"/>
+	<mapping resource="db/essp/issue/IssueConclusion.hbm.xml"/>
+	<mapping resource="db/essp/issue/IssueConclusionUg.hbm.xml"/>
+	<mapping resource="db/essp/issue/Issue.hbm.xml"/>
+	<mapping resource="db/essp/issue/IssueReportStatus.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueDiscussMailBak.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueMailDefaultTemp.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueMailDefaultTocc.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueMailTemplate.hbm.xml"/>
+
+  </session-factory>
+</hibernate-configuration>

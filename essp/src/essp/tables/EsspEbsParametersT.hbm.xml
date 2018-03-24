@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="essp.tables.EsspEbsParametersT" 
+    table="essp_ebs_parameters_t"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="essp_ebs_parameters_t"
+    </meta>
+
+    <composite-id name="comp_id" class="essp.tables.EsspEbsParametersTPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="kindCode" 
+            column="KIND_CODE" 
+            type="java.lang.String"
+            length="20"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="KIND_CODE"
+                length="20"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="code" 
+            column="CODE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="CODE"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="NAME"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DESCRIPTION"
+            length="100"
+        </meta>    
+    </property>
+    <property
+        name="rolefield"
+        type="java.lang.String"
+        column="ROLEFIELD"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ROLEFIELD"
+            length="20"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

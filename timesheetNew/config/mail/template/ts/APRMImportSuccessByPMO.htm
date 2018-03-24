@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR>
+<STYLE></STYLE>
+</HEAD>
+<BODY >
+Dear $addressee,
+<br>
+<br>
+#foreach($dd in $content)
+APRM Timesheet between <strong>$!dd.begin</strong> and <strong>$!dd.end</strong> has been imported successfully!
+<br />
+#end
+--------------------------------------------------
+<br />
+This message was sent automatically by ESSP, please do not reply.
+<br />
+<br />
+Best regard,<br />
+$addresser<br />
+$date
+</BODY></HTML>

@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<project name="issue">
+  <property name="project.name" value="issue"/>
+  <property file="../buildCommon.properties"/>
+  <!-- clean -->
+  <target name="clean_for_compile" description="clean classes for compile">
+    <ant antfile="${buildCommon.xml}" target="clean_for_compile" dir=".">    </ant>
+  </target>
+  <target name="clean" description="clean all the file not in the cvs">
+    <ant antfile="${buildCommon.xml}" target="clean" dir=".">    </ant>
+  </target>
+  <!--将资源文件从本工程的project.src,project.config拷贝到classes目录 -->
+  <target name="resources">
+    <ant antfile="${buildCommon.xml}" target="resources" dir=".">    </ant>
+  </target>
+  <target name="compile">
+    <ant antfile="${buildCommon.xml}" target="compile" dir=".">    </ant>
+  </target>
+  <target name="copy_web_class">
+    <copy todir="${project.home}/essp/WEB-INF/classes">
+      <fileset dir="${project.classes}">
+        <include name="**/*.*"/>
+      </fileset>
+    </copy>
+  </target>
+  <target name="copy_lib">
+    <ant antfile="${buildCommon.xml}" target="copy_lib" dir=".">    </ant>
+    <echo message="copy lib from pms: ${pms.project.home}/build"/>
+    <copy todir="${project.lib}">
+      <fileset dir="${pms.project.home}/build">
+        <include name="pms.jar"/>
+        <include name="pms_src.jar"/>
+      </fileset>
+    </copy>
+  </target>
+  <target name="jar_client">  </target>
+  <target name="jar_server">
+    <ant antfile="${buildCommon.xml}" target="jar_server" dir=".">
+      <property name="server.resources" value="fileserver.properties,Template_IssueReport.xls,
+      Template_IssueReport.Account_Name.config,
+      Template_IssueReport.withDetail.config,
+      **/mail/template/issue/*"/>
+    </ant>
+  </target>
+  <target name="jar_src">
+    <ant antfile="${buildCommon.xml}" target="jar_src" dir=".">    </ant>
+  </target>
+  <target name="jar" depends="jar_client, jar_server, jar_src">  </target>
+  <target name="hbm_generate_class">
+    <ant antfile="${buildCommon.xml}" target="hbm_generate_class" dir=".">    </ant>
+  </target>
+  <target name="hbm_generate_db">
+    <ant antfile="${buildCommon.xml}" target="hbm_generate_db" dir=".">    </ant>
+  </target>
+  <target name="rebuild_web" depends="resources">
+    <copy todir="${project.home}/essp/WEB-INF/classes">
+      <fileset dir="${project.classes}">
+        <include name="**/*.*"/>
+      </fileset>
+    </copy>
+    <copy todir="${project.home}/essp/WEB-INF/tld">
+      <fileset dir="${project.home}/../esspfw/tld">
+        <include name="*.*"/>
+      </fileset>
+    </copy>
+    <copy todir="${project.home}">
+      <fileset dir="${project.home}/../essp/essp">
+        <include name="js/**/*.*"/>
+        <include name="inc/**/*.*"/>
+        <include name="css/**/*.*"/>
+        <include name="dtd/**/*.*"/>
+        <include name="image/**/*.*"/>
+        <include name="layout/**/*.*"/>
+      </fileset>
+    </copy>
+    <delete>
+      <fileset dir="${project.home}/essp/WEB-INF/lib">
+        <include name="*.jar"/>
+      </fileset>
+    </delete>
+    <copy todir="${project.home}/essp/WEB-INF/lib">
+      <fileset dir="${project.home}/lib">
+        <include name="*.jar"/>
+        <exclude name="*_src.jar"/>
+        <exclude name="*_client.jar"/>
+      </fileset>
+    </copy>
+  </target>
+  <target name="hbm_generate_xml">
+    <ant antfile="${buildCommon.xml}" target="hbm_generate_xml" dir=".">    </ant>
+  </target>
+  <target name="clean_compile" depends="clean_for_compile, compile"/>
+  <target name="clean_jar" depends="clean,copy_lib, compile, resources, jar"/>
+</project>

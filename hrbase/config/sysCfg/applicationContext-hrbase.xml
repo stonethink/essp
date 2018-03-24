@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false">
+	<!-- Data Source -->
+	<bean id="hrbaseDataSource" class="org.enhydra.jdbc.pool.StandardXAPoolDataSource" destroy-method="shutdown">
+		<property name="dataSource">
+			<bean class="org.enhydra.jdbc.standard.StandardXADataSource" destroy-method="shutdown">
+				<property name="transactionManager" ref="jotm" />
+				<property name="driverName" value="oracle.jdbc.driver.OracleDriver" />
+				<property name="url" value="jdbc:oracle:thin:@10.5.23.248:1521:ESSPDEV" />
+				<property name="minCon" value="2" />
+				<property name="maxCon" value="10" />
+			</bean>
+		</property>
+		<property name="transactionManager" ref="jotm" />
+		<property name="minSize" value="2" />
+		<property name="maxSize" value="10" />
+		<property name="checkLevelObject" value="1" />
+		<property name="user" value="esspdev" />
+		<property name="password" value="esspdev" />
+	</bean>
+	<bean id="projectpreDataSource" class="org.enhydra.jdbc.pool.StandardXAPoolDataSource" destroy-method="shutdown">
+		<property name="dataSource">
+			<bean class="org.enhydra.jdbc.standard.StandardXADataSource" destroy-method="shutdown">
+				<property name="transactionManager" ref="jotm" />
+				<property name="driverName" value="oracle.jdbc.driver.OracleDriver" />
+				<property name="url" value="jdbc:oracle:thin:@10.5.23.248:1521:ESSPDEV" />
+				<property name="minCon" value="2" />
+				<property name="maxCon" value="10" />
+			</bean>
+		</property>
+		<property name="transactionManager" ref="jotm" />
+		<property name="minSize" value="2" />
+		<property name="maxSize" value="10" />
+		<property name="checkLevelObject" value="1" />
+		<property name="user" value="esspdev" />
+		<property name="password" value="esspdev" />
+	</bean>
+
+	<!-- hibernate session factory -->
+	<bean id="hrbaseSessionFactory" class="org.springframework.orm.hibernate.LocalSessionFactoryBean">
+		<property name="dataSource" ref="hrbaseDataSource" />
+		<property name="entityInterceptor">
+			<bean class="server.framework.hibernate.HBInterceptor" />
+		</property>
+		<property name="mappingLocations">
+			<value>classpath:db/essp/hrbase/*.hbm.xml</value>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">net.sf.hibernate.dialect.OracleDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.use_outer_join">true</prop>
+			</props>
+		</property>
+		<property name="jtaTransactionManager" ref="jotm" />
+	</bean>
+
+	<!-- Site  -->
+	<bean id="siteDao" class="server.essp.hrbase.site.dao.SiteDaoImp">
+		<property name="sessionFactory" ref="hrbaseSessionFactory" />
+	</bean>
+
+	<bean id="siteService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.hrbase.site.service.SiteServiceImp">
+				<property name="siteDao" ref="siteDao" />
+			</bean>
+		</property>
+	</bean>
+	
+  <!-- Attribute  -->
+	<bean id="attributeDao" class="server.essp.hrbase.attribute.dao.AttributeDaoImp">
+		<property name="sessionFactory" ref="hrbaseSessionFactory" />
+	</bean>
+
+	<bean id="attributeService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.hrbase.attribute.service.AttributeServiceImp">
+				<property name="attributeDao" ref="attributeDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	  <!-- Attribute  Group-->
+	<bean id="attributeGroupDao" class="server.essp.hrbase.attributegroup.dao.AttributeGroupDaoImp">
+		<property name="sessionFactory" ref="hrbaseSessionFactory" />
+	</bean>
+
+	<bean id="attributeGroupService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.hrbase.attributegroup.service.AttributeGroupServiceImp">
+				<property name="attributeGroupDao" ref="attributeGroupDao" />
+				<property name="attributeDao" ref="attributeDao" />
+				<property name="siteDao" ref="siteDao" />
+				<property name="attributeService" ref="attributeService" />
+			</bean>
+		</property>
+	</bean>
+
+	<!--人员基本资料维护 -->
+	<bean id="humanBaseDao" class="server.essp.hrbase.humanbase.dao.HumanBaseDaoImp">
+		<property name="sessionFactory" ref="hrbaseSessionFactory" />
+	</bean>
+
+	<bean id="humanBaseSevice" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.hrbase.humanbase.service.HumanBaseSeviceImp">
+				<property name="humanBaseDao" ref="humanBaseDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- Bd 维护 -->
+	<bean id="hrbBdDao" class="server.essp.hrbase.bd.dao.BdDaoImp">
+		<property name="sessionFactory" ref="hrbaseSessionFactory" />
+	</bean>
+	<bean id="hrbBdSevice" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.hrbase.bd.service.BdServiceImp">
+				<property name="hrbBdDao" ref="hrbBdDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<!--部門維護  -->
+	<bean id="deptDao" class="server.essp.hrbase.dept.dao.DeptDaoImp">
+		<property name="sessionFactory" ref="hrbaseSessionFactory"></property>
+	</bean>
+	<bean id="deptService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.hrbase.dept.service.DeptServiceImp">
+				<property name="deptDao" ref="deptDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<!--权限維護  -->
+	<bean id="privilegeDao" class="server.essp.hrbase.privilege.dao.PrivilegeSiteDaoImp">
+		<property name="sessionFactory" ref="hrbaseSessionFactory"></property>
+	</bean>
+	<bean id="PrivilegeService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.hrbase.privilege.service.PrivilegeSiteServiceImp">
+				<property name="privilegeDao" ref="privilegeDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 人员基本资料及部门结转 -->
+	<bean id="projectpreTransactionProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" abstract="true">
+		<property name="transactionManager" ref="transactionManager"/>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="getNextKey">PROPAGATION_REQUIRES_NEW</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="timesheetTransactionProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" abstract="true">
+		<property name="transactionManager" ref="transactionManager"/>
+		<property name="transactionAttributes">
+			<props>
+			 	<prop key="getNextKey">PROPAGATION_REQUIRES_NEW</prop>
+			 	<prop key="syncHuman">PROPAGATION_REQUIRES_NEW</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+  <bean id="syncTimesheetDao" class="server.essp.hrbase.synchronization.dao.SyncTimesheetDaoImp">
+     <property name="dataSource" ref="timesheetDataSource"/>
+  </bean>
+  <bean id="syncProjectpreDao" class="server.essp.hrbase.synchronization.dao.SyncProjectpreDaoImp">
+     <property name="dataSource" ref="projectpreDataSource"/>
+  </bean>
+  	<bean id="syncMainService" class="server.essp.hrbase.synchronization.service.SyncMainService">
+        <property name="syncList">
+			<list>
+				<ref local="syncHrbase" />
+				<ref local="syncProjectpre" />
+				<ref local="syncFinance" />
+				<ref local="syncTimesheet" />
+				<ref local="syncPrimavera" />
+				<ref local="sync104Hrms" />
+			</list>
+		</property>
+		<property name="humanBaseDao" ref="humanBaseDao"/>
+		<property name="syncExceptionService" ref="syncExceptionService"/>
+  </bean>
+  <bean id="nextKeyDao" class="server.essp.hrbase.synchronization.dao.NextKeyDaoImp">
+     	<property name="dataSource" ref="timesheetDataSource"/>
+  </bean>
+  <bean id="projectpreNextKeyDao" class="server.essp.hrbase.synchronization.dao.NextKeyDaoImp">
+     		<property name="dataSource" ref="projectpreDataSource"/>
+  </bean>
+  
+   <bean id="syncHrbase" parent="baseTransactionProxy">
+     <property name="target">
+        <bean class="server.essp.hrbase.synchronization.syncdata.SyncHrBaseImp">
+        	<property name="humanBaseDao" ref="humanBaseDao"/>
+  		</bean>
+  	 </property>
+   </bean>
+   <bean id="syncProjectpre" parent="projectpreTransactionProxy">
+     <property name="target">
+        <bean class="server.essp.hrbase.synchronization.syncdata.SyncProjectpreImp">
+        	<property name="nextKeyDao" ref="projectpreNextKeyDao"/>
+        	<property name="syncProjectpreDao" ref="syncProjectpreDao"/>
+        	<property name="deptDao" ref="deptDao"/>
+        </bean>
+  	  </property>
+   </bean>
+   <bean id="syncFinance" class="server.essp.hrbase.synchronization.syncdata.SyncFinanceImp">
+        	<property name="deptDao" ref="deptDao"/>
+        	<property name="humanBaseDao" ref="humanBaseDao"/>
+   </bean>
+   
+   <bean id="syncPrimaveraDao" class="server.essp.hrbase.synchronization.dao.SyncPrimaveraDaoImp" />
+   
+   <bean id="syncPrimavera" class="server.essp.hrbase.synchronization.syncdata.SyncPrimaveraImp">
+        	<property name="syncPrimaveraDao" ref="syncPrimaveraDao"/>
+        	<property name="humanBaseDao" ref="humanBaseDao"/>
+   </bean>
+   
+   <bean id="syncTimesheet" parent="timesheetTransactionProxy">
+      <property name="target">
+        <bean class="server.essp.hrbase.synchronization.syncdata.SyncTimesheetImp">
+        	<property name="syncTimesheetDao" ref="syncTimesheetDao"/>
+        	<property name="humanBaseDao" ref="humanBaseDao"/>
+        	<property name="nextKeyDao" ref="nextKeyDao"/>
+        	<property name="deptDao" ref="deptDao"/>
+        </bean>
+  	  </property>
+   </bean>
+   <bean id="sync104HrmsDao" class="server.essp.hrbase.synchronization.dao.Sync104HrmsDaoImp">
+     		<property name="dataSource" ref="hrmsDataSource"/>
+  </bean>
+    <bean id="sync104Hrms" class="server.essp.hrbase.synchronization.syncdata.Sync104HrmsImp">
+        	<property name="sync104HrmsDao" ref="sync104HrmsDao"/>
+        	<property name="deptDao" ref="deptDao"/>
+   </bean>
+  <!-- 结转异常 -->
+  <bean id="syncExceptionDao" class="server.essp.hrbase.synchronization.syncexception.dao.SyncExceptionDaoImp">
+     <property name="sessionFactory" ref="hrbaseSessionFactory"></property>
+  </bean>
+  <bean id="syncExceptionService" parent="baseTransactionProxy">
+     <property name="target">
+        <bean class="server.essp.hrbase.synchronization.syncexception.service.SyncExceptionServiceImp">
+        	<property name="syncExceptionDao" ref="syncExceptionDao"/>
+  		</bean>
+  	 </property>
+   </bean>
+</beans>

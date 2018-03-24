@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR>
+<STYLE></STYLE>
+</HEAD>
+<BODY >
+Dear,$addressee:
+<br>
+<br>
+#foreach($dd in $content)
+&nbsp;&nbsp;&nbsp;&nbsp;The Issue: <strong>$!dd.issue</strong> in the Account: <strong>$!dd.account</strong> have some troubles, please resolve the issue!
+<br>    
+
+<br>
+<table width="941" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF" >
+  <tr> 
+    <td width="229" bgcolor="#94aad6">Issue Id</td>
+    <td colspan="3">$!dd.issueid&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="229" bgcolor="#94aad6">Issue Title</td>
+    <td colspan="3">$!dd.issuename&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="229" bgcolor="#94aad6">Account</td>
+    <td width="179">$!dd.account&nbsp;</td>
+    <td width="273" bgcolor="#94aad6">Priority</td>
+    <td width="160">$!dd.priority&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="229" bgcolor="#94aad6">Filled By</td>
+    <td width="179">$!dd.fillby&nbsp;</td>
+    <td width="273" bgcolor="#94aad6">Filled Date</td>
+    <td width="160">$!dd.filldate&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="229" bgcolor="#94aad6">Status</td>
+    <td width="179">$!dd.status&nbsp;</td>
+    <td width="273" bgcolor="#94aad6">Due Date</td>
+    <td width="160">$!dd.duedate&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="229" bgcolor="#94aad6">Issue Description</td>
+    <td colspan="3">$!dd.issuedesc&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="273" bgcolor="#94aad6">Resolution</td>
+    <td colspan="3">$!dd.resolution&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="229" bgcolor="#94aad6">Issue Attachment Name</td>
+    <td width="179">$!dd.attachmentname1&nbsp;</td>
+    <td width="273" bgcolor="#94aad6">Issue Attachment Description</td>
+    <td width="160">$!dd.attachmentdesc1&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="229" bgcolor="#94aad6">Assigned Date</td>
+    <td width="179">$!dd.assigneddate&nbsp;</td>
+    <td width="273" bgcolor="#94aad6">Plan Finish Date</td>
+    <td width="160">$!dd.finishdate&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="229" bgcolor="#94aad6">Resolution Attachment Name</td>
+    <td width="179">$!dd.attachmentname2&nbsp;</td>
+    <td width="273" bgcolor="#94aad6">Resolution Attachment Description</td>
+    <td width="160">$!dd.attachmentdesc2&nbsp;</td>
+  </tr>
+</table>
+<br />
+#end
+--------------------------------------------------
+<br />
+Best regard!<br />
+The above information was sent by ESSP automatically, you need not reply.<br />
+<br />
+$addresser<br />
+$date
+</BODY></HTML>

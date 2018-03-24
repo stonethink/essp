@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+<!--Form的配置 -->
+  <form-beans>
+    <form-bean name="outWorkerSearchForm" type="server.essp.timesheet.outwork.form.AfSearchForm"/>
+    <form-bean name="outWorkerAddForm" type="server.essp.timesheet.outwork.form.AfOutWorkerForm"/>
+    <form-bean name="aprmTSImport" type="server.essp.timesheet.aprm.form.AfAPRMTSImport"/>
+    <form-bean name="importLockForm" type="server.essp.timesheet.aprm.lock.form.AfImportLock"/>
+    <form-bean name="methodForm" type="server.essp.timesheet.methodology.form.AfMethod"/>
+    <form-bean name="templateForm" type="server.essp.timesheet.template.form.AfTemplate"/>
+    <form-bean name="stepForm" type="server.essp.timesheet.template.step.form.Afstep"/>
+    
+  </form-beans>
+  <!-- Action印射 -->
+  <action-mappings>
+    <action name="outWorkerSearchForm" path="/timesheet/outwork/outWorkerList" scope="request" type="server.essp.timesheet.outwork.action.AcOutWorkerSearch">
+      <forward name="success" path="/timesheet/outwork/outworkerList.jsp" redirect="false" />
+    </action>
+    <action path="/timesheet/outwork/outWorkerDel" scope="request" type="server.essp.timesheet.outwork.action.AcOutWorkerDel">
+      <forward name="success" path="/timesheet/outwork/outWorkerList.do?isDel=Yes" redirect="true" />
+    </action>
+    <action name="outWorkerAddForm" path="/timesheet/outwork/outWorkerAdd" scope="request" type="server.essp.timesheet.outwork.action.AcOutWorkerAdd">
+      <forward name="success" path="/timesheet/outwork/refreshOpener.jsp" redirect="false" />
+    </action>
+    <action path="/timesheet/outwork/outWorkerModifyPre" scope="request" type="server.essp.timesheet.outwork.action.AcOutWorkerModifyPre">
+      <forward name="success" path="/timesheet/outwork/modify.jsp" redirect="false" />
+    </action>
+    <action name="outWorkerAddForm" path="/timesheet/outwork/outWorkerUpdate" scope="request" type="server.essp.timesheet.outwork.action.AcOutWorkerUpdate">
+      <forward name="success" path="/timesheet/outwork/modify.jsp" redirect="false" />
+    </action>
+    <action name="outWorkerSearchForm" path="/timesheet/outwork/outWorkerPre" scope="request" type="server.essp.timesheet.outwork.action.AcOutWorkerSearch">
+      <forward name="success" path="/timesheet/outwork/outworkFrame.jsp" redirect="false" />
+    </action>
+    <!--APRM Import-->                                                                    
+    <action name="aprmTSImport" path="/timesheet/aprmimport/aprmImport" scope="request" type="server.essp.timesheet.aprm.action.AcAPRMImport">
+      <forward name="success" path="/timesheet/aprmimport/aprmImport.jsp" redirect="false" />
+    </action>
+    
+    <!-- APRM Import Lock -->
+    <action path="/timesheet/aprmimport/lock/ListImportLock" scope="request" type="server.essp.timesheet.aprm.lock.action.AcListImportLock">
+      <forward name="success" path="/timesheet/aprmimport/lock/lockData.jsp" redirect="false" />
+    </action>
+    <action path="/timesheet/aprmimport/lock/InitImportLock" scope="request" type="server.essp.timesheet.aprm.lock.action.AcListImportLock">
+      <forward name="success" path="/timesheet/aprmimport/lock/importLock.jsp" redirect="false" />
+    </action>
+    <action path="/timesheet/aprmimport/lock/LoadImportLock" scope="request" type="server.essp.timesheet.aprm.lock.action.AcLoadImportLock">
+      <forward name="success" path="/timesheet/aprmimport/lock/general.jsp" redirect="false" />
+    </action>
+    <action name="importLockForm" path="/timesheet/aprmimport/lock/SaveImportLock" scope="request" type="server.essp.timesheet.aprm.lock.action.AcSaveImportLock">
+      <forward name="success" path="/timesheet/aprmimport/lock/general.jsp" redirect="false" />
+    </action>
+    <action path="/timesheet/aprmimport/lock/DeleteImportLock" scope="request" type="server.essp.timesheet.aprm.lock.action.AcDeleteImportLock">
+      <forward name="success" path="/timesheet/aprmimport/lock/importLock.jsp" redirect="false" />
+    </action>
+       <!-- 结转异常 -->
+    <action path="/timesheet/syncexception/listException" scope="request" 
+    type="server.essp.timesheet.synchronization.syncexception.action.AcListException" validate="false">
+      <forward name="success" path="/timesheet/syncexception/exceptionList.jsp"/>
+    </action>
+    <action path="/timesheet/syncexception/viewException" scope="request" 
+    type="server.essp.timesheet.synchronization.syncexception.action.AcViewDetailException" validate="false">
+      <forward name="success" path="/timesheet/syncexception/exceptionGeneral.jsp"/>
+    </action>
+    <action path="/timesheet/syncexception/cancelException" scope="request" 
+    type="server.essp.timesheet.synchronization.syncexception.action.AcCancelException" validate="false">
+      <forward name="success" path="/timesheet/syncexception/listException.do"/>
+    </action>
+      <action path="/timesheet/syncexception/carryForward" scope="request" 
+    type="server.essp.timesheet.synchronization.syncexception.action.AcCarryForward" validate="false">
+      <forward name="success" path="/timesheet/syncexception/listException.do"/>
+    </action>
+    <!-- methodology -->
+      <action path="/timesheet/methodology/listMethod" scope="request" 
+    type="server.essp.timesheet.methodology.action.AcListMethod" validate="false">
+      <forward name="success" path="/timesheet/methodology/methodologyList.jsp"/>
+    </action>
+    
+       <action path="/timesheet/methodology/saveMethod" scope="request" 
+       name="methodForm"
+    type="server.essp.timesheet.methodology.action.AcSaveMethod" validate="false">
+      <forward name="success" path="/timesheet/methodology/viewMethod.do"/>
+    </action>
+    
+       <action path="/timesheet/methodology/deleteMethod" scope="request" 
+    type="server.essp.timesheet.methodology.action.AcDeleteMethod" validate="false">
+      <forward name="success" path="/timesheet/methodology/listMethod.do"/>
+    </action>
+    
+    <action path="/timesheet/methodology/viewMethod" scope="request" 
+    type="server.essp.timesheet.methodology.action.AcLoadMethod" validate="false">
+      <forward name="success" path="/timesheet/methodology/methodologyGeneral.jsp"/>
+    </action>   
+    
+    <!-- template -->
+    
+    <action path="/timesheet/template/listTemplate" scope="request" 
+    type="server.essp.timesheet.template.action.AcListTemplate" validate="false">
+      <forward name="success" path="/timesheet/template/templateList.jsp"/>
+    </action>
+    
+    <action path="/timesheet/template/viewTemplate" scope="request" 
+    name="templateForm"
+    type="server.essp.timesheet.template.action.AcLoadTemplate" validate="false">
+      <forward name="success" path="/timesheet/template/templateGeneral.jsp"/>
+    </action>
+    
+    <action path="/timesheet/template/saveTemplate" scope="request" 
+     name="templateForm"
+    type="server.essp.timesheet.template.action.AcSaveTemplate" validate="false">
+      <forward name="success" path="/timesheet/template/viewTemplate.do"/>
+    </action>
+    
+    <action path="/timesheet/template/deleteTempalte" scope="request" 
+    type="server.essp.timesheet.template.action.AcDeleteTemplate" validate="false">
+      <forward name="success" path="/timesheet/template/listTemplate.do"/>
+    </action>  
+    
+    <!-- step -->
+   	<action path="/timesheet/template/listStep" scope="request" 
+    type="server.essp.timesheet.template.step.action.AcListStep" validate="false">
+      <forward name="success" path="/timesheet/template/stepList.jsp"/>
+    </action>
+    
+    <action path="/timesheet/template/viewStep" scope="request" 
+    name="stepForm"
+    type="server.essp.timesheet.template.step.action.AcPriviewStep" validate="false">
+      <forward name="success" path="/timesheet/template/stepGeneral.jsp"/>
+    </action>
+    
+    <action path="/timesheet/template/saveStep" scope="request" 
+     name="stepForm"
+    type="server.essp.timesheet.template.step.action.AcSaveStep" validate="false">
+      <forward name="success" path="/timesheet/template/viewStep.do"/>
+    </action>
+    
+    <action path="/timesheet/template/deleteStep" scope="request" 
+    type="server.essp.timesheet.template.step.action.AcDeleteStep" validate="false">
+      <forward name="success" path="/timesheet/template/listStep.do"/>
+    </action>  
+  </action-mappings>
+  
+  <message-resources key="timesheet" parameter="resources.timesheetResource" />
+</struts-config>

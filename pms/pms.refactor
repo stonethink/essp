@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE refactor PUBLIC "-//Borland Software Corporation//Refactor 1.0//EN" "http://www.borland.com/devsupport/jbuilder/dtds/refactor_1_0.dtd">
+<refactor>
+  <rename-class id="5AP0QC59MECE1EQA3I5Z2S2" creation-time="Mon Aug 15 19:19:27.078 CST 2005">
+    <old-class-name>server.essp.issue.typedefine.scope.logic.CIS03015Scope</old-class-name>
+    <new-class-name>server.essp.issue.typedefine.scope.logic.CIS03015ScopeLogic</new-class-name>
+  </rename-class>
+  <rename-class id="U9P0DMQUFFCE5GGEAI5Z2S2" creation-time="Tue Aug 16 08:51:54.046 CST 2005">
+    <old-class-name>server.essp.issue.typedefine.scope.logic.CIS03015ScopeLogic</old-class-name>
+    <new-class-name>server.essp.issue.typedefine.scope.logic.CIS03015Scope</new-class-name>
+  </rename-class>
+</refactor>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+  <class name="db.essp.code.Code" table="sys_code">
+    <id name="rid" type="long" column="RID">
+      <generator class="assigned"/>
+    </id>
+    <property name="name" type="string" column="CODE_NAME"/>
+    <property name="type" type="string" column="CODE_TYPE"/>
+    <property name="catalog" type="string" column="CATALOG"/>
+    <property name="description" type="string" column="DESCRIPTION"/>
+    <property name="seq" type="long" column="SEQUENCE"/>
+    <property name="status" type="string" column="STATUS" length="1"/>
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date" column="RCT"/>
+    <property name="rut" type="date" column="RUT"/>
+
+  </class>
+</hibernate-mapping>

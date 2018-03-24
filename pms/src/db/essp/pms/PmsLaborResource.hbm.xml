@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<class   name="db.essp.pms.LaborResource"  table="pms_labor_resources" dynamic-update="true" dynamic-insert="true">
+    <id name="rid" type="java.lang.Long" column="RID" >
+        <generator class="assigned" />
+    </id>
+
+    <property name="loginId" type="java.lang.String" column="LOGIN_ID" length="50"/>
+    <property name="empName" type="java.lang.String" column="EMP_NAME" length="100" />
+    <property name="jobcodeId"  type="java.lang.String" column="JOBCODE_ID" />
+    <property  name="roleName" type="java.lang.String" column="ROLE_NAME"  length="100" />
+    <property  name="jobDescription" type="java.lang.String"  column="JOB_DESCRIPTION" length="1000" />
+    <property name="planStart"  type="java.util.Date" column="PLAN_START"  />
+    <property name="planFinish" type="java.util.Date" column="PLAN_FINISH" />
+    <property  name="planWorkTime" type="java.lang.Double" column="PLAN_WORK_TIME" />
+    <property  name="actualStart" type="java.util.Date" column="ACTUAL_START" />
+    <property name="actualFinish" type="java.util.Date" column="ACTUAL_FINISH" />
+    <property name="personWorkTime" type="java.lang.Double" column="PERSON_WORK_TIME" />
+    <property  name="actualWorkTime" type="java.lang.Double"  column="ACTUAL_WORK_TIME" />
+    <property name="etcWorkTime"  type="java.lang.Double"  column="ETC_WORK_TIME" />
+    <property name="remark" type="java.lang.String"  column="REMARK" length="1000" />
+    <property name="resStatus" type="java.lang.String"  column="RES_STATUS"  length="1" />
+    <property name="loginidStatus" type="java.lang.String" column="LOGINID_STATUS" length="1" />
+    <property name="rst" type="java.lang.String"  column="RST" length="1" />
+    <property name="rct" type="java.util.Date" column="RCT" />
+    <property name="rut" type="java.util.Date" column="RUT"/>
+
+    <many-to-one name="account" class="db.essp.pms.Account" not-null="true">
+      <column name="ACNT_RID"/>
+    </many-to-one>
+
+    <set name="laborResourceDetails" lazy="true" inverse="true" cascade="all-delete-orphan" order-by="BEGIN_DATE" >
+      <key>
+        <column name="RES_ID"/>
+      </key>
+      <one-to-many class="db.essp.pms.LaborResourceDetail"/>
+    </set>
+
+
+</class>
+</hibernate-mapping>

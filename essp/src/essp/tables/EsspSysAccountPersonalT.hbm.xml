@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="essp.tables.EsspSysAccountPersonalT" 
+    table="essp_sys_account_personal_t"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="essp_sys_account_personal_t"
+    </meta>
+
+    <composite-id>
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="accountId" 
+            column="ACCOUNT_ID" 
+            type="long"
+            length="8"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="ACCOUNT_ID"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="role" 
+            column="ROLE" 
+            type="java.lang.String"
+            length="20"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="ROLE"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="hrCode" 
+            column="HR_CODE" 
+            type="java.lang.String"
+            length="20"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="HR_CODE"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="startdate" 
+            column="STARTDATE" 
+            type="java.sql.Date"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="STARTDATE"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="finishdate" 
+            column="FINISHDATE" 
+            type="java.sql.Date"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="FINISHDATE"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="status" 
+            column="STATUS" 
+            type="long"
+            length="8"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="STATUS"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="seq" 
+            column="SEQ" 
+            type="long"
+            length="8"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="SEQ"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

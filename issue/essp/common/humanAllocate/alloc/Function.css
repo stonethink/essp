@@ -1,0 +1,14 @@
+.allocname {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	line-height: 20px;
+	font-weight: normal;
+}
+.sele {
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	background-color: #eeeeee;
+}
+.subbody {
+       background-color: #eeeeee;
+}

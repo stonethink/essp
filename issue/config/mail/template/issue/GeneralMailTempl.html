@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR>
+<STYLE></STYLE>
+</HEAD>
+<BODY >
+Dear,$addressee:
+<br>
+<br>
+#foreach($dd in $content)
+&nbsp;&nbsp;&nbsp;&nbsp;The Issue: <strong>$!dd.issue</strong> in the Account: <strong>$!dd.account</strong> have some troubles, please resolve the issue!
+<br>    
+
+<br>
+<table width="787" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF" >
+<tr>
+  <td width="188" bgcolor="#94aad6">Issue Id</td>
+  <td colspan="3">$!dd.issueid&nbsp;</td>
+</tr>
+<tr>
+  <td width="188" bgcolor="#94aad6">Issue Title</td>
+  <td colspan="3">$!dd.issuetitle&nbsp;</td>
+</tr>
+<tr>
+  <td width="188" bgcolor="#94aad6">Account</td>
+  <td width="195">$!dd.account&nbsp;</td>
+  <td width="194" bgcolor="#94aad6">Priority</td>
+  <td width="187">$!dd.priority&nbsp;</td>
+</tr>
+<tr>
+  <td width="188" bgcolor="#94aad6">Filled By</td>
+  <td width="195">$!dd.fillby&nbsp;</td>
+  <td width="194" bgcolor="#94aad6">Filled Date</td>
+  <td width="187">$!dd.filldate&nbsp;</td>
+</tr>
+<tr>
+  <td width="188" bgcolor="#94aad6">Status</td>
+  <td width="195">$!dd.status&nbsp;</td>
+  <td width="194" bgcolor="#94aad6">Due Date</td>
+  <td width="187">$!dd.duedate&nbsp;</td>
+</tr>
+<tr>
+  <td width="188" bgcolor="#94aad6">Issue Description</td>
+  <td colspan="3">$!dd.issuedescription&nbsp;</td>
+</tr>
+<tr>
+  <td width="188" bgcolor="#94aad6">Attachment Description</td>
+  <td colspan="3">$!dd.attachmentdesc&nbsp;</td>
+</tr>
+
+</table>
+<br />
+#end
+--------------------------------------------------
+<br />
+Best regard!<br />
+The above information was sent by ESSP automatically, you need not reply.<br />
+<br />
+$addresser<br />
+$date
+</BODY></HTML>

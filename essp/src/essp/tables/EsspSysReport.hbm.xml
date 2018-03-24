@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<class  name="essp.tables.EsspSysReport"  table="essp_sys_report_t">
+    <id name="id" type="java.lang.String" column="ID" >
+        <generator class="assigned" />
+    </id>
+
+    <property name="upId" type="java.lang.String" column="UP_ID" length="100"/>
+    <property
+        name="link"
+        type="java.lang.String"
+        column="LINK"
+        length="100"
+    />
+
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        length="100"
+    />
+    <property
+        name="code"
+        type="java.lang.String"
+        column="CODE"
+        length="100"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="100"
+    />
+    <property
+        name="positionx"
+        type="java.lang.Double"
+        column="POSITIONX"
+        length="10"
+    />
+    <property
+        name="positiony"
+        type="java.lang.Double"
+        column="POSITIONY"
+        length="10"
+    />
+    <property
+        name="length"
+        type="java.lang.Double"
+        column="LENGTH"
+        length="10"
+    />
+    <property
+        name="hight"
+        type="java.lang.Double"
+        column="HIGHT"
+        length="10"
+    />
+</class>
+</hibernate-mapping>

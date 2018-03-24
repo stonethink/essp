@@ -1,0 +1,79 @@
+<!DOCTYPE databases PUBLIC "-//EXOLAB/Castor JDO Configuration DTD Version 1.0//EN"
+                           "http://castor.exolab.org/jdo-conf.dtd">
+<!--
+<database name="test" engine="mysql" >
+    <driver url="jdbc:mysql://localhost/castor_examples" class-name="org.gjt.mm.mysql.Driver">
+         <param name="user" value="test" />
+         <param name="password" value="test" />
+    </driver>
+  <mapping href="mapping.xml" />
+</database>
+-->
+<!--
+<database name="test" engine="postgresql" >
+    <driver class-name="org.postgresql.Driver" url="jdbc:postgresql://localhost/castor_examples">
+        <param name="user" value="test"/>
+        <param name="password" value="test" />
+    </driver>
+  <mapping href="mapping.xml" />
+</database>
+-->
+<!--
+<database name="test" engine="postgresql" >
+    <data-source class-name="org.postgresql.jdbc2.optional.PoolingDataSource">
+        <params server-name="localhost" database-name="castor_examples" port-number="5432" user="test" password="test" />
+    </data-source>
+
+  <mapping href="mapping.xml" />
+</database>
+
+<database name="mydb" engine="oracle">
+	<jndi name="java:comp/env/jdbc/essp"/>
+	<mapping href="ESSP_UPMS_mapping.xml"/>
+        <mapping href="mapping_projectstatus.xml"/>
+	<mapping href="project_mapping.xml"/>
+</database>
+-->
+<database name="mydb" engine="oracle">
+	<driver class-name="oracle.jdbc.driver.OracleDriver" url="jdbc:oracle:thin:@as04.wh.wistronits.com:1521:AS04">
+		<param name="user" value="essptest"/>
+		<param name="password" value="essptest"/>
+	</driver>
+	<mapping href="upms_loginuser.xml" />
+	<mapping href="ESSP_UPMS_mapping.xml"/>
+	<mapping href="project_mapping.xml"/>
+	<mapping href="mapping_projectstatus.xml"/>
+	<mapping href="mapping_attendance.xml"/>
+	<mapping href="mapping_workflow.xml"/>
+	<mapping href="mapping_unituser.xml"/>
+    <mapping href="mapping_user.xml"/>
+    <mapping href="psp.xml"/>
+    <mapping href="essp_admin_subject_mapping.xml"/>
+    <mapping href="mapping_user_fun.xml"/>
+    <mapping href="mapping_book.xml"/>
+    <mapping href="ESSP_unit_manage.xml"/>
+    <mapping href="mapping_Emp.xml"/>
+
+</database>
+<!--
+<database name="mydb" engine="oracle" >
+    <driver url="jdbc:oracle:thin:@192.168.0.230:1521:iasdb"
+            class-name="oracle.jdbc.pool.OracleConnectionCacheImpl">
+      <param name="user" value="essp" />
+      <param name="password" value="essp" />
+      <param name="minLimit" value="2" />
+      <param name="maxLimit" value="10" />
+      <param name="cacheScheme" value="OracleConnectionCacheImpl.DYNAMIC_SCHEME" />
+      <param name="statementCacheSize" value="5" />
+    </driver>
+    <mapping href="mapping.xml" />
+</database>-->
+<!--
+<database name="mydb" engine="mysql" >
+    <driver url="jdbc:mysql://192.168.0.86/test" class-name="org.gjt.mm.mysql.Driver">
+         <param name="user" value="root" />
+         <param name="password" value="" />
+    </driver>
+  <mapping href="mapping.xml" />
+</database>
+-->

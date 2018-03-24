@@ -1,0 +1,40 @@
+[PropertyInfo]
+allDatesAddFile,Map,false,false, , ,false,<default>
+allDatesAddFileNum,Map,false,false, , ,false,<default>
+allDatesDeleteFile,Map,false,false, , ,false,<default>
+allDatesDeleteFileNum,Map,false,false, , ,false,<default>
+allDatesModifyFile,Map,false,false, , ,false,<default>
+allDatesModifyFileNum,Map,false,false, , ,false,<default>
+allDatesRemoveFile,Map,false,false, , ,false,<default>
+allDatesRemoveFileNum,Map,false,false, , ,false,<default>
+allUsersAddFile,Map,false,false, , ,false,<default>
+allUsersAddFileNum,Map,false,false, , ,false,<default>
+allUsersAddFileToday,Map,false,false, , ,false,<default>
+allUsersAddFileTodayNum,Map,false,false, , ,false,<default>
+allUsersCreateFile,Map,false,false, , ,false,<default>
+allUsersCreateFileNum,Map,false,false, , ,false,<default>
+allUsersDeleteFile,Map,false,false, , ,false,<default>
+allUsersDeleteFileNum,Map,false,false, , ,false,<default>
+allUsersDeleteFileToday,Map,false,false, , ,false,<default>
+allUsersDeleteFileTodayNum,Map,false,false, , ,false,<default>
+allUsersModifyFile,Map,false,false, , ,false,<default>
+allUsersModifyFileNum,Map,false,false, , ,false,<default>
+allUsersModifyFileToday,Map,false,false, , ,false,<default>
+allUsersModifyFileTodayNum,Map,false,false, , ,false,<default>
+allUsersRemoveFile,Map,false,false, , ,false,<default>
+allUsersRemoveFileNum,Map,false,false, , ,false,<default>
+allUsersRemoveFileToday,Map,false,false, , ,false,<default>
+allUsersRemoveFileTodayNum,Map,false,false, , ,false,<default>
+intUsersAddFileTodayNum,int,false,false, , ,false,<default>
+intUsersDeleteFileTodayNum,int,false,false, , ,false,<default>
+intUsersModifyFileTodayNum,int,false,false, , ,false,<default>
+intUsersRemoveFileTodayNum,int,false,false, , ,false,<default>
+out,PrintStream,false,false, , ,false,<default>
+projectNum,int,false,false, , ,true,<default>
+projects,Map,false,false, , ,false,<default>
+users,Map,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

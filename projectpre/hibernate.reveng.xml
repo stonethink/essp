@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="PP_SITE" schema="ESSP" class="Site">
+		<primary-key>
+			<generator class="assigned"></generator>
+		</primary-key>
+	</table>
+	<table name="PP_MAIL_PRIVILEGE" schema="ESSPDEV">
+		<primary-key>
+			<column name="RID" jdbc-type="Long" property="rid" type="Long"></column>
+		</primary-key>
+		<column name="LOGIN_ID" jdbc-type="String" property="loginId" type="String" />
+		<column name="LOGIN_NAME" jdbc-type="String" property="loginName" type="String" />
+		<column name="DOMAIN" jdbc-type="String" property="Domain" type="String" />
+		<column name="ADD_INFORM" jdbc-type="Char" property="addInform" type="Boolean" />
+		<column name="ADD_AUDIT" jdbc-type="Char" property="addAudit" type="Boolean" />
+		<column name="CHANGE_INFORM" jdbc-type="Char" property="changeInform" type="Boolean" />
+		<column name="CHANGE_AUDIT" jdbc-type="Char" property="changeAudit" type="Boolean" />
+		<column name="CLOSE_INFORM" jdbc-type="Char" property="closeInform" type="Boolean" />
+		<column name="CLOSE_AUDIT" jdbc-type="Char" property="closeAudit" type="Boolean" />
+		<column name="DATA_SCOPE" jdbc-type="String" property="dataScope" type="String" />
+		<column name="RST" jdbc-type="Char" property="rst" type="String" />
+		<column name="RCT" jdbc-type="Date" property="rct" type="Date" />
+		<column name="RUT" jdbc-type="Date" property="rut" type="Date" />
+		<column name="RUU" jdbc-type="String" property="ruu" type="String" />
+		<column name="RCU" jdbc-type="String" property="rcu" type="String"/>
+	</table>
+</hibernate-reverse-engineering>

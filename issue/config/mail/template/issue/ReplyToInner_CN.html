@@ -1,0 +1,48 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>#foreach($dd in $content)$!dd.title#end</title>
+</head>
+
+<body>
+你好,
+<br>
+<br>
+#foreach($dd in $content)
+<br>
+主题“ $!dd.issueDiscussTitle.title ”下有一条回复，详情如下：<br>
+
+<table width="700" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF" >
+<tr>
+  <td width="150" bgcolor="#94aad6">标题</td>
+  <td colspan="3">$!dd.title&nbsp;</td>
+</tr>
+<tr>
+  <td width="150" bgcolor="#94aad6">填写人</td>
+  <td width="175">$!dd.filledBy&nbsp;</td>
+  <td width="120" bgcolor="#94aad6">填写日期</td>
+  <td width="251">$!dd.returnFilledData()&nbsp;</td>
+</tr>
+<tr>
+  <td width="150" bgcolor="#94aad6">描述</td>
+  <td colspan="3">$!dd.returnHtmlDescription()&nbsp;</td>
+</tr>
+<tr>
+  <td width="150" bgcolor="#94aad6">备注</td>
+  <td colspan="3">$!dd.returnHtmlRemark()&nbsp;</td>
+</tr>
+<tr>
+  <td width="150" bgcolor="#94aad6">附件描述</td>
+  <td colspan="3">$!dd.attachmentDesc&nbsp;</td>
+</tr>
+
+
+</table>
+<br />
+ --------------------------------------------------
+<br />
+<br />
+$!dd.filledBy#end<br />
+$date
+</body>
+</html>

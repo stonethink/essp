@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dwr>
+	<allow>
+		<create creator="new" javascript="JDate">
+			<param name="class" value="java.util.Date"/>
+		</create>
+		<create creator="new" javascript="JMap">
+			<param name="class" value="java.util.HashMap"/>
+		</create>
+		<create creator="new" javascript="QueryPerson">
+			<param name="class" value="server.essp.common.humanAllocate.action.DwrQueryUser"/>
+		</create>
+		
+		<convert converter="bean" match="c2s.essp.common.user.DtoUserBase">
+			<param name="include" value="userLoginId,userName,userType,domain" />
+		</convert>
+		<convert converter="bean" match="*.*.*"/>
+		
+	</allow>
+</dwr>

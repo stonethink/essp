@@ -1,0 +1,18 @@
+BODY	{FONT-SIZE: 9pt; FONT-FAMILY: ËÎÌו; BACKGROUND-COLOR: #FFFFFF; TEXT-DECORATION: none}
+
+/*
+FORM	{POSITION:absolute;}
+DIV		{POSITION:absolute;}
+TABLE	{POSITION:absolute;}
+IMG		{POSITION:absolute;}
+*/
+/* A		{FONT-FAMILY:ËÎÌו;FONT-SIZE:9pt;padding:3;} */
+LABEL	{
+	FONT-FAMILY:ËÎÌו;
+	FONT-SIZE:9pt;
+	COLOR:white;
+	border:1px solid gray;
+	padding:2;
+	text-align:center;
+}
+

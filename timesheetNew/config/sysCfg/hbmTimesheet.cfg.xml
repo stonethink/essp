@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+<hibernate-configuration>
+<session-factory>
+	<mapping resource="db/essp/timesheet/TsCodeType.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsCodeValue.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsCodeRelation.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsLaborResource.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsLaborLevel.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsLaborRole.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsParameter.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsAccount.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsTimesheetDay.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsTimesheetDetail.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsTimesheetMaster.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsOutWorker.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsOutworkerPrivilege.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsImportTemp.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsDailyReport.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsMethod.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsMethodTMap.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsStep.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsStepT.hbm.xml" />
+	<mapping resource="db/essp/timesheet/TsStepTDetail.hbm.xml" />
+</session-factory>
+</hibernate-configuration>

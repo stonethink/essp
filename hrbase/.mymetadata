@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="hrbase"
+  id="myeclipse.1268976478747"
+  context-root="/hrbase"
+  j2ee-spec="1.4"
+  archive="hrbase.war">
+  <attributes>
+    <attribute name="webrootdir" value="essp" />
+  </attributes>
+</project-module>
+

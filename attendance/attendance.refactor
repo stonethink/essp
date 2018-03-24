@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE refactor PUBLIC "-//Borland Software Corporation//Refactor 1.0//EN" "http://www.borland.com/devsupport/jbuilder/dtds/refactor_1_0.dtd">
+<refactor>
+  <rename-class id="7NO4IXBUFHEHMK1785Z2S2" creation-time="Tue Dec 20 16:38:10.640 CST 2005">
+    <old-class-name>server.essp.attendance.overtime.viewbean.VwOverTimeApp</old-class-name>
+    <new-class-name>server.essp.attendance.overtime.viewbean.VbOverTimeApp</new-class-name>
+  </rename-class>
+  <rename-class id="VG2VJ1DSJHERJIPD85Z2S2" creation-time="Fri Dec 23 11:00:18.968 CST 2005">
+    <old-class-name>server.essp.attendance.overtime.action.AcOverTimeGet</old-class-name>
+    <new-class-name>server.essp.attendance.overtime.action.AcOverTimeReviewPre</new-class-name>
+  </rename-class>
+  <rename-class id="5380MB692KHEIC5AC85Z2S2" creation-time="Fri Dec 23 14:46:48.625 CST 2005">
+    <old-class-name>server.essp.attendance.overtime.action.AcOverTimeDetail</old-class-name>
+    <new-class-name>server.essp.attendance.overtime.action.AcOverTimeDetailList</new-class-name>
+  </rename-class>
+  <rename-class id="4Y90XVFH4KHEGDL9H85Z2S2" creation-time="Fri Dec 23 15:45:37.015 CST 2005">
+    <old-class-name>server.essp.attendance.overtime.action.AcOverTimeLog</old-class-name>
+    <new-class-name>server.essp.attendance.overtime.action.AcOverTimeReviewLog</new-class-name>
+  </rename-class>
+  <rename-field id="4AK0JPJP4OHEMDHIC85Z2S2" creation-time="Mon Dec 26 10:36:55.468 CST 2005">
+    <declaring-class-name>server.essp.attendance.overtime.viewbean.VbOverTimeReview</declaring-class-name>
+    <old-field-name>DECISION_Modify</old-field-name>
+    <declared-field-type>Ljava/lang/String;</declared-field-type>
+    <new-field-name>DECISION_MODIFY</new-field-name>
+  </rename-field>
+  <rename-method id="1AK0JPJP4OHEMDHIC85Z2S2" creation-time="Mon Dec 26 10:46:14.750 CST 2005">
+    <declaring-class-name>server.essp.attendance.overtime.logic.LgOverTime</declaring-class-name>
+    <declared-method-signature>(Ljava/lang/Long;)Lserver/essp/attendance/overtime/viewbean/VbOverTimeApp;</declared-method-signature>
+    <old-method-name>getOverTime</old-method-name>
+    <new-method-name>getOverTimeVB</new-method-name>
+  </rename-method>
+  <rename-method id="2VFOSYEOHEDA76685Z2S2" creation-time="Mon Dec 26 16:03:04.703 CST 2005">
+    <declaring-class-name>server.essp.attendance.overtime.logic.LgOverTime</declaring-class-name>
+    <declared-method-signature>(Lserver/essp/attendance/overtime/form/AfOverTimeApp;)Ldb/essp/attendance/TcOvertime;</declared-method-signature>
+    <old-method-name>addOverTime</old-method-name>
+    <new-method-name>addOverTimeApp</new-method-name>
+  </rename-method>
+  <rename-class id="MP1FOSYEOHEDA76685Z2S2" creation-time="Mon Dec 26 16:15:53.031 CST 2005">
+    <old-class-name>server.essp.attendance.overtime.viewbean.VbOverTimeReview</old-class-name>
+    <new-class-name>server.essp.attendance.overtime.viewbean.VbOverTime</new-class-name>
+  </rename-class>
+  <rename-class id="5AP0RBBS3RHEX3SIC85Z2S2" creation-time="Wed Dec 28 12:11:30.921 CST 2005">
+    <old-class-name>server.essp.attendance.overtime.logic.Constant</old-class-name>
+    <new-class-name>server.essp.attendance.overtime.Constant</new-class-name>
+  </rename-class>
+  <rename-class id="3AP0RBBS3RHEX3SIC85Z2S2" creation-time="Wed Dec 28 12:11:49.421 CST 2005">
+    <old-class-name>server.essp.attendance.overtime.Constant</old-class-name>
+    <new-class-name>server.essp.attendance.Constant</new-class-name>
+  </rename-class>
+  <rename-class id="BSL0YXU5GRHERA0EC85Z2S2" creation-time="Wed Dec 28 18:11:14.640 CST 2005">
+    <old-class-name>server.essp.attendance.leave.logic.LgLeave</old-class-name>
+    <new-class-name>server.essp.attendance.leave.logic.LgLeaveType</new-class-name>
+  </rename-class>
+  <rename-method id="48N0VTF46UHE76MEG85Z2S2" creation-time="Fri Dec 30 18:09:26.500 CST 2005">
+    <declaring-class-name>db.essp.attendance.TcUserLeave</declaring-class-name>
+    <declared-method-signature>(D)V</declared-method-signature>
+    <old-method-name>addUseHours</old-method-name>
+    <new-method-name>addUseLeaveHours</new-method-name>
+  </rename-method>
+  <rename-method id="28N0VTF46UHE76MEG85Z2S2" creation-time="Fri Dec 30 18:09:40.656 CST 2005">
+    <declaring-class-name>db.essp.attendance.TcUserLeave</declaring-class-name>
+    <declared-method-signature>(D)V</declared-method-signature>
+    <old-method-name>returnUseHours</old-method-name>
+    <new-method-name>returnUseLeaveHours</new-method-name>
+  </rename-method>
+  <rename-class id="Z7N0VTF46UHE76MEG85Z2S2" creation-time="Fri Dec 30 18:13:24.921 CST 2005">
+    <old-class-name>db.essp.attendance.TcUserLeave$YearSorter</old-class-name>
+    <new-class-name>db.essp.attendance.TcUserLeave$EnableSorter</new-class-name>
+  </rename-class>
+  <rename-method id="W5P0MBG48VHENEWFA85Z2S2" creation-time="Sat Dec 31 09:29:30.203 CST 2005">
+    <declaring-class-name>server.essp.attendance.overtime.logic.LgOverTime</declaring-class-name>
+    <declared-method-signature>(Ljava/lang/String;Ljava/util/Date;Ljava/util/Date;)Ljava/util/List;</declared-method-signature>
+    <old-method-name>listPeriodOverTime</old-method-name>
+    <new-method-name>listPeriodProcessingOverTime</new-method-name>
+  </rename-method>
+  <rename-class id="Q5P0MBG48VHENEWFA85Z2S2" creation-time="Sat Dec 31 10:37:04.875 CST 2005">
+    <old-class-name>server.essp.attendance.leave.action.AcLeaveReviewLog</old-class-name>
+    <new-class-name>server.essp.attendance.leave.action.AcLeaveReviewPre</new-class-name>
+  </rename-class>
+  <rename-class id="IJO0MBG48VHENEWFA85Z2S2" creation-time="Sat Dec 31 11:01:29.828 CST 2005">
+    <old-class-name>server.essp.attendance.leave.viewbean.VbLeaveLog</old-class-name>
+    <new-class-name>server.essp.attendance.leave.viewbean.VbLeaveReviewLog</new-class-name>
+  </rename-class>
+  <rename-method id="1OHMBG48VHENEWFA85Z2S2" creation-time="Sat Dec 31 12:07:57.156 CST 2005">
+    <declaring-class-name>server.essp.attendance.leave.logic.LgLeave</declaring-class-name>
+    <declared-method-signature>(Ljava/lang/Long;)Lserver/essp/attendance/leave/viewbean/VbLeave;</declared-method-signature>
+    <old-method-name>getLeave</old-method-name>
+    <new-method-name>getLeaveVB</new-method-name>
+  </rename-method>
+</refactor>

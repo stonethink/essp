@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="outWorkerSearchForm" type="server.essp.timesheet.outwork.form.AfSearchForm"/>
+    <form-bean name="outWorkerAddForm" type="server.essp.timesheet.outwork.form.AfOutWorkerForm"/>
+  </form-beans>
+  <action-mappings>
+    <action name="outWorkerSearchForm" path="/timesheet/outwork/outWorkerList" scope="request" type="server.essp.timesheet.outwork.action.AcOutWorkerSearch">
+      <forward name="success" path="/timesheet/outwork/outworker.jsp" redirect="false" />
+    </action>
+    <action path="/timesheet/outwork/outWorkerDel" scope="request" type="server.essp.timesheet.outwork.action.AcOutWorkerDel">
+      <forward name="success" path="/timesheet/outwork/outWorkerList.do?isDel=Yes" redirect="true" />
+    </action>
+    <action name="outWorkerAddForm" path="/timesheet/outwork/outWorkerAdd" scope="request" type="server.essp.timesheet.outwork.action.AcOutWorkerAdd">
+      <forward name="success" path="/timesheet/outwork/refreshOpener.jsp" redirect="false" />
+    </action>
+    <action path="/timesheet/outwork/outWorkerModifyPre" scope="request" type="server.essp.timesheet.outwork.action.AcOutWorkerModifyPre">
+      <forward name="success" path="/timesheet/outwork/modify.jsp" redirect="false" />
+    </action>
+    <action name="outWorkerAddForm" path="/timesheet/outwork/outWorkerUpdate" scope="request" type="server.essp.timesheet.outwork.action.AcOutWorkerUpdate">
+      <forward name="success" path="/timesheet/outwork/modify.jsp" redirect="false" />
+    </action>
+    <action name="outWorkerSearchForm" path="/timesheet/outwork/outWorkerPre" scope="request" type="server.essp.timesheet.outwork.action.AcOutWorkerSearch">
+      <forward name="success" path="/timesheet/outwork/outworkFrame.jsp" redirect="false" />
+    </action>
+  </action-mappings>
+  <message-resources key="timesheet" parameter="resources.timesheetResource" />
+</struts-config>

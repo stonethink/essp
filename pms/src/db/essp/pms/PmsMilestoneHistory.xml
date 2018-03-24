@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+
+<class name="db.essp.pms.MilestoneHistory" table="PMS_MILESTONE_APPROVED_H" dynamic-insert="true">
+    <id name="rid" type="long" column="RID">
+        <generator class="assigned" />
+    </id>
+
+    <property name="acntRid" type="java.lang.Long" column="ACNT_RID"/>
+    <property name="activityRid" type="java.lang.Long" column="ACTIVITY_RID"/>
+    <property name="wbsRid" type="java.lang.Long" column="WBS_RID"/>
+    <property name="wbsAcntRid" type="java.lang.Long" column="WBS_ACNT_RID"/>
+
+    <property name="baseLineId" type="string" column="BASELINE_ID" length="50"/>
+    <property name="code" type="string" column="CODE" not-null="true" length="50"/>
+    <property name="name" type="string" column="NAME" length="100"/>
+    <property name="manager" type="string" column="MANAGER" length="50"/>
+    <property name="weight" type="java.lang.Double" column="WEIGHT"/>
+    <property name="brief" type="string" column="BRIEF" length="2000"/>
+    <property name="keyPath" type="java.lang.Boolean" column="IS_KEY_PATH"/>
+    <property name="anticipatedStart" type="date" column="ANTICIPATED_START"/>
+    <property name="anticipatedFinish" type="date" column="ANTICIPATED_FINISH"/>
+    <property name="plannedStart" type="date" column="PLANNED_START"/>
+    <property name="plannedFinish" type="date" column="PLANNED_FINISH"/>
+    <property name="actualStart" type="date" column="ACTUAL_START"/>
+    <property name="actualFinish" type="date" column="ACTUAL_FINISH"/>
+    <property name="durationPlan" type="java.lang.Long" column="DURATION_PLAN"/>
+    <property name="durationActual" type="java.lang.Long" column="DURATION_ACTUAL"/>
+    <property name="durationRemain" type="java.lang.Long" column="DURATION_REMAIN"/>
+    <property name="durationComplete" type="double" column="DURATION_COMPLETE"/>
+    <property name="start" type="java.lang.Boolean" column="IS_START"/>
+    <property name="finish" type="java.lang.Boolean" column="IS_FINISH"/>
+    <property name="completeRate" type="java.lang.Double" column="COMPLETE_RATE"/>
+    <property name="completeMethod" type="string" column="COMPLETE_METHOD" length="10"/>
+    <property name="etcMethod" type="string" column="ETC_METHOD" length="10"/>
+    <property name="preRid" type="java.lang.Long" column="PRE_RID"/>
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date" column="RCT"/>
+    <property name="rut" type="date" column="RUT"/>
+    <property name="timeLimit" type="double" column="TIMELIMIT"/>
+    <property name="timeLimitType" type="string" column="TIMELIMIT_TYPE"/>
+    <property name="isActivityQuality" type="string" column="IS_QUALITY_ACT"/>
+    <property name="milestone" type="java.lang.Boolean" column="MILESTONE"/>
+    <property name="milestoneType" type="string" column="MILESTONE_TYPE"/>
+    <property name="reachCondition" type="string" column="REACH_CONDITION"/>
+
+</class>
+</hibernate-mapping>

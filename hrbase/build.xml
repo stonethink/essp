@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<project name="hrbase">
+  <property file="../buildCommon.properties"/>
+  <property name="project.name" value="hrbase"/>
+  <!-- clean -->
+  <target name="clean_for_compile" description="clean classes for compile">
+    <ant antfile="${buildCommon.xml}" target="clean_for_compile" dir=".">    </ant>
+  </target>
+  <target name="clean" description="clean all the file not in the cvs">
+    <ant antfile="${buildCommon.xml}" target="clean" dir=".">    </ant>
+  </target>
+  <!--将资源文件从本工程的project.src,project.config拷贝到classes目录 -->
+  <target name="resources">
+    <ant antfile="${buildCommon.xml}" target="resources" dir=".">    </ant>
+    <copy todir="${project.classes}">
+      <fileset dir="${project.home}/config">
+        <include name="*.xls"/>
+        <include name="*.config"/>
+        <include name="*.properties"/>
+      </fileset>
+    </copy>
+  </target>
+  <target name="compile">
+    <ant antfile="${buildCommon.xml}" target="compile" dir=".">    </ant>
+  </target>
+  <target name="junit">
+    <ant antfile="${buildCommon.xml}" target="junit" dir=".">    </ant>
+  </target>
+  <target name="copy_lib">
+    <ant antfile="${buildCommon.xml}" target="copy_lib" dir=".">    </ant>
+  </target>
+  <target name="copy_web_class">
+    <copy todir="${project.home}/essp/WEB-INF/classes">
+      <fileset dir="${project.classes}">
+        <include name="**/*.*"/>
+      </fileset>
+    </copy>
+  </target>
+  <target name="jar_hrbase_client">
+    <delete file="${project.applet}/hrbase_client.jar"/>
+    <jar destfile="${project.applet}/hrbase_client.jar">
+      <fileset dir="${project.classes}">
+        <include name="HRBAppletCfg.properties"/>
+        <include name="c2s/essp/hrbase/**/*.*"/>
+        <include name="client/essp/hrbase/**/*.*"/>
+      	<include name="resources/*.properties"/>
+      </fileset>
+    </jar>
+    <ant antfile="${buildCommon.xml}" target="jar_sign" dir=".">
+      <property name="sign.jar" value="${project.applet}/hrbase_client.jar"/>
+    </ant>
+  </target>
+  <target name="jar_server">
+    <ant antfile="${buildCommon.xml}" target="jar_server" dir=".">
+      <property name="server.resources" value="**/mail/template/hrbase/*,*.properties,*.config,*.xls"/>
+    </ant>
+  </target>
+  <target name="jar_src">
+    <ant antfile="${buildCommon.xml}" target="jar_src" dir=".">    </ant>
+  </target>
+  <target name="jar" depends="jar_hrbase_client,jar_server, jar_src">  </target>
+  <target name="hbm_generate_class">
+    <ant antfile="${buildCommon.xml}" target="hbm_generate_class" dir=".">    </ant>
+  </target>
+  <target name="hbm_generate_db">
+    <ant antfile="${buildCommon.xml}" target="hbm_generate_db" dir=".">    </ant>
+  </target>
+  <target name="hbm_generate_xml">
+    <ant antfile="${buildCommon.xml}" target="hbm_generate_xml" dir=".">    </ant>
+  </target>
+  <target name="clean_compile" depends="clean_for_compile, compile"/>
+  <target name="clean_jar" depends="clean,copy_lib, compile, resources, jar"/>
+  <target name="build_web" depends="copy_web_class">
+    <copy todir="${project.home}/essp/WEB-INF/lib">
+      <fileset dir="${project.lib}">
+        <include name="**/*.*"/>
+      </fileset>
+    </copy>
+  </target>
+</project>

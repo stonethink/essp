@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="db.essp.workflow.WkActivityMap" 
+    table="wk_activity_map"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="wk_activity_map"
+    </meta>
+
+    <composite-id name="comp_id" class="db.essp.workflow.WkActivityMapPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="activityID" 
+            column="ACTIVITY_ID" 
+            type="java.lang.Long"
+            length="8"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="ACTIVITY_ID"
+                length="8"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="activityIDNext" 
+            column="ACTIVITY_ID_NEXT" 
+            type="java.lang.Long"
+            length="8"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="ACTIVITY_ID_NEXT"
+                length="8"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="waFlag"
+        type="java.lang.String"
+        column="WA_FLAG"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WA_FLAG"
+            length="10"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

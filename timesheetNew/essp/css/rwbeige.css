@@ -1,0 +1,140 @@
+.oracelldate {	
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+.oracellnumber {	
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-align: right;
+}
+
+.oracelltext {	
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+.oracletdone{
+	background-color: White;
+}
+
+.oracletdtwo{
+	BACKGROUND-COLOR: #f1f1f1;
+}
+
+.oracolumnheader {
+	background-color: Blue;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: center;
+}
+
+.oracolumnnumberheader {
+	BACKGROUND-COLOR: #94aad6;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: right;
+}
+
+.oracolumndateheader {
+	BACKGROUND-COLOR: #94aad6;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: left;
+}
+
+.oracolumntextheader {
+	BACKGROUND-COLOR: #94aad6;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: left;
+}
+
+.oraheader {
+	background-color: #E0F0FF;
+	color: #336699;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.oraheadersub {
+	background-color: #E0F0FF;
+	color: #336699;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.oraheadersubsub {
+	background-color: #E0F0FF;
+	color: #336699;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	text-align: center;
+}
+
+.orarowheader {
+	background-color: #336699;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.oraTableCaption {
+	color: #000000;
+	font-family: Arial Black, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align: left;
+}
+
+.oratable {
+	border: 0;
+	cellpadding: 0;
+	cellspacing: 0;
+	width: 100%;
+}
+
+.oratotalnumber {
+	background-color: #C5E3FC;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: right;
+}
+
+.oratotaltext {
+	background-color: #C5E3FC;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.oratabletitle{
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: normal;
+	font-size: 10pt;
+}

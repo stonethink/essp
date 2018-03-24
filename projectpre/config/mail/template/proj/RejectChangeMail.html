@@ -1,0 +1,549 @@
+
+
+<html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ESSP System Mail</title>
+
+</head>
+  
+   <body>
+   Dear $addressee:
+<br>
+<br>
+ #foreach($dd in $content) &nbsp;&nbsp;&nbsp;&nbsp;A "project change" application has just been rejected!
+<br>    
+
+<br>
+<div align="left"><FONT color="red">拒絕申請原因<FONT face="Times New Roman" size="4">&quot;</FONT>$!dd.reMark<FONT face="PMingLiU"><FONT size="4">&quot;</FONT><FONT color="#0000ff" size="2"> </FONT></FONT></FONT></div>
+<table width="900" border="1" bordercolor="#0099FF" style='word-break:break-all;'>
+   <tr>
+   <td bgcolor="#94aad6">
+   專案代碼
+   </td>
+   <td >
+    $!dd.acntId&nbsp;
+   </td>
+   <td bgcolor="#94aad6">
+   申請人
+   </td>
+   <td >
+   $!dd.applicantName&nbsp;
+   </td>
+   <td bgcolor="#94aad6">申請時間</td>
+   <td >$!dd.applicationDate&nbsp;</td>
+   </tr>
+    <tr>
+        <td valign="bottom" height="5" colspan="6" class="orarowheader" width="900">
+        專案资料
+        </td>
+  
+    </tr>
+    </table>
+    <table border="1" width="900" bordercolor="#0099FF" id="masterTable" style='word-break:break-all;'>
+    <tr>
+    <td bgcolor="#94aad6" width="150">
+    選項 
+    </td>
+    <td bgcolor="#94aad6" width="375">
+    修改前
+    </td>
+     <td bgcolor="#94aad6" width="375">
+     修改後 
+    </td>
+
+    </tr>
+    <tr>
+    <td bgcolor="#94aad6">
+    專案全名
+    </td>
+    <td >$!dd.acntFullNameBefore&nbsp;</td>
+    <td >$!dd.acntFullName&nbsp;</td>
+   
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+    專案屬性
+    </td>
+    <td >$!dd.acntAttributeBefore&nbsp;</td>
+    <td >$!dd.acntAttribute&nbsp;</td>
+   
+    </tr>
+    <tr>
+    <td bgcolor="#94aad6">
+    專案經理 
+    </td>
+    <td >$!dd.PMNameBefore&nbsp;</td>
+    <td >$!dd.PMName&nbsp;</td>
+   
+    </tr>
+    <tr>
+    <td bgcolor="#94aad6">
+    工時表簽核者
+    </td>
+    <td >$!dd.TCSNameBefore&nbsp;</td> 
+    <td >$!dd.TCSName&nbsp;</td>
+ 
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   專案內容
+    </td>
+    <td width="375">$!dd.acntBriefBefore&nbsp;</td> 
+    <td width="375">$!dd.acntBrief&nbsp;</td>
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   BD主管 
+    </td>
+    <td >$!dd.BDMNameBefore&nbsp;</td> 
+    <td >$!dd.BDMName&nbsp;</td>
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   業務經理
+    </td>
+    <td >$!dd.leaderNameBefore&nbsp;</td> 
+    <td >$!dd.leaderName&nbsp;</td>
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   執行據點
+    </td>
+    <td >$!dd.execSiteBefore&nbsp;</td> 
+    <td >$!dd.execSite&nbsp;</td>
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   成本歸屬單位
+    </td>
+    <td >$!dd.costAttachBdBefore&nbsp;</td> 
+    <td >$!dd.costAttachBd&nbsp;</td>
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   業績歸屬單位
+    </td>
+    <td >$!dd.achieveBelongBefore&nbsp;</td> 
+    <td >$!dd.achieveBelong&nbsp;</td>
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   業務來源
+    </td>
+    <td >$!dd.bizSourceBefore&nbsp;</td> 
+    <td >$!dd.bizSource&nbsp;</td>
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   業務代表
+    </td>
+    <td >$!dd.salesNameBefore&nbsp;</td> 
+    <td >$!dd.salesName&nbsp;</td>
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   產品名稱 
+    </td>
+    <td >$!dd.productNameBefore&nbsp;</td> 
+    <td >$!dd.productName&nbsp;</td>
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   預計開始  
+    </td>
+    <td >$!dd.acntPlannedStartBefore&nbsp;</td> 
+    <td >$!dd.acntPlannedStart&nbsp;</td>
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   預計結束
+    </td>
+    <td >$!dd.acntPlannedFinishBefore&nbsp;</td> 
+    <td >$!dd.acntPlannedFinish&nbsp;</td>
+    </tr>
+    <tr>
+     <td bgcolor="#94aad6">
+  實際開始 
+    </td>
+    <td >$!dd.acntActualStartBefore&nbsp;</td> 
+    <td >$!dd.acntActualStart&nbsp;</td>
+    </tr>
+    <tr>
+     <td bgcolor="#94aad6">
+  實際結束  
+    </td>
+    <td >$!dd.acntActualFinishBefore&nbsp;</td> 
+    <td >$!dd.acntActualFinish&nbsp;</td>
+    </tr>
+      <tr>
+     <td bgcolor="#94aad6">
+  預計人月 
+    </td>
+    <td >$!dd.estManmonthBefore&nbsp;</td> 
+    <td >$!dd.estManmonth&nbsp;</td>
+    </tr>
+      <tr>
+     <td bgcolor="#94aad6">
+  實際人月 
+    </td>
+    <td >$!dd.actualManmonthBefore&nbsp;</td> 
+    <td >$!dd.actualManmonth&nbsp;</td>
+    </tr>
+      <tr>
+     <td bgcolor="#94aad6">
+  預計工作量字數 
+    </td>
+    <td >$!dd.estSizeBefore&nbsp;</td> 
+    <td >$!dd.estSize&nbsp;</td>
+    </tr>
+    <tr>
+     <td bgcolor="#94aad6">
+  使用Primavera
+    </td>
+    <td width="375">$!dd.primaveraAdaptedBefore&nbsp;</td> 
+    <td width="375">$!dd.primaveraAdapted&nbsp;</td>
+    </tr>
+    <tr>
+     <td bgcolor="#94aad6">
+  是否向客戶收費
+    </td>
+    <td width="375">$!dd.billingBasisBefore&nbsp;</td> 
+    <td width="375">$!dd.billingBasis&nbsp;</td>
+    </tr>
+    <tr>
+     <td bgcolor="#94aad6">
+ 業務屬性
+    </td>
+    <td width="375">$!dd.bizPropertyBefore&nbsp;</td> 
+    <td width="375">$!dd.bizProperty&nbsp;</td>
+    </tr>
+    <tr>
+     <td bgcolor="#94aad6">
+  收費類型
+    </td>
+    <td width="375">$!dd.billTypeBefore&nbsp;</td> 
+    <td width="375">$!dd.billType&nbsp;</td>
+    </tr>
+      <tr>
+     <td bgcolor="#94aad6">
+  其他敍述
+    </td>
+    <td width="375">$!dd.otherDescBefore&nbsp;</td> 
+    <td width="375">$!dd.otherDesc&nbsp;</td>
+    </tr>
+   
+    
+    
+  
+   </table>
+   <table border="0" width="900" >
+   <tr>
+        <td valign="bottom" height="5" colspan="4" class="orarowheader" width="900">
+        技術資料</td>
+      
+    </tr>
+    </table>
+    <table border="1" width="900" bordercolor="#0099FF" id="techInfoTable" style='word-break:break-all;'>
+     <tr>
+    <td bgcolor="#94aad6" colspan="2" width="150">
+    選項
+    </td>
+    <td bgcolor="#94aad6" width="350">
+    修改前
+    </td>
+     <td bgcolor="#94aad6" width="350">
+     修改後 
+    </td>
+  
+    </tr>
+    
+    <tr>
+    <td bgcolor="#94aad6" colspan="2">
+    專案類型
+    </td>
+    <td >$!dd.projectTypeBefore&nbsp;</td>
+    <td >$!dd.projectType&nbsp;</td>
+    </tr>
+    <tr>
+    <td bgcolor="#94aad6" colspan="2">
+    產品類型
+    </td>
+    <td >$!dd.productTypeBefore&nbsp;</td>
+    <td >$!dd.productType&nbsp;</td>
+    </tr>
+    <tr>
+    <td bgcolor="#94aad6" colspan="2">
+    產品屬性
+    </td>
+    <td >$!dd.productAttributeBefore&nbsp;</td>
+    <td >$!dd.productAttribute&nbsp;</td>
+    </tr>
+       <tr>
+     <td bgcolor="#94aad6" colspan="2">
+  工作項目
+    </td>
+    <td >$!dd.workItemBefore&nbsp;</td> 
+    <td >$!dd.workItem&nbsp;</td>
+    </tr>
+      <tr>
+     <td bgcolor="#94aad6" colspan="2">
+  技術領域 
+    </td>
+    <td >$!dd.technicalDomainBefore&nbsp;</td> 
+    <td >$!dd.technicalDomain&nbsp;</td>
+    </tr>
+      <tr>
+     <td bgcolor="#94aad6" colspan="2">
+  支援語文(原文)  
+    </td>
+    <td >$!dd.originalLanguageBefore&nbsp;</td> 
+    <td >$!dd.originalLanguage&nbsp;</td>
+    </tr>
+      <tr>
+     <td bgcolor="#94aad6" colspan="2">
+  支援語文(譯文)  
+    </td>
+    <td >$!dd.translationLanguageBefore&nbsp;</td> 
+    <td >$!dd.translationLanguage&nbsp;</td>
+    </tr>
+      <tr>
+     <td bgcolor="#94aad6" rowspan="6" width="100">
+     開發環境
+     </td>
+     <td bgcolor="#94aad6">
+  作業系統
+  </td> 
+    
+    <td >$!dd.developJobSystemBefore&nbsp;</td> 
+    <td >$!dd.developJobSystem&nbsp;</td>
+    </tr>
+     <tr>
+     <td bgcolor="#94aad6">
+   資料庫
+    </td>
+    <td >$!dd.developDataBaseBefore&nbsp;</td> 
+    <td >$!dd.developDataBase&nbsp;</td>
+    
+    </tr>
+    <tr>
+     <td bgcolor="#94aad6">
+   工具
+    </td>
+   
+    <td >$!dd.developToolBefore&nbsp;</td>
+    <td >$!dd.developTool&nbsp;</td>
+    </tr>
+    <tr>
+     <td bgcolor="#94aad6">
+   網路
+    </td>
+   
+    <td >$!dd.developNetWorkBefore&nbsp;</td>
+    <td >$!dd.developNetWork&nbsp;</td>
+    </tr>
+    <tr>
+     <td bgcolor="#94aad6">
+   程式語言
+    </td>
+   
+    <td >$!dd.developProgramLanguageBefore&nbsp;</td>
+    <td >$!dd.developProgramLanguage&nbsp;</td>
+    </tr>
+    <tr>
+     <td bgcolor="#94aad6">
+   其他
+    </td>
+    
+    <td >$!dd.developOthersBefore&nbsp;</td>
+    <td >$!dd.developOthers&nbsp;</td>
+    </tr>
+      <tr>
+     <td bgcolor="#94aad6" rowspan="6">
+  翻譯/排版/打字   
+    </td>
+    <td bgcolor="#94aad6">
+    作業系統
+    </td> 
+    <td >$!dd.typeJobSystemBefore&nbsp;</td>
+    <td >$!dd.typeJobSystem&nbsp;</td>
+    </tr>
+    <tr>
+     <td bgcolor="#94aad6">
+   資料庫
+    </td>
+   
+    <td >$!dd.typeDataBaseBefore&nbsp;</td>
+    <td >$!dd.typeDataBase&nbsp;</td>
+    </tr>
+    <tr>
+     <td bgcolor="#94aad6">
+   工具
+    </td>
+   
+    <td >$!dd.typeToolBefore&nbsp;</td>
+    <td >$!dd.typeTool&nbsp;</td>
+    </tr>
+    <tr>
+     <td bgcolor="#94aad6">
+   網路
+    </td>
+    
+    <td >$!dd.typeNetWorkBefore&nbsp;</td>
+    <td >$!dd.typeNetWork&nbsp;</td>
+    </tr>
+    <tr>
+     <td bgcolor="#94aad6">
+   程式語言
+    </td>
+  
+    <td >$!dd.typeProgramLanguageBefore&nbsp;</td>
+    <td >$!dd.typeProgramLanguage&nbsp;</td>
+    </tr>
+    <tr>
+     <td bgcolor="#94aad6">
+   其他
+    </td>
+  
+    <td >$!dd.typeOthersBefore&nbsp;</td>
+    <td >$!dd.typeOthers&nbsp;</td>
+    </tr>
+    
+      <tr>
+     <td bgcolor="#94aad6" colspan="2">
+    硬體需求
+    </td>
+    <td >$!dd.hardReqBefore&nbsp;</td> 
+    <td >$!dd.hardReq&nbsp;</td>
+    </tr>
+      <tr>
+     <td bgcolor="#94aad6" colspan="2">
+   軟體需求
+    </td>
+    <td >$!dd.softReqBefore&nbsp;</td> 
+    <td >$!dd.softReq&nbsp;</td>
+    </tr>
+    </table>
+    <table border="0" width="900" >
+    <tr>
+        <td valign="bottom" height="5" colspan="4" class="orarowheader" width="900">
+        客戶资料</td>
+       
+    </tr>
+    </table>
+     <table border="1" width="900" bordercolor="#0099FF" id="customerInfoTable" style='word-break:break-all;'>
+     <tr>
+    <td bgcolor="#94aad6" width="150" colspan="2">
+    選項
+    </td>
+    <td bgcolor="#94aad6" width="350">
+    修改前
+    </td>
+     <td bgcolor="#94aad6" width="350">
+     修改後 
+    </td>
+  
+    </tr>
+    <tr>
+    <td bgcolor="#94aad6" colspan="2">
+    客戶代號
+    </td>
+    <td >$!dd.customerIdBefore&nbsp;</td>
+    <td >$!dd.customerId&nbsp;</td>
+    </tr>
+    <tr>
+    <td bgcolor="#94aad6" colspan="2">
+    客戶服務總監
+    </td>
+    <td >$!dd.custServiceManagerNameBefore&nbsp;</td>
+    <td >$!dd.custServiceManagerName&nbsp;</td>
+    </tr>
+    <tr>
+    <td bgcolor="#94aad6" colspan="2">
+    銷售支援經理
+    </td>
+    <td >$!dd.engageManagerNameBefore&nbsp;</td>
+    <td >$!dd.engageManagerName&nbsp;</td>
+    </tr>
+       <tr>
+     <td bgcolor="#94aad6" rowspan="3" width="100">
+ 合約聯絡人
+    </td>
+    <td bgcolor="#94aad6">
+    姓名
+    </td>
+    <td >$!dd.contractBefore&nbsp;</td> 
+    <td >$!dd.contract&nbsp;</td>
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   電話
+    </td>
+    <td >$!dd.contractTelBefore&nbsp;</td>
+    <td >$!dd.contractTel&nbsp;</td>
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   Email
+    </td>
+    <td >$!dd.contractEmailBefore&nbsp;</td>
+    <td >$!dd.contractEmail&nbsp;</td>
+    </tr>
+       <tr>
+     <td bgcolor="#94aad6" rowspan="3">
+ 執行聯絡人
+    </td>
+    <td bgcolor="#94aad6">
+    姓名
+    </td> 
+    <td >$!dd.executiveBefore&nbsp;</td>
+    <td >$!dd.executive&nbsp;</td>
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   電話
+    </td>
+    <td >$!dd.executiveTelBefore&nbsp;</td>
+    <td >$!dd.executiveTel&nbsp;</td>
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   Email
+    </td>
+    <td >$!dd.executiveEmailBefore&nbsp;</td>
+    <td >$!dd.executiveEmail&nbsp;</td>
+    </tr>
+       <tr>
+     <td bgcolor="#94aad6" rowspan="3">
+ 財務聯絡人
+    </td>
+    <td bgcolor="#94aad6">
+    姓名
+    </td> 
+    <td >$!dd.financialBefore&nbsp;</td>
+    <td >$!dd.financial&nbsp;</td>
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   電話
+    </td>
+    <td >$!dd.financialTelBefore&nbsp;</td>
+    <td >$!dd.financialTel&nbsp;</td>
+    </tr>
+     <tr>
+    <td bgcolor="#94aad6">
+   Email
+    </td>
+    <td >$!dd.financialEmailBefore&nbsp;</td>
+    <td >$!dd.financialEmail&nbsp;</td>
+    </tr>
+     </table>
+<br />
+ #end --------------------------------------------------
+<br />
+ Best regard!<br />
+ The above information was sent by ESSP automatically, you need not reply.<br />
+<br />
+ $addresser<br />
+ $date <br></body>
+</html>

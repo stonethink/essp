@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+  <class name="db.essp.pms.LaborResourceDetail" table="pms_labor_resource_detail">
+    <id name="rid" type="long" column="RID">
+      <generator class="assigned"/>
+    </id>
+    <property name="beginDate" type="date" column="BEGIN_DATE"/>
+    <property name="endDate" type="date" column="END_DATE"/>
+    <property  name="acntRid" type="long" column="ACNT_RID" />
+    <property  name="loginId" type="string" column="LOGIN_ID" />
+    <property name="seq" type="long" column="SEQ"/>
+    <property name="percent" type="long" column="PERCENT"/>
+    <property name="hour" type="double" column="HOUR"/>
+
+    <many-to-one name="laborResource" class="db.essp.pms.LaborResource" outer-join="true" not-null="true">
+      <column name="RES_ID"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

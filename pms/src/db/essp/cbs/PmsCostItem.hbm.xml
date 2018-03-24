@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+
+<class  name="db.essp.cbs.PmsCostItem"  table="pms_cost_item">
+    <id  name="rid" type="java.lang.Long"  column="RID">
+        <generator class="assigned" />
+    </id>
+    <property name="acntRid" type="java.lang.Long" column="ACNT_RID" length="8">
+    </property>
+    <property name="activityId" type="java.lang.Long" column="ACTIVITY_ID" length="50">
+    </property>
+    <property name="scope" type="java.lang.String" column="SCOPE" length="50" >
+    </property>
+    <property name="currency" type="java.lang.String" column="CURRENCY" length="50" >
+    </property>
+    <property name="attribute" type="java.lang.String" column="ATTRIBUTE" length="50" >
+    </property>
+    <property name="subjectCode" type="java.lang.String" column="SUBJECT_CODE" length="50" >
+    </property>
+    <property name="name" type="java.lang.String" column="NAME" length="50" >
+    </property>
+    <property name="amt" type="java.lang.Double" column="AMT" length="10">
+    </property>
+    <property name="remark" type="java.lang.String" column="REMARK" length="500">
+    </property>
+    <property name="costDate" type="java.util.Date" column="COST_DATE" length="19">
+    </property>
+    <property name="rst" type="java.lang.String" column="RST" length="1">
+    </property>
+    <property name="rct" type="java.util.Date" column="RCT" length="19">
+    </property>
+    <property name="rut" type="java.util.Date" column="RUT" length="19">
+    </property>
+
+    <!-- Associations -->
+
+</class>
+</hibernate-mapping>

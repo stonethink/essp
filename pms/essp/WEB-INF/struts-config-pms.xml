@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="personnelPlanManageForm" type="server.essp.pms.account.labor.form.AfPersonnelPlanManager"/>
+    <form-bean name="weeklyReportForm" type="server.essp.pms.report.form.AfWeeklyReport"/>
+    <!-- Timecard Section -->
+    <form-bean name="importForm" type="server.essp.tc.attimport.AfImport"/>
+    <form-bean name="compareForm" type="server.essp.tc.attcompare.AfCompare"/>
+    <form-bean name="outWorkerSearchForm" type="server.essp.tc.outwork.form.AfSearchForm"/>
+    <form-bean name="outWorkerAddForm" type="server.essp.tc.outwork.form.AfOutWorkerForm"/>
+  </form-beans>
+  <action-mappings>
+    <!-- Resourc Plan -->
+    <action path="/pms/resplan/ResourcePlan" scope="request" type="server.essp.pms.account.labor.action.AcResourcePlan" validate="true">
+      <forward name="index" path="/pms/resplan/index.jsp" redirect="false"/>
+    </action>
+    <action path="/pms/resplan/PlanPeriodPart" scope="request" type="server.essp.pms.account.labor.action.AcPlanPeroidPart" validate="true">
+      <forward name="success" path="/pms/resplan/ResTopRight.jsp" redirect="false"/>
+    </action>
+    <action path="/pms/resplan/ListAllocedResource" scope="request" type="server.essp.pms.account.labor.action.AcListAllocedResource" validate="true">
+      <forward name="success" path="/pms/resplan/ResBotLeft.jsp" redirect="false"/>
+    </action>
+    <action path="/pms/resplan/ListResourcePlan" scope="request" type="server.essp.pms.account.labor.action.AcListResourcePlanGraphics" validate="true">
+      <forward name="success" path="/pms/resplan/ResPersonnelDisplay.jsp" redirect="false"/>
+    </action>
+    <action path="/pms/resplan/PersonnelPlanDetail" scope="request" type="server.essp.pms.account.labor.action.AcPersonnelPlanDetail" validate="true">
+      <forward name="success" path="/pms/resplan/ResPersonDetail.jsp" redirect="false"/>
+    </action>
+    <action path="/pms/resplan/DeletePlanDateItem" scope="request" type="server.essp.pms.account.labor.action.AcDeletePlanDateItem" validate="true">
+      <forward name="success" path="/pms/resplan/PersonnelPlanDetail.do" redirect="false"/>
+    </action>
+    <action name="personnelPlanManageForm" path="/pms/resplan/PersonnelPlanManage" scope="request" type="server.essp.pms.account.labor.action.AcPersonnelPlanManage" validate="true">
+      <forward name="success" path="/pms/resplan/PersonnelPlanDetail.do" redirect="false"/>
+    </action>
+    <!-- MileStone Report -->
+    <action path="/pms/wbs/milestone/MileStoneReport" scope="request" type="server.essp.pms.wbs.action.AcWbsMileStoneReport" validate="true">
+      <forward name="list" path="/pms/wbs/milestone/MileStoneList.jsp" redirect="false"/>
+    </action>
+    <action path="/pms/wbs/milestone/CheckPointList" scope="request" type="server.essp.pms.wbs.action.AcCheckPointReport" validate="true">
+      <forward name="list" path="/pms/wbs/milestone/CheckPointList.jsp" redirect="false"/>
+    </action>
+    <!-- Project Weekly Report  -->
+    <action name="weeklyReportForm" path="/pms/ProjectWeeklyReportPre" scope="request" type="server.essp.pms.report.action.AcProjectWeeklyReportPre" validate="true">
+      <forward name="report" path="/pms/report/ProjectWeeklyReport.jsp" redirect="false"/>
+    </action>
+    <!-- Project Status Report  -->
+    <action path="/pms/ProjectStatusReportPre" scope="request" type="server.essp.pms.psr.action.AcExportPSRPre" validate="true">
+      <forward name="success" path="/pms/report/ProjectStatusReport.jsp" redirect="false"/>
+    </action>
+    <!-- TimeCard Section  -->
+    <action path="/tc/report/AttendanceReportPre" scope="request" type="server.essp.tc.attreport.AcAttendanceReportPre">
+      <forward name="report" path="/tc/report/AttendanceReport.jsp" redirect="false" />
+    </action>
+    <action name="importForm" path="/tc/attImport/Import" scope="request" type="server.essp.tc.attimport.AcImport">
+      <forward name="import" path="/tc/attImport/import.jsp" redirect="false" />
+    </action>
+    <action name="compareForm" path="/tc/attCompare/Compare" scope="request" type="server.essp.tc.attcompare.AcCompare">
+      <forward name="compare" path="/tc/attCompare/compare.jsp" redirect="false" />
+    </action>
+    <action path="/tc/attCompare/compareResultDel" scope="request" type="server.essp.tc.attcompare.AcCompareResultDel">
+      <forward name="sucessDEL" path="/tc/attCompare/compare.jsp" redirect="false" />
+    </action>
+    <action name="outWorkerSearchForm" path="/tc/outwork/outWorkerList" scope="request" type="server.essp.tc.outwork.action.AcOutWorkerSearch">
+      <forward name="success" path="/tc/outwork/outworker.jsp" redirect="false" />
+    </action>
+    <action path="/tc/outwork/outWorkerDel" scope="request" type="server.essp.tc.outwork.action.AcOutWorkerDel">
+      <forward name="success" path="/tc/outwork/outWorkerList.do?isDel=Yes" redirect="true" />
+    </action>
+    <action name="outWorkerAddForm" path="/tc/outwork/outWorkerAdd" scope="request" type="server.essp.tc.outwork.action.AcOutWorkerAdd">
+      <forward name="success" path="/tc/outwork/refreshOpener.jsp" redirect="false" />
+    </action>
+    <action path="/tc/outwork/outWorkerModifyPre" scope="request" type="server.essp.tc.outwork.action.AcOutWorkerModifyPre">
+      <forward name="success" path="/tc/outwork/modify.jsp" redirect="false" />
+    </action>
+    <action name="outWorkerAddForm" path="/tc/outwork/outWorkerUpdate" scope="request" type="server.essp.tc.outwork.action.AcOutWorkerUpdate">
+      <forward name="success" path="/tc/outwork/modify.jsp" redirect="false" />
+    </action>
+  </action-mappings>
+  <!--message-resources  key="issue" parameter="server/essp/issue/resources/application" /-->
+</struts-config>

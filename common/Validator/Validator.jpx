@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--JBuilder XML Project-->
+<project>
+  <property category="build" name="CopyExtensions.1" value="dtd"/>
+  <property category="build" name="CopyExtensions.2" value="js"/>
+  <property category="build" name="CopyExtensions.3" value="xml"/>
+  <property category="idl" name="ProcessIDL" value="false"/>
+  <property category="javaFormatting" name="packageThreshold" value="0"/>
+  <property category="javadoc" name="custom.tags.1" value="todo;a;To Do:"/>
+  <property category="module" name="ProjectConvertedToEnsureModulesHaveSupportedFeatures" value="1"/>
+  <property category="module" name="ProjectConvertedToUseFilesAndDependenciesAsDefaultContent" value="1"/>
+  <property category="module" name="ProjectConvertedToUseProperModuleDefaults" value="1"/>
+  <property category="module" name="projectConvertedFromModuleExtensionsToModuleFileTypes" value="1"/>
+  <property category="runtime" name="DefaultConfiguration" value="-1"/>
+  <property category="runtime.0" name="ConfigurationName" value="ValidatorTest"/>
+  <property category="runtime.0" name="RunnableType" value="com.borland.jbuilder.runtime.TestRunner"/>
+  <property category="runtime.0" name="test.class" value="validator.ValidatorTest"/>
+  <property category="runtime.0" name="test.harness" value="com.borland.jbuilder.unittest.JBTestRunner"/>
+  <property category="serverservices" name="disabled.services" value="jdatastore"/>
+  <property category="serverservices" name="single.server.name" value="Tomcat 4.0"/>
+  <property category="sys" name="AuthorLabel" value="@author"/>
+  <property category="sys" name="BackupPath" value="bak"/>
+  <property category="sys" name="CheckStable" value="1"/>
+  <property category="sys" name="Company" value=""/>
+  <property category="sys" name="CompanyLabel" value="Company:"/>
+  <property category="sys" name="Copyright" value="Copyright (c) 2005"/>
+  <property category="sys" name="CopyrightLabel" value="Copyright:"/>
+  <property category="sys" name="DefaultPath" value="src"/>
+  <property category="sys" name="Description" value=""/>
+  <property category="sys" name="DescriptionLabel" value="Description:"/>
+  <property category="sys" name="DocPath" value="doc"/>
+  <property category="sys" name="ExcludeClassEnabled" value="0"/>
+  <property category="sys" name="IncludeTestPath" value="1"/>
+  <property category="sys" name="InstanceVisibility" value="2"/>
+  <property category="sys" name="JDK" value="java version 1.4.2_01-b06"/>
+  <property category="sys" name="JvmVersion" value="1.2"/>
+  <property category="sys" name="LastTag" value="0"/>
+  <property category="sys" name="Libraries" value="LIB;JUnit"/>
+  <property category="sys" name="MakeStable" value="0"/>
+  <property category="sys" name="OutPath" value="classes"/>
+  <property category="sys" name="SourcePath" value="src;test"/>
+  <property category="sys" name="TestPath" value="test"/>
+  <property category="sys" name="Title" value=""/>
+  <property category="sys" name="TitleLabel" value="Title:"/>
+  <property category="sys" name="Version" value="1.0"/>
+  <property category="sys" name="VersionLabel" value="@version"/>
+  <property category="sys" name="WorkingDirectory" value="."/>
+  <property category="sys" name="max.package.levels" value="1"/>
+  <node name="Additional Settings" type="Folder">
+    <property category="sys" name="SettingsFolder" value="1"/>
+    <file path="test/test/applicationResources.properties">
+      <property category="build" name="CopyResource" value="1"/>
+    </file>
+    <file path="test/validator/applicationResources.properties">
+      <property category="build" name="CopyResource" value="1"/>
+    </file>
+    <file path="test/validator/validator-example.xml">
+      <property category="build" name="CopyResource" value="1"/>
+    </file>
+  </node>
+  <node name="Validator" type="Archive">
+    <property category="archiving" name="contentRules.1" value="I:org/apache/commons/validator/util/*.*"/>
+    <property category="archiving" name="contentRules.10" value="X:org/apache/commons/validator/validator-locale.xml"/>
+    <property category="archiving" name="contentRules.11" value="X:org/apache/commons/validator/validator-multiple-config-1.xml"/>
+    <property category="archiving" name="contentRules.12" value="X:org/apache/commons/validator/validator-multiple-config-2.xml"/>
+    <property category="archiving" name="contentRules.13" value="X:org/apache/commons/validator/validator-multipletest.xml"/>
+    <property category="archiving" name="contentRules.14" value="X:org/apache/commons/validator/validator-name-required.xml"/>
+    <property category="archiving" name="contentRules.15" value="X:org/apache/commons/validator/validator-numeric.xml"/>
+    <property category="archiving" name="contentRules.16" value="X:org/apache/commons/validator/validator-regexp.xml"/>
+    <property category="archiving" name="contentRules.17" value="X:org/apache/commons/validator/validator-requiredif.xml"/>
+    <property category="archiving" name="contentRules.18" value="X:org/apache/commons/validator/*Test.class"/>
+    <property category="archiving" name="contentRules.19" value="X:org/apache/commons/validator/TestCommon.class"/>
+    <property category="archiving" name="contentRules.2" value="I:org/apache/commons/validator/javascript/*.*"/>
+    <property category="archiving" name="contentRules.20" value="X:org/apache/commons/validator/TestNumber.class"/>
+    <property category="archiving" name="contentRules.3" value="I:**/Test*.class"/>
+    <property category="archiving" name="contentRules.4" value="I:org/apache/commons/validator/TestTypeValidator.class"/>
+    <property category="archiving" name="contentRules.5" value="I:org/apache/commons/validator/TestValidator.class"/>
+    <property category="archiving" name="contentRules.6" value="I:validator/*.*"/>
+    <property category="archiving" name="contentRules.7" value="I:org/apache/commons/validator/*.*"/>
+    <property category="archiving" name="contentRules.8" value="X:test/*.*"/>
+    <property category="archiving" name="contentRules.9" value="X:org/apache/commons/validator/validator-exception.xml"/>
+    <property category="archiving" name="targetPath" value="Validator.jar"/>
+    <property category="archiving" name="usingRules" value="1"/>
+  </node>
+</project>

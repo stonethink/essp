@@ -1,0 +1,174 @@
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN" "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+<form-validation>
+
+    <global>
+    </global>
+
+    <formset>
+
+		<form name="loginForm">
+			<field property="userCd" depends="required,mask">
+				<arg0 key="login.userCd" />
+				<var>
+				<var-name>mask</var-name>
+				<var-value>^[0-9a-zA-Z]*$</var-value>
+				</var>
+			</field>
+			<field property="password" depends="mask">
+				<arg0 key="login.password" />
+				<var>
+				<var-name>mask</var-name>
+				<var-value>^[0-9a-zA-Z]*$</var-value>
+				</var>
+			</field>
+        </form>
+
+	    <form name="fg01BumMntForm">
+			    <field property="bumCd" depends="required,mask,msFixLength">
+				    <var><var-name>mask</var-name><var-value>^[0-9a-zA-Z]*$</var-value></var><var>
+				    	<var-name>msFixLength</var-name>
+				    <var-value>8</var-value>
+				    </var>
+				    <arg0 key="form.bumCd" />
+			        <arg1 key="${var:msFixLength}" name="msFixLength" resource="false" />
+			    </field>
+			    <field property="bumName" depends="msMaxLength">
+			    	<var>
+			    		<var-name>msMaxLength</var-name>
+			    		<var-value>40</var-value>
+			    	</var>
+		    		<arg0 key="form.bumName" />
+		    		<arg1 name="msMaxLength" key="${var:msMaxLength}" resource="false" />
+	    		<var><var-name>encode</var-name><var-value>MS932</var-value></var></field>
+	    		<field property="bumRname" depends="msMaxLength">
+	    		<var>
+		    		<var-name>msMaxLength</var-name>
+		    		<var-value>20</var-value>
+		    		</var>
+		    		<arg0 key="form.bmnRname" />
+		    		<arg1 name="msMaxLength" key="${var:msMaxLength}" resource="false" />
+	    		<var><var-name>encode</var-name><var-value>MS932</var-value></var></field>
+	    		<field property="bumKname" depends="msMaxLength">
+		    		<var>
+		    		<var-name>msMaxLength</var-name>
+		    		<var-value>20</var-value>
+		    		</var>
+		    		<arg0 key="form.bmnKname" />
+		    		<arg1 name="msMaxLength" key="${var:msMaxLength}" resource="false" />
+	    		<var><var-name>encode</var-name><var-value>MS932</var-value></var></field>
+	    		<field property="post" depends="maxlength">
+		    		<var>
+		    		<var-name>maxlength</var-name>
+		    		<var-value>8</var-value>
+		    		</var>
+		    		<arg0 key="form.post" />
+		    		<arg1 name="maxlength" key="${var:maxlength}" resource="false" />
+	    		</field>
+	    		<field property="adr1" depends="msMaxLength">
+		    		<var>
+		    		<var-name>msMaxLength</var-name>
+		    		<var-value>80</var-value>
+		    		</var>
+		    		<arg0 key="form.adr1" />
+			        <arg1 key="${var:msMaxLength}" name="msMaxLength" resource="false" />
+	    		<var><var-name>encode</var-name><var-value>MS932</var-value></var></field>
+	    		<field property="adr2" depends="msMaxLength">
+		    		<var>
+		    		<var-name>msMaxLength</var-name>
+		    		<var-value>80</var-value>
+		    		</var>
+		    		<arg0 key="form.adr2" />
+			        <arg1 key="${var:msMaxLength}" name="msMaxLength" resource="false" />
+	    		<var><var-name>encode</var-name><var-value>MS932</var-value></var></field>
+	    		<field property="tel" depends="maxlength">
+		    		<var>
+		    		<var-name>maxlength</var-name>
+		    		<var-value>20</var-value>
+		    		</var>
+		    		<arg0 key="form.tel" />
+		    		<arg1 name="maxlength" key="${var:maxlength}" resource="false" />
+	    		</field>
+	    		<field property="fax" depends="maxlength">
+		    		<var>
+		    		<var-name>maxlength</var-name>
+		    		<var-value>20</var-value>
+		    		</var>
+		    		<arg0 key="form.fax" />
+		    		<arg1 name="maxlength" key="${var:maxlength}" resource="false" />
+	    		</field>
+	    		<field property="soKbn" depends="mask,maxlength">
+		    		<var><var-name>mask</var-name><var-value>^[0-9a-zA-Z]*$</var-value></var><var>
+		    		<var-name>maxlength</var-name>
+		    		<var-value>1</var-value>
+		    		</var>
+		    		<arg0 key="form.soKbn" />
+		    		<arg1 name="maxlength" key="${var:maxlength}" resource="false" />
+	    		</field>
+	    		<field property="sokaiKbn" depends="mask,maxlength">
+		    		<var><var-name>mask</var-name><var-value>^[0-9a-zA-Z]*$</var-value></var><var>
+		    		<var-name>maxlength</var-name>
+		    		<var-value>1</var-value>
+		    		</var>
+		    		<arg0 key="form.sokaiKbn" />
+		    		<arg1 name="maxlength" key="${var:maxlength}" resource="false" />
+	    		</field>
+	    		<field property="kai1" depends="mask,msFixLength">
+		    		<var>
+		    		<var-name>msFixLength</var-name>
+		    		<var-value>8</var-value>
+		    		</var><var><var-name>mask</var-name><var-value>^[0-9a-zA-Z]*$</var-value></var>
+		    		<arg0 key="form.kai1" />
+			        <arg1 key="${var:msFixLength}" name="msFixLength" resource="false" />
+	    		</field>
+	    		<field property="kai2" depends="mask,msFixLength">
+		    		<var><var-name>mask</var-name><var-value>^[0-9a-zA-Z]*$</var-value></var><var>
+		    		<var-name>msFixLength</var-name>
+		    		<var-value>8</var-value>
+		    		</var>
+		    		<arg0 key="form.kai2" />
+			        <arg1 key="${var:msFixLength}" name="msFixLength" resource="false" />
+	    		</field>
+	    		<field property="kai3" depends="mask,msFixLength">
+		    		<var><var-name>mask</var-name><var-value>^[0-9a-zA-Z]*$</var-value></var><var>
+		    		<var-name>msFixLength</var-name>
+		    		<var-value>8</var-value>
+		    		</var>
+		    		<arg0 key="form.kai3" />
+			        <arg1 key="${var:msFixLength}" name="msFixLength" resource="false" />
+	    		</field>
+	    		<field property="kai4" depends="mask,msFixLength">
+		    		<var><var-name>mask</var-name><var-value>^[0-9a-zA-Z]*$</var-value></var><var>
+		    		<var-name>msFixLength</var-name>
+		    		<var-value>8</var-value>
+		    		</var>
+		    		<arg0 key="form.kai4" />
+			        <arg1 key="${var:msFixLength}" name="msFixLength" resource="false" />
+	    		</field>
+	    		<field property="kai5" depends="mask,msFixLength">
+		    		<var><var-name>mask</var-name><var-value>^[0-9a-zA-Z]*$</var-value></var><var>
+		    		<var-name>msFixLength</var-name>
+		    		<var-value>8</var-value>
+		    		</var>
+		    		<arg0 key="form.kai5" />
+			        <arg1 key="${var:msFixLength}" name="msFixLength" resource="false" />
+	    		</field>
+	    		<field property="kai6" depends="mask,msFixLength">
+		    		<var><var-name>mask</var-name><var-value>^[0-9a-zA-Z]*$</var-value></var><var>
+		    		<var-name>msFixLength</var-name>
+		    		<var-value>8</var-value>
+		    		</var>
+		    		<arg0 key="form.kai6" />
+			        <arg1 key="${var:msFixLength}" name="msFixLength" resource="false" />
+	    		</field>
+	    		<field property="biko" depends="msMaxLength">
+		    		<var>
+		    		<var-name>msMaxLength</var-name>
+		    		<var-value>60</var-value>
+		    		</var>
+		    		<arg0 key="form.biko" />
+	    		<var><var-name>encode</var-name><var-value>MS932</var-value></var><arg1 name="msMaxLength" key="${var:msMaxLength}" resource="false" /></field>
+	    		</form>
+	    </formset>
+
+
+</form-validation>

@@ -1,0 +1,103 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ESSP System Mail</title>
+</head>
+
+<body>
+
+Dear $addressee,
+<br />
+<br />
+1. Below is the member timecard submission status report for your reference.
+<br />
+Unfilled timecard
+<br>
+<br>
+#foreach ($cc in $content)
+<table width="700" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF">
+  <tr>
+    <td width="150" bgcolor="#94AAD6"><font color="#FFFFFF">Member ID</font></td>
+    <td width="100" bgcolor="#94AAD6"><font color="#FFFFFF">Member Name</font></td>
+    <td width="100" bgcolor="#94AAD6"><font color="#FFFFFF">From</font></td>
+    <td width="100" bgcolor="#94aad6"><font color="#FFFFFF">To</font></td>
+    
+  </tr>
+  #foreach ($c in $cc.unFillList)
+  <tr>
+    <td width="150">$c.employeeId</td>
+    <td width="150">$c.submiter</td>
+    <td width="100">$c.beginDate</td>
+    <td width="100">$c.endDate</td>
+    
+  </tr>
+  #end
+</table>
+<br />
+Unsubmitted timecard
+<br />
+<br />
+<table width="830" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF">
+  <tr>
+    <td width="100" bgcolor="#94AAD6"><font color="#FFFFFF">Member ID</font></td>
+    <td width="200" bgcolor="#94AAD6"><font color="#FFFFFF">Member Name</font></td>
+    <td width="350" bgcolor="#94aad6"><font color="#FFFFFF">Project Name</font></td>
+    <td width="100" bgcolor="#94AAD6"><font color="#FFFFFF">From</font></td>
+    <td width="100" bgcolor="#94aad6"><font color="#FFFFFF">To</font></td>
+    
+  </tr>
+  #foreach ($d in $cc.unSubmitList)
+  <tr>
+    <td width="150">$d.employeeId</td>
+    <td width="200">$d.submiter</td>
+    <td width="350">$d.accountInfo</td>
+    <td width="100">$d.beginDate</td>
+    <td width="100">$d.endDate</td>
+    
+  </tr>
+  #end
+</table>
+<br />
+2. You have yet to approve the timecard listed below.
+<br />
+Please log on at <a href="http://timecard.wistronits.com/">http://timecard.wistronits.com/</a> to complete the process accordingly by next 14:00 Monday.
+<br/>
+Thank you.
+<br />
+<br />
+<table width="930" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF">
+  <tr>
+    <td width="100" bgcolor="#94AAD6"><font color="#FFFFFF">Member ID</font></td>
+    <td width="200" bgcolor="#94AAD6"><font color="#FFFFFF">Member Name</font></td>
+    <td width="350" bgcolor="#94aad6"><font color="#FFFFFF">Project Name</font></td>
+    <td width="100" bgcolor="#94aad6"><font color="#FFFFFF">PM ID</font></td>
+    <td width="200" bgcolor="#94aad6"><font color="#FFFFFF">PM Name</font></td>
+    <td width="120" bgcolor="#94AAD6"><font color="#FFFFFF">From</font></td>
+    <td width="120" bgcolor="#94aad6"><font color="#FFFFFF">To</font></td>
+    
+  </tr>
+  #foreach ($e in $cc.approveList)
+  <tr>
+    <td width="100">$e.employeeId</td>
+    <td width="200">$e.submiter</td>
+    <td width="350">$e.accountInfo</td>
+    <td width="100">$e.pmId</td>
+    <td width="200">$e.pmName</td>
+    <td width="120">$e.beginDate</td>
+    <td width="120">$e.endDate</td>
+    
+  </tr>
+  #end
+</table>
+#end
+<br />
+<br />
+--------------------------------------------------
+<br />
+This message was sent automatically by ESSP, please do not reply.<br />
+<br /> 
+Best regard,<br />
+$addresser<br />
+$date
+</body>
+</html>

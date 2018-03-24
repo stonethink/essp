@@ -1,0 +1,359 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="essp.tables.PwWp"
+    table="pw_wp"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="pw_wp"
+    </meta>
+
+    <id
+        name="rid"
+        type="java.lang.Long"
+        column="RID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="RID"
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="projectId"
+        type="java.lang.Long"
+        column="PROJECT_ID"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PROJECT_ID"
+            length="8"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="activityId"
+        type="java.lang.Long"
+        column="ACTIVITY_ID"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTIVITY_ID"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="wpSequence"
+        type="int"
+        column="WP_SEQUENCE"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_SEQUENCE"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="wpPwporwp"
+        type="java.lang.String"
+        column="WP_PWPORWP"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_PWPORWP"
+            length="1"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="wpCode"
+        type="java.lang.String"
+        column="WP_CODE"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_CODE"
+            length="50"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="wpName"
+        type="java.lang.String"
+        column="WP_NAME"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_NAME"
+            length="50"
+        </meta>
+    </property>
+    <property
+        name="wpType"
+        type="java.lang.String"
+        column="WP_TYPE"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_TYPE"
+            length="50"
+        </meta>
+    </property>
+    <property
+        name="wpAssignby"
+        type="java.lang.String"
+        column="WP_ASSIGNBY"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_ASSIGNBY"
+            length="50"
+        </meta>
+    </property>
+    <property
+        name="wpAssigndate"
+        type="java.util.Date"
+        column="WP_ASSIGNDATE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_ASSIGNDATE"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="wpWorker"
+        type="java.lang.String"
+        column="WP_WORKER"
+        not-null="true"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_WORKER"
+            length="65535"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="wpReqWkhr"
+        type="java.math.BigDecimal"
+        column="WP_REQ_WKHR"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_REQ_WKHR"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="wpPlanWkhr"
+        type="java.math.BigDecimal"
+        column="WP_PLAN_WKHR"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_PLAN_WKHR"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="wpActWkhr"
+        type="java.math.BigDecimal"
+        column="WP_ACT_WKHR"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_ACT_WKHR"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="wpPlanStart"
+        type="java.util.Date"
+        column="WP_PLAN_START"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_PLAN_START"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="wpPlanFihish"
+        type="java.util.Date"
+        column="WP_PLAN_FIHISH"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_PLAN_FIHISH"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="wpActStart"
+        type="java.util.Date"
+        column="WP_ACT_START"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_ACT_START"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="wpActFinish"
+        type="java.util.Date"
+        column="WP_ACT_FINISH"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_ACT_FINISH"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="wpStatus"
+        type="java.lang.String"
+        column="WP_STATUS"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_STATUS"
+            length="50"
+        </meta>
+    </property>
+    <property
+        name="wpCmpltrateType"
+        type="java.lang.String"
+        column="WP_CMPLTRATE_TYPE"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_CMPLTRATE_TYPE"
+            length="1"
+        </meta>
+    </property>
+    <property
+        name="wpCmpltrate"
+        type="java.math.BigDecimal"
+        column="WP_CMPLTRATE"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_CMPLTRATE"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="wpRequirement"
+        type="java.lang.String"
+        column="WP_REQUIREMENT"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WP_REQUIREMENT"
+            length="65535"
+        </meta>
+    </property>
+    <property
+        name="rst"
+        type="java.lang.String"
+        column="RST"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RST"
+            length="1"
+        </meta>
+    </property>
+    <property
+        name="rct"
+        type="java.util.Date"
+        column="RCT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RCT"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="rut"
+        type="java.util.Date"
+        column="RUT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RUT"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="wpTypeCode"
+        type="java.lang.Long"
+        column="wp_type_code"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="wp_type_code"
+            length="10"
+        </meta>
+    </property>
+
+    <!-- Associations -->
+    <many-to-one name="activity" class="db.essp.pms.Activity" cascade="none" insert="false" update="false">
+        <column name="PROJECT_ID"/>
+        <column name="ACTIVITY_ID"/>
+    </many-to-one>
+    <many-to-one name="account" class="db.essp.pms.Account" cascade="none" insert="false" update="false">
+        <column name="PROJECT_ID"/>
+    </many-to-one>
+
+    <one-to-one name="wpSum" class="essp.tables.PwWpsum" cascade="all"/>
+
+</class>
+</hibernate-mapping>

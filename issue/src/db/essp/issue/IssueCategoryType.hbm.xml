@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class name="db.essp.issue.IssueCategoryType" table="ISSUE_CATEGORY_TYPE" lazy="true">
+    <composite-id name="comp_id" class="db.essp.issue.IssueCategoryTypePK">
+        <key-property name="typeName"     type="string" column="Type_Name"   />
+        <key-property name="categoryName" type="string" column="CategoryName"/>
+    </composite-id>
+
+    <property name="rid"         type="long" column="RID"/>
+    <property name="sequence"    type="long" column="Sequence"/>
+    <property name="description" type="string" column="Description"/>
+    <property name="rst"         type="string" column="RST"/>
+    <property name="rct"         type="date"   column="RCT"/>
+    <property name="rut"         type="date"   column="RUT"/>
+
+    <set name="categoryValues" cascade="all" order-by="sequence"  where="rst='N'" lazy="true">
+        <key>
+            <!-- 顺序不能颠倒 -->
+            <column name="Type_Name" />
+            <column name="CategoryName" />
+        </key>
+        <one-to-many class="db.essp.issue.IssueCategoryValue"/>
+    </set>
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to IssueType -->
+    <!--
+    <many-to-one
+        name="issueType"
+	    class="db.essp.issue.IssueType"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="TypeName"
+        </meta>
+    	<column name="Type_Name" />
+	</many-to-one>
+	-->
+    <!-- end of derived association(s) -->
+
+
+</class>
+</hibernate-mapping>

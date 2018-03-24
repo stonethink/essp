@@ -1,0 +1,38 @@
+<project name="ganttProject" default="jar_gantt">
+  <target name="jar_gantt">
+    <jar destfile="ganttProject.jar">
+      <fileset dir="${basedir}/classes">
+        <include name="**/*"/>
+        <exclude name="package cache/**/*"/>
+        <exclude name="cache files/**/*"/>
+      </fileset>
+    </jar>
+  </target>
+
+  <target name="jar_gantt_with_depends_Jar" depends="jar_gantt">
+    <jar jarfile="ganttProject_withDepends.jar">
+      <zipfileset src="${basedir}/ganttProject.jar">
+        <include name="**/*.*"/>
+        <exclude name="META-INF/*.*"/>
+        <exclude name="package cache/**/*"/>
+        <exclude name="cache files/**/*"/>
+      </zipfileset>
+      <zipfileset src="${basedir}/lib/eclipsito.jar">
+        <include name="**/*.*"/>
+        <exclude name="META-INF/*.*"/>
+      </zipfileset>
+      <zipfileset src="${basedir}/lib/commons-httpclient.jar">
+        <include name="**/*.*"/>
+        <exclude name="META-INF/*.*"/>
+      </zipfileset>
+      <zipfileset src="${basedir}/lib/commons-httpclient-contrib.jar">
+        <include name="**/*.*"/>
+        <exclude name="META-INF/*.*"/>
+      </zipfileset>
+      <zipfileset src="${basedir}/lib/commons-transaction-1.0.jar">
+        <include name="**/*.*"/>
+        <exclude name="META-INF/*.*"/>
+      </zipfileset>
+    </jar>
+  </target>
+</project>

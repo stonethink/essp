@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+ 	
+    <!--pwp-->
+    <mapping resource="essp/tables/PwParameter.hbm.xml"/>
+    <mapping resource="essp/tables/PwWkitem.hbm.xml"/>
+    <mapping resource="essp/tables/PwWp.hbm.xml"/>
+    <mapping resource="essp/tables/PwWpchk.hbm.xml"/>
+    <mapping resource="essp/tables/PwWpchklog.hbm.xml"/>
+    <mapping resource="essp/tables/PwWprev.hbm.xml"/>
+    <mapping resource="essp/tables/PwWpsum.hbm.xml"/>
+
+    
+
+  </session-factory>
+</hibernate-configuration>

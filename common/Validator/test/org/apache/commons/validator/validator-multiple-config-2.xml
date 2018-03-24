@@ -1,0 +1,19 @@
+<!DOCTYPE form-validation PUBLIC
+     "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN"
+     "validator_1_1.dtd">
+
+<!--
+	This second config file only contains the formset definitions.
+-->
+<form-validation>
+   <formset>
+      <form name="nameForm">
+         <field property="firstName" depends="required">
+             <arg key="nameForm.firstname.displayname"/>
+         </field>
+         <field property="lastName" depends="required,int">
+             <arg key="nameForm.lastname.displayname"/>
+         </field>
+      </form>
+   </formset>
+</form-validation>

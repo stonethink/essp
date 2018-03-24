@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+
+<class  name="db.essp.attendance.TcOvertimeDetail"  table="tc_overtime_detail" >
+    <id name="rid" type="java.lang.Long"  column="RID">
+        <generator class="assigned" />
+    </id>
+
+    <property  name="overtimeDay" type="java.util.Date" column="OVERTIME_DAY" length="19" />
+    <property name="hours" type="java.lang.Double" column="HOURS" length="8" />
+    <property name="shiftHours" type="java.lang.Double" column="SHIFT_HOURS" length="8" />
+    <property name="payedHours" type="java.lang.Double" column="PAYED_HOURS" length="8" />
+    <property name="payedWay" type="java.lang.String" column="PAYED_WAY" length="100" />
+    <property name="remark" type="java.lang.String" column="REMARK" length="500" />
+    <property name="rst" type="java.lang.String" column="RST" length="1" />
+    <property name="rct" type="java.util.Date" column="RCT" length="19" />
+    <property name="rut" type="java.util.Date" column="RUT" length="19" />
+    <!-- Associations -->
+
+    <!-- bi-directional many-to-one association to TcOvertime -->
+    <many-to-one
+        name="tcOvertime"
+        class="db.essp.attendance.TcOvertime"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OVERTIME_ID"
+        </meta>
+        <column name="OVERTIME_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

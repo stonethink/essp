@@ -1,0 +1,20 @@
+[PropertyInfo]
+activityID,Long,false,false, , ,true,<default>
+currentEmpLoginID,String,false,false, , ,true,<default>
+defineID,String,false,false, , ,true,<default>
+finishDate,java.util.Date,false,false, , ,true,<default>
+instanceID,Long,false,false, , ,true,<default>
+processClassName,String,false,false, , ,true,<default>
+startDate,java.util.Date,false,false, , ,true,<default>
+status,String,false,false, , ,true,<default>
+WK_ACTIVITY_STATUS_FINISH,String,false,false, , ,false,<default>
+WK_ACTIVITY_STATUS_NONRICH,String,false,false, , ,false,<default>
+WK_ACTIVITY_STATUS_WAIT,String,false,false, , ,false,<default>
+WK_ACTIVITY_TYPE_END,String,false,false, , ,false,<default>
+WK_ACTIVITY_TYPE_PROCESS,String,false,false, , ,false,<default>
+WK_ACTIVITY_TYPE_START,String,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

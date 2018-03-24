@@ -1,0 +1,27 @@
+[PropertyInfo]
+allClassNum,int,false,false, , ,true,<default>
+allDeletedFileNum,int,false,false, , ,false,<default>
+allFileNum,int,false,false, , ,true,<default>
+allModuleNum,int,false,false, , ,true,<default>
+allPackageNum,int,false,false, , ,true,<default>
+dead,boolean,false,false, , ,true,<default>
+fullName,String,false,false, , ,true,<default>
+isDead,boolean,false,false, , ,false,<default>
+javaPackage,boolean,false,false, , ,true,<default>
+javaProject,JavaProject,false,false, , ,true,<default>
+javaProject,boolean,false,false, , ,true,<default>
+name,String,false,false, , ,true,<default>
+out,PrintStream,false,false, , ,false,<default>
+subFiles,Map,false,false, , ,false,<default>
+subModules,Map,false,false, , ,false,<default>
+superModule,CvsModule,false,false, , ,true,<default>
+toOutputClassNum,boolean,false,false, , ,false,<default>
+toOutputDeletedFileNum,boolean,false,false, , ,false,<default>
+toOutputFileNum,boolean,false,false, , ,false,<default>
+toOutputModuleNum,boolean,false,false, , ,false,<default>
+toOutputPackageNum,boolean,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

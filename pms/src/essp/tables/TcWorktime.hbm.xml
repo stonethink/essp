@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="essp.tables.TcWorktime"
+    table="tc_worktime"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="tc_worktime"
+    </meta>
+
+    <id
+        name="rid"
+        type="java.lang.Long"
+        column="RID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="RID"
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="wtStarttime"
+        type="java.lang.String"
+        column="WT_STARTTIME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WT_STARTTIME"
+            length="20"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="wtEndtime"
+        type="java.lang.String"
+        column="WT_ENDTIME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WT_ENDTIME"
+            length="20"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="rst"
+        type="java.lang.String"
+        column="RST"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RST"
+            length="1"
+        </meta>
+    </property>
+    <property
+        name="rut"
+        type="java.util.Date"
+        column="RUT"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RUT"
+            length="10"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="rct"
+        type="java.util.Date"
+        column="RCT"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RCT"
+            length="10"
+            not-null="true"
+        </meta>
+    </property>
+
+    <!-- Associations -->
+
+
+</class>
+</hibernate-mapping>

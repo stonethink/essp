@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<class  name="db.essp.cbs.CbsBgtLaborMon"  table="cbs_bgt_labor_mon" dynamic-update="true" dynamic-insert="true">
+    <id  name="rid" type="java.lang.Long" column="RID">
+        <generator class="assigned" />
+    </id>
+
+    <property name="month" type="java.util.Date" column="MONTH" length="19">
+    </property>
+    <property name="currency" type="java.lang.String" column="CURRENCY" length="50">
+    </property>
+    <property name="bgtUnitNum" type="java.lang.Double" column="BGT_UNIT_NUM" length="10" >
+    </property>
+    <property name="bgtAmt"  type="java.lang.Double" column="BGT_AMT" length="14" >
+    </property>
+    <property name="rst" type="java.lang.String" column="RST" length="1">
+    </property>
+    <property name="rct" type="java.util.Date" column="RCT" length="19">
+    </property>
+    <property name="rut" type="java.util.Date" column="RUT" length="19">
+    </property>
+
+    <!-- Associations -->
+
+    <!-- bi-directional many-to-one association to CbsBgtLabor -->
+    <many-to-one
+        name="cbsBgtLabor"
+        class="db.essp.cbs.CbsBgtLabor"
+        not-null="true"
+    >
+        <column name="BGT_LABOR_RID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

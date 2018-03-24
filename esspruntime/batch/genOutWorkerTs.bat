@@ -1,0 +1,1 @@
+java -cp essp_batch.jar server.essp.timesheet.outwork.logic.AutoGenerateTimeSheet 0 1>>generalTs.log

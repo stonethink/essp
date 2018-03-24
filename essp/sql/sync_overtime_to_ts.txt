@@ -1,0 +1,31 @@
+create or replace trigger sync_overtime_to_ts
+  after insert or update or delete on tc_overtime_detail  
+  for each row
+--此触發器將加班的時間資料結轉到工時系統
+declare
+  p_site varchar2(100);
+  p_loginId varchar2(100);
+  p_status varchar2(20);
+  p_acntId varchar2(50);
+  p_unitCode varchar2(50);
+begin
+p_site:='WH';--公司代碼，各site定義不同
+if INSERTING then 
+  --到main表中查詢loginId、狀態、專案代碼、部門代碼
+  select m.login_id,m.status,a.acnt_id,u.unit_code 
+  into p_loginId,p_status,p_acntId,p_unitCode
+  from tc_overtime m, pms_acnt a, essp_upms_unit u
+  where m.rid=:NEW.overtime_id 
+  and m.acnt_rid=a.rid 
+  and a.acnt_organization=u.unit_id;
+  --將資料插入工時系統
+  insert into ATT_OVERTIME@DATABASELINK_TO_81(company_id, employee_id, overtime_date, unit_code, project_code, hours, actual_hours, status, rct, rut, overtime_detail_id) 
+  values(p_site, p_loginId, :NEW.overtime_day, p_unitCode, p_acntId, :NEW.hours, :NEW.hours, p_status, sysdate, sysdate, :NEW.rid);
+elsif UPDATING then
+  --更新時更新加班時數
+  update ATT_OVERTIME@DATABASELINK_TO_81 set hours=:OLD.hours, actual_hours=:OLD.hours, rut=sysdate where overtime_detail_id=:OLD.rid;
+elsif DELETING then
+  --刪除時刪除工時系統中對應的資料
+  delete from ATT_OVERTIME@DATABASELINK_TO_81 where overtime_detail_id=:OLD.rid;
+end if;
+end sycn_overtime_to_ts;

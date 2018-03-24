@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<class  name="db.essp.code.SysAcntActivityType" table="sys_acnt_activity_type">
+    <id name="rid" type="java.lang.Long"  column="RID">
+        <generator class="assigned" />
+    </id>
+
+    <property name="type" type="string"  column="TYPE"  not-null="true"  length="50"/>
+    <property name="description" type="string" column="DESCRIPTION" length="1000"/>
+    <property name="sequence" type="java.lang.Long" column="SEQUENCE" length="8"/>
+    <property name="rst" type="string"  column="RST" length="1"/>
+    <property name="rct" type="date"  column="RCT" />
+    <property name="rut" type="date" column="RUT"/>
+
+
+    <set  name="sysActivityCodes" lazy="true" inverse="true" cascade="none">
+        <key>
+            <column name="TYPE_RID" />
+        </key>
+        <one-to-many 
+            class="db.essp.code.SysActivityCode"
+        />
+    </set>
+</class>
+</hibernate-mapping>

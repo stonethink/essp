@@ -1,0 +1,847 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="essp.tables.EsspPwpTemcln" 
+    table="essp_pwp_temcln"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="essp_pwp_temcln"
+    </meta>
+
+    <id
+        name="id"
+        type="java.lang.Long"
+        column="ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="ID"
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="schno"
+        type="java.lang.String"
+        column="SCHNO"
+        length="42"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SCHNO"
+            length="42"
+        </meta>    
+    </property>
+    <property
+        name="clnitem"
+        type="java.lang.String"
+        column="CLNITEM"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CLNITEM"
+            length="65535"
+        </meta>    
+    </property>
+    <property
+        name="clnplace"
+        type="java.lang.String"
+        column="CLNPLACE"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CLNPLACE"
+            length="65535"
+        </meta>    
+    </property>
+    <property
+        name="clndate"
+        type="java.sql.Date"
+        column="CLNDATE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CLNDATE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="clntime"
+        type="java.lang.String"
+        column="CLNTIME"
+        length="16"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CLNTIME"
+            length="16"
+        </meta>    
+    </property>
+    <property
+        name="clnruntime"
+        type="java.lang.String"
+        column="CLNRUNTIME"
+        length="16"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CLNRUNTIME"
+            length="16"
+        </meta>    
+    </property>
+    <property
+        name="plnpatha"
+        type="java.lang.String"
+        column="PLNPATHA"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PLNPATHA"
+            length="65535"
+        </meta>    
+    </property>
+    <property
+        name="delview"
+        type="java.lang.String"
+        column="DELVIEW"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DELVIEW"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="conIp"
+        type="java.lang.String"
+        column="CON_IP"
+        length="45"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CON_IP"
+            length="45"
+        </meta>    
+    </property>
+    <property
+        name="conUser"
+        type="java.lang.String"
+        column="CON_USER"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CON_USER"
+            length="80"
+        </meta>    
+    </property>
+    <property
+        name="conTime"
+        type="java.lang.String"
+        column="CON_TIME"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CON_TIME"
+            length="80"
+        </meta>    
+    </property>
+    <property
+        name="cost"
+        type="java.lang.String"
+        column="COST"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="COST"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="userId"
+        type="java.lang.String"
+        column="USER_ID"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="USER_ID"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="status"
+        type="java.lang.String"
+        column="STATUS"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="STATUS"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="summarization"
+        type="java.lang.String"
+        column="SUMMARIZATION"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SUMMARIZATION"
+            length="65535"
+        </meta>    
+    </property>
+    <property
+        name="actualduration"
+        type="java.lang.String"
+        column="ACTUALDURATION"
+        length="16"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTUALDURATION"
+            length="16"
+        </meta>    
+    </property>
+    <property
+        name="actualdate"
+        type="java.sql.Date"
+        column="ACTUALDATE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTUALDATE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="completed"
+        type="java.lang.String"
+        column="COMPLETED"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="COMPLETED"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="activityType"
+        type="java.lang.String"
+        column="ACTIVITY_TYPE"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTIVITY_TYPE"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="activityStatus"
+        type="java.lang.String"
+        column="ACTIVITY_STATUS"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTIVITY_STATUS"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="priority"
+        type="java.lang.String"
+        column="PRIORITY"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PRIORITY"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="plannedCompletion"
+        type="java.sql.Date"
+        column="PLANNED_COMPLETION"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PLANNED_COMPLETION"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="actualCompletion"
+        type="java.sql.Date"
+        column="ACTUAL_COMPLETION"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTUAL_COMPLETION"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="alarm"
+        type="java.lang.String"
+        column="ALARM"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ALARM"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="contact"
+        type="java.lang.Long"
+        column="CONTACT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CONTACT"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="account"
+        type="java.lang.Long"
+        column="ACCOUNT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACCOUNT"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="opportunity"
+        type="java.lang.Long"
+        column="OPPORTUNITY"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPPORTUNITY"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="attachment"
+        type="java.lang.String"
+        column="ATTACHMENT"
+        length="200"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ATTACHMENT"
+            length="200"
+        </meta>    
+    </property>
+    <property
+        name="attachmentDesc"
+        type="java.lang.String"
+        column="ATTACHMENT_DESC"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ATTACHMENT_DESC"
+            length="65535"
+        </meta>    
+    </property>
+    <property
+        name="actual"
+        type="java.math.BigDecimal"
+        column="ACTUAL"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTUAL"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="actualCurrency"
+        type="java.lang.String"
+        column="ACTUAL_CURRENCY"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTUAL_CURRENCY"
+            length="5"
+        </meta>    
+    </property>
+    <property
+        name="contractCode"
+        type="java.lang.Long"
+        column="CONTRACT_CODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CONTRACT_CODE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="budget"
+        type="java.math.BigDecimal"
+        column="BUDGET"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BUDGET"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="budgetCurrency"
+        type="java.lang.String"
+        column="BUDGET_CURRENCY"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BUDGET_CURRENCY"
+            length="5"
+        </meta>    
+    </property>
+    <property
+        name="opportunityStep"
+        type="java.lang.Long"
+        column="OPPORTUNITY_STEP"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPPORTUNITY_STEP"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="salesType"
+        type="java.lang.Long"
+        column="SALES_TYPE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SALES_TYPE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="owner"
+        type="java.lang.String"
+        column="OWNER"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OWNER"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="delFlag"
+        type="java.lang.String"
+        column="DEL_FLAG"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DEL_FLAG"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="actCode"
+        type="java.lang.String"
+        column="ACT_CODE"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACT_CODE"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="wbsId"
+        type="java.lang.String"
+        column="WBS_ID"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBS_ID"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="cstrType"
+        type="java.lang.String"
+        column="CSTR_TYPE"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CSTR_TYPE"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="cstrDate"
+        type="java.sql.Date"
+        column="CSTR_DATE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CSTR_DATE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="cstrType2"
+        type="java.lang.String"
+        column="CSTR_TYPE2"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CSTR_TYPE2"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="cstrDate2"
+        type="java.sql.Date"
+        column="CSTR_DATE2"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CSTR_DATE2"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="originalDefect"
+        type="java.lang.Long"
+        column="ORIGINAL_DEFECT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ORIGINAL_DEFECT"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="planStartDate"
+        type="java.sql.Date"
+        column="PLAN_START_DATE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PLAN_START_DATE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="computeStartDate"
+        type="java.sql.Date"
+        column="COMPUTE_START_DATE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="COMPUTE_START_DATE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="computeEndDate"
+        type="java.sql.Date"
+        column="COMPUTE_END_DATE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="COMPUTE_END_DATE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="estWt"
+        type="java.math.BigDecimal"
+        column="EST_WT"
+        length="15"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EST_WT"
+            length="15"
+        </meta>    
+    </property>
+    <property
+        name="activityManager"
+        type="java.lang.String"
+        column="ACTIVITY_MANAGER"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTIVITY_MANAGER"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="activityBrief"
+        type="java.lang.String"
+        column="ACTIVITY_BRIEF"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTIVITY_BRIEF"
+            length="65535"
+        </meta>    
+    </property>
+    <property
+        name="accountId"
+        type="java.lang.String"
+        column="ACCOUNT_ID"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACCOUNT_ID"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="taskId"
+        type="java.lang.String"
+        column="TASK_ID"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TASK_ID"
+            length="100"
+        </meta>    
+    </property>
+    <property
+        name="customer"
+        type="java.lang.Long"
+        column="CUSTOMER"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CUSTOMER"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="planUnit"
+        type="java.lang.String"
+        column="PLAN_UNIT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PLAN_UNIT"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="actualUnit"
+        type="java.lang.String"
+        column="ACTUAL_UNIT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTUAL_UNIT"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="remainUnit"
+        type="java.lang.String"
+        column="REMAIN_UNIT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="REMAIN_UNIT"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="completeUnit"
+        type="java.lang.String"
+        column="COMPLETE_UNIT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="COMPLETE_UNIT"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="currentDefect"
+        type="java.lang.Long"
+        column="CURRENT_DEFECT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CURRENT_DEFECT"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="distributeDefect"
+        type="java.lang.Long"
+        column="DISTRIBUTE_DEFECT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DISTRIBUTE_DEFECT"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="completedRate"
+        type="java.lang.Long"
+        column="COMPLETED_RATE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="COMPLETED_RATE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="actualdateFlag"
+        type="java.lang.String"
+        column="ACTUALDATE_FLAG"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTUALDATE_FLAG"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="actualCompletionFlag"
+        type="java.lang.String"
+        column="ACTUAL_COMPLETION_FLAG"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTUAL_COMPLETION_FLAG"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="originalBudget"
+        type="java.lang.Long"
+        column="ORIGINAL_BUDGET"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ORIGINAL_BUDGET"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="currentBudget"
+        type="java.lang.Long"
+        column="CURRENT_BUDGET"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CURRENT_BUDGET"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="distributeBudget"
+        type="java.lang.Long"
+        column="DISTRIBUTE_BUDGET"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DISTRIBUTE_BUDGET"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="templateId"
+        type="java.lang.String"
+        column="TEMPLATE_ID"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TEMPLATE_ID"
+            length="20"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

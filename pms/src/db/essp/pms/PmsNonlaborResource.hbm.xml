@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+  <class name="db.essp.pms.NonlaborResource" table="pms_nonlabor_resources">
+    <id name="rid" type="long" column="RID">
+      <generator class="assigned"/>
+    </id>
+
+    <property name="envName" type="string" column="ENV_NAME" length="200"/>
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date" column="RCT"/>
+    <property name="rut" type="date" column="RUT"/>
+
+    <set name="nonlaborResItems" lazy="true" inverse="true" cascade="none">
+      <key>
+        <column name="ENV_RID"/>
+      </key>
+      <one-to-many class="db.essp.pms.NonlaborResItem"/>
+    </set>
+
+    <many-to-one name="account" class="db.essp.pms.Account" not-null="true">
+      <column name="ACNT_RID"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

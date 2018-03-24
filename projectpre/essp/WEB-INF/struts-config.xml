@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+	<data-sources />
+	<form-beans>
+		<form-bean name="AreaCode" type="server.essp.projectpre.ui.project.maintenance.AfSite" />
+		<!--BD代码设置Form -->
+		<form-bean name="BdCode" type="server.essp.projectpre.ui.project.maintenance.AfBd" />
+
+        <form-bean name="ClassCode" type="server.essp.projectpre.ui.customer.kind.AfClassCode" />
+         <form-bean name="IdSetting" type="server.essp.projectpre.ui.customer.maintenance.AfIdSetting" />
+        <!--专案代码维护Form -->
+		<form-bean name="ProjectId" type="server.essp.projectpre.ui.project.maintenance.AfProjectId" />
+		<form-bean name="ProjectType" type="server.essp.projectpre.ui.project.product.AfProjectType" />
+        <!--专案新增申请Form -->
+        <form-bean name="ProjectAcntApp" type="server.essp.projectpre.ui.project.apply.AfProjectAcntApp" />
+        <!--专案结案申请Form -->
+        <form-bean name="ProjectConfirm" type="server.essp.projectpre.ui.project.confirm.AfProjectConfirm" />
+        <!--专案申请覆核Form -->
+        <form-bean name="ProjectCheck" type="server.essp.projectpre.ui.project.check.AfProjectCheck" />
+        <!--专案查询Form -->
+        <form-bean name="projectQueryForm" type="server.essp.projectpre.ui.project.query.AfProjectQuery" />
+        <!--专案查询搜索条件Form -->
+        <form-bean name="searchConditionForm" type="server.essp.projectpre.ui.project.query.AfSearchCondition"/>
+          <!--签约变更申请Form -->
+        <form-bean name="ContractChangeApp" type="server.essp.projectpre.ui.project.contractchange.AfContractChange"/>
+        
+        
+        <!-- 客户资料查询Form --> 
+        <form-bean name="QueryData" type="server.essp.projectpre.ui.customer.query.AfQueryData" />
+        
+        <!--Parameter维护Form -->
+		<form-bean name="Parameter" type="server.essp.projectpre.ui.parameter.AfParameter" />
+	    <!-- 客户新增申请-->
+	    <form-bean name="CustomerApplication" type="server.essp.projectpre.ui.customer.add.AfCustomerApplication" />
+	    
+	     <!-- 客户ID查询-->
+	     <form-bean name="QueryAccount" type="server.essp.projectpre.ui.common.queryaccount.AfQueryAccount" />
+	     <!-- 专案ID查询-->
+	     <form-bean name="QueryCustomer" type="server.essp.projectpre.ui.common.querycustomer.AfQueryCustomer" />
+	      
+	        <!-- 部门新增申请-->
+	     <form-bean name="DeptApplication" type="server.essp.projectpre.ui.dept.apply.AfDeptApp" />
+	     
+	</form-beans>
+	
+
+	<global-exceptions />
+	<global-forwards>
+		<forward name="success" path="/success.jsp" />
+		<forward name="failure" path="/error.jsp" />
+	</global-forwards>
+
+
+
+	<action-mappings>
+		<!-- 临时配置,直接转向主页面,正式应用时应配置IndexAction,XR -->
+		 <action path="/index" type="org.apache.struts.actions.ForwardAction" parameter="/index.jsp"/>
+		
+		<!--执行据点代码设置Action -->
+		<action name="AreaCode" path="/project/maintenance/addAreaCode" scope="request" type="server.essp.projectpre.ui.project.maintenance.AcAddAreaCode" validate="false"></action>
+		<action path="/project/maintenance/updateAreaCode" name="AreaCode" scope="request" type="server.essp.projectpre.ui.project.maintenance.AcUpdateAreaCode" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codemaintenance/AreaCodeGeneral.jsp" />
+		</action>
+		<action path="/project/maintenance/previewAreaCode" name="AreaCode" scope="request" type="server.essp.projectpre.ui.project.maintenance.AcPreviewAreaCode" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codemaintenance/AreaCodeGeneral.jsp" />
+		</action>
+		<action path="/project/maintenance/listAllAreaCode" scope="request" type="server.essp.projectpre.ui.project.maintenance.AcListAllAreaCode" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codemaintenance/AreaCodeList.jsp" />
+		</action>
+		<action path="/project/maintenance/deleteAreaCode" scope="request" type="server.essp.projectpre.ui.project.maintenance.AcDeleteAreaCode" validate="false">
+			<forward name="success" path="/project/maintenance/listAllAreaCode.do"  redirect="true"/>
+		</action>
+		
+		<!--Parameter维护Action-->
+		<action name="Parameter" path="/parameter/addParameter" scope="request" type="server.essp.projectpre.ui.parameter.AcAddParameter" validate="false"></action>
+		<action path="/parameter/updateParameter" name="Parameter" scope="request" type="server.essp.projectpre.ui.parameter.AcUpdateParameter" validate="false">
+			<forward name="success" path="/projectpre/parameter/ParameterGeneral.jsp" />
+		</action>
+		<action path="/parameter/previewParameter" name="Parameter" scope="request" type="server.essp.projectpre.ui.parameter.AcPreviewParameter" validate="false">
+			<forward name="success" path="/projectpre/parameter/ParameterGeneral.jsp" />
+		</action>
+		<action path="/parameter/listAllParameter" name="Parameter" scope="request" type="server.essp.projectpre.ui.parameter.AcListAllParameter" validate="false">
+			<forward name="success" path="/projectpre/parameter/ParameterList.jsp"/>
+		</action>
+		
+		<action path="/parameter/listProjectType" name="Parameter" scope="request" type="server.essp.projectpre.ui.project.product.AcListAllProjectType" validate="false">
+			<forward name="success" path="/projectpre/parameter/ParameterList.jsp"/>
+		</action>
+		<action path="/parameter/listProductType" name="Parameter" scope="request" type="server.essp.projectpre.ui.project.product.AcListAllProductType" validate="false">
+			<forward name="success" path="/projectpre/parameter/ParameterList.jsp"/>
+		</action>
+		<action path="/parameter/listAttributeType" name="Parameter" scope="request" type="server.essp.projectpre.ui.project.product.AcListAllProductAttribute" validate="false">
+			<forward name="success" path="/projectpre/parameter/ParameterList.jsp"/>
+		</action>
+		<action path="/parameter/listWorkItem" name="Parameter" scope="request" type="server.essp.projectpre.ui.project.product.AcListAllWorkItem" validate="false">
+			<forward name="success" path="/projectpre/parameter/ParameterList.jsp"/>
+		</action>
+		<action path="/parameter/listTechDomain" name="Parameter" scope="request" type="server.essp.projectpre.ui.project.product.AcListAllTechDocmain" validate="false">
+			<forward name="success" path="/projectpre/parameter/ParameterList.jsp"/>
+		</action>
+		<action path="/parameter/listOrgLanguage" name="Parameter" scope="request" type="server.essp.projectpre.ui.project.product.AcListAllOriginalLanguage" validate="false">
+			<forward name="success" path="/projectpre/parameter/ParameterList.jsp"/>
+		</action>
+		<action path="/parameter/listTranLanguage" name="Parameter" scope="request" type="server.essp.projectpre.ui.project.product.AcListAllTranslation" validate="false">
+        	<forward name="success" path="/projectpre/parameter/ParameterList.jsp"/>
+		</action>
+        <action path="/parameter/listBusinessType" name="Parameter" scope="request" type="server.essp.projectpre.ui.customer.kind.AcListAllBusinessType" validate="false">
+			<forward name="success" path="/projectpre/parameter/ParameterList.jsp"/>
+		</action>
+		<action path="/parameter/listCountryCode" name="Parameter" scope="request" type="server.essp.projectpre.ui.customer.kind.AcListAllCountryCode" validate="false">
+			<forward name="success" path="/projectpre/parameter/ParameterList.jsp"/>
+		</action>
+		
+		<action path="/parameter/deleteParameter" name="Parameter" scope="request" type="server.essp.projectpre.ui.parameter.AcDeleteParameter" validate="false">
+			<forward name="success" path="/projectpre/parameter/ParameterBridge.jsp" />
+		</action>
+		
+		<!--BD代码设置Action-->
+		<action name="BdCode" path="/project/maintenance/addBdCode" scope="request" type="server.essp.projectpre.ui.project.maintenance.AcAddBdCode" validate="false"></action>
+		<action path="/project/maintenance/updateBdCode" name="BdCode" scope="request" type="server.essp.projectpre.ui.project.maintenance.AcUpdateBdCode" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codemaintenance/BdCodeGeneral.jsp" />
+		</action>
+		<action path="/project/maintenance/previewBdCode" name="BdCode" scope="request" type="server.essp.projectpre.ui.project.maintenance.AcPreviewBdCode" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codemaintenance/BdCodeGeneral.jsp" />
+		</action>
+        <action path="/pp/deleteBdCode" scope="request" type="server.essp.projectpre.ui.project.maintenance.AcDeleteBdCode" validate="false">
+			<forward name="success" path="/pp/listAllBdCode.do" />
+        </action>
+        <action path="/project/maintenance/listAllBdCode" scope="request" type="server.essp.projectpre.ui.project.maintenance.AcListAllBdCode" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codemaintenance/BdCodeList.jsp" />
+		</action>
+		<action path="/project/maintenance/deleteBdCode" scope="request" type="server.essp.projectpre.ui.project.maintenance.AcDeleteBdCode" validate="false">
+			<forward name="success" path="/project/maintenance/listAllBdCode.do" redirect="true"/>
+		</action>
+		
+		
+		<action path="/pc/listAllByKind" scope="request" type="server.essp.projectpre.ui.customer.kind.AcListAllByKind" validate="false">
+			<forward name="success" path="/projectpre/customer/typeinfo/TypeCodeList.jsp" />
+		</action>
+        
+        <action name="ClassCode" path="/pc/addClassCode" scope="request" type="server.essp.projectpre.ui.customer.kind.AcAddClassCode" validate="false"></action>
+		 
+		 <action path="/pc/deleteClassCode" scope="request" type="server.essp.projectpre.ui.customer.kind.AcDeleteClassCode" validate="false">
+			<forward name="success" path="/pc/listAllByKind.do?kind=BusinessType" redirect="true"/>
+		</action>
+		<action path="/pc/updateClassCode" name="ClassCode" scope="request" type="server.essp.projectpre.ui.customer.kind.AcUpdataClassCode" validate="false">
+			<forward name="success" path="/projectpre/customer/typeinfo/TypeCodeGeneral.jsp" />
+		</action>
+		<action path="/pc/previewClassCode" name="ClassCode" scope="request" type="server.essp.projectpre.ui.customer.kind.AcPreviewClassCode" validate="false">
+			<forward name="success" path="/projectpre/customer/typeinfo/TypeCodeGeneral.jsp" />
+		</action>
+		
+		
+		<!--专案代码维护Action-->
+		<action path="/project/maintenance/displayProjectId" name="ProjectId" scope="request" type="server.essp.projectpre.ui.project.maintenance.AcDisplayProjectId" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codemaintenance/ProjectCodeSetting.jsp" />
+		</action>
+		<action path="/project/maintenance/addOrUpdateProjectSetting" name="ProjectId" scope="request" type="server.essp.projectpre.ui.project.maintenance.AcAddOrUpdateProjectSetting"  validate="false">
+			<forward name="success" path="/project/maintenance/displayProjectId.do?kind=ProjectCode" redirect="true"/>
+		</action>
+		<!--专案新增申请Action -->
+		<action path="/project/apply/listAllProjectAcntApp" scope="request" type="server.essp.projectpre.ui.project.apply.AcListAllProjectAcntApp" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codeapply/ApplyRecordList.jsp" />
+			<forward name="change" path="/projectpre/projectcode/codechange/ApplyRecordList.jsp" />
+		</action>
+		<action path="/project/apply/previewProjectAcntApp" name="ProjectAcntApp" scope="request" type="server.essp.projectpre.ui.project.apply.AcPreviewProjectAcntApp" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codeapply/MasterData.jsp" />
+		</action>
+		<action path="/project/apply/previewAddProjectAcntApp" name="ProjectAcntApp" scope="request" type="server.essp.projectpre.ui.project.apply.AcPreviewAddProjectAcntApp" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codeapply/MasterData.jsp" />
+		</action>
+		<action path="/project/apply/addProjectAcntApp" name="ProjectAcntApp" scope="request" type="server.essp.projectpre.ui.project.apply.AcAddProjectAcntApp" validate="false">	
+		</action>
+		<action path="/project/apply/updateProjectAcntApp" name="ProjectAcntApp" scope="request" type="server.essp.projectpre.ui.project.apply.AcUpdateProjectAcntApp" validate="false">
+			<forward name="success" path="/project/apply/previewProjectAcntApp.do" />
+		</action>
+		<action path="/project/apply/deleteProjectAcntApp" name="ProjectAcntApp" scope="request" type="server.essp.projectpre.ui.project.apply.AcDeleteProjectAcntApp" validate="false">
+			<forward name="success" path="/project/apply/listAllProjectAcntApp.do" />
+		</action>
+		<action path="/project/apply/previewTechInfoApp"  scope="request" type="server.essp.projectpre.ui.project.apply.AcPreviewTechInfoApp" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codeapply/TechnicalData.jsp" />
+		</action>
+		<action path="/project/apply/previewCustomerInfoApp"  scope="request" type="server.essp.projectpre.ui.project.apply.AcPreviewCustomerInfoApp" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codeapply/ProjectData.jsp" />
+		</action>
+		<action path="/project/apply/previewAddTechInfoApp"  scope="request" type="server.essp.projectpre.ui.project.apply.AcPreviewAddTechInfoApp" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codeapply/TechnicalData.jsp" />
+		</action>
+		<action path="/project/apply/previewAddCustomerInfoApp"  scope="request" type="server.essp.projectpre.ui.project.apply.AcPreviewAddCustomerInfoApp" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codeapply/ProjectData.jsp" />
+		</action>
+		<!--专案变更申请Action -->
+		<action path="/project/change/listAllProjectChangeApp" scope="request" type="server.essp.projectpre.ui.project.change.AcListAllProjectChangeApp" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codechange/ApplyRecordList.jsp" />
+		</action>
+		<!--专案结案申请Action -->
+		<action path="/project/confirm/listProjectConfirm" scope="request" type="server.essp.projectpre.ui.project.confirm.AcListProjectConfirm" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codeconfirm/CodeConfirmDetail.jsp" />
+		</action>
+		<action path="/project/confirm/previewProjectConfirm"  scope="request" type="server.essp.projectpre.ui.project.confirm.AcPreviewProjectConfirm" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codeconfirm/PopCodeConfirm.jsp" />
+		</action>
+		<action path="/project/confirm/confirmProjectApp" name="ProjectConfirm"  scope="request" type="server.essp.projectpre.ui.project.confirm.AcConfirmProjectApp" validate="false">
+		</action>
+		<!--专案覆核Action -->
+		<action path="/project/check/listProjectAppCheck" scope="request" type="server.essp.projectpre.ui.project.check.AcListProjectAppCheck" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codecheck/CodeCheckDetail.jsp" />
+		</action>
+		<action path="/project/check/checkProjectApp" name="ProjectAcntApp"  scope="request" type="server.essp.projectpre.ui.project.check.AcCheckProjectApp" validate="false">
+		</action>
+		<action path="/project/check/checkConfirmProjectApp" name="ProjectConfirm"  scope="request" type="server.essp.projectpre.ui.project.check.AcCheckConfirmProjectApp" validate="false">
+		</action>		 
+		<action path="/project/check/previewCheckProjectChange" scope="request" type="server.essp.projectpre.ui.project.check.AcPreviewCheckProjectChange" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codecheck/CodeCheckCompare.jsp" />
+		</action>
+		<action path="/project/check/checkChangeProjectApp" name="ProjectCheck"  scope="request" type="server.essp.projectpre.ui.project.check.AcCheckChangeProjectApp" validate="false">
+		</action>
+		
+		<action path="/project/check/initialAcntContApp" name="ContractChangeApp"  scope="request" type="server.essp.projectpre.ui.project.check.AcInitialContApp" validate="false">
+		<forward name="success" path="/projectpre/projectcode/codecheck/ContractAcntApp.jsp" />
+		</action>
+		<action path="/project/check/confirmAcntContApp" name="ContractChangeApp"  scope="request" type="server.essp.projectpre.ui.project.check.AcConfirmAcntContApp" validate="false">
+		</action>
+		<!--专案查询Action -->
+		<action path="/project/query/projectQueryPre"  scope="request" type="server.essp.projectpre.ui.project.query.AcProjectQueryPre" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codequery/QueryProject.jsp" />
+		</action>
+		<action path="/project/query/searchCondition" name="searchConditionForm" scope="request" type="server.essp.projectpre.ui.project.query.AcSearchCondition" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codequery/closeOpener.jsp" />
+		</action>
+		<action path="/project/query/projectQueryList" name="projectQueryForm" scope="request" type="server.essp.projectpre.ui.project.query.AcProjectQuery" validate="false">
+			<forward name="success" path="/projectpre/projectcode/codequery/QueryRecordList.jsp" />
+		</action> 
+		
+		<!-- 签约变更作业Action-->
+        <action path="/project/contractchange/listAllContApp" name="ContractChangeApp" scope="request" type="server.essp.projectpre.ui.project.contractchange.AcListAllContApp" validate="false">
+			<forward name="success" path="/projectpre/projectcode/contractchange/ContractList.jsp" />
+		</action>
+
+        <action path="/project/contractchange/deleteContApp" name="ContractChangeApp" scope="request" type="server.essp.projectpre.ui.project.contractchange.AcDeleteContApp" validate="false">
+			<forward name="success" path="/project/contractchange/listAllContApp.do" redirect="true"/>
+		</action>
+		
+		<action path="/project/contractchange/addContApp" name="ContractChangeApp" scope="request" type="server.essp.projectpre.ui.project.contractchange.AcAddContApp" validate="false">
+		</action>
+		
+		<action path="/project/contractchange/displayContApp" name="ContractChangeApp" scope="request" type="server.essp.projectpre.ui.project.contractchange.AcDisplayContApp" validate="false">
+			<forward name="success" path="/projectpre/projectcode/contractchange/ContractData.jsp" />
+        </action>   
+        
+        <action path="/project/contractchange/updateContApp" name="ContractChangeApp" scope="request" type="server.essp.projectpre.ui.project.contractchange.AcUpdateContApp" validate="false">
+			<forward name="success" path="/project/contractchange/displayContApp.do" />
+        </action>   
+        
+        <action path="/project/contractchange/selectAcntId" name="ContractChangeApp" scope="request" type="server.essp.projectpre.ui.project.contractchange.AcSelectAcntId" validate="false">
+			<forward name="success" path="/projectpre/projectcode/contractchange/ChangeData.jsp" />
+        </action>  
+		
+         <action path="/project/contractchange/initialContApp" name="ContractChangeApp" scope="request" type="server.essp.projectpre.ui.project.contractchange.AcInitialContApp" validate="false">
+        <forward name="success" path="/projectpre/projectcode/contractchange/ChangeData.jsp" />
+        </action> 
+		
+		
+		<!-- 客户编码资料维护作业Action-->
+		<action path="/customer/maintenance/updateIdSetting" name="IdSetting" scope="request" type="server.essp.projectpre.ui.customer.maintenance.AcUpdateIdSetting" validate="false">
+			<forward name="success" path="/customer/maintenance/previewIdSetting.do" redirect="true"/>
+		</action>
+		
+		<action path="/customer/maintenance/previewIdSetting" name="IdSetting" scope="request" type="server.essp.projectpre.ui.customer.maintenance.AcPreviewIdSetting" validate="false">
+			<forward name="success" path="/projectpre/customer/infomaintenance/CustomerInfoSetting.jsp" />
+		</action>
+        
+        <!-- 客户资料查询Action -->
+        <action path="/customer/query/customerQueryData" scope="request" type="server.essp.projectpre.ui.customer.query.AcQueryData"  validate="false">
+		    <forward name="success" path="/projectpre/customer/infoquery/QueryData.jsp" />
+		</action>
+		
+		<action name="QueryData" path="/customer/query/customerQueryList" scope="request"  type="server.essp.projectpre.ui.customer.query.AcQueryList"  validate="false">
+		    <forward name="success" path="/projectpre/customer/infoquery/QueryList.jsp" />
+		</action>
+		
+		<!-- 客户基本资料新建作业Action-->
+
+		<action path="/customer/add/listAllCustAppInfo" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.add.AcListAllCustAppInfo" validate="false">
+			<forward name="success" path="/projectpre/customer/infoadd/CustomerList.jsp" />
+		</action>
+		
+		<action path="/customer/add/deleteCustApp" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.add.AcDeleteCustomerApp" validate="false">
+			<forward name="success" path="/customer/add/listAllCustAppInfo.do" redirect="true"/>
+		</action>
+		
+		<action path="/customer/add/addCustApp" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.add.AcAddCustomerApp" validate="false">
+		</action>
+		
+		<action path="/customer/add/displayCustApp" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.add.AcDisplayCustomerApp" validate="false">
+			<forward name="success" path="/projectpre/customer/infoadd/AddData.jsp" />
+        </action>   
+        
+        <action path="/customer/add/updateCustApp" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.add.AcUpdateCustApp" validate="false">
+			<forward name="success" path="/customer/add/displayCustApp.do" />
+        </action>   
+		
+         <action path="/customer/add/initialCustApp" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.add.AcInitialCustApp" validate="false">
+        <forward name="success" path="/projectpre/customer/infoadd/CusInfoAdd.jsp" />
+        </action>  
+		
+		<!-- 客户基本资料变更作业Action-->
+        <action path="/customer/change/listAllCustApp" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.change.AcListAllCustApp" validate="false">
+			<forward name="success" path="/projectpre/customer/infochange/ChangeList.jsp" />
+		</action>
+
+        <action path="/customer/change/deleteCustApp" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.change.AcDeleteCustApp" validate="false">
+			<forward name="success" path="/customer/change/listAllCustApp.do" redirect="true"/>
+		</action>
+		
+		<action path="/customer/change/addCustApp" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.change.AcAddCustApp" validate="false">
+		</action>
+		
+		<action path="/customer/change/displayCustApp" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.change.AcDisplayCustApp" validate="false">
+			<forward name="success" path="/projectpre/customer/infochange/ChangeData.jsp" />
+        </action>   
+        
+        <action path="/customer/change/updateCustApp" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.change.AcUpdateCustApp" validate="false">
+			<forward name="success" path="/customer/change/displayCustApp.do" />
+        </action>   
+        <action path="/customer/change/selectCustId" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.change.AcSelectCustId" validate="false">
+			<forward name="success" path="/projectpre/customer/infochange/CusInfoAdd.jsp" />
+        </action>  
+		
+         <action path="/customer/change/initialCust" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.change.AcInitialCust" validate="false">
+        <forward name="success" path="/projectpre/customer/infochange/CusInfoAdd.jsp" />
+        </action>  
+
+<!-- 客户基本资料覆核作业Action-->
+        <action path="/customer/check/listAllApp" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.check.AcListAllApp" validate="false">
+			<forward name="success" path="/projectpre/customer/infocheck/CustomerInfoCheckList.jsp" />
+		</action>
+        <action path="/customer/check/checkAdd" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.check.AcCheckAdd" validate="false">
+			<forward name="success" path="/projectpre/customer/infocheck/CodeCheck.jsp" />
+        </action>   
+         <action path="/customer/check/checkChange" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.check.AcCheckChange" validate="false">
+			<forward name="success" path="/projectpre/customer/infocheck/CusInfoCheck.jsp" />
+        </action>   
+       <action path="/customer/check/confirmAddApp" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.check.AcConfirmAddApp" validate="false">
+       <forward name="duplicate" path="/projectpre/customer/infocheck/CodeCheck.jsp" />
+		</action>
+		<action path="/customer/check/confirmAlterApp" name="CustomerApplication" scope="request" type="server.essp.projectpre.ui.customer.check.AcConfirmAlterApp" validate="false">
+		</action>
+		<!-- 部门代码申请作业Action-->
+
+		<action path="/dept/apply/listAllDeptApp" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.apply.AcListAllDeptApp" validate="false">
+			<forward name="success" path="/projectpre/deptcode/codeApply/DeptCodeList.jsp" />
+		</action>
+		
+		<action path="/dept/apply/deleteDeptApp" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.apply.AcDeleteDeptApp" validate="false">
+			<forward name="success" path="/dept/apply/listAllDeptApp.do" redirect="true"/>
+		</action>
+		
+		<action path="/dept/apply/addDeptApp" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.apply.AcAddDeptApp" validate="false">
+		</action>
+		
+		<action path="/dept/apply/displayDeptApp" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.apply.AcDisplayDeptApp" validate="false">
+			<forward name="success" path="/projectpre/deptcode/codeApply/DeptCodeAdd.jsp" />
+        </action>   
+        
+        <action path="/dept/apply/updateDeptApp" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.apply.AcUpdateDeptApp" validate="false">
+			<forward name="success" path="/dept/apply/displayDeptApp.do" />
+        </action>   
+		
+         <action path="/dept/apply/initialDeptApp" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.apply.AcInitialDeptApp" validate="false">
+        <forward name="success" path="/projectpre/deptcode/codeApply/dataAdd.jsp" />
+        </action>  
+		
+ <!-- 部门代码变更作业Action-->
+
+		<action path="/dept/change/listAllDeptApp" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.change.AcListAllDeptApp" validate="false">
+			<forward name="success" path="/projectpre/deptcode/codeEdit/CodeEditList.jsp" />
+		</action>
+		
+		<action path="/dept/change/deleteDeptApp" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.change.AcDeleteDeptApp" validate="false">
+			<forward name="success" path="/dept/change/listAllDeptApp.do" redirect="true"/>
+		</action>
+		
+		<action path="/dept/change/addDeptApp" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.change.AcAddDeptApp" validate="false">
+		</action>
+		
+		<action path="/dept/change/displayDeptApp" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.change.AcDisplayDeptApp" validate="false">
+			<forward name="success" path="/projectpre/deptcode/codeEdit/DeptCodeEdit.jsp" />
+        </action>   
+        
+        <action path="/dept/change/updateDeptApp" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.change.AcUpdateDeptApp" validate="false">
+			<forward name="success" path="/dept/change/displayDeptApp.do" />
+        </action>   
+		
+         <action path="/dept/change/initialDeptApp" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.change.AcInitialDeptApp" validate="false">
+        <forward name="success" path="/projectpre/deptcode/codeEdit/EditData.jsp" />
+        </action> 
+        
+          <action path="/dept/change/selectAcntId" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.change.AcSelectAcntId" validate="false">
+			<forward name="success" path="/projectpre/deptcode/codeEdit/EditData.jsp" />
+        </action>   
+        <!-- 部门代码覆核作业Action-->
+
+		<action path="/dept/check/listAllDeptApp" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.check.AcListAllDeptApp" validate="false">
+			<forward name="success" path="/projectpre/deptcode/codeCheck/ListCheck.jsp" />
+		</action>
+		
+		<action path="/dept/check/initialAddApp" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.check.AcInitialAddApp" validate="false">
+			<forward name="success" path="/projectpre/deptcode/codeCheck/CodeCheck.jsp" />
+		</action>		
+		<action path="/dept/check/confirmAddApp" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.check.AcConfirmAddApp" validate="false">			
+        </action>   
+        
+        <action path="/dept/check/confirmAlterApp" name="DeptApplication" scope="request" type="server.essp.projectpre.ui.dept.check.AcConfirmAlterApp" validate="false">			
+        </action>   
+		
+         <action path="/dept/change/initialAlterApp" scope="request" type="server.essp.projectpre.ui.dept.check.AcInitialAlterApp" validate="false">
+        <forward name="success" path="/projectpre/deptcode/codeCheck/AlterCheck.jsp"  />
+        </action>
+        
+      <!-- 同步异常信息覆核作业Action-->
+		<action path="/sync/listSyncException"  scope="request" type="server.essp.projectpre.ui.sync.AcListSyncExceptionInfo" validate="false">
+			<forward name="success" path="/projectpre/sync/SyncExceptionList.jsp" />
+		</action>
+		<action path="/sync/checkSyncException" scope="request" type="server.essp.projectpre.ui.sync.AcCheckSync" validate="false">
+			<forward name="success" path="/sync/listSyncException.do" />
+		</action>
+        
+	<!-- 客户ID查询-->
+	    <action
+      attribute="QueryCustomer"
+      name="QueryCustomer"
+      path="/common/querycustomer/queryCustomer"
+      scope="request"
+      type="server.essp.projectpre.ui.common.querycustomer.AcQueryCustomer"
+      validate="false">
+      <forward name="success" path="/projectpre/common/queryCustomer/Search.jsp" />
+    </action>
+	<!-- 专案ID查询-->
+	    <action
+      attribute="QueryAccount"
+      name="QueryAccount"
+      path="/common/queryaccount/queryAccount"
+      scope="request"
+      type="server.essp.projectpre.ui.common.queryaccount.AcQueryAccount"
+      validate="false">
+      <forward name="success" path="/projectpre/common/queryAccount/Search.jsp" />
+    </action>
+   
+	</action-mappings>
+      
+	<message-resources key="application" parameter="resources.application" />
+	<message-resources key="projectpre" parameter="resources.projectpreResource" />
+	<message-resources key="error" parameter="resources.errorMessage" />
+</struts-config>
+

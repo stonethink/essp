@@ -1,0 +1,11 @@
+#input_common{
+    width:100;
+}
+#input_name{
+    width:100;
+}
+#text_area{
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+ 	width:305;
+}

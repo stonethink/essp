@@ -1,0 +1,42 @@
+//body{background-color:#ffffff;}
+//table{background-color:#c0c0c0;}
+.conts{visibility:hidden}
+
+.butt{background-color:solid thin #c0c0c0;
+width:360;height:10
+}
+
+.wind{border-color:#c0c0c0;
+border-left:#c0c0c0;
+}
+
+.tab{border-top:solid thin #E0E0E0;
+border-right:solid thin gray;
+border-left:solid thin #E0E0E0;
+background-color:#94aad6;
+background-color: #4682B4;
+font-family: Arial, Helvetica, sans-serif;
+color: #ffffff;
+font-size:10pt;
+text-align:center;
+font-weight:normal}
+
+.selTab{border-left:solid thin #f0ffff;
+border-top:solid thin #f0ffff;
+border-right:solid thin gray;
+background-color:#426194;
+font-family: Arial, Helvetica, sans-serif;
+COLOR: #ffffff;
+font-weight:bold;
+text-align:center;
+font-size:10pt;}
+
+.selbase{ background-color:"";
+}
+
+.base{ background-color:white;
+}
+
+.divtype{
+left:0px; top:18px; width:891px;
+}

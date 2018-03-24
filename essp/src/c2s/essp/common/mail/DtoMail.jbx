@@ -1,0 +1,17 @@
+[PropertyInfo]
+beginText,String,false,false, , ,true,<default>
+ccAddress,String,false,false, , ,true,<default>
+ccUserId,String,false,false, , ,false,<default>
+configFile,String,false,false, , ,false,<default>
+content,String,false,false, , ,false,<default>
+endText,String,false,false, , ,true,<default>
+senderId,String,false,false, , ,true,<default>
+senderPassword,String,false,false, , ,true,<default>
+title,String,false,false, , ,false,<default>
+toAddress,String,false,false, , ,true,<default>
+toUserId,String,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

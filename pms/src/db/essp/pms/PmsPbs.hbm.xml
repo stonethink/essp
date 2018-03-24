@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+ <class name="db.essp.pms.Pbs" table="PMS_PBS">
+     <id name="pk" type="db.essp.pms.PbsUserType">
+         <column name="ACNT_RID" />
+         <column name="PBS_RID" />
+         <generator class="assigned"/>
+    </id>
+
+    <many-to-one name="account" class="db.essp.pms.Account" column="ACNT_RID" update="false" insert="false" />
+    <many-to-one name="parent" class="db.essp.pms.Pbs" index="seq">
+        <column name="PARENT_ACNT_RID" />
+        <column name="PBS_PARENT_RID" />
+    </many-to-one>
+
+    <property name="productCode" type="string" column="PRODUCT_CODE" length="50"/>
+    <property name="productName" type="string" column="PRODUCT_NAME" not-null="true" length="100"/>
+    <property name="pbsReferrence" type="string" column="PBS_REFERRENCE" length="100"/>
+    <property name="pbsManager" type="string" column="PBS_MANAGER" length="50"/>
+    <property name="pbsBrief" type="string" column="PBS_BRIEF" length="1000"/>
+    <property name="plannedFinish" type="date" column="PLANNED_FINISH"/>
+    <property name="actualFinish" type="date" column="ACTUAL_FINISH"/>
+    <property name="pbsStatus" type="string" column="PBS_STATUS" length="10"/>
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date" column="RCT"/>
+    <property name="rut" type="date" column="RUT"/>
+    <!--
+      bi-directional many-to-one association to PmsAcnt
+      <many-to-one
+      name="pmsAcnt"
+      class="db.essp.pms.Acnt"
+      update="false"
+      insert="false"
+      >
+      <meta attribute="field-description">
+      @hibernate.many-to-one
+      update="false"
+      insert="false"
+      </meta>
+      <meta attribute="field-description">
+      @hibernate.column
+      name="ACNT_ID"
+      </meta>
+      <column name="ACNT_ID" />
+      </many-to-one>
+    -->
+    <!-- end of derived association(s) -->
+
+    <!--<set name="childs" lazy="false" order-by="PRODUCT_CODE" cascade="none" inverse="true">
+        <key>
+            <column name="ACNT_RID"/>
+            <column name="PBS_PARENT_RID"/>
+        </key>
+        <one-to-many class="db.essp.pms.Pbs"/>
+    </set>-->
+
+    <list name="childs" lazy="false">
+		<key>
+            <column name="PARENT_ACNT_RID"/>
+            <column name="PBS_PARENT_RID"/>
+		</key>
+		<index column="seq"/>
+		<one-to-many  class="db.essp.pms.Pbs"/>
+	</list>
+
+
+    <!-- bi-directional one-to-many association to PmsPbsFiles -->
+    <set name="files" lazy="true" inverse="true" cascade="none">
+      <key>
+        <column name="ACNT_RID"/>
+        <column name="PBS_RID"/>
+      </key>
+      <one-to-many class="db.essp.pms.PbsFiles"/>
+    </set>
+    <!-- bi-directional one-to-many association to PmsPbsAssignment -->
+    <set name="assignments" lazy="true" inverse="true" cascade="none">
+      <key>
+        <column name="ACNT_RID"/>
+        <column name="PBS_RID"/>
+      </key>
+      <one-to-many class="db.essp.pms.PbsAssignment"/>
+    </set>
+  </class>
+</hibernate-mapping>

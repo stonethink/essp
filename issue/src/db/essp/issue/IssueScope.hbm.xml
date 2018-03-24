@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class name="db.essp.issue.IssueScope" table="ISSUE_SCOPE" lazy="true">
+    <composite-id name="comp_id" class="db.essp.issue.IssueScopePK">
+        <key-property name="typeName" column="Type_Name" type="string"/>
+        <key-property name="scope"    column="Scope"     type="string"/>
+    </composite-id>
+
+    <property name="rid"         type="long"   column="RID"/>
+    <property name="vision"      type="string" column="Vision"/>
+    <property name="sequence"    type="long"   column="Sequence"/>
+    <property name="description" type="string" column="Description"/>
+    <property name="rst"         type="string" column="RST"/>
+    <property name="rct"         type="date"   column="RCT"/>
+    <property name="rut"         type="date"   column="RUT"/>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to IssueType -->
+    <!--
+    <many-to-one
+        name="issueType"
+	    class="db.essp.issue.IssueType"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="TypeName"
+        </meta>
+    	<column name="Type_Name" />
+	</many-to-one>
+	-->
+    <!-- end of derived association(s) -->
+
+
+</class>
+</hibernate-mapping>

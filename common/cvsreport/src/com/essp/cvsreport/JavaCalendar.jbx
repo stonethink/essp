@@ -1,0 +1,19 @@
+[PropertyInfo]
+begin,Calendar,false,false, , ,false,<default>
+end,Calendar,false,false, , ,false,<default>
+projectFile_Add,Map,false,false, , ,false,<default>
+projectFile_Delete,Map,false,false, , ,false,<default>
+projectFile_Modify,Map,false,false, , ,false,<default>
+projectFile_Remove,Map,false,false, , ,false,<default>
+projects,List,false,false, , ,false,<default>
+root,JavaRoot,false,false, , ,false,<default>
+userFile_Add,Map,false,false, , ,false,<default>
+userFile_Delete,Map,false,false, , ,false,<default>
+userFile_Modify,Map,false,false, , ,false,<default>
+userFile_Remove,Map,false,false, , ,false,<default>
+users,List,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+
+<class  name="db.essp.attendance.TcUserLeave"  table="tc_user_leave" dynamic-insert="true" dynamic-update="true">
+    <composite-id name="comp_id" class="db.essp.attendance.TcUserLeavePK">
+        <key-property  name="loginId"  column="LOGIN_ID"  type="java.lang.String" length="100" />
+        <key-property  name="leaveName"  column="LEAVE_NAME" type="java.lang.String" length="100" />
+    </composite-id>
+
+    <property  name="rid"  type="java.lang.Long" column="RID" length="8"/>
+    <property name="canLeaveHours" type="java.lang.Double" column="CAN_LEAVE_HOURS" length="8"/>
+    <property name="useLeaveHours" type="java.lang.Double" column="USE_LEAVE_HOURS" length="8" />
+    <property name="payedHours" type="java.lang.Double" column="PAYED_HOURS" length="8"/>
+    <property name="rst" type="java.lang.String" column="RST" length="1">
+    </property>
+    <property name="rct" type="java.util.Date" column="RCT" length="19">
+    </property>
+    <property name="rut" type="java.util.Date" column="RUT" length="19">
+    </property>
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+
+    <!-- bi-directional one-to-many association to TcUserLeaveDetail -->
+    <set
+        name="tcUserLeaveDetails"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="LOGIN_ID" />
+            <column name="LEAVE_NAME" />
+        </key>
+        <one-to-many
+            class="db.essp.attendance.TcUserLeaveDetail"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="essp.tables.EsspSysAccountT" 
+    table="essp_sys_account_t"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="essp_sys_account_t"
+    </meta>
+
+    <id
+        name="id"
+        type="java.lang.Long"
+        column="ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="ID"
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="accountCode"
+        type="java.lang.String"
+        column="ACCOUNT_CODE"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACCOUNT_CODE"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="accountName"
+        type="java.lang.String"
+        column="ACCOUNT_NAME"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACCOUNT_NAME"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="organization"
+        type="java.lang.String"
+        column="ORGANIZATION"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ORGANIZATION"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="manager"
+        type="java.lang.String"
+        column="MANAGER"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MANAGER"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="planStart"
+        type="java.sql.Date"
+        column="PLAN_START"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PLAN_START"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="planFinish"
+        type="java.sql.Date"
+        column="PLAN_FINISH"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PLAN_FINISH"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="actualStart"
+        type="java.sql.Date"
+        column="ACTUAL_START"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTUAL_START"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="actualFinish"
+        type="java.sql.Date"
+        column="ACTUAL_FINISH"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACTUAL_FINISH"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="255"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DESCRIPTION"
+            length="255"
+        </meta>    
+    </property>
+    <property
+        name="accountType"
+        type="java.lang.Long"
+        column="ACCOUNT_TYPE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ACCOUNT_TYPE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="budget"
+        type="binary"
+        column="BUDGET"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BUDGET"
+            length="65535"
+        </meta>    
+    </property>
+    <property
+        name="currency"
+        type="java.lang.String"
+        column="CURRENCY"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CURRENCY"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="showfields"
+        type="java.lang.String"
+        column="SHOWFIELDS"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SHOWFIELDS"
+            length="65535"
+        </meta>    
+    </property>
+    <property
+        name="status"
+        type="java.lang.String"
+        column="STATUS"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="STATUS"
+            length="20"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

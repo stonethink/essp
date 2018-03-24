@@ -1,0 +1,85 @@
+create or replace trigger SYNC_HRDATA_TO_HRBASE
+  before insert or update on essp_hr_employee_main_t  
+  for each row
+  --將ESSP中的HR模塊新加入的人員信息結轉到HrBase系統的觸發器
+declare
+
+  p_unitCode varchar2(50);
+  p_rmId varchar2(50);
+  p_rmName varchar2(200);
+  p_attribute varchar2(100);
+  p_operation varchar2(20);
+  p_effectiveDate date;
+  p_site varchar2(20);
+  p_leaveDate date;
+  p_baseRid number;
+  p_isDirect char(1);
+  x number;
+  y number;
+  p_attribute_group_rid number;
+  p_hr_attribute varchar2(100);
+  
+begin
+   p_site := 'WH';--各site不同設定
+   --查詢新增或被修改的人員的部門經理作為結轉后的資源經理
+   --查詢職等和工作類型信息
+   select u.unit_code,u.mg_id,u.mg_name
+   into p_unitCode,p_rmId,p_rmName
+   from essp_upms_unit u
+   where u.unit_id = :NEW.dept;
+   --查詢HR人員屬性
+   select c.name_english into p_hr_attribute from essp_hr_code_t c
+   where c.kind_code='JOBTYP' and trim(c.code)=trim(:NEW.types);
+   --如果操作為將給人員設置為離職
+   --則將離職日期結轉
+   if :NEW.dimission_flag='1' then
+      p_leaveDate:=:NEW.outdate;
+   else
+      p_leaveDate:=null;
+   end if;
+   --如果有產能則設置為直接人力，否則設置為間接人力
+   if :NEW.productivity='0' then
+      p_isDirect:='I';
+   else 
+      p_isDirect:='D';
+   end if;
+   --查詢HR屬性表的RID和對應的人員屬性
+   select count(*) into y from HRB_ATTRIBUTE_GROUP@DEV248LINK g,
+   HRB_ATTRIBUTE@DEV248LINK a
+   where g.attribute_rid=a.rid 
+   and g.code=p_hr_attribute 
+   and lower(g.site)=lower(p_site);
+   if(y > 0) then
+    select g.rid,a.code into p_attribute_group_rid,p_attribute
+    from HRB_ATTRIBUTE_GROUP@DEV248LINK g,HRB_ATTRIBUTE@DEV248LINK a
+    where g.attribute_rid=a.rid 
+    and g.code=p_hr_attribute 
+    and lower(g.site)=lower(p_site);
+   end if;
+   
+--根據不同的數據庫操作設置操作類型字段值以及生效日期字段值
+if INSERTING then 
+      p_operation:='Insert';
+      p_effectiveDate:=:NEW.indate;
+elsif UPDATING then
+      p_operation:='Update';
+      p_effectiveDate:=:NEW.indate;
+      --查詢HrBase人員主檔中是否存在相同員工工號的記錄
+      --如果有則將rid結轉到Log表中的base_rid字段
+      select count(*) into x from HRB_HUMAN_BASE@DEV248LINK
+      where employee_id=:OLD.emp_code;
+      
+      if(x > 0) then
+      select rid into p_baseRid from HRB_HUMAN_BASE@DEV248LINK
+      where employee_id=:OLD.emp_code;
+      end if;
+end if;
+   --將準備好的數據結轉到HrBase系統
+   insert into HRB_HUMAN_BASE_LOG@DEV248LINK(base_rid, employee_id, unit_code, english_name,
+   chinese_name, res_manager_id, res_manager_name, email, site, in_date,
+   out_date, operation, effective_date, status, attribute, rst, rct, rut, attribute_group_rid, is_direct) 
+   values(p_baseRid, :NEW.emp_code, p_unitCode, :NEW.name, :NEW.chinese_name,
+   p_rmId, p_rmName, :NEW.e_mail, p_site, :NEW.indate, p_leaveDate, p_operation, 
+   p_effectiveDate, 'Pending', p_attribute, 'N', sysdate, sysdate, p_attribute_group_rid, p_isDirect);
+
+end SYNC_HRDATA_TO_HRBASE;

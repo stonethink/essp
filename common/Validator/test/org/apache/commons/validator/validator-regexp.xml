@@ -1,0 +1,18 @@
+<!DOCTYPE form-validation PUBLIC
+     "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN"
+     "validator_1_1.dtd">
+
+<form-validation>
+   <global>
+      <validator name="email"
+                 classname="org.apache.commons.validator.TestValidator"
+                 method="validateEmail"
+                 methodParams="java.lang.Object,org.apache.commons.validator.Field"
+                 msg=""/>
+   </global>
+   <formset>
+      <form name="emailForm">
+         <field property="value" depends="email"/>
+      </form>
+   </formset>
+</form-validation>

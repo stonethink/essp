@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="FmIssueOptions" type="server.essp.issue.common.form.AfIssueOptions"/>
+    <form-bean name="issueScopeForm" type="server.essp.issue.typedefine.scope.form.AfScope"/>
+    <form-bean name="issueCategoryForm" type="server.essp.issue.typedefine.category.form.AfCategory"/>
+    <form-bean name="issueCategoryValueForm" type="server.essp.issue.typedefine.category.form.AfCategoryValue"/>
+    <form-bean name="issueStatusForm" type="server.essp.issue.typedefine.status.form.AfStatus"/>
+    <form-bean name="issueRiskForm" type="server.essp.issue.typedefine.risk.form.AfRisk"/>
+    <form-bean name="issueTypeForm" type="server.essp.issue.typedefine.form.AfType"/>
+    <form-bean name="issuePriorityForm" type="server.essp.issue.typedefine.priority.form.AfPriority"/>
+    <form-bean name="issueDiscussReplyForm" type="server.essp.issue.issue.discuss.form.AfIssueDiscussReply"/>
+    <form-bean name="issueDiscussTitleForm" type="server.essp.issue.issue.discuss.form.AfIssueDiscussTitle"/>
+    <form-bean name="issueSearchForm" type="server.essp.issue.issue.form.AfIssueSearch"/>
+    <form-bean name="issueStatForm" type="server.essp.issue.stat.form.AfIssueStat"/>
+    <form-bean name="issueConclusionForm" type="server.essp.issue.issue.conclusion.form.AfIssueConclusion"/>
+    <form-bean name="issueConclusionUrgeForm" type="server.essp.issue.issue.conclusion.form.AfIssueConclusionUrge"/>
+    <form-bean name="issueForm" type="server.essp.issue.issue.form.AfIssue"/>
+    <form-bean name="afDueDate" type="server.essp.issue.issue.form.AfDueDate"/>
+    <form-bean name="issueReportForm" type="server.essp.issue.report.form.AfReportForm"/>
+    <form-bean name="afIssueId" type="server.essp.issue.issue.form.AfIssueId"/>
+    <form-bean name="resolutionForm" type="server.essp.issue.issue.resolution.form.AfIssueResolution"/>
+    <form-bean name="issueGeneralResolutionForm" type="server.essp.issue.issue.resolution.form.AfIssueGeneralResolution"/>
+    <form-bean name="issueDuplationForm" type="server.essp.issue.issue.form.AfIssueDuplation"/>
+    <form-bean name="filledByChangedForm" type="server.essp.issue.common.form.AfFilledByChanged"/>
+    <form-bean name="sendMailForm" type="server.essp.issue.issue.sendmail.form.AfSendContent"/>
+  </form-beans>
+  <global-forwards>
+    <forward name="failure" path="/error.jsp" redirect="false"/>
+    <forward name="success" path="/success.jsp" redirect="false"/>
+    <forward name="sendMail" path="/issue/transInputdata.do" redirect="false"/>
+  </global-forwards>
+  <action-mappings>
+    <!-- common action -->
+    <action path="/issue/sendmailPre" type="server.essp.issue.issue.sendmail.action.AcSendMailPre">
+      <forward name="success" path="/issue/sendmail/mailEdit.jsp"/>
+    </action>
+    <action path="/issue/transInputdata" type="server.essp.issue.issue.sendmail.action.AcTransInputData">
+      <forward name="success" path="/issue/sendmailPre.do" redirect="true" />
+    </action>
+    <action name="sendMailForm" path="/issue/sendmail" type="server.essp.issue.issue.sendmail.action.AcSendMail">
+    </action>
+    <action path="/issue/changeTemplate" type="server.essp.issue.issue.sendmail.action.AcChangeTemplate">
+    </action>
+    <action name="FmIssueOptions" path="/issue/optionList" type="server.essp.issue.common.action.AcIssueOptionsList">
+      <forward name="success" path="/issue/optionList.jsp"/>
+    </action>
+    <action name="FmIssueOptions" path="/issue/issueTypeChanged" type="server.essp.issue.issue.action.AcIssueTypeChanged">
+      <forward name="success" path="/issue/optionList.jsp"/>
+    </action>
+    <!-- ###################################Scope######################################## -->
+    <action name="issueScopeForm" path="/issue/typedefine/scope/scopeListAction" scope="request" type="server.essp.issue.typedefine.scope.action.AcScopeList">
+      <forward name="success" path="/issue/typedefine/scope/ScopeList.jsp" redirect="false"/>
+    </action>
+    <action name="issueScopeForm" path="/issue/typedefine/scope/scopeAddPreAction" scope="request" type="server.essp.issue.typedefine.scope.action.AcScopeAddPre">
+      <forward name="success" path="/issue/typedefine/scope/ScopeAdd.jsp" redirect="false"/>
+    </action>
+    <action name="issueScopeForm" path="/issue/typedefine/scope/scopeAddAction" scope="request" type="server.essp.issue.typedefine.scope.action.AcScopeAdd">
+      <forward name="success" path="/issue/typedefine/scope/scopeListAction.do" redirect="false"/>
+    </action>
+    <action name="issueScopeForm" path="/issue/typedefine/scope/scopeDeleteAction" scope="request" type="server.essp.issue.typedefine.scope.action.AcScopeDelete">
+      <forward name="success" path="/issue/typedefine/scope/scopeListAction.do" redirect="false"/>
+    </action>
+    <action name="issueScopeForm" path="/issue/typedefine/scope/scopeUpdatePreAction" scope="request" type="server.essp.issue.typedefine.scope.action.AcScopeUpdatePre">
+      <forward name="success" path="/issue/typedefine/scope/ScopeUpdate.jsp" redirect="false"/>
+    </action>
+    <action name="issueScopeForm" path="/issue/typedefine/scope/scopeUpdateAction" scope="request" type="server.essp.issue.typedefine.scope.action.AcScopeUpdate">
+      <forward name="success" path="/issue/typedefine/scope/scopeListAction.do" redirect="false"/>
+    </action>
+    <!-- ###################################category######################################## -->
+    <action name="issueCategoryForm" path="/issue/typedefine/category/categoryListAction" scope="request" type="server.essp.issue.typedefine.category.action.AcCategoryList">
+      <forward name="success" path="/issue/typedefine/category/CategoryList.jsp" redirect="false"/>
+    </action>
+    <action name="issueCategoryForm" path="/issue/typedefine/category/categoryAddPreAction" scope="request" type="server.essp.issue.typedefine.category.action.AcCategoryAddPre">
+      <forward name="success" path="/issue/typedefine/category/CategoryAdd.jsp" redirect="false"/>
+    </action>
+    <action name="issueCategoryForm" path="/issue/typedefine/category/categoryAddAction" scope="request" type="server.essp.issue.typedefine.category.action.AcCategoryAdd">
+      <forward name="success" path="/issue/typedefine/category/categoryListAction.do" redirect="false"/>
+    </action>
+    <action name="issueCategoryForm" path="/issue/typedefine/category/categoryUpdatePreAction" scope="request" type="server.essp.issue.typedefine.category.action.AcCategoryUpdatePre">
+      <forward name="success" path="/issue/typedefine/category/CategoryUpdate.jsp" redirect="false"/>
+    </action>
+    <action name="issueCategoryForm" path="/issue/typedefine/category/categoryUpdateAction" scope="request" type="server.essp.issue.typedefine.category.action.AcCategoryUpdate">
+      <forward name="success" path="/issue/typedefine/category/categoryListAction.do" redirect="false"/>
+    </action>
+    <action name="issueCategoryValueForm" path="/issue/typedefine/category/categoryValueAddPreAction" scope="request" type="server.essp.issue.typedefine.category.action.AcCategoryValueAddPre">
+      <forward name="success" path="/issue/typedefine/category/CategoryAddValue.jsp" redirect="false"/>
+    </action>
+    <action name="issueCategoryValueForm" path="/issue/typedefine/category/categoryValueAddAction" scope="request" type="server.essp.issue.typedefine.category.action.AcCategoryValueAdd">
+      <forward name="success" path="/issue/typedefine/category/categoryListAction.do" redirect="false"/>
+    </action>
+    <action name="issueCategoryForm" path="/issue/typedefine/category/categoryDeleteAction" scope="request" type="server.essp.issue.typedefine.category.action.AcCategoryDelete">
+      <forward name="success" path="/issue/typedefine/category/categoryListAction.do" redirect="false"/>
+    </action>
+    <action name="issueCategoryValueForm" path="/issue/typedefine/category/categoryValueDeleteAction" scope="request" type="server.essp.issue.typedefine.category.action.AcCategoryValueDelete">
+      <forward name="success" path="/issue/typedefine/category/categoryListAction.do" redirect="false"/>
+    </action>
+    <action name="issueCategoryValueForm" path="/issue/typedefine/category/categoryValueUpdatePreAction" scope="request" type="server.essp.issue.typedefine.category.action.AcCategoryValueUpdatePre">
+      <forward name="success" path="/issue/typedefine/category/CategoryValueUpdate.jsp" redirect="false"/>
+    </action>
+    <action name="issueCategoryValueForm" path="/issue/typedefine/category/categoryValueUpdateAction" scope="request" type="server.essp.issue.typedefine.category.action.AcCategoryValueUpdate">
+      <forward name="success" path="/issue/typedefine/category/categoryListAction.do" redirect="false"/>
+    </action>
+    <!-- ###################################status######################################## -->
+    <action name="issueStatusForm" path="/issue/typedefine/status/statusListAction" scope="request" type="server.essp.issue.typedefine.status.action.AcStatusList">
+      <forward name="success" path="/issue/typedefine/status/StatusList.jsp"/>
+    </action>
+    <action name="issueStatusForm" path="/issue/typedefine/status/AcStatusAddPre" scope="request" type="server.essp.issue.typedefine.status.action.AcStatusAddPre">
+      <forward name="success" path="/issue/typedefine/status/StatusAdd.jsp"/>
+    </action>
+    <action name="issueStatusForm" path="/issue/typedefine/status/statusAddAction" scope="request" type="server.essp.issue.typedefine.status.action.AcStatusAdd">
+      <forward name="success" path="/issue/typedefine/status/statusListAction.do" redirect="false"/>
+    </action>
+    <action name="issueStatusForm" path="/issue/typedefine/status/statusUpdatePreAction" scope="request" type="server.essp.issue.typedefine.status.action.AcStatusUpdatePre">
+      <forward name="success" path="/issue/typedefine/status/StatusUpdate.jsp"/>
+    </action>
+    <action name="issueStatusForm" path="/issue/typedefine/status/statusEditAction" scope="request" type="server.essp.issue.typedefine.status.action.AcStatusUpdate">
+      <forward name="success" path="/issue/typedefine/status/statusListAction.do" redirect="false"/>
+    </action>
+    <action name="issueStatusForm" path="/issue/typedefine/status/statusDeleteAction" scope="request" type="server.essp.issue.typedefine.status.action.AcStatusDelete">
+      <forward name="success" path="/issue/typedefine/status/statusListAction.do" redirect="false"/>
+    </action>
+    <!-- ###################################risk######################################## -->
+    <action name="issueRiskForm" path="/issue/typedefine/risk/riskListAction" scope="request" type="server.essp.issue.typedefine.risk.action.AcRiskList">
+      <forward name="success" path="/issue/typedefine/risk/RiskList.jsp"/>
+    </action>
+    <action name="issueRiskForm" path="/issue/typedefine/risk/riskAddPreAction" scope="request" type="server.essp.issue.typedefine.risk.action.AcRiskAddPre" validate="true">
+      <forward name="success" path="/issue/typedefine/risk/RiskAdd.jsp" redirect="false"/>
+    </action>
+    <action name="issueRiskForm" path="/issue/typedefine/risk/riskAddAction" scope="request" type="server.essp.issue.typedefine.risk.action.AcRiskAdd" validate="true">
+      <forward name="success" path="/issue/typedefine/risk/riskListAction.do" redirect="false"/>
+    </action>
+    <action name="issueRiskForm" path="/issue/typedefine/risk/RiskUpdatePreAction" scope="request" type="server.essp.issue.typedefine.risk.action.AcRiskUpdatePre">
+      <forward name="success" path="/issue/typedefine/risk/RiskUpdate.jsp" redirect="false"/>
+    </action>
+    <action name="issueRiskForm" path="/issue/typedefine/risk/riskUpdateAction" scope="request" type="server.essp.issue.typedefine.risk.action.AcRiskUpdate">
+      <forward name="success" path="/issue/typedefine/risk/riskListAction.do" redirect="false"/>
+    </action>
+    <action name="issueRiskForm" path="/issue/typedefine/risk/riskDeleteAction" scope="request" type="server.essp.issue.typedefine.risk.action.AcRiskDelete">
+      <forward name="success" path="/issue/typedefine/risk/riskListAction.do"/>
+    </action>
+    <!-- ###################################type######################################## -->
+    <action path="/issue/typedefine/issueTypeList" scope="request" type="server.essp.issue.typedefine.action.AcTypeList">
+      <forward name="success" path="/issue/typedefine/TypeList.jsp"/>
+    </action>
+    <action parameter="/issue/typedefine/TypeCard.jsp" path="/issue/typedefine/issueTypeCard" scope="request" type="org.apache.struts.actions.ForwardAction" validate="true"/>
+    <action name="issueTypeForm" path="/issue/typedefine/issueTypeUpdateForward" scope="request" type="server.essp.issue.typedefine.action.AcTypeLoad">
+      <forward name="success" path="/issue/typedefine/TypeEdit.jsp"/>
+    </action>
+    <action name="issueTypeForm" path="/issue/typedefine/issueTypeUpdateAction" scope="request" type="server.essp.issue.typedefine.action.AcTypeUpdate">
+      <forward name="success" path="/issue/typedefine/issueTypeUpdateForward.do"/>
+    </action>
+    <action parameter="/issue/typedefine/TypeAdd.jsp" path="/issue/typedefine/issueTypeAddPre" scope="request" type="org.apache.struts.actions.ForwardAction"/>
+    <action name="issueTypeForm" path="/issue/typedefine/issueTypeAddAction" scope="request" type="server.essp.issue.typedefine.action.AcTypeAdd">
+      <forward name="success" path="/issue/typedefine/issueTypeList.do"/>
+    </action>
+    <action name="issueTypeForm" path="/issue/typedefine/issueTypeDelete" type="server.essp.issue.typedefine.action.AcTypeDelete">
+      <forward name="success" path="/issue/typedefine/issueTypeList.do"/>
+    </action>
+    <!-- ###################################priority######################################## -->
+    <action name="issuePriorityForm" path="/issue/typedefine/priority/issuePriorityList" scope="request" type="server.essp.issue.typedefine.priority.action.AcPriorityList">
+      <forward name="list" path="/issue/typedefine/priority/PriorityList.jsp"/>
+    </action>
+    <action name="issuePriorityForm" path="/issue/typedefine/priority/issuePriorityAddPre" scope="request" type="server.essp.issue.typedefine.priority.action.AcPriorityAddPre">
+      <forward name="success" path="/issue/typedefine/priority/PriorityAdd.jsp"/>
+    </action>
+    <action name="issuePriorityForm" path="/issue/typedefine/priority/issuePriorityAddAction" scope="request" type="server.essp.issue.typedefine.priority.action.AcPriorityAdd">
+      <forward name="success" path="/issue/typedefine/priority/issuePriorityList.do"/>
+    </action>
+    <action name="issuePriorityForm" path="/issue/typedefine/priority/issuePriorityUpdatePre" scope="request" type="server.essp.issue.typedefine.priority.action.AcPriorityLoad">
+      <forward name="success" path="/issue/typedefine/priority/PriorityEdit.jsp"/>
+    </action>
+    <action name="issuePriorityForm" path="/issue/typedefine/priority/issuePriorityUpdateAction" scope="request" type="server.essp.issue.typedefine.priority.action.AcPriorityUpdate">
+      <forward name="success" path="/issue/typedefine/priority/issuePriorityList.do"/>
+    </action>
+    <action name="issuePriorityForm" path="/issue/typedefine/priority/issuePriorityDeleteAction" scope="request" type="server.essp.issue.typedefine.priority.action.AcPriorityDelete">
+      <forward name="success" path="/issue/typedefine/priority/issuePriorityList.do"/>
+    </action>
+    <!-- ####################################Application Config##################################  -->
+    <action name="issueSearchForm" path="/issue/issue/issueListExport" scope="request" type="server.essp.issue.listexport.action.AcExportList">
+      <forward name="success" path="/issue/issue/issueList.jsp"/>
+    </action>
+    <action name="issueSearchForm" path="/issue/issue/issueList" scope="request" type="server.essp.issue.issue.action.AcIssueList">
+      <forward name="success" path="/issue/issue/issueList.jsp"/>
+    </action>
+    <action path="/issue/issue/allDetailOfIssueList" scope="request" type="server.essp.issue.issue.action.AcallDetailOfIssue">
+      <forward name="listAll" path="/issue/issue/allDetailOfIssue.jsp"/>
+    </action>
+    <action name="issueSearchForm" path="/issue/issue/issueReload" scope="request" type="server.essp.issue.issue.action.AcIssueReloadPre">
+      <forward name="success" path="/issue/issue/issueReload.jsp"/>
+    </action>
+    <action name="issueSearchForm" path="/issue/issue/issueExportPre" scope="request" type="server.essp.issue.listexport.action.AcIssueExportPre">
+      <forward name="success" path="/issue/issue/issueExport.jsp"/>
+    </action>
+    <action name="issueSearchForm" path="/issue/issue/issueExport" scope="request" type="server.essp.issue.listexport.action.AcDivisionReportType">
+      <forward name="withoutDetail" path="/ExcelExport?actionId=FISIssueListExportAction"/>
+      <forward name="withDetail" path="/ExcelExport?actionId=FISIssueListExportAction&amp;ExportType=withDetail"/>
+    </action>
+    <action path="/issue/stat/issueStat" scope="request" type="server.essp.issue.stat.action.AcIssueStat">
+      <forward name="success" path="/issue/stat/stat.jsp"/>
+    </action>
+    <action path="/issue/stat/issueStatAccountByType" type="server.essp.issue.stat.action.AcIssueStatByAccount">
+      <forward name="success" path="/issue/stat/statAccountByType.jsp"/>
+    </action>
+    <action name="issueForm" path="/issue/issue/issueAddPre" type="server.essp.issue.issue.action.AcIssueAddPre">
+      <forward name="success" path="/issue/issue/issueAdd.jsp"/>
+    </action>
+    <action name="issueForm" path="/issue/issue/issueAdd" type="server.essp.issue.issue.action.AcIssueAdd">
+      <forward name="success" path="/issue/issue/issueAddSuccess.jsp"/>
+    </action>
+    <action name="issueForm" path="/issue/issue/issueUpdatePre" type="server.essp.issue.issue.action.AcIssueUpdatePre">
+      <forward name="success" path="/issue/issue/issueUpdate.jsp"/>
+    </action>
+    <action name="issueForm" path="/issue/issue/issueGotoPre" type="server.essp.issue.issue.action.AcIssueUpdatePre">
+      <forward name="success" path="/issue/issue/goto.jsp"/>
+    </action>
+    <action name="issueForm" path="/issue/issue/issueDelete" type="server.essp.issue.issue.action.AcIssueDelete">
+      <forward name="success" path="/issue/issue/issueList.do"/>
+    </action>
+    <action name="issueDiscussTitleForm" path="/issue/issue/discuss/issueDiscussList" scope="request" type="server.essp.issue.issue.discuss.action.AcIssueDiscussList">
+      <forward name="success" path="/issue/issue/discuss/discussList.jsp"/>
+    </action>
+    <action name="issueDiscussTitleForm" path="/issue/issue/discuss/issueDiscussTitleAdd" scope="request" type="server.essp.issue.issue.discuss.action.AcIssueDiscussTitleAdd">
+      <forward name="success" path="/issue/issue/discuss/discussAdd.jsp"/>
+    </action>
+    <action name="issueConclusionForm" path="/issue/issue/conclusion/issueConclusionPre" scope="request" type="server.essp.issue.issue.conclusion.action.AcIssueConclusionPre">
+      <forward name="conclusion" path="/issue/issue/conclusion/conclusion.jsp"/>
+    </action>
+    <action name="issueConclusionForm" path="/issue/issue/conclusion/issueConclusion" scope="request" type="server.essp.issue.issue.conclusion.action.AcIssueConclusion">
+      <forward name="success" path="/issue/issue/conclusion/issueConclusionPre.do" redirect="false"/>
+    </action>
+    <action name="issueConclusionForm" path="/issue/issue/conclusion/issueConclusionUrgeList" scope="request" type="server.essp.issue.issue.conclusion.action.AcIssueConclusionUrgeList">
+      <forward name="list" path="/issue/issue/conclusion/urgedRecordList.jsp"/>
+    </action>
+    <action name="issueConclusionForm" path="/issue/issue/conclusion/urgeAddPre" scope="request" type="server.essp.issue.issue.conclusion.action.AcIssueConclusionUrgeAddPre">
+      <forward name="add" path="/issue/issue/conclusion/urgedRecordAdd.jsp"/>
+    </action>
+    <action name="issueConclusionUrgeForm" path="/issue/issue/conclusion/urgeAdd" scope="request" type="server.essp.issue.issue.conclusion.action.AcIssueConclusionUrgeAdd"/>
+    <action name="issueConclusionUrgeForm" path="/issue/issue/conclusion/urgeUpdatePre" scope="request" type="server.essp.issue.issue.conclusion.action.AcIssueConclusionUrgeUpdatePre">
+      <forward name="success" path="/issue/issue/conclusion/urgedRecordUpdate.jsp"/>
+    </action>
+    <action name="issueConclusionUrgeForm" path="/issue/issue/conclusion/urgeUpdate" scope="request" type="server.essp.issue.issue.conclusion.action.AcIssueConclusionUrgeUpdate"/>
+    <action name="issueForm" path="/issue/issue/issueUpdate" type="server.essp.issue.issue.action.AcIssueUpdate">
+      <forward name="success" path="/issue/issue/issueUpdatePre.do"/>
+    </action>
+    <action path="/issue/issue/conclusion/IssueConclusionUrgeDelete" scope="request" type="server.essp.issue.issue.conclusion.action.AcIssueConclusionUrgeDelete">
+      <forward name="success" path="/issue/issue/conclusion/issueConclusionUrgeList.do"/>
+    </action>
+    <action name="issueDiscussTitleForm" path="/issue/issue/discuss/issueDiscussList" scope="request" type="server.essp.issue.issue.discuss.action.AcIssueDiscussList">
+      <forward name="list" path="/issue/issue/discuss/discussList.jsp" redirect="false"/>
+    </action>
+    <action name="issueDiscussTitleForm" path="/issue/issue/discuss/issueDiscussTitleAdd" scope="request" type="server.essp.issue.issue.discuss.action.AcIssueDiscussTitleAdd">
+      <forward name="list" path="/issue/issue/discuss/issueDiscussList.do"/>
+    </action>
+    <action path="/issue/issue/discuss/issueDiscussTitleAddPre" scope="request" type="server.essp.issue.issue.discuss.action.AcIssueDiscussTitleAddPre">
+      <forward name="addDiscussTitle" path="/issue/issue/discuss/discussAdd.jsp"/>
+    </action>
+    <action name="issueDiscussReplyForm" path="/issue/issue/discuss/issueDiscussReplyAdd" scope="request" type="server.essp.issue.issue.discuss.action.AcIssueDiscussReplyAdd"/>
+    <action path="/issue/issue/discuss/issueDiscussReplyAddPre" scope="request" type="server.essp.issue.issue.discuss.action.AcIssueDiscussReplyAddPre">
+      <forward name="addDiscussReply" path="/issue/issue/discuss/replyAdd.jsp"/>
+    </action>
+    <action path="/issue/issue/discuss/issueDiscussTitleUpdatePre" scope="request" type="server.essp.issue.issue.discuss.action.AcIssueDiscussTitleUpdatePre">
+      <forward name="modifyDiscussTitle" path="/issue/issue/discuss/discussUpdate.jsp"/>
+    </action>
+    <action name="issueDiscussTitleForm" path="/issue/issue/discuss/issueDiscussTitleUpdate" scope="request" type="server.essp.issue.issue.discuss.action.AcIssueDiscussTitleUpdate"/>
+    <action name="issueDiscussReplyForm" path="/issue/issue/discuss/issueDiscussReplyUpdate" scope="request" type="server.essp.issue.issue.discuss.action.AcIssueDiscussReplyUpdate"/>
+    <action path="/issue/issue/discuss/issueDiscussReplyUpdatePre" scope="request" type="server.essp.issue.issue.discuss.action.AcIssueDiscussReplyUpdatePre">
+      <forward name="modifyDiscussReply" path="/issue/issue/discuss/replyUpdate.jsp"/>
+    </action>
+    <action path="/issue/issue/discuss/issueDiscussReplyDelete" scope="request" type="server.essp.issue.issue.discuss.action.AcIssueDiscussReplyDelete">
+      <forward name="list" path="/issue/issue/discuss/issueDiscussList.do"/>
+    </action>
+    <action path="/issue/issue/discuss/issueDiscussTitleDelete" scope="request" type="server.essp.issue.issue.discuss.action.AcIssueDiscussTitleDelete">
+      <forward name="list" path="/issue/issue/discuss/issueDiscussList.do"/>
+    </action>
+    <action name="afDueDate" path="/issue/issue/issueDueDate" type="server.essp.issue.issue.action.AcIssueDueDate">
+      <forward name="success" path="/issue/issue/issueDueDate.jsp"/>
+    </action>
+    <action name="issueReportForm" path="/issue/report/issueReportPre" scope="request" type="server.essp.issue.report.action.AcIssueReportPre">
+      <forward name="success" path="/issue/report/issueReportPre.jsp"/>
+    </action>
+    <action name="afIssueId" path="/issue/issue/issueId" type="server.essp.issue.issue.action.AcIssueId">
+      <forward name="success" path="/issue/issue/issueId.jsp"/>
+    </action>
+    <action name="issueSearchForm" path="/issue/issue/issueListSingle" type="server.essp.issue.issue.action.AcIssueListSingle">
+      <forward name="success" path="/issue/stat/statAccountStatus.jsp"/>
+    </action>
+    <action name="afIssueId" path="/issue/issue/updateIssueId" type="server.essp.issue.issue.action.AcUpdateIssueId">
+      <forward name="success" path="/issue/issue/issueId.jsp"/>
+    </action>
+    <action name="afIssueId" path="/issue/issue/issueIdCreate" type="server.essp.issue.issue.action.AcIssueIdCreate">
+      <forward name="success" path="/issue/issue/issueIdCreate.jsp"/>
+    </action>
+    <action path="/issue/issue/issuePrincipal" type="server.essp.issue.issue.action.AcIssuePrincipal">
+      <forward name="success" path="/issue/issue/issuePrincipal.jsp"/>
+    </action>
+    <action path="/issue/issue/issueResolutionPre" type="server.essp.issue.issue.resolution.action.AcIssueResolutionPre">
+      <forward name="success" path="/issue/issue/resolution/resolution.jsp"/>
+    </action>
+    <action name="resolutionForm" path="/issue/issue/issueResolution" type="server.essp.issue.issue.resolution.action.AcIssueResolution">
+      <forward name="success" path="/issue/issue/issueResolutionPre.do"/>
+    </action>
+    <action name="issueGeneralResolutionForm" path="/issue/issue/GeneralResolution" type="server.essp.issue.issue.resolution.action.AcGeneralResolution">
+      <forward name="success" path="/issue/issue/resolution/sendMail.jsp"/>
+    </action>
+    <action name="issueGeneralResolutionForm" path="/issue/issue/ResolutionSend" type="server.essp.issue.issue.resolution.action.AcResolutionSend">
+      <forward name="success" path="/close.jsp"/>
+    </action>
+    <action name="issueDuplationForm" path="/issue/issue/issueDuplation" type="server.essp.issue.issue.action.AcIssueDuplation">
+      <forward name="success" path="/issue/issue/issueDuplation.jsp"/>
+    </action>
+    <action name="filledByChangedForm" path="/issue/filledByChanged" type="server.essp.issue.common.action.AcFilledByChanged">
+      <forward name="success" path="/issue/filledByChanged.jsp"/>
+    </action>
+  </action-mappings>
+  <message-resources key="issue" parameter="server/essp/issue/resources/application"/>
+  <plug-in className="org.apache.struts.tiles.TilesPlugin">
+    <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml"/>
+  </plug-in>
+</struts-config>

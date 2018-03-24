@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <!--
+      <property name="hibernate.connection.driver_class">com.microsoft.jdbc.sqlserver.SQLServerDriver</property>
+      <property name="hibernate.connection.url">jdbc:microsoft:sqlserver://10.5.2.5:1433;databaseName=FA;selectMethod=selectMethod</property>
+    -->
+    <!--
+      <property name="hibernate.connection.driver_class">com.sybase.jdbc2.jdbc.SybDriver</property>
+      <property name="hibernate.connection.url">jdbc:sybase:Tds:192.168.0.33:5000/LIMS</property>
+    -->
+    <!--
+    -->
+    <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@as04.wh.wistronits.com:1521:AS04</property>
+    <property name="hibernate.connection.username">essp</property>
+    <property name="hibernate.connection.password">essp</property>
+    <property name="dialect">net.sf.hibernate.dialect.OracleDialect</property>
+    <property name="hibernate.connection.pool_size">5</property>
+    <property name="show_sql">true</property>
+    <property name="use_outer_join">true</property>
+    <property name="dialect">net.sf.hibernate.dialect.OracleDialect</property>
+    <!--
+      <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
+      <property name="hibernate.connection.url">jdbc:mysql://localhost/xplanner</property>
+      <property name="hibernate.connection.username">xplanner</property>
+      <property name="hibernate.connection.password"></property>
+      <property name="hibernate.connection.pool_size">5</property>
+      <property name="show_sql">true</property>
+      <property name="use_outer_join">true</property>
+      <property name="dialect">net.sf.hibernate.dialect.MySQLDialect</property>
+    -->
+    <!--
+    -->
+    <!-- Mapping files -->
+    <!-- framework -->
+    <mapping resource="essp/tables/EsspHbseq.hbm.xml"/>
+
+
+    <!--old essp tables-->
+    <mapping resource="essp/tables/EsspHrEmployeeMainT.hbm.xml"/>
+    <mapping resource="essp/tables/EsspEbsParametersT.hbm.xml"/>
+    <mapping resource="essp/tables/EsspPwpTemcln.hbm.xml"/>
+    <mapping resource="essp/tables/EsspSysAccountT.hbm.xml"/>
+    <mapping resource="essp/tables/EsspSysAccounttypeT.hbm.xml"/>
+    <mapping resource="essp/tables/EsspSysCustomize.hbm.xml"/>
+
+
+
+	<!-- ebs -->
+    <mapping resource="db/essp/pms/EbsEbs.hbm.xml"/>
+    <mapping resource="db/essp/pms/EbsEbs9acnt.hbm.xml"/>
+
+    <!-- pms -->
+    <mapping resource="db/essp/pms/PmsAcnt.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsAcntApprovalLog.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsAcntBaseline.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsAcntBaselineLog.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsAcntSeq.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsActivity.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsActivityRelation.hbm.xml"/>
+    <!--<mapping resource="db/essp/pms/PmsActivityCode.hbm.xml"/>-->
+    <mapping resource="db/essp/pms/PmsActivityWorker.hbm.xml"/>
+    <!--<mapping resource="db/essp/pms/PmsIssue.hbm.xml"/>-->
+    <mapping resource="db/essp/pms/PmsKeypesonal.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsLaborResourceDetail.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsLaborResource.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsNonlaborResource.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsNonlaborResItem.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsPbs.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsPbsFiles.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsPbsAssignment.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsWbs.hbm.xml"/>
+    <!--<mapping resource="db/essp/pms/PmsWbsCode.hbm.xml"/>-->
+    <mapping resource="db/essp/pms/PmsWbsCheckpoint.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsWbsMilestone.hbm.xml"/>
+
+    <!--pwp-->
+    <mapping resource="essp/tables/PwParameter.hbm.xml"/>
+    <mapping resource="essp/tables/PwWkitem.hbm.xml"/>
+    <mapping resource="essp/tables/PwWp.hbm.xml"/>
+    <mapping resource="essp/tables/PwWpchk.hbm.xml"/>
+    <mapping resource="essp/tables/PwWpchklog.hbm.xml"/>
+    <mapping resource="essp/tables/PwWprev.hbm.xml"/>
+    <mapping resource="essp/tables/PwWpsum.hbm.xml"/>
+
+    <!--timecard-->
+    <mapping resource="essp/tables/TcPeriod.hbm.xml"/>
+    <mapping resource="essp/tables/TcTimecard.hbm.xml"/>
+    <mapping resource="essp/tables/TcTm.hbm.xml"/>
+    <mapping resource="essp/tables/TcWorktime.hbm.xml"/>
+    <mapping resource="essp/tables/TcWt.hbm.xml"/>
+
+    <!--crm-->
+    <mapping resource="essp/tables/CmMeetingReport.hbm.xml"/>
+    <mapping resource="essp/tables/CmSatisfactionType.hbm.xml"/>
+    <mapping resource="essp/tables/CmSatisfactionDegree.hbm.xml"/>
+    <mapping resource="essp/tables/CmVisitInterview.hbm.xml"/>
+
+    <!--crm-->
+    <mapping resource="essp/tables/QcQtactv.hbm.xml"/>
+    <mapping resource="essp/tables/QcQtdfct.hbm.xml"/>
+    <mapping resource="essp/tables/QcQtgoal.hbm.xml"/>
+    <mapping resource="essp/tables/QcParameter.hbm.xml"/>
+
+    <mapping resource="db/essp/issue/IssueScope.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssuePriority.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueCategoryType.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueCategoryValue.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueRisk.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueType.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueStatus.hbm.xml"/>
+
+    <mapping resource="db/essp/issue/IssueResolutionInflue.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueResolutionCategory.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueResolution.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueDiscussTitle.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueDiscussReply.hbm.xml"/>
+	<mapping resource="db/essp/issue/IssueConclusion.hbm.xml"/>
+	<mapping resource="db/essp/issue/IssueConclusionUg.hbm.xml"/>
+	<mapping resource="db/essp/issue/Issue.hbm.xml"/>
+	<mapping resource="db/essp/issue/IssueReportStatus.hbm.xml"/>
+
+    <mapping resource="db/essp/issue/IssueStatusHistory.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueRiskHistory.hbm.xml"/>
+    <mapping resource="db/essp/issue/IssueDiscussMailBak.hbm.xml"/>
+    
+  </session-factory>
+</hibernate-configuration>

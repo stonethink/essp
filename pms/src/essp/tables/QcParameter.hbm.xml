@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="essp.tables.QcParameter" 
+    table="qc_parameter"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="qc_parameter"
+    </meta>
+
+    <id
+        name="rid"
+        type="java.lang.Long"
+        column="RID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="RID"
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="paraTypeId"
+        type="java.lang.String"
+        column="PARA_TYPE_ID"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PARA_TYPE_ID"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="paraType"
+        type="java.lang.String"
+        column="PARA_TYPE"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PARA_TYPE"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="paraName"
+        type="java.lang.String"
+        column="PARA_NAME"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PARA_NAME"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="paraExtName"
+        type="java.lang.String"
+        column="PARA_EXT_NAME"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PARA_EXT_NAME"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="paraSequence"
+        type="java.lang.Long"
+        column="PARA_SEQUENCE"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PARA_SEQUENCE"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="paraDescreption"
+        type="java.lang.String"
+        column="PARA_DESCREPTION"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PARA_DESCREPTION"
+            length="65535"
+        </meta>    
+    </property>
+    <property
+        name="rst"
+        type="java.lang.String"
+        column="RST"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RST"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="rct"
+        type="java.util.Date"
+        column="RCT"
+        length="19"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RCT"
+            length="19"
+        </meta>    
+    </property>
+    <property
+        name="rut"
+        type="java.util.Date"
+        column="RUT"
+        length="19"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RUT"
+            length="19"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

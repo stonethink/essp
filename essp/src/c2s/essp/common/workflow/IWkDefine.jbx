@@ -1,0 +1,10 @@
+[PropertyInfo]
+activityDefineList,java.util.List,false,false, , ,true,<default>
+activityDefineMap,c2s.essp.common.workflow.IActivityDefine,false,false, , ,true,<default>
+parameter,java.util.Hashtable,false,false, , ,true,<default>
+workflowName,String,false,false, , ,true,<default>
+[IconNames]
+
+
+
+

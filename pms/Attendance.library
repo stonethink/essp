@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+<!--JBuilder Library Definition File-->
+<fullname>Attendance</fullname>
+<class>
+<path>[lib/attendance_server.jar]</path>
+</class>
+<lastmodsaved>1157601102359</lastmodsaved>
+</library>

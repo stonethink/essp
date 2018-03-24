@@ -1,0 +1,1 @@
+放置本项目hibernate的配置文件,打成jar包时必须打到压缩包内的hbmCfg目录下

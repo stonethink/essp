@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="essp.tables.Customer"
+        table="essp_sys_project_customer"
+        dynamic-update="false"
+        dynamic-insert="false"
+        select-before-update="false"
+        optimistic-lock="version"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.String"
+        >
+            <generator class="assigned">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Customer.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="accountid"
+            type="string"
+            update="true"
+            insert="true"
+            access="property"
+            column="accountid"
+            length="20"
+        />
+
+        <property
+            name="email"
+            type="string"
+            update="true"
+            insert="true"
+            access="property"
+            column="email"
+            length="50"
+        />
+
+        <property
+            name="enable"
+            type="string"
+            update="true"
+            insert="true"
+            access="property"
+            column="enable"
+            length="4"
+        />
+
+        <property
+            name="fax"
+            type="string"
+            update="true"
+            insert="true"
+            access="property"
+            column="fax"
+            length="50"
+        />
+
+        <property
+            name="isManager"
+            type="string"
+            update="true"
+            insert="true"
+            access="property"
+            column="is_manager"
+            length="4"
+        />
+
+        <property
+            name="name"
+            type="string"
+            update="true"
+            insert="true"
+            access="property"
+            column="name"
+            length="100"
+        />
+
+        <property
+            name="organization"
+            type="string"
+            update="true"
+            insert="true"
+            access="property"
+            column="organization"
+            length="20"
+        />
+
+        <property
+            name="password"
+            type="string"
+            update="true"
+            insert="true"
+            access="property"
+            column="password"
+            length="50"
+        />
+
+        <property
+            name="phone"
+            type="string"
+            update="true"
+            insert="true"
+            access="property"
+            column="phone"
+            length="50"
+        />
+
+        <property
+            name="title"
+            type="string"
+            update="true"
+            insert="true"
+            access="property"
+            column="title"
+            length="255"
+        />
+
+        <property
+            name="userName"
+            type="string"
+            update="true"
+            insert="true"
+            access="property"
+            column="username"
+            length="50"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Customer.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

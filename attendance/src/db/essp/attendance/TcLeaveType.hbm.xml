@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<class  name="db.essp.attendance.TcLeaveType"  table="tc_leave_type" dynamic-insert="true" dynamic-update="true">
+    <id name="leaveName" type="java.lang.String" column="LEAVE_NAME">
+        <generator class="assigned" />
+    </id>
+
+    <property name="rid" type="java.lang.Long"  column="RID" length="8" />
+    <property name="settlementWay" type="java.lang.String" column="SETTLEMENT_WAY" length="100" />
+    <property name="maxDay" type="java.lang.Long" column="MAX_DAY" length="8" />
+    <property name="relation" type="java.lang.String" column="RELATION" length="100" />
+    <property name="status" type="java.lang.String" column="STATUS" length="1" />
+    <property name="description" type="java.lang.String" column="DESCRIPTION" length="500" />
+    <property name="seq" type="java.lang.Long" column="seq" length="500" />
+    <property name="rst" type="java.lang.String" column="RST" length="1" />
+    <property name="rct" type="java.util.Date" column="RCT" length="19" />
+    <property name="rut" type="java.util.Date" column="RUT" length="19" />
+
+</class>
+</hibernate-mapping>

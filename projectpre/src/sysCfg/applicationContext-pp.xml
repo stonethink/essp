@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+<bean id="hrmsDataSource" class="org.enhydra.jdbc.pool.StandardXAPoolDataSource" destroy-method="shutdown">
+	  <property name="dataSource">
+	  	<bean class="org.enhydra.jdbc.standard.StandardXADataSource" destroy-method="shutdown">
+				<property name="transactionManager" ref="jotm"/>
+				<property name="driverName" value="com.microsoft.jdbc.sqlserver.SQLServerDriver"/>
+				<property name="url" value="jdbc:microsoft:sqlserver://10.5.23.247:1433;databaseName=FA;selectMethod=Cursor"/>
+				<property name="minCon" value="2"/>
+				<property name="maxCon" value="10"/>
+			</bean>
+	  </property>
+	  <property name="transactionManager" ref="jotm"/>
+	  <property name="minSize" value="2" />
+	  <property name="maxSize" value="10" />
+	  <property name="checkLevelObject" value="1" />
+	  <property name="user" value="sa"/>
+	  <property name="password" value="sa"/>
+	</bean>
+
+	<bean id="AreaCodeLogic"
+		class="server.essp.projectpre.service.site.SiteServiceImpl"
+		singleton="false">
+
+	</bean>
+
+	<bean id="ClassCodeLogic"
+		class="server.essp.projectpre.service.parameter.ParameterServiceImpl"
+		singleton="false">
+	</bean>
+	<bean id="ParameterLogic"
+		class="server.essp.projectpre.service.parameter.ParameterServiceImpl"
+		singleton="false">
+
+	</bean>
+	<bean id="BdCodeLogic"
+		class="server.essp.projectpre.service.bd.BdServiceImpl"
+		singleton="false">
+	</bean>
+	<bean id="IdSettingLogic"
+		class="server.essp.projectpre.service.idsetting.IdSettingServiceImpl"
+		singleton="false">
+	</bean>
+	<bean id="LogLogic"
+		class="server.essp.projectpre.service.log.LogServiceImpl"
+		singleton="false">
+	</bean>
+	<bean id="AccountApplicationLogic"
+		class="server.essp.projectpre.service.accountapplication.AccountApplicationServiceImpl"
+		singleton="false">
+	</bean>
+	<bean id="AccountLogic"
+		class="server.essp.projectpre.service.account.AccountServiceImpl"
+		singleton="false">
+	</bean>
+	
+	<bean id="MailPrivilegeLogic"
+		class="server.essp.projectpre.service.mailprivilege.MailPrivilegeServiceImpl"
+		singleton="false">
+	</bean>
+	
+	<bean id="SelectOptionListLogic"
+		class="server.essp.projectpre.service.account.SelectOptionListServiceImpl"
+		singleton="false">
+		<property name="siteService">
+			<ref local="AreaCodeLogic" />
+		</property>
+		<property name="parameterService">
+			<ref local="ParameterLogic" />
+		</property>
+		<property name="bdService">
+			<ref local="BdCodeLogic" />
+		</property>
+	</bean>
+
+	<bean id="CustomerLogic"
+		class="server.essp.projectpre.service.customer.CustomerServiceImpl"
+		singleton="false">
+	</bean>
+
+	<bean id="CustomerApplicationLogic"
+		class="server.essp.projectpre.service.customerapplication.CustomerApplicationServiceImpl"
+		singleton="false">
+	</bean>
+	<bean id="SendMailLogic"
+		class="server.essp.projectpre.service.sendMail.SendMailServiceImpl"
+		singleton="false">
+	</bean>
+
+     <!-- 异常同步 -->
+	   
+			<bean id="SyncExceptionLogic" class="server.essp.projectpre.service.syncException.SyncExceptionImp" singleton="false">				
+                     <property name="accountLogic" ref="AccountLogic" />                                                             
+                     <property name="finAccountService" ref="FinAccountService" />
+                     <property name="tsAccountService" ref="TSAccountService" />
+                     <property name="parameterLogic" ref="ParameterLogic" />  
+                     <property name="siteService" ref="AreaCodeLogic" />    
+                     <property name="syncToHrms" ref="SyncToHrms" />             
+			</bean>
+	
+
+	<!--调用 Finance系统的程序,对Account数据进行同步 -->
+	<bean id="FinAccountService"
+		class="itf.webservices.FinAccountWServiceImpl">
+	</bean>
+	
+	
+	<!--调用 TimeSheet系统的程序,对Account数据进行同步 -->
+	<bean id="TSAccountService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="server.essp.timesheet.syncaccount.SyncAccountImp">
+				<property name="accountDao" ref="accountDao" />
+				<property name="standarHours" value="168"> </property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="SyncToHrms" parent="baseTransactionProxy">
+		<property name="target">
+			<bean
+				class="server.essp.syncproject.SyncToHrms">
+				<property name="dataSource" ref="hrmsDataSource"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="SyncService"
+		class="server.essp.syncproject.SyncService">
+		<property name="addCallList">
+			<list>
+				<ref local="FinAccountService" />
+				<ref local="TSAccountService" />
+			</list>
+		</property>
+		<property name="updatCallList">
+			<list>
+				<ref local="FinAccountService" />
+				<ref local="TSAccountService" />
+			</list>
+		</property>
+		<property name="closeCallList">
+			<list>
+				<ref local="FinAccountService" />
+				<ref local="TSAccountService" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

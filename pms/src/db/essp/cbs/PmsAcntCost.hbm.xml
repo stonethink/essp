@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="db.essp.cbs.PmsAcntCost"
+    table="pms_acnt_cost"
+    dynamic-update="true"
+    dynamic-insert="true"
+    lazy="true"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="pms_acnt_cost"
+        dynamic-update="true"
+        dynamic-insert="true"
+    </meta>
+
+    <id
+        name="rid"
+        type="java.lang.Long"
+        column="RID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="RID"
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="antiRid"
+        type="java.lang.Long"
+        column="ANTI_RID"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ANTI_RID"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="antiPm"
+        type="java.lang.Double"
+        column="ANTI_PM"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ANTI_PM"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="antiAmt"
+        type="java.lang.Double"
+        column="ANTI_AMT"
+        length="14"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ANTI_AMT"
+            length="14"
+        </meta>
+    </property>
+    <property
+        name="baseRid"
+        type="java.lang.Long"
+        column="BASE_RID"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BASE_RID"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="baseId"
+        type="java.lang.String"
+        column="BASE_ID"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BASE_ID"
+            length="50"
+        </meta>
+    </property>
+    <property
+        name="basePm"
+        type="java.lang.Double"
+        column="BASE_PM"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BASE_PM"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="baseAmt"
+        type="java.lang.Double"
+        column="BASE_AMT"
+        length="14"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BASE_AMT"
+            length="14"
+        </meta>
+    </property>
+    <property
+        name="propRid"
+        type="java.lang.Long"
+        column="PROP_RID"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PROP_RID"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="propPm"
+        type="java.lang.Double"
+        column="PROP_PM"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PROP_PM"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="propAmt"
+        type="java.lang.Double"
+        column="PROP_AMT"
+        length="14"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PROP_AMT"
+            length="14"
+        </meta>
+    </property>
+    <property
+        name="costDate"
+        type="java.util.Date"
+        column="COST_DATE"
+        length="19"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="COST_DATE"
+            length="19"
+        </meta>
+    </property>
+    <property
+        name="costRid"
+        type="java.lang.Long"
+        column="COST_RID"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="COST_RID"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="costPm"
+        type="java.lang.Double"
+        column="COST_PM"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="COST_PM"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="costAmt"
+        type="java.lang.Double"
+        column="COST_AMT"
+        length="14"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="COST_AMT"
+            length="14"
+        </meta>
+    </property>
+    <property
+        name="rst"
+        type="java.lang.String"
+        column="RST"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RST"
+            length="1"
+        </meta>
+    </property>
+    <property
+        name="rct"
+        type="java.util.Date"
+        column="RCT"
+        length="19"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RCT"
+            length="19"
+        </meta>
+    </property>
+    <property
+        name="rut"
+        type="java.util.Date"
+        column="RUT"
+        length="19"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RUT"
+            length="19"
+        </meta>
+    </property>
+
+    <!-- Associations -->
+
+
+</class>
+</hibernate-mapping>

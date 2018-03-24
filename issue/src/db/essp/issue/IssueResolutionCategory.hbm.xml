@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class name="db.essp.issue.IssueResolutionCategory" table="ISSUE_RESOLUTION_CATEGORY" lazy="true">
+    <id name="rid" type="long" column="RID">
+        <generator class="assigned" />
+    </id>
+
+    <property name="categoryName"   type="string" column="CATEGORYNAME"/>
+    <property name="categoryValue"  type="string" column="CATEGORYVALUE"/>
+    <property name="rst"            type="string" column="RST"/>
+    <property name="rct"            type="date"   column="RCT"/>
+    <property name="rut"            type="date"   column="RUT"/>
+
+    <!-- Associations -->
+
+    <!-- bi-directional many-to-one association to IssueResolution -->
+    <many-to-one name="issueResolution" class="db.essp.issue.IssueResolution">
+        <column name="ISSUE_RID" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

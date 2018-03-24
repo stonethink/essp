@@ -1,0 +1,5 @@
+<project default="" name="cvs">
+  <target name="init">
+    <echo message="init"/>
+  </target>
+</project>

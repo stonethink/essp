@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="essp.tables.CmSatisfactionDegree"
+    table="cm_satisfaction_degree"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="cm_satisfaction_degree"
+    </meta>
+
+    <id
+        name="rid"
+        type="java.lang.Long"
+        column="RID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="RID"
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="visitId"
+        type="java.lang.Long"
+        column="VISIT_ID"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="VISIT_ID"
+            length="8"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="satisfactionTypeId"
+        type="java.lang.Long"
+        column="SATISFACTION_TYPE_ID"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SATISFACTION_TYPE_ID"
+            length="8"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="satisfactionMark"
+        type="java.lang.Long"
+        column="SATISFACTION_MARK"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SATISFACTION_MARK"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="rct"
+        type="java.util.Date"
+        column="RCT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RCT"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="rut"
+        type="java.util.Date"
+        column="RUT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RUT"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="rst"
+        type="java.lang.String"
+        column="RST"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RST"
+            length="1"
+        </meta>
+    </property>
+
+    <!-- Associations -->
+
+
+</class>
+</hibernate-mapping>

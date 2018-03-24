@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="db.essp.tc.TcStandardTimecard"
+    table="TC_STANDARD_TIMECARD"
+>
+    <id name="rid" type="java.lang.Long" column="RID" >
+        <generator class="assigned" />
+    </id>
+
+    <property name="userId" type="java.lang.String" column="USER_ID" length="50" >
+    </property>
+    <property name="beginPeriod" type="java.util.Date" column="BEGIN_PERIOD" length="10">
+    </property>
+    <property name="endPeriod" type="java.util.Date" column="END_PERIOD" length="10" >
+    </property>
+    <property name="realBeginPeriod" type="java.util.Date" column="REAL_BEGIN_PERIOD" length="10" >
+    </property>
+    <property name="realEndPeriod" type="java.util.Date" column="REAL_END_PERIOD" length="10" >
+    </property>
+    <property name="timecardNum" type="java.math.BigDecimal" column="TIMECARD_NUM" length="8"  >
+    </property>
+
+    <!-- Associations -->
+
+</class>
+</hibernate-mapping>

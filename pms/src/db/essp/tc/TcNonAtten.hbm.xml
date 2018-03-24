@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="db.essp.tc.TcNonAtten"
+    table="TC_NONATTEN"
+>
+    <id name="rid" type="java.lang.Long" column="RID" >
+        <generator class="assigned" />
+    </id>
+
+    <property name="userId" type="java.lang.String" column="loginname" length="50" >
+    </property>
+    <property name="timeFrom" type="java.util.Date" column="timefrom" length="10" >
+    </property>
+    <property name="timeTo" type="java.util.Date" column="timeto" length="10" >
+    </property>
+    <property name="totalHours" type="java.math.BigDecimal" column="total_hours" length="10"  >
+    </property>
+    <property name="remark" type="java.lang.String" column="remark" length="500"  >
+    </property>
+    <property name="rct" type="java.util.Date" column="RCT" length="10" >
+    </property>
+    <property name="rut" type="java.util.Date" column="RUT" length="10" >
+    </property>
+    <property name="rst" type="java.lang.String" column="RST" length="1" >
+    </property>
+
+    <!-- Associations -->
+
+</class>
+</hibernate-mapping>

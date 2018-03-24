@@ -1,0 +1,27 @@
+		<!-- ebs -->
+    <mapping resource="db/essp/pms/EbsEbs.hbm.xml"/>
+    <mapping resource="db/essp/pms/EbsEbs9acnt.hbm.xml"/>
+
+    <!-- pms -->
+    <mapping resource="db/essp/pms/PmsAcnt.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsAcntApprovalLog.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsAcntBaseline.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsAcntBaselineLog.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsAcntSeq.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsActivity.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsActivityRelation.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsActivityCode.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsActivityWorker.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsIssue.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsKeypesonal.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsLaborResourceDetail.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsLaborResource.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsNonlaborResource.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsNonlaborResItem.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsPbs.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsPbsFiles.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsPbsAssignment.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsWbs.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsWbsCode.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsWbsCheckpoint.hbm.xml"/>
+    <mapping resource="db/essp/pms/PmsWbsMilestone.hbm.xml"/>

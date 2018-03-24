@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+  <class name="db.essp.pms.NonlaborResItem" table="pms_nonlabor_res_item">
+    <id name="rid" type="long" column="RID">
+      <generator class="assigned"/>
+    </id>
+    <property name="resourceName" type="string" column="RESOURCE_NAME" length="200"/>
+    <property name="resourceId" type="string" column="RESOURCE_ID" length="50"/>
+    <property name="requirement" type="string" column="REQUIREMENT" length="1000"/>
+    <property name="startDate" type="date" column="START_DATE"/>
+    <property name="finishDate" type="date" column="FINISH_DATE"/>
+    <property name="resourceNumber" type="long" column="RESOURCE_NUMBER"/>
+    <property name="remark" type="string" column="REMARK" length="1000"/>
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date" column="RCT"/>
+    <property name="rut" type="date" column="RUT"/>
+
+    <many-to-one name="nonlaborResource" class="db.essp.pms.NonlaborResource" not-null="true">
+      <column name="ENV_RID"/>
+    </many-to-one>
+
+    <many-to-one name="account" class="db.essp.pms.Account" not-null="true">
+      <column name="ACNT_ID"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

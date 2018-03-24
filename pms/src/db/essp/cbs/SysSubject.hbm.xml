@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+
+<class    name="db.essp.cbs.SysSubject"   table="sys_subject" dynamic-insert="true" dynamic-update="true">
+    <id name="cbsType" type="java.lang.String" column="CBS_TYPE">
+        <generator class="assigned" />
+    </id>
+
+    <property name="rid" type="java.lang.Long" column="RID" length="8"/>
+
+    <property name="cbsDefine" type="blob" column="CBS_DEFINE"/>
+    <property  name="rst" type="java.lang.String" column="RST" length="1" />
+    <property name="rct" type="java.util.Date" column="RCT" length="20" />
+    <property name="rut" type="java.util.Date" column="RUT" length="20" />
+</class>
+</hibernate-mapping>

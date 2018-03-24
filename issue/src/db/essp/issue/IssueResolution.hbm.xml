@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class name="db.essp.issue.IssueResolution" table="ISSUE_RESOLUTION" lazy="true">
+    <id name="rid" type="long" column="rid">
+        <generator class="assigned" />
+    </id>
+
+    <property name="probability"    type="double"   column="PROBABILITY"/>
+    <property name="riskLevel"      type="double"   column="RISK_LEVEL"/>
+    <property name="assignedDate"   type="date"   column="ASSIGNED_DATE"/>
+    <property name="resolution"     type="string" column="RESOLUTION"/>
+    <property name="planFinishDate" type="date"   column="PLAN_FINISHDATE"/>
+    <property name="resolutionBy"   type="string" column="RESOLUTION_BY"/>
+    <property name="resolutionByCustomer"   type="string" column="RESOLUTION_BY_CUSTOMER"/>
+    <property name="attachment"     type="string" column="ATTACHMENT"/>
+    <property name="attachmentId"   type="string" column="ATTACHMENT_ID"/>
+    <property name="attachmentdesc" type="string" column="ATTACHMENTDESC"/>
+    <property name="rst"            type="string" column="RST"/>
+    <property name="rct"            type="date"   column="RCT"/>
+    <property name="rut"            type="date"   column="RUT"/>
+
+    <!-- Associations -->
+
+    <!-- bi-directional one-to-one association to Issue -->
+    <one-to-one name="issue" class="db.essp.issue.Issue"/>
+    <!-- bi-directional one-to-many association to IssueResolutionInflue -->
+    <set name="issueResolutionInflues" lazy="true" inverse="false" cascade="all-delete-orphan">
+        <key>
+            <column name="ISSUE_RID" />
+        </key>
+        <one-to-many class="db.essp.issue.IssueResolutionInflue"/>
+    </set>
+    <!-- bi-directional one-to-many association to IssueResolutionCategory -->
+    <set name="issueResolutionCategories" lazy="true" inverse="false" cascade="all-delete-orphan">
+        <key>
+            <column name="ISSUE_RID" />
+        </key>
+        <one-to-many class="db.essp.issue.IssueResolutionCategory"/>
+    </set>
+
+</class>
+</hibernate-mapping>

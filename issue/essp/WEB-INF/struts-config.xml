@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="CRM0000LoginActionForm" type="server.essp.crm.login.form.CRM0000LoginActionForm"/>
+    <form-bean name="FmLogin" type="server.essp.login.form.FmLogin"/>
+    <!--<form-bean name="FmIssueOptions" type="server.essp.issue.common.form.AfIssueOptions"/>-->
+  </form-beans>
+  <global-forwards>
+    <forward name="failure" path="/error.jsp" redirect="false"/>
+    <forward name="success" path="/success.jsp" redirect="false"/>
+  </global-forwards>
+  <action-mappings>
+    <!-- login -->
+    <action name="CRM0000LoginActionForm" path="/customerLogin" type="server.essp.crm.login.action.CRM0000LoginAction">
+      <forward name="success" path="/Index.jsp"/>
+    </action>
+    <action name="FmLogin" path="/employeeLogin" type="server.essp.login.action.AcLogin">
+      <forward name="success" path="/Index.jsp"/>
+    </action>
+
+    <!-- common action -->
+    <!--
+    <action name="FmIssueOptions"
+            path="/issue/optionList"
+            type="server.essp.issue.common.action.AcIssueOptionsList">
+      <forward name="success" path="/issue/optionList.jsp"/>
+    </action>
+    -->
+  </action-mappings>
+  <controller inputForward="true" nocache="false" processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+  <message-resources parameter="server/essp/login" />
+  <message-resources parameter="server/essp/issue/resources/application"/>
+
+
+  <plug-in className="org.apache.struts.tiles.TilesPlugin">
+    <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+    <set-property property="moduleAware" value="true" />
+    <set-property property="definitions-parser-validate" value="true" />
+  </plug-in>
+</struts-config>

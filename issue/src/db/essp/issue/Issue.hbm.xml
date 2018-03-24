@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+<class name="db.essp.issue.Issue" table="ISSUE" lazy="true">
+    <id name="rid"  type="long" column="RID">
+        <generator class="assigned" />
+    </id>
+
+    <property name="accountId"      type="long"   column="ACCOUNT_ID" not-null="true"/>
+    <property name="priority"       type="string" column="PRIORITY"/>
+    <property name="filleBy"        type="string" column="FILLEBY"/>
+    <property name="filleDate"      type="date"   column="FILLEDATE"/>
+    <property name="phone"          type="string" column="PHONE"/>
+    <property name="fax"            type="string" column="FAX"/>
+    <property name="email"          type="string" column="EMAIL"/>
+    <property name="scope"          type="string" column="SCOPE"/>
+    <property name="issueId"        type="string" column="ISSUE_ID"/>
+    <property name="issueName"      type="string" column="ISSUE_NAME"/>
+    <property name="description"    type="string" column="DESCRIPTION"/>
+    <property name="attachment"     type="string" column="ATTACHMENT"/>
+    <property name="attachmentId"   type="string" column="ATTACHMENT_ID"/>
+    <property name="attachmentdesc" type="string" column="ATTACHMENTDESC"/>
+    <property name="principal"      type="string" column="PRINCIPAL"/>
+    <property name="dueDate"        type="date"   column="DUEDATE"/>
+    <property name="issueStatus"    type="string" column="ISSUE_STATUS"/>
+    <property name="duplationIssue" type="long"   column="DUPLATION_ISSUE"/>
+    <property name="rst"            type="string" column="RST"/>
+    <property name="rct"            type="date"   column="RCT"/>
+    <property name="rut"            type="date"   column="RUT"/>
+    <property name="issueType"      type="string" column="TYPE_NAME"/>
+    <property name="filleByScope"   type="string" column="FILLEBY_SCOPE"/>
+    <property name="principalScope" type="string" column="PRINCIPAL_SCOPE"/>
+    <!--  增加实际填写人的字段，记录真正的填写人   -->
+    <property name="actualFilledBy"      type="string" column="ACTUALFILLEDBY"/>
+    <one-to-one name="resolution"
+        class="db.essp.issue.IssueResolution"
+     />
+    <one-to-one  name="issueConclusion"
+                 class="db.essp.issue.IssueConclusion"
+    />
+    <!-- Associations -->
+<!--    <many-to-one name="issueType" class="db.essp.issue.IssueType">
+        <column name="TYPE_NAME" />
+    </many-to-one>
+-->
+<!--
+    <one-to-one
+        name="issueResolution"
+        class="db.essp.issue.IssueResolution"
+        outer-join="false"
+    />
+
+    <one-to-one  name="issueConclusion"
+                 class="db.essp.issue.IssueConclusion"
+                 outer-join="false"
+    />
+
+   <one-to-one
+        name="issuerReportStatus"
+        class="db.essp.issue.IssueReportStatus"
+        outer-join="false"
+    />
+
+    <set
+        name="issueDiscussTitles"
+        lazy="true"
+        inverse="true"
+	    cascade="none"
+    >
+        <key>
+            <column name="ISSUE_RID" />
+        </key>
+        <one-to-many
+            class="db.essp.issue.IssueDiscussTitle"
+        />
+    </set>
+-->
+</class>
+</hibernate-mapping>

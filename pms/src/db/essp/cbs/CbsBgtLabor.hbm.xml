@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+
+<class  name="db.essp.cbs.CbsBgtLabor"  table="cbs_bgt_labor" dynamic-update="true" dynamic-insert="true">
+    <id name="rid" type="java.lang.Long" column="RID">
+        <generator class="assigned" />
+    </id>
+    <property name="jobCodeId" type="java.lang.String" column="JOB_CODE_ID"  not-null="true" length="50">
+    </property>
+    <property name="currency" type="java.lang.String" column="CURRENCY" length="50" >
+    </property>
+    <property  name="price" type="java.lang.Double" column="PRICE" length="10" >
+    </property>
+    <property  name="unit" type="java.lang.String"  column="BGT_UNIT" length="50">
+    </property>
+    <property  name="unitNum" type="java.lang.Double" column="BGT_UNIT_NUM" length="10" >
+    </property>
+    <property name="amt" type="java.lang.Double" column="BGT_AMT" length="14">
+    </property>
+    <property  name="description" type="java.lang.String"  column="DESCRIPTION" length="500">
+    </property>
+    <property name="rst" type="java.lang.String" column="RST" length="1" >
+    </property>
+    <property name="rct" type="java.util.Date" column="RCT" length="19">
+    </property>
+    <property name="rut" type="java.util.Date" column="RUT" length="19">
+    </property>
+
+    <!-- Associations -->
+
+    <!-- bi-directional one-to-many association to CbsBgtLaborMon -->
+    <set
+        name="cbsBgtLaborMons"
+        lazy="true"
+        inverse="false"
+		cascade="all"
+    >
+        <key>
+            <column name="BGT_LABOR_RID" />
+        </key>
+        <one-to-many
+            class="db.essp.cbs.CbsBgtLaborMon"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to CbsBudget -->
+    <many-to-one
+        name="cbsBudget"
+        class="db.essp.cbs.CbsBudget"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BGT_RID"
+        </meta>
+        <column name="BGT_RID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

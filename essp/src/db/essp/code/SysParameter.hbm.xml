@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<class  name="db.essp.code.SysParameter"  table="sys_parameter">
+    <composite-id name="comp_id" class="db.essp.code.SysParameterPK">
+        <key-property  name="kind" column="KIND"   type="string" length="50"/>
+        <key-property  name="code"   column="CODE"  type="string"  length="50"/>
+    </composite-id>    
+
+    <property name="rid" type="java.lang.Long" column="RID" />
+    <property name="name" type="string" column="NAME" length="100"/>
+    <property name="alias" type="string"  column="ALIAS" length="100" />
+    <property name="description" type="string" column="DESCRIPTION" length="1000" />
+    <property name="sequence" type="java.lang.Long" column="SEQUENCE"  length="8" />
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date"  column="RCT" />
+    <property name="rut" type="date" column="RUT" />    
+
+
+</class>
+</hibernate-mapping>

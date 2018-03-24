@@ -1,0 +1,108 @@
+.tableStyle {
+  width: 100%;
+  table-layout:fixed;
+  word-wrap:break-word;
+  word-break:break-all;
+}
+.tableTitleStyle {
+	BACKGROUND-COLOR: #94aad6;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: center;
+	height:20px;
+
+}
+
+.tableDataStyle {
+	width: 100%;
+	table-layout:fixed;
+	word-wrap:break-word;
+	word-break:break-all;
+}
+
+.tableDataEven{
+	font-family: "Arial, Helvetica, sans-serif";
+	font-size: 12px;
+	line-height: normal;
+	background-color: #fffffd;
+	text-align: left;
+	height:15px;
+}
+
+.tableDataOdd {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: normal;
+	background-color: #F0F0F0;
+	text-align: left;
+	height:15px;
+}
+
+.tableDataEvenNoDisplay {
+	font-family: "Arial, Helvetica, sans-serif";
+	font-size: 12px;
+	line-height: normal;
+	background-color: #fffffd;
+	text-align: left;
+	height:15px;
+	display: none;
+}
+
+.tableDataOddNoDisplay {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: normal;
+	background-color: #F0F0F0;
+	text-align: left;
+	height:15px;
+	display: none;
+}
+
+.oracellnumber {
+    text-overflow: ellipsis;
+    overflow: hidden;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-align: right;
+}
+
+.oracelltext {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-align: left;
+}
+
+.oracolumncenterheader {
+	BACKGROUND-COLOR: #94aad6;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: center;
+}
+
+.oracolumntextheader {
+	BACKGROUND-COLOR: #94aad6;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: left;
+}
+
+.oracolumnnumberheader {
+	BACKGROUND-COLOR: #94aad6;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: right;
+}

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="FmLogin" type="server.essp.login.form.FmLogin"/>
+  </form-beans>
+  <global-forwards>
+    <forward name="failure" path="/error.jsp" redirect="false"/>
+    <forward name="success" path="/success.jsp" redirect="false"/>
+  </global-forwards>
+  <action-mappings>
+    <!-- login -->
+    <action name="FmLogin" path="/login" type="server.essp.login.action.AcLogin">
+      <forward name="success" path="/usertoemp.jsp"/>
+    </action>
+    <action  path="/testlogin" type="server.essp.AcLogin">
+      <forward name="app" path="/attendance/overtime/OverTimeAppPre.do"/>
+      <forward name="review" path="/attendance/overtime/OverTimeReviewFrame.jsp"/>
+      <forward name="view" path="/attendance/overtime/OverTimeViewFrame.jsp"/>
+      <forward name="list" path="/attendance/overtime/OverTimeList.do"/>
+      <forward name="list2" path="/attendance/leave/LeaveList.do"/>
+      <forward name="status" path="/attendance/leave/LeaveStatus.do"/>
+      <forward name="app2" path="/attendance/leave/LeaveAppPre.do"/>
+      <forward name="review2" path="/attendance/leave/LeaveReviewPre.do"/>
+      <forward name="view2" path="/attendance/leave/LeaveView.do"/>
+      <forward name="typeList" path="/attendance/leave/LeaveTypeList.do"/>
+      <forward name="mywork" path="/attendance/WorkProcessList.do"/>
+    </action>
+  </action-mappings>
+  <controller inputForward="true" nocache="false" processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+  <message-resources parameter="server/essp/login" />
+  <plug-in className="org.apache.struts.tiles.TilesPlugin">
+    <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+    <set-property property="moduleAware" value="true" />
+    <set-property property="definitions-parser-validate" value="true" />
+  </plug-in>
+</struts-config>

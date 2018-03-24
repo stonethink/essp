@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class name="db.essp.issue.IssueResolutionInflue" table="ISSUE_RESOLUTION_INFLUE" lazy="true">
+    <id name="rid" type="long" column="RID">
+        <generator class="assigned" />
+    </id>
+
+    <property name="influenceName" type="string" column="INFLUENCE_NAME"/>
+    <property name="impactLevel"   type="long"   column="IMPACT_LEVEL"/>
+    <property name="weight"        type="double"   column="WEIGHT"/>
+    <property name="remark"        type="string"   column="REMARK"/>
+    <property name="rst"           type="string" column="RST"/>
+    <property name="rct"           type="date"   column="RCT"/>
+    <property name="rut"           type="date"   column="RUT"/>
+
+    <!-- Associations -->
+
+    <!-- bi-directional many-to-one association to IssueResolution -->
+    <many-to-one name="issueResolution" class="db.essp.issue.IssueResolution">
+        <column name="ISSUE_RID" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

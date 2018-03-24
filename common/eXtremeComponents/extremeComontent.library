@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <!--JBuilder Library Definition File-->
+  <fullname>extremeComontent</fullname>
+  <class>
+    <path>[dist/extremecomponents-1.0.1.jar]</path>
+    <path>[lib/minimum/commons-beanutils-1.7.0.jar]</path>
+    <path>[lib/minimum/commons-collections-3.0.jar]</path>
+    <path>[lib/minimum/commons-lang-2.0.jar]</path>
+    <path>[lib/minimum/commons-logging-1.0.4.jar]</path>
+    <path>[lib/minimum/standard-1.0.2.jar]</path>
+    <path>[lib/pdf/avalon-framework-4.0.jar]</path>
+    <path>[lib/pdf/batik-1.5-fop-0.20-5.jar]</path>
+    <path>[lib/pdf/fop-0.20.5.jar]</path>
+    <path>[lib/pdf/xalan-2.5.1.jar]</path>
+    <path>[lib/pdf/xercesImpl-2.6.1.jar]</path>
+    <path>[lib/pdf/xml-apis-2.0.2.jar]</path>
+    <path>[lib/xls/poi-2.5.1.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/jsp-api.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/velocity-1.4.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/struts.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/activation.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/log4j-1.2.8.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/commons-digester.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/Validator.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/commons-dbcp-1.2.1.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/msutil.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/mssqlserver.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/msbase.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/junit.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/dom4j-1.4.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/jdom.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/commons-beanutils.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/servlet-api.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/mail.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/odmg-3.0.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/commons-fileupload.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/commons-logging.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/jta1.0.1.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/hibernate2.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/classes12.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/ehcache-0.9.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/cglib-full-2.0.2.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/junitpack.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/commons-collections-2.1.1.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/jakarta-oro-2.0.8.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/commons-lang-2.0.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/hibernate-tools.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/poi-2.5.1-final-20040804.jar]</path>
+    <path>[E%|/essp_src/essp2006+/essp2/esspfw/lib/rowset.jar]</path>
+  </class>
+  <lastmodsaved>1153371653843</lastmodsaved>
+</library>

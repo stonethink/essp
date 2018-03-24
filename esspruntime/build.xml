@@ -1,0 +1,724 @@
+﻿<?xml version="1.0"?>
+
+<project name="esspruntime">
+    <property name="project.name" value="esspruntime"/>
+	<property name="project.classes" value="${project.home}/classes"/>
+	<property name="project.lib" value="${basedir}/lib"/>
+	<property name="project.applet" value="${basedir}/build/applet"/>
+	<property name="project.web" value="${basedir}/essp"/>
+	<property name="project.web.applet" value="${project.web}/applet"/>
+	<property name="project.web.inf" value="${project.web}/WEB-INF"/>
+	<property name="project.web.classes" value="${project.web.inf}/classes"/>
+	<property name="project.web.lib" value="${project.web.inf}/lib"/>
+	<property name="project.web.tld" value="${project.web.inf}/tld"/>
+    <property file= "../buildCommon.properties"/>
+    
+    <target name="init" depends="message.not_compile_file, message.not_copy_web, message.db">
+    </target>
+    <target name="message.not_compile_file" if="env.not_compile_file">
+        <echo message="Not compile file."/>
+    </target>
+    <target name="message.not_copy_web" if="env.not_copy_web">
+        <echo message="Not copy file from other project to esspruntime project's web directory."/>
+    </target>
+    <target name="message.db" if="env.set_db">
+        <echo message="According to the setting in enviroment variable -- set_db, will run database ${env.set_db}."/>
+    </target>
+
+	  <!-- clean -->
+	<target name="clean" unless="env.not_compile_file">
+		<antcall target="clean2"/>
+	</target>
+	<target name="clean2" unless="env.not_copy_web">
+		<!-- web -->
+		<delete dir="${project.classes}"/>
+		<delete dir="${project.lib}"/>
+		<delete dir="${project.web}"/>
+	</target>
+	
+	<target name="prepare" depends="init">
+		<echo message="basedir=${basedir}"/>
+        <echo message="project.name=${project.name}"/>
+        <echo message="project.home=${project.home}"/>
+        <echo message="project.build=${project.build}"/>
+        <echo message="project.web=${project.web}"/>
+		<mkdir dir="${project.applet}"/>
+		<mkdir dir="${project.web.applet}"/>
+		<mkdir dir="${project.web.classes}"/>
+		<mkdir dir="${project.web.lib}"/>
+		<mkdir dir="${project.web.tld}"/>
+		<mkdir dir="${project.config}"/>
+	</target>
+	
+	<!--将所有工程干净地编译并打包-->
+		
+    <target name="clean_jar" unless="env.not_compile_file">
+		<ant antfile="${esspfw.project.home}/build.xml" target="clean_jar" dir="${esspfw.project.home}" inheritAll="false">
+		</ant>		
+		<ant antfile="${essp.project.home}/build.xml" target="clean_jar" dir="${essp.project.home}" inheritAll="false">
+		</ant>
+		
+		<ant antfile="${timesheet.project.home}/build.xml" target="clean_jar" dir="${timesheet.project.home}" inheritAll="false">
+		</ant>
+		
+		<ant antfile="${projectpre.project.home}/build.xml" 
+		     target="clean_jar" 
+		     dir="${projectpre.project.home}"             
+		     inheritAll="false">
+		</ant>
+    	<ant antfile="${hrbase.project.home}/build.xml" target="clean_jar" dir="${hrbase.project.home}" inheritAll="false">
+    	</ant>
+    <antcall target="jar_common_client"/>
+    
+  	</target>
+
+  <target name="jar_common_client" depends="prepare">
+    <!--<antcall target="chgDTD"/>-->
+    <ant antfile="${buildCommon.xml}" target="chgDTD" dir="."/>
+
+    <delete file="${project.applet}/common_client.jar"/>
+    <jar destfile="${project.applet}/common_client.jar">
+      <zipfileset src="${common.project.home}/lib/commons-logging.jar">
+        <include name="**/*.*"/>
+        <exclude name="META-INF/*.*"/>
+        <exclude name="overview.html"/>
+      </zipfileset>
+      <zipfileset src="${common.project.home}/lib/commons-collections-2.1.1.jar">
+        <include name="**/*.*"/>
+        <exclude name="META-INF/*.*"/>
+        <exclude name="overview.html"/>
+      </zipfileset>
+      <zipfileset src="${common.project.home}/lib/commons-digester.jar">
+        <include name="**/*.*"/>
+        <exclude name="META-INF/*.*"/>
+        <exclude name="overview.html"/>
+      </zipfileset>
+      <zipfileset src="${common.project.home}/lib/commons-beanutils.jar">
+        <include name="**/*.*"/>
+        <exclude name="META-INF/*.*"/>
+        <exclude name="overview.html"/>
+        <exclude name="**/collections/*.*"/>
+      </zipfileset>
+      <zipfileset src="${common.project.home}/lib/jakarta-oro-2.0.8.jar">
+        <include name="**/*.*"/>
+        <exclude name="META-INF/*.*"/>
+        <exclude name="overview.html"/>
+      </zipfileset>
+      <zipfileset src="${common.project.home}/lib/log4j-1.2.8.jar">
+        <include name="**/*.*"/>
+        <exclude name="META-INF/*.*"/>
+        <exclude name="overview.html"/>
+      </zipfileset>
+      <zipfileset src="${common.project.home}/lib/Validator.jar"/>
+    </jar>
+    
+    <ant antfile="${buildCommon.xml}" target="jar_sign" dir=".">
+    	<property name="sign.jar" value="${project.applet}/common_client.jar"/>
+    </ant>
+       
+  </target>
+    <!--
+    <target name="copy_esspold">
+      <echo message="Copy project:${oldproject.home}"/>
+
+        
+        <copy todir="${project.web}">
+            <fileset dir="${oldproject.home}/web">
+            	<exclude name="cvs*"/>
+            	<exclude name="**/web.xml"/>
+            	<exclude name="pms/**/*"/>
+            	<exclude name="crm/**/*"/>
+            	<exclude name="hr/**/*"/>
+            	<exclude name="WEB-INF/classes/**/*"/>
+            </fileset>
+            <fileset dir="${oldproject.home}/deliver">
+            	<include name="pspApplet.jar"/>
+            </fileset>
+        </copy>
+       
+        <native2ascii
+         	encoding="${project.resource.encoding}"
+         	src="${oldproject.home}/config"
+         	dest="${project.web.classes}"
+         	includes="**/*.properties,**/*.conf,**/*.jocl,**/*.xml"
+        />
+   </target>
+-->
+	<!--从ESSPOLD中Copy水晶报表和CODE定义-->
+	<target name="copy_esspold">
+      <echo message="Copy project:${oldproject.home}"/>
+        <copy todir="${project.web}">
+            <fileset dir="${oldproject.home}/web">
+            	<include name="crystalreportviewers10/**"/>
+            	<include name="report/**"/>
+            	<include name="administrator/**"/>
+            </fileset>
+        </copy>
+         <native2ascii
+         	encoding="${project.resource.encoding}"
+         	src="${oldproject.home}/config"
+         	dest="${project.web.classes}"
+         	includes="**/db.properties"
+        />
+   </target>
+
+  <target name="copy_esspfw">     
+  	<ant antfile="${buildCommon.xml}" target="web_copy" dir=".">
+  		<property name="from_dir" value="${esspfw.project.home}"/>
+  		<property name="to_dir" value="${project.home}"/>
+  	</ant>
+     
+    <!--拷贝tld文件-->
+    <copy todir="${project.web.tld}" overwrite="true">
+      <fileset dir="${esspfw.project.home}/tld" includes="*.*">
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="copy_essp">
+  		<ant antfile="${buildCommon.xml}" target="web_copy" dir=".">
+	  		<property name="from_dir" value="${essp.project.home}"/>
+	  		<property name="to_dir" value="${project.home}"/>
+	  		<property name="web.jsp" value="common/**/*.*, js/**/*.*, inc/**/*.*, css/**/*.*,
+	  		 dtd/**/*.*,editor/**/*.*,fckconfig.js, image/**/*.*, layout/**/*.*,security/**/*.jsp,*.jsp,*.html,*.htm"/>
+	  		<property name="struts.config" value="struts-config.xml,struts-config-hr-res.xml,validation.xml,validator-rules.xml,tiles-defs.xml"/>
+	  	</ant>
+	  	<copy todir="${project.web}/WEB-INF/">
+		    <fileset dir="${essp.project.home}/essp/WEB-INF">
+			    <include name="server-config.wsdd"/>
+		    </fileset>
+	    </copy>  	  	
+  </target>
+
+ 
+  <target name="copy_timesheet" depends="prepare">
+  	<ant antfile="${buildCommon.xml}" target="web_copy" dir=".">
+  		<property name="from_dir" value="${timesheet.project.home}"/>
+  		<property name="to_dir" value="${project.home}"/>
+  		<property name="web.jsp" value="timesheet/**/*.*"/>
+	  	<property name="struts.config" value="struts-config-ts.xml"/>
+  	</ant>
+  	<!--
+  	<copy todir="${project.web}/WEB-INF/classes/mail/template/tc">
+		<fileset dir="${tc.project.home}/config/mail/template/tc">
+			<include name="personalAllInfoMailTemplate.htm"/>
+			<include name="PMConfirmMailTemplate.htm"/>
+			<include name="reportMailTemplate.htm"/>
+			<include name="WorkFlowMailTemplate.htm"/>
+		</fileset>
+	</copy>
+	-->
+  </target>
+
+<target name="copy_projectpre">
+    	<ant antfile="${buildCommon.xml}" target="web_copy" dir=".">
+	  		<property name="from_dir" value="${projectpre.project.home}"/>
+	  		<property name="to_dir" value="${project.home}"/>
+	  		<property name="web.jsp" value="projectpre/**/*.*"/>
+	  		<property name="struts.config" value="struts-config-pp.xml"/>
+	  	</ant>    
+	  	<!--
+	<copy todir="${project.web}/WEB-INF/classes/mail/template/proj">
+		<fileset dir="${projectpre.project.home}/config/mail/template/proj">
+			<include name="*.htm"/>
+			<include name="*.html"/>
+		</fileset>
+	</copy> 
+	--> 	
+  </target>
+	<target name="copy_hrbase" depends="prepare">
+	  	<ant antfile="${buildCommon.xml}" target="web_copy" dir=".">
+	  		<property name="from_dir" value="${hrbase.project.home}"/>
+	  		<property name="to_dir" value="${project.home}"/>
+	  		<property name="web.jsp" value="hrbase/**/*.*"/>
+		  	<property name="struts.config" value="struts-config-hrb.xml"/>
+	  	</ant>
+	  </target>
+	
+    <target name="copy_com_lib">
+    	
+		<copy todir="${project.web.lib}" preservelastmodified="true">
+		  <fileset dir="${common.project.home}/lib">
+			<!--apache common lib -->
+		    <include name="commons-beanutils.jar"/>
+		    <include name="commons-collections-2.1.1.jar"/>
+		    <include name="commons-dbcp-1.2.1.jar"/>
+		    <include name="commons-digester.jar"/>
+		    <include name="commons-fileupload.jar"/>
+		    <include name="commons-lang-2.0.jar"/>
+		    <include name="commons-logging.jar"/>
+		    <include name="log4j-1.2.8.jar"/>
+		    <include name="jakarta-oro-2.0.8.jar"/>
+
+			<!--xml lib -->
+		    <include name="dom4j-1.4.jar"/>
+			<!--JDO lib -->
+			<include name="castor-0.9.5.jar"/>
+		  <include name="castor-0.9.5-xml.jar"/>
+		    
+			<!--hibernate&db lib -->
+		    <include name="hibernate2.jar"/>
+		    <include name="hibernate-tools.jar"/>
+		    <include name="cglib-full-2.0.2.jar"/>
+		    <include name="ehcache-0.9.jar"/>
+		    <include name="odmg-3.0.jar"/>
+		    <include name="rowset.jar"/>
+		    <include name="jta1.0.1.jar"/>
+		    <include name="jdom.jar"/>
+		    <!-- Oracle JDBC-->
+		    <include name="ojdbc14.jar"/>
+		    <!-- MS SQL Server JDBC-->
+		    <include name="msbase.jar"/>
+		    <include name="mssqlserver.jar"/>
+		    <include name="msutil.jar"/>
+		    <!-- MySql JDBC-->
+		    <include name="mysql-connector-java-3.1.6-bin.jarn.jar"/>
+
+		    <!--jsp&struts lib -->
+		    <include name="servlet-api.jar"/>
+		    <include name="jsp-api.jar"/>
+		    <include name="struts-legacy.jar"/>
+		    <include name="struts.jar"/>
+		    <include name="Validator.jar"/>
+
+		    <!--junit lib -->
+		    <include name="junitpack.jar"/>
+		    <include name="junit.jar"/>
+
+		    <!--excel -->
+		    <include name="poi3.jar"/>
+
+        	<!-- mail -->
+			<include name="mail.jar"/>
+			<include name="activation.jar"/>
+			
+				<!-- dwr -->
+        <include name="dwr.jar"/>
+        <include name="xalan-2.4.1.jar"/>
+
+        	<!-- velocity -->
+		   <include name="velocity-1.4.jar"/>
+		   
+		   <!-- FCKeditor -->
+		   <include name="FCKeditor-2.3.jar"/>
+		   
+		   <!--Spring_jar-->
+			 <include name="spring*.jar"/>
+			 
+		   <!--eXtremeComponent-->
+			 <include name="extremecomponents-1.0.1.jar"/> 
+			 <include name="standard-1.0.2.jar"/> 
+		   <!-- axis -->	
+ 			<include name="axis.jar"/>
+ 			<include name="commons-discovery-0.2.jar"/>
+ 			<include name="jaxrpc.jar"/>
+ 			<include name="saaj.jar"/>
+ 			<include name="wsdl4j-1.5.1.jar"/>
+                   <!-- jfreechart-->
+                        <include name="jfreechart-1.0.2.jar"/>
+ 			<include name="jcommon-1.0.5.jar"/>
+
+
+			<!-- primavera integration api -->
+			<include name="intgserver.jar"/>
+			<include name="JSQLConnect.jar"/>
+
+			<!-- primavera sqlserver -->
+			<include name="msbase.jar"/>
+			<include name="msutil.jar"/>
+
+			<!-- jotm -->
+			<include name="commons-cli-1.0.jar"/>
+			<include name="connector-1_5.jar"/>
+			<include name="howl.jar"/>
+			<include name="jotm.jar"/>
+			<include name="jotm_iiop_stubs.jar"/>
+			<include name="jotm_jrmp_stubs.jar"/>
+			<include name="jta-spec1_0_1.jar"/>
+			<include name="jts1_0.jar"/>
+			<include name="objectweb-datasource.jar"/>
+			<include name="ow_carol.jar"/>
+			<include name="xapool.jar"/>
+
+		  </fileset>
+		</copy>
+		<copy file="${project.applet}/common_client.jar" tofile="${project.web.applet}/common_client.jar" preservelastmodified="true">
+    	</copy>
+		<!-- copy old ESSP lib-->
+		<copy todir="${project.web.lib}" preservelastmodified="true">
+		  <fileset dir="${common.project.home}/lib/esspold_lib">
+		    <include name="*.jar"/>
+		  </fileset>
+		</copy>
+	</target>
+	
+	<!-- 一些特殊的copy动作 -->
+	<target name="copy_merge">
+		<mkdir dir="${project.web}/pms/report/crystalreportviewers10"/>
+	    <copy overwrite="true" todir="${project.web}/pms/report/crystalreportviewers10" >
+	    	<fileset dir="${project.home}/essp/crystalreportviewers10"/>
+	    </copy>
+	    
+	    <!--copy web.xml-->
+	    <copy overwrite="true" tofile="${project.web.inf}/web.xml" file="${project.config}/web.xml">
+	    </copy>
+	    
+	    <!--copy dwr.xml-->
+	    <copy overwrite="true" tofile="${project.web.inf}/dwr.xml" file="${project.config}/dwr.xml">
+	    </copy>
+	    
+	    <!--copy log4j-->
+	    <copy overwrite="true" tofile="${project.web.classes}/log4j.properties" file="${project.config}/log4j.properties"/>
+	    <copy overwrite="true" tofile="${project.web.classes}/log4j_server.properties" file="${project.config}/log4j_server.properties"/>
+	        
+	</target>
+	
+	<!--整理cvs馆中的内容-->
+	<target name="merge" depends="prepare">
+      	<property name="essp2.home" value="${project.home}/.."/>
+      	<echo message="${essp2.home}"/>
+
+        <copy todir="${essp2.home}/esspfw/config">
+          <fileset dir="${essp2.home}/esspruntime/config" includes="hbm*,hibernateCfg.properties">
+          </fileset>
+        </copy>
+
+        <copy todir="${essp2.home}/esspruntime/config">
+          <fileset dir="${essp2.home}/essp/config" includes="log4j.properties">
+          </fileset>
+          <fileset dir="${essp2.home}/essp/build/applet" includes="orgApplet.cer,orgApplet.keystore">
+          </fileset>
+        </copy>
+
+        <delete>
+          <fileset dir="${essp2.home}/esspruntime/config" includes="hbm*,hibernateCfg.properties">
+          </fileset>
+          <fileset dir="${essp2.home}/esspfw/config" includes="log*.properties,hibernate.cfg.xml">
+          </fileset>
+          <fileset dir="${essp2.home}/essp/config" includes="log*.properties,hibernate.cfg.xml,hbm*">
+          </fileset>
+          <fileset dir="${essp2.home}/essp/build/applet" includes="orgApplet.cer,orgApplet.keystore">
+          </fileset>
+          <fileset dir="${essp2.home}/pms/config" includes="log*.properties,hibernate.cfg.xml,hbm*">
+          </fileset>
+          <fileset dir="${essp2.home}/issue/config" includes="log*.properties,hibernate.cfg.xml,hbm*">
+          </fileset>
+          <fileset dir="${essp2.home}/workflow2/config" includes="log*.properties,hibernate.cfg.xml,hbm*">
+          </fileset>
+        </delete>
+	</target>
+    
+    <target name="copy" unless="env.not_copy_web">
+        <antcall target="copy_esspold"/>
+        <antcall target="copy_esspfw"/>
+        <antcall target="copy_essp"/>
+        <antcall target="copy_timesheet"/>
+        <antcall target="copy_projectpre"/>
+    	<antcall target="copy_hrbase"/>
+        <antcall target="copy_com_lib"/>
+        <antcall target="copy_merge"/>
+    </target>
+    
+    <!--根据环境变量set_db,使系统为：开发环境、测试环境、运行环境-->
+    <target name="set_db" depends="init" if="env.set_db">
+        <echo message="run [${env.set_db}] database"/>
+        <delete>
+            <fileset dir="${project.web.classes}">
+                <include name="database.xml"/>
+                <include name="db.properties"/>
+                <include name="db2.properties"/>
+                <include name="dbConfig.properties"/>
+                <include name="hbmMain.cfg.xml"/>
+                <include name="log.properties"/>
+                <include name="log4j.properties"/>
+            </fileset>
+        </delete>
+        <copy todir="${project.web.classes}">
+            <fileset dir="${project.config}/dbconfig\${env.set_db}">
+                <include name="database.xml"/>
+                <include name="db.properties"/>
+                <include name="db2.properties"/>
+                <include name="dbConfig.properties"/>
+                <include name="hbmMain.cfg.xml"/>
+                <include name="log.properties"/>
+                <include name="log4j.properties"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <!-- if copy web or set db, do war. -->
+    <target name="war" depends="prepare,war2,war3">
+        
+    </target>
+
+    <target name="war2" unless="env.not_copy_web">
+        <delete file="${project.build}/essp.war">
+        </delete>
+        <war destfile="${project.build}/essp.war" webxml="${project.web.inf}/web.xml">
+            <fileset dir="${project.web}"/>
+        </war>
+    </target>
+
+    <target name="war3" if="env.not_copy_web">
+        <antcall target="war4"/>
+    </target>
+
+    <target name="war4" if="env.set_db">
+        <antcall target="war5"/>
+    </target>
+    
+    <available property="web.xml.exist" file="${project.web.inf}/web.xml"/>
+    <target name="war5" if="web.xml.exist">
+        <delete file="${project.build}/essp.war">
+        </delete>
+        <war destfile="${project.build}/essp.war" webxml="${project.web.inf}/web.xml">
+            <fileset dir="${project.web}"/>
+        </war>
+    </target>
+    
+ 
+  <target name="clean_copy" depends="clean,copy,set_db"/>
+  <target name="clean_jar_copy" depends="clean_jar,clean_copy"/>
+  <target name="prepare_web" depends="init, merge,clean_jar_copy"/>
+	<target name="jar_essp_batch">
+	    <ant antfile="${buildCommon.xml}" target="chgDTD" dir="."/>
+	    <delete file="${project.build}/essp_batch.jar"/>
+	    <jar destfile="${project.build}/essp_batch.jar">
+	      <fileset dir="${esspruntime.project.home}/config">
+	        <include name="log4j.properties"/>
+	      </fileset>
+	      <zipfileset src="${project.web.lib}/esspfw_server.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	        <exclude name="sysCfg/hibernateCfg.properties"/>
+	      </zipfileset>
+	      <zipfileset src="${project.web.lib}/esspcom_server.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	       <zipfileset src="${project.web.lib}/timesheet_server.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset> 
+	       <zipfileset src="${project.web.lib}/projectpre_server.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${project.web.lib}/hrbase_server.jar">
+	    	<include name="**/*.*"/>
+	    	<exclude name="META-INF/*.*"/>
+	    	<exclude name="overview.html"/>
+	      </zipfileset> 
+	      <zipfileset src="${common.project.home}/lib/commons-logging.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/commons-collections-2.1.1.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/commons-lang-2.0.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/commons-digester.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/commons-beanutils.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	        <exclude name="**/collections/*.*"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/jakarta-oro-2.0.8.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/log4j-1.2.8.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/hibernate2.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/activation.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/dom4j-1.4.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/jdom.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/odmg-3.0.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/cglib-full-2.0.2.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/ehcache-0.9.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/jta1.0.1.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/ojdbc14.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/velocity-1.4.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/spring-aop.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/spring-beans.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/spring-context.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/spring-core.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/spring-dao.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/spring-hibernate.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/spring-jdbc.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/spring-mock.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/spring-orm.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/spring-web.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/spring-webmvc.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/poi-3.0-alpha2-20060616.jar">
+	        <include name="**/*.*"/>
+	        <exclude name="META-INF/*.*"/>
+	        <exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/intgserver.jar">
+	    		<include name="**/*.*"/>
+	    		<exclude name="META-INF/*.*"/>
+	    		<exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/xapool.jar">
+	    		<include name="**/*.*"/>
+	    		<exclude name="META-INF/*.*"/>
+	    		<exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/jotm.jar">
+	    		<include name="**/*.*"/>
+	    		<exclude name="META-INF/*.*"/>
+	    		<exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/jotm_iiop_stubs.jar">
+	    		<include name="**/*.*"/>
+	    		<exclude name="META-INF/*.*"/>
+	    		<exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/jotm_jrmp_stubs.jar">
+	    		<include name="**/*.*"/>
+	    		<exclude name="META-INF/*.*"/>
+	    		<exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/connector-1_5.jar">
+	    		<include name="**/*.*"/>
+	    		<exclude name="META-INF/*.*"/>
+	    		<exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/ow_carol.jar">
+	    		<include name="**/*.*"/>
+	    		<exclude name="META-INF/*.*"/>
+	    		<exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/howl.jar">
+	    		<include name="**/*.*"/>
+	    		<exclude name="META-INF/*.*"/>
+	    		<exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/servlet-api.jar">
+	    		<include name="**/*.*"/>
+	    		<exclude name="META-INF/*.*"/>
+	    		<exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/struts.jar">
+	    		<include name="**/*.*"/>
+	    		<exclude name="META-INF/*.*"/>
+	    		<exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/activation.jar">
+	    		<include name="**/*.*"/>
+	    		<exclude name="META-INF/*.*"/>
+	    		<exclude name="overview.html"/>
+	      </zipfileset>
+	      <zipfileset src="${common.project.home}/lib/mail.jar">
+	    		<include name="**/*.*"/>
+	    		<exclude name="META-INF/*.*"/>
+	    		<exclude name="overview.html"/>
+	      </zipfileset>
+	    </jar>
+	</target>
+</project>

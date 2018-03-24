@@ -1,0 +1,9 @@
+[PropertyInfo]
+parameter,com.wits.util.Parameter,false,false, , ,true,<default>
+vwDown,client.essp.timesheet.report.utilizationRate.detail.VwUtilRateForPeriodDown,false,false, , ,false,<default>
+vwUp,client.essp.timesheet.report.utilizationRate.detail.VwUtilRateForPeriodUp,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

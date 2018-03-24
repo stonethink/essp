@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+
+<class  name="db.essp.attendance.TcLeaveDetail"  table="tc_leave_detail" >
+    <id name="rid" type="java.lang.Long"  column="RID">
+        <generator class="assigned" />
+    </id>
+
+    <property  name="leaveDay" type="java.util.Date" column="LEAVE_DAY" length="19" />
+    <property name="hours" type="java.lang.Double" column="HOURS" length="8" />
+    <property name="changeHours" type="java.lang.Double" column="CHANGE_HOURS" length="8" />
+    <property name="remark" type="java.lang.String" column="REMARK" length="500" />
+    <property name="rst" type="java.lang.String" column="RST" length="1" />
+    <property name="rct" type="java.util.Date" column="RCT" length="19" />
+    <property name="rut" type="java.util.Date" column="RUT" length="19" />
+    <!-- Associations -->
+
+    <!-- bi-directional many-to-one association to TcOvertime -->
+    <many-to-one
+        name="tcLeave"
+        class="db.essp.attendance.TcLeaveMain"
+        not-null="true"
+    >
+        <column name="LEAVE_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

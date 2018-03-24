@@ -1,0 +1,91 @@
+
+
+<html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ESSP System Mail</title>
+    
+  </head>
+  
+  <body>
+    Dear $addressee:
+<br>
+<br>
+#foreach($dd in $content)
+&nbsp;&nbsp;&nbsp;&nbsp;A "department add" application has just been rejected!
+<br>    
+
+<br>
+<div align="left"><FONT color="red">拒絕申請原因<FONT face="Times New Roman" size="4">&quot;</FONT>$!dd.remark<FONT face="PMingLiU"><FONT size="4">&quot;</FONT><FONT color="#0000ff" size="2"> </FONT></FONT></FONT></div>
+<table width="787" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF" style='word-break:break-all;'>
+<tr>
+  <td width="188" bgcolor="#94aad6">
+					申請人
+				</td>
+  <td colspan="3">$!dd.applicantName&nbsp;</td>
+</tr>
+<tr>
+  <td width="188" bgcolor="#94aad6">
+					部門全名
+				</td>
+  <td colspan="3" width="599">$!dd.acntFullName&nbsp;</td>
+</tr>
+<tr>
+  <td width="188" bgcolor="#94aad6">
+					部門簡稱
+				</td>
+  <td width="195">$!dd.acntName&nbsp;</td>
+  <td width="194" bgcolor="#94aad6">
+					部門代碼 
+				</td>
+  <td width="187">$!dd.acntId&nbsp;</td>
+</tr>
+<tr>
+  <td width="188" bgcolor="#94aad6">
+					工時表簽核者
+				</td>
+  <td width="195">$!dd.TCSName&nbsp;</td>
+  <td width="194" bgcolor="#94aad6">
+					BD主管
+				</td>
+  <td width="187">$!dd.BDMName&nbsp;</td>
+</tr>
+<tr>
+  <td width="188" bgcolor="#94aad6">
+					業績歸屬單位
+				</td>
+  <td width="195">$!dd.achieveBelong&nbsp;</td>
+  <td width="194" bgcolor="#94aad6">
+					部門經理
+				</td>
+  <td width="187">$!dd.deptManager&nbsp;</td>
+</tr>
+<tr>
+  <td width="188" bgcolor="#94aad6">
+					上級部門
+				</td>
+  <td width="599" colspan="3">$!dd.parentDept&nbsp;</td>
+  
+</tr>
+<tr>
+  <td width="188" bgcolor="#94aad6">
+					專案屬性
+				</td>
+  <td width="599" colspan="3">$!dd.acntAttribute&nbsp;</td>
+  
+</tr>
+
+
+
+</table>
+<br />
+#end
+--------------------------------------------------
+<br />
+Best regard!<br />
+The above information was sent by ESSP automatically, you need not reply.<br />
+<br />
+$addresser<br />
+$date
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR>
+<STYLE></STYLE>
+</HEAD>
+<BODY >
+Dear,$addressee:
+<br>
+<br>
+#foreach($dd in $content)
+Your weekly report between <strong>$!dd.beginDate</strong> and <strong>$!dd.endDate</strong> 
+in the Account:<strong>$dd.accountInfo</strong> has been rejected by PM <strong>$!dd.submiter</strong>,
+please check and modify your weekly report
+<br />
+#end
+--------------------------------------------------
+<br />
+Best regard!<br />
+The above information was sent by ESSP automatically, you need not reply.<br />
+<br />
+$addresser<br />
+$date
+</BODY></HTML>

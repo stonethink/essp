@@ -1,0 +1,740 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="false">
+
+	<!-- Data Source -->
+	<bean id="timesheetDataSource" class="org.enhydra.jdbc.pool.StandardXAPoolDataSource" destroy-method="shutdown">
+		<property name="dataSource">
+			<bean class="org.enhydra.jdbc.standard.StandardXADataSource" destroy-method="shutdown">
+				<property name="transactionManager" ref="jotm" />
+				<property name="driverName" value="oracle.jdbc.driver.OracleDriver" />
+				<property name="url" value="jdbc:oracle:thin:@10.5.24.187:1521:ESSPDEV" />
+				<property name="minCon" value="10"/>
+				<property name="maxCon" value="100"/>
+			</bean>
+		</property>
+		<property name="transactionManager" ref="jotm" />
+		<property name="minSize" value="2" />
+		<property name="maxSize" value="10" />
+		<property name="checkLevelObject" value="1" />
+		<property name="user" value="esspdev" />
+		<property name="password" value="esspdev" />
+	</bean>
+
+	<bean id="primaveraDataSource" class="org.enhydra.jdbc.pool.StandardXAPoolDataSource" destroy-method="shutdown">
+		<property name="dataSource">
+			<bean class="org.enhydra.jdbc.standard.StandardXADataSource" destroy-method="shutdown">
+				<property name="transactionManager" ref="jotm" />
+				<property name="driverName" value="oracle.jdbc.driver.OracleDriver" />
+				<property name="url" value="jdbc:oracle:thin:@10.5.24.187:1521:PMDB" />
+				<property name="minCon" value="10"/>
+				<property name="maxCon" value="100"/>
+			</bean>
+		</property>
+		<property name="transactionManager" ref="jotm" />
+		<property name="minSize" value="10" />
+		<property name="maxSize" value="100" />
+		<property name="checkLevelObject" value="1" />
+		<property name="user" value="admuser" />
+		<property name="password" value="admuser" />
+	</bean>
+
+	<!-- hibernate session factory -->
+	<bean id="timesheetSessionFactory" class="org.springframework.orm.hibernate.LocalSessionFactoryBean">
+		<property name="dataSource" ref="timesheetDataSource" />
+		<property name="entityInterceptor">
+			<bean class="server.framework.hibernate.HBInterceptor" />
+		</property>
+		<property name="mappingLocations">
+			<value>classpath:db/essp/timesheet/*.hbm.xml</value>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">net.sf.hibernate.dialect.OracleDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.use_outer_join">true</prop>
+			</props>
+		</property>
+		<property name="jtaTransactionManager" ref="jotm" />
+	</bean>
+
+	<!-- preference -->
+
+	<bean id="preferenceP3DbDao" class="server.essp.timesheet.preference.dao.PreferenceP3DbDaoImp">
+		<property name="dataSource" ref="primaveraDataSource" />
+	</bean>
+
+	<bean id="preferenceDao" class="server.essp.timesheet.preference.dao.PreferenceDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+
+	<bean id="preferenceService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.preference.service.PreferenceServiceImp">
+				<property name="preferenceDao" ref="preferenceDao" />
+			</bean>
+		</property>
+	</bean>
+
+
+	<!-- time sheet -->
+	<bean id="timeSheetP3DbDao" class="server.essp.timesheet.weeklyreport.dao.TimeSheetP3DbDaoImp">
+		<property name="dataSource" ref="primaveraDataSource" />
+		<property name="insertStatusCode" value="TS_Approv" />
+	</bean>
+
+	<bean id="timeSheetApiDao" class="server.essp.timesheet.weeklyreport.dao.TimeSheetP3ApiDaoImp"></bean>
+
+	<bean id="timeSheetDao" class="server.essp.timesheet.weeklyreport.dao.TimeSheetDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+
+	<!-- attendance tmp database -->
+	<bean id="attLeaveDao" class="server.essp.timesheet.weeklyreport.dao.AttLeaveDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+
+	<!-- attendance tmp database -->
+	<bean id="attOvertimeDao" class="server.essp.timesheet.weeklyreport.dao.AttOvertimeDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+
+	<!--<bean id="timeSheetApiDao" class="server.essp.timesheet.weeklyreport.dao.TimeSheetApiDaoImp" />-->
+
+	<bean id="timeSheetService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.weeklyreport.service.TimeSheetServiceImp">
+				<property name="timeSheetDao" ref="timeSheetDao" />
+				<property name="preferenceDao" ref="preferenceDao" />
+				<property name="timeSheetApiDao" ref="timeSheetApiDao" />
+				<property name="rmMaintDao" ref="rmMaintDao" />
+				<property name="attLeaveDao" ref="attLeaveDao" />
+				<property name="attOvertimeDao" ref="attOvertimeDao" />
+				<property name="accountDao" ref="accountDao" />
+				<property name="rmMaintService" ref="rmMaintService" />
+				<property name="codeValueDao" ref="codeValueDao" />
+				<property name="approvalAssistService" ref="approvalAssistService" />
+				<property name="dailyReportDao" ref="dailyReportDao" />
+			</bean>
+		</property>
+	</bean>
+
+
+
+	<!-- Work Scope -->
+	<bean id="workScopeP3ApiDao" class="server.essp.timesheet.workscope.dao.WorkScopeP3ApiDaoImp"></bean>
+	<bean id="iWorkScopeService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.workscope.service.WorkScopeServiceImp">
+				<property name="workScopeP3ApiDao" ref="workScopeP3ApiDao" />
+				<property name="accountDao" ref="accountDao" />
+				<property name="codeRelationDao" ref="codeRelationDao" />
+				<property name="preferenceDao" ref="preferenceDao" />
+				<property name="codeRelationService" ref="codeRelationService" />
+			</bean>
+		</property>
+	</bean>
+
+
+	<!-- activity -->
+	<bean id="activityGeneralDao" class="server.essp.timesheet.activity.general.dao.GeneralDaoImp" />
+
+	<bean id="iGeneralService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.activity.general.service.GeneralServiceImp">
+				<property name="igeneralDao" ref="activityGeneralDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- calendar -->
+	<bean name="calendarP3Dao" class="server.essp.timesheet.calendar.dao.CalendarP3DaoImp" />
+
+	<bean id="calendarService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.calendar.service.CalendarServiceImp">
+				<property name="calendarP3Dao">
+					<ref bean="calendarP3Dao" />
+				</property>
+				<property name="preferenceP3DbDao">
+					<ref bean="preferenceP3DbDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="iresDao" class="server.essp.timesheet.activity.resources.dao.ResourceDaoImp">
+	</bean>
+	
+	<bean id="iResourceService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.activity.resources.service.ResourceServiceImp">
+				<property name="iresDao">
+					<ref bean="iresDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="iNoteBookService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.activity.notebook.service.NoteBookServiceImp">
+				<property name="inoteBookDao">
+					<bean class="server.essp.timesheet.activity.notebook.dao.NoteBookDaoImp" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="iStepsService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.activity.steps.service.StepsServiceImp">
+				<property name="istepDao">
+					<bean class="server.essp.timesheet.activity.steps.dao.StepsDaoImp" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="iRelationService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.activity.relationships.service.RelationShipsServiceImp">
+				<property name="irelationDao">
+					<bean class="server.essp.timesheet.activity.relationships.dao.RelationShipsDaoImp" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="iDocumentService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.activity.document.service.DocumentServiceImp">
+				<property name="idocumentDao">
+					<bean class="server.essp.timesheet.activity.document.dao.DocumentDaoImp" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!--code type -->
+	<bean id="codeTypeDao" class="server.essp.timesheet.code.codetype.dao.CodeTypeDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+	<bean id="codeTypeService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.code.codetype.service.CodeTypeServiceImp">
+				<property name="codeTypeDao" ref="codeTypeDao" />
+			</bean>
+		</property>
+	</bean>
+	<!--code value -->
+	<bean id="codeValueDao" class="server.essp.timesheet.code.codevalue.dao.CodeValueDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+
+	<bean id="codeValueService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.code.codevalue.service.CodeValueServiceImp">
+				<property name="codeValueDao" ref="codeValueDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- code relation -->
+	<bean id="codeRelationDao" class="server.essp.timesheet.code.coderelation.dao.CodeRelationDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+
+	<bean id="codeRelationService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.code.coderelation.service.CodeRelationServiceImp">
+				<property name="codeRelationDao" ref="codeRelationDao" />
+				<property name="codeValueService" ref="codeValueService" />
+			</bean>
+		</property>
+	</bean>
+
+
+	<!-- Account -->
+	<bean id="accountDao" class="server.essp.timesheet.account.dao.AccountDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+	<bean id="accountService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.account.service.AccountServiceImp">
+				<property name="accountDao" ref="accountDao" />
+				<property name="codeTypeDao" ref="codeTypeDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- labor -->
+	<bean id="laborDao" class="server.essp.timesheet.account.labor.dao.LaborDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+	<bean id="laborService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.account.labor.service.LaborServiceImp">
+				<property name="laborDao" ref="laborDao" />
+				<property name="laborLevelDao" ref="laborLevelDao" />
+				<property name="laborRoleDao" ref="laborRoleDao" />
+				<property name="rmMaintService" ref="rmMaintService" />
+			</bean>
+		</property>
+	</bean>
+	<!-- Approval -->
+	<bean id="approvalDao" class="server.essp.timesheet.approval.dao.ApprovalDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+	<bean id="approvalAssistService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.approval.service.ApprovalAssistServiceImp">
+				<property name="calendarP3Dao" ref="calendarP3Dao" />
+				<property name="timeSheetDao" ref="timeSheetDao" />
+				<property name="timeSheetP3DbDao" ref="timeSheetP3DbDao" />
+				<property name="accountDao" ref="accountDao" />
+				<property name="rmMaintService" ref="rmMaintService" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="approvalProxy" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.approval.service.ApprovalProxy">
+				<property name="approvalDao" ref="approvalDao" />
+				<property name="timeSheetDao" ref="timeSheetDao" />
+				<property name="preferenceDao" ref="preferenceDao" />
+				<property name="accountDao" ref="accountDao" />
+				<property name="approvalAssistService" ref="approvalAssistService" />
+				<property name="rmMaintService" ref="rmMaintService" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="approvalService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.approval.service.ApprovalServiceImp">
+				<property name="accountDao" ref="accountDao" />
+				<property name="approval" ref="approvalProxy" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- TS Period -->
+	<bean id="periodDao" class="server.essp.timesheet.period.dao.PeriodDaoImp"></bean>
+	<bean id="periodService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.period.service.PeriodServiceImp">
+				<property name="periodDao" ref="periodDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="periodP3DbDao" class="server.essp.timesheet.period.dao.PeriodP3DbDaoImp">
+		<property name="dataSource" ref="primaveraDataSource" />
+	</bean>
+	<bean id="tsDatesService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.period.service.TsDatesServiceImp">
+				<property name="periodDao" ref="periodDao" />
+				<property name="preferenceDao" ref="preferenceDao" />
+				<property name="periodP3DbDao" ref="periodP3DbDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- Labor Level -->
+	<bean id="laborLevelDao" class="server.essp.timesheet.account.labor.level.dao.LaborLevelDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+
+	<bean id="laborLevelService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.account.labor.level.service.LaborLevelServiceImp">
+				<property name="laborLevelDao" ref="laborLevelDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- Labor Role -->
+	<bean id="laborRoleDao" class="server.essp.timesheet.account.labor.role.dao.LaborRoleDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+
+	<bean id="laborRoleService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.account.labor.role.service.LaborRoleServiceImp">
+				<property name="laborRoleDao" ref="laborRoleDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- Report TimeSheet -->
+	<bean id="tsReportDao" class="server.essp.timesheet.report.timesheet.dao.TsReportDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+	<bean id="tsReportService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.report.timesheet.service.TsReportServiceImp">
+				<property name="tsReportDao" ref="tsReportDao" />
+				<property name="accountDao" ref="accountDao" />
+				<property name="laborDao" ref="laborDao" />
+				<property name="periodDao" ref="periodDao" />
+				<property name="rmMaintDao" ref="rmMaintDao" />
+				<property name="rmMaintService" ref="rmMaintService" />
+				<property name="timeSheetApiDao" ref="timeSheetApiDao"/>
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+				<prop key="queryReport">PROPAGATION_REQUIRED,readOnly,timeout_6000</prop>
+				<prop key="queryForExport">PROPAGATION_REQUIRED,readOnly,timeout_6000</prop>
+				<prop key="queryGatherReport">PROPAGATION_REQUIRED,readOnly,timeout_6000</prop>
+				<prop key="queryGatherForExport">PROPAGATION_REQUIRED,readOnly,timeout_6000</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="tsReportExporter" class="server.essp.timesheet.report.timesheet.exporter.TsReportExporter">
+
+	</bean>
+	<bean id="tsGatherExporter" class="server.essp.timesheet.report.timesheet.exporter.TsGatherReportExporter">
+
+	</bean>
+	<!-- Report UTRate -->
+	<bean id="utilRateDao" class="server.essp.timesheet.report.utilizationRate.detail.dao.UtilRateDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+	<bean id="iUtilRateService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.report.utilizationRate.detail.service.UtilRateServiceImp">
+				<property name="utilRateDao" ref="utilRateDao" />
+				<property name="accountDao" ref="accountDao" />
+			    <property name="rmMaintDao" ref="rmMaintDao" />
+				<property name="iresDao" ref = "iresDao"/>
+				<property name="periodDao" ref = "periodDao"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="utilRateGatherDao" class="server.essp.timesheet.report.utilizationRate.gather.dao.UtilRateGatherDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+	<bean id="iUtilRateGatherService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.report.utilizationRate.gather.service.UtilRateGatherServiceImp">
+				<property name="utilRateGatherDao" ref="utilRateGatherDao" />
+				<property name="accountDao" ref="accountDao" />
+				<property name="rmMaintDao" ref="rmMaintDao" />
+				<property name="iresDao" ref = "iresDao"/>
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+				<prop key="getDataTreeByYear">PROPAGATION_REQUIRED,readOnly,timeout_6000</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- RM Maint -->
+	<bean id="rmMaintDao" class="server.essp.timesheet.rmmaint.dao.RmMaintDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+	<bean id="rmMaintService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.rmmaint.service.RmMaintServiceImp">
+				<property name="rmMaintDao" ref="rmMaintDao" />
+				<property name="findWay" value="DB" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- Ts Remind -->
+	<bean id="tsRemindService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.tsremind.service.TsRemindServiceImp">
+				<property name="preferenceDao" ref="preferenceDao" />
+				<property name="rmMaintService" ref="rmMaintService" />
+				<property name="timeSheetDao" ref="timeSheetDao" />
+				<property name="timesheetStausService" ref="tsStatusService" />
+				<property name="iresDao" ref="iresDao" />
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+				<prop key="queryDataAndSendMail">PROPAGATION_REQUIRED,readOnly,timeout_3000</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- APRM Import -->
+	<bean id="aprmDao" class="server.essp.timesheet.aprm.dao.APRMDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+	<bean id="iAprmService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.aprm.service.APRMServiceImp">
+				<property name="aprmDao" ref="aprmDao" />
+				<property name="periodDao" ref="periodDao" />
+				<property name="codeValueDao" ref="codeValueDao" />
+				<property name="timeSheetApiDao" ref="timeSheetApiDao" />
+				<property name="timeSheetDao" ref="timeSheetDao" />
+				<property name="accountDao" ref="accountDao" />
+				<property name="importLockDao" ref="importLockDao" />
+				<property name="rmMaintDao" ref="rmMaintDao"/>
+				<property name="roleService" ref="RoleService" />
+				<property name="scale" value="2" />
+				<property name="encode" value="BIG5" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- APRM Import Lock -->
+	<bean id="importLockDao" class="server.essp.timesheet.aprm.lock.dao.ImportLockImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+	<bean id="importLockService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.aprm.lock.service.ImportLockServiceImp">
+				<property name="importLockDao" ref="importLockDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- Timesheet Status -->
+	<bean id="timesheetStatusDao" class="server.essp.timesheet.report.timesheetStatus.dao.TimesheetStatusDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+	<bean id="tsStatusService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.report.timesheetStatus.service.TimesheetStatusServiceImp">
+				<property name="tsStatusDao" ref="timesheetStatusDao" />
+				<property name="rmMaintDao" ref="rmMaintDao" />
+				<property name="periodDao" ref="periodDao" />
+				<property name="accountDao" ref="accountDao" />
+				<property name="timeSheetApiDao" ref="timeSheetApiDao"/>
+				<property name="attLeaveDao" ref="attLeaveDao"/>
+				<property name="iresDao" ref="iresDao"></property>
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+				<prop key="queryByPeriod">PROPAGATION_REQUIRED,timeout_3000</prop>
+			</props>
+		</property>
+	</bean>
+
+<!-- AttVariant -->
+	<bean id="attVariantDao" class="server.essp.timesheet.report.attvariant.dao.AttVariantDaoImp">
+		<property name="dataSource" ref="timesheetDataSource" />
+	</bean>
+	<bean id="attVariantService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.report.attvariant.service.AttVariantServiceImp">
+				<property name="attVariantDao" ref="attVariantDao" />
+				<property name="rmMaintDao" ref="rmMaintDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- Salary WorkHours -->
+	<bean id="salaryWkHrDao" class="server.essp.timesheet.report.salaryApportion.dao.SalaryWorkHourDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+	<bean id="salaryWkHrService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.report.salaryApportion.service.SalaryWorkHourServiceImp">
+				<property name="salaryWkHrDao" ref="salaryWkHrDao" />
+				<property name="rmMaintDao" ref="rmMaintDao" />
+				<property name="codeValueDao" ref="codeValueDao" />
+				<property name="accountDao" ref="accountDao" />
+				<property name="periodDao" ref="periodDao" />
+				<property name="timeSheetDao" ref="timeSheetDao" />
+				<property name="preferenceDao" ref="preferenceDao" />
+				<property name="iresDao" ref="iresDao" />
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+				<prop key="queryByCondition">PROPAGATION_REQUIRED,readOnly,timeout_6000</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- Human Report -->
+	<bean id="humanReportDao" class="server.essp.timesheet.report.humanreport.dao.HumanReportDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+	<bean id="humanReportService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.report.humanreport.service.HumanReportServiceImp" singleton="false">
+				<property name="humanReportDao" ref="humanReportDao" />
+				<property name="preferenceDao" ref="preferenceDao" />
+				<property name="timeSheetApiDao" ref="timeSheetApiDao" />
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+				<prop key="queryHumanReport">PROPAGATION_REQUIRED,readOnly,timeout_6000</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- Sync -->
+	 
+   <!-- SyncException -->
+    <bean id="syncTSExceptionService" parent="baseTransactionProxy">
+	 	<property name="target">
+	    	<bean class="server.essp.timesheet.synchronization.syncexception.service.SyncExceptionServiceImp">
+	    		<property name="syncExceptionDao" ref="syncTSExceptionDao"/>
+	    		<property name="accountDao" ref="accountDao" />
+	    		<property name="rmMaintService" ref="rmMaintService" />
+			</bean>
+		 </property>
+   	</bean>
+   	<bean id="syncTSExceptionDao" class="server.essp.timesheet.synchronization.syncexception.dao.SyncExceptionDaoImp">
+     	<property name="sessionFactory" ref="timesheetSessionFactory" />
+    </bean>
+   <!-- TsModify -->
+   <bean id="tsModify" parent="baseTransactionProxy">
+	 	<property name="target">
+	    	<bean class="server.essp.timesheet.tsmodify.service.TsModifyServiceImp">
+	    		<property name="timeSheetDao" ref="timeSheetDao" />
+	    		<property name="approvalAssistService" ref="approvalAssistService" />
+			</bean>
+		 </property>
+   	</bean>
+   <!--out worker -->
+   	<bean id="outworkPrivilegeDbDao" class="server.essp.timesheet.outwork.privilege.dao.OutWorkerPrivilegeDbDaoImp">
+     	<property name="dataSource" ref="timesheetDataSource" />
+    </bean>
+    <bean id="outworkPrivilegeDao" class="server.essp.timesheet.outwork.privilege.dao.OutWorkerPrivilegeDaoImp">
+     	<property name="sessionFactory" ref="timesheetSessionFactory" />
+    </bean>
+    <bean id="outWorkerPriService" parent="baseTransactionProxy">
+	 	<property name="target">
+	    	<bean class="server.essp.timesheet.outwork.privilege.service.OutWorkerPriImpService">
+	    		<property name="outworkPrivilegeDbDao" ref="outworkPrivilegeDbDao"/>
+	    		<property name="outworkPrivilegeDao" ref="outworkPrivilegeDao"/>
+	    		<property name="rmMaintDao" ref="rmMaintDao" />
+			</bean>
+		 </property>
+   	</bean>
+   	
+   	  	<!-- methodology -->
+   	
+   	 <bean id="methodDao" class="server.essp.timesheet.methodology.dao.MethodDaoImp">
+     	<property name="sessionFactory" ref="timesheetSessionFactory" />
+    </bean>
+    
+    <bean id="methodService" parent="baseTransactionProxy">
+	 	<property name="target">
+	    	<bean class="server.essp.timesheet.methodology.service.MethodServiceImp">
+	    		<property name="methodDao" ref="methodDao"/>
+	    		<property name="accountDao" ref="accountDao" />
+			</bean>
+		 </property>
+   	</bean>   
+   	<!-- template -->
+   	<bean id="templateDao" class="server.essp.timesheet.template.dao.TemplateDaoImp">
+     	<property name="sessionFactory" ref="timesheetSessionFactory" />
+    </bean>
+    
+    <bean id="templateService" parent="baseTransactionProxy">
+	 	<property name="target">
+	    	<bean class="server.essp.timesheet.template.service.TemplateServiceImp">
+	    		<property name="templateDao" ref="templateDao"/>
+	    		<property name="methodDao" ref="methodDao"/>
+	    		<property name="stepDao" ref="stepDao"/> 	    			    
+			</bean>
+		 </property>
+   	</bean>   
+   	<!-- step -->
+   	<bean id="stepDao" class="server.essp.timesheet.template.step.dao.DetailStepDaoImp">
+     	<property name="sessionFactory" ref="timesheetSessionFactory" />
+    </bean>
+    
+    <bean id="stepService" parent="baseTransactionProxy">
+	 	<property name="target">
+	    	<bean class="server.essp.timesheet.template.step.service.DetailStepServiceImp">
+	    		<property name="stepDao" ref="stepDao"/>    			    			    
+			</bean>
+		 </property>
+   	</bean> 
+   	
+   	<!-- Activity & Step Management -->
+	<bean id="stepManagementService"
+		class="server.essp.timesheet.step.management.service.StepManagementService">
+		<property name="stepManagementApiDao"
+			ref="stepManagementP3ApiDao" />
+		<property name="stepDao" ref="stepManagementDao" />
+		<property name="accountDao" ref="accountDao"/>
+	</bean>
+	<bean id="stepManagementP3ApiDao"
+		class="server.essp.timesheet.step.management.dao.StepManagementP3ApiDao">
+	</bean>
+	<bean id="stepManagementDao"
+		class="server.essp.timesheet.step.management.dao.StepManagementDaoImpl">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+   	<!-- Daily Report -->
+   	<bean id="dailyReportDao"
+		class="server.essp.timesheet.dailyreport.dao.DailyReportDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+   	<bean id="dailyReportService"
+		class="server.essp.timesheet.dailyreport.service.DailyReportServiceImp">
+		<property name="stepDao" ref="stepManagementDao" />
+		<property name="dailyReportDao" ref="dailyReportDao" />
+		<property name="monitoringP3ApiDao" ref="monitoringP3ApiDao" />
+		<property name="accountDao" ref="accountDao" />
+		<property name="workScopeP3ApiDao" ref="workScopeP3ApiDao" />
+		<property name="laborDao" ref="laborDao" />
+		<property name="stepManagementP3ApiDao" ref="stepManagementP3ApiDao" />
+	</bean>
+	
+	<!--Activity & Step Monitoring -->
+   	<bean id="monitoringP3ApiDao" class="server.essp.timesheet.step.monitoring.dao.MonitoringDaoP3ApiImp">
+    </bean>
+    <bean id="monitoringService" parent="baseTransactionProxy">
+	 	<property name="target">
+	    	<bean class="server.essp.timesheet.step.monitoring.service.MonitoringServiceImp">
+	    	    <property name="monitoringP3ApiDao" ref="monitoringP3ApiDao"/>
+	    	    <property name="stepDao" ref="stepManagementDao" />
+	    		<property name="stepManagementApiDao" ref="stepManagementP3ApiDao"/>  
+	    		<property name="accountDao" ref="accountDao"/>  			    			    
+			</bean>
+		 </property>
+   	</bean> 
+   	
+   	<!--Attendance Report -->
+   	 <bean id="attendanceDao" class="server.essp.timesheet.report.attendance.dao.AttendanceDaoImp">
+    <property name="sessionFactory" ref="timesheetSessionFactory" />
+     </bean>
+    <bean id="attendanceService" parent="baseTransactionProxy">
+	 	<property name="target">
+	    	<bean class="server.essp.timesheet.report.attendance.service.AttendanceServiceImp">
+	    	    <property name="attendanceDao" ref="attendanceDao"/>
+	    	    <property name="iresDao" ref="iresDao" />
+	    		<property name="rmMaintDao" ref="rmMaintDao"/>    
+	    		<property name="timeSheetApiDao" ref="timeSheetApiDao"/>    
+			</bean>
+		 </property>
+   	</bean> 
+   	<!--BusyRateGather -->
+   	<bean id="busyRateDao" class="server.essp.timesheet.report.busyRate.dao.BusyRateGatherDaoImp">
+		<property name="sessionFactory" ref="timesheetSessionFactory" />
+	</bean>
+	<bean id="busyRateGatherService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="server.essp.timesheet.report.busyRate.service.BusyRateGatherServiceImp">
+				<property name="busyRateDao" ref="busyRateDao" />
+				<property name="accountDao" ref="accountDao" />
+			    <property name="rmMaintDao" ref="rmMaintDao" />
+				<property name="iresDao" ref = "iresDao"/>
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+				<prop key="getDataTreeByYear">PROPAGATION_REQUIRED,readOnly,timeout_6000</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

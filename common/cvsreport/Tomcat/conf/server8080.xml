@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Server debug="0" port="8081" shutdown="SHUTDOWN">
+  <Service name="Tomcat-Standalone">
+    <Connector acceptCount="10" className="org.apache.coyote.tomcat5.CoyoteConnector" connectionTimeout="60000" debug="0" maxProcessors="75" minProcessors="5" port="8080"/>
+    <Engine debug="0" defaultHost="localhost" name="Standalone">
+      <Host appBase="E:\len\cvsreport\Tomcat\webapps" debug="0" name="localhost" unpackWARs="true">
+
+        <Context debug="0" docBase="E:\len\cvsreport\cvsreport" path="/cvsreport" reloadable="true" workDir="E:\len\cvsreport\Tomcat\work\cvsreport"/>
+
+
+        </Host>
+    </Engine>
+  </Service>
+</Server>

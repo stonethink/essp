@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ESSP System Mail</title>
+</head>
+
+<body>
+
+Dear,$addressee:
+<br><br>
+#foreach($dd in $content)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Issue: <strong>$!dd.issue</strong> in the Account: <strong>$!dd.account</strong> has been finished, please close the Issue!
+
+<br><br>
+<table width="545" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF">
+  <tr>
+    <td width="97" bgcolor="#94AAD6"><font color="#FFFFFF"><strong>urged by</strong> </font></td>
+    <td width="128">$!dd.urgedBy&nbsp;</td>
+    <td width="124" bgcolor="#94aad6"><font color="#FFFFFF"><strong>Attachment desc</strong></font></td>
+    <td width="173">$!dd.attachmentdesc&nbsp;</td>
+  </tr>
+   
+  <tr>
+    <td width="97" bgcolor="#94aad6"><font color="#FFFFFF"><strong>description</strong></font></td>
+    <td colspan="3">$!dd.description&nbsp;</td>
+  </tr>
+
+</table>
+<br />
+#end
+--------------------------------------------------
+<br />
+Best regard!<br />
+The above information was sent by ESSP automatically, you need not reply.<br />
+<br />
+$addresser<br />
+$date
+</body>
+</html>

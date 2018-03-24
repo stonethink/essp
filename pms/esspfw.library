@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+<!--JBuilder Library Definition File-->
+<fullname>esspfw</fullname>
+<class>
+<path>[lib/esspfw_client.jar]</path>
+<path>[lib/esspfw_server.jar]</path>
+</class>
+<source>
+<path>[lib/esspfw_src.jar]</path>
+</source>
+<lastmodsaved>1157600990250</lastmodsaved>
+</library>

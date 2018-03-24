@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="essp.tables.EsspHbseq" 
+    table="essp_hbseq"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="essp_hbseq"
+    </meta>
+
+    <id
+        name="seqType"
+        type="java.lang.String"
+        column="SEQ_TYPE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="SEQ_TYPE"
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="seqNo"
+        type="java.lang.Long"
+        column="SEQ_NO"
+        length="11"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SEQ_NO"
+            length="11"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/index.do" location="776,4422" dimension="280,84" />
+  <StrutsActivity path="/project/maintenance/addAreaCode.do" location="1365,4164" dimension="400,84" />
+  <StrutsActivity path="/project/maintenance/updateAreaCode.do" location="0,2502" dimension="418,84" />
+  <StrutsActivity path="/project/maintenance/previewAreaCode.do" location="518,2502" dimension="424,84" />
+  <StrutsActivity path="/project/maintenance/listAllAreaCode.do" location="962,645" dimension="424,84" />
+  <StrutsActivity path="/project/maintenance/deleteAreaCode.do" location="965,461" dimension="418,84" />
+  <StrutsActivity path="/parameter/addParameter.do" location="2502,4293" dimension="346,84" />
+  <StrutsActivity path="/parameter/updateParameter.do" location="1830,2779" dimension="364,84" />
+  <StrutsActivity path="/parameter/previewParameter.do" location="2294,2779" dimension="370,84" />
+  <StrutsActivity path="/parameter/listAllParameter.do" location="0,1844" dimension="370,84" />
+  <StrutsActivity path="/parameter/listProjectType.do" location="469,1844" dimension="418,84" />
+  <StrutsActivity path="/parameter/listProductType.do" location="987,1844" dimension="418,84" />
+  <StrutsActivity path="/parameter/listAttributeType.do" location="1505,1844" dimension="448,84" />
+  <StrutsActivity path="/parameter/listWorkItem.do" location="2054,1844" dimension="400,84" />
+  <StrutsActivity path="/parameter/listTechDomain.do" location="2554,1844" dimension="418,84" />
+  <StrutsActivity path="/parameter/listOrgLanguage.do" location="3072,1844" dimension="448,84" />
+  <StrutsActivity path="/parameter/listTranLanguage.do" location="3620,1844" dimension="418,84" />
+  <StrutsActivity path="/parameter/listBusinessType.do" location="4138,1844" dimension="412,84" />
+  <StrutsActivity path="/parameter/listCountryCode.do" location="4650,1844" dimension="406,84" />
+  <StrutsActivity path="/parameter/deleteParameter.do" location="2087,3610" dimension="364,84" />
+  <StrutsActivity path="/project/maintenance/addBdCode.do" location="2694,4164" dimension="388,84" />
+  <StrutsActivity path="/project/maintenance/updateBdCode.do" location="1962,2502" dimension="406,84" />
+  <StrutsActivity path="/project/maintenance/previewBdCode.do" location="2468,2502" dimension="412,84" />
+  <StrutsActivity path="/pp/deleteBdCode.do" location="0,2201" dimension="406,84" />
+  <StrutsActivity path="/project/maintenance/listAllBdCode.do" location="1431,645" dimension="412,84" />
+  <StrutsActivity path="/project/maintenance/deleteBdCode.do" location="1434,461" dimension="406,84" />
+  <StrutsActivity path="/pc/listAllByKind.do" location="884,1106" dimension="376,84" />
+  <StrutsActivity path="/pc/addClassCode.do" location="854,4293" dimension="370,84" />
+  <StrutsActivity path="/pc/deleteClassCode.do" location="878,922" dimension="388,84" />
+  <StrutsActivity path="/pc/updateClassCode.do" location="0,2779" dimension="388,84" />
+  <StrutsActivity path="/pc/previewClassCode.do" location="488,2779" dimension="394,84" />
+  <StrutsActivity path="/project/maintenance/displayProjectId.do" location="2122,184" dimension="430,84" />
+  <StrutsActivity path="/project/maintenance/addOrUpdateProjectSetting.do" location="2095,0" dimension="484,84" />
+  <StrutsActivity path="/project/apply/listAllProjectAcntApp.do" location="73,184" dimension="424,84" />
+  <StrutsActivity path="/project/apply/previewProjectAcntApp.do" location="1084,184" dimension="424,84" />
+  <StrutsActivity path="/project/apply/previewAddProjectAcntApp.do" location="1608,184" dimension="442,84" />
+  <StrutsActivity path="/project/apply/addProjectAcntApp.do" location="1810,4164" dimension="400,84" />
+  <StrutsActivity path="/project/apply/updateProjectAcntApp.do" location="1087,0" dimension="418,84" />
+  <StrutsActivity path="/project/apply/deleteProjectAcntApp.do" location="76,0" dimension="418,84" />
+  <StrutsActivity path="/project/apply/previewTechInfoApp.do" location="987,2502" dimension="406,84" />
+  <StrutsActivity path="/project/apply/previewCustomerInfoApp.do" location="451,2201" dimension="430,84" />
+  <StrutsActivity path="/project/apply/previewAddTechInfoApp.do" location="1493,2502" dimension="424,84" />
+  <StrutsActivity path="/project/apply/previewAddCustomerInfoApp.do" location="981,2201" dimension="448,84" />
+  <StrutsActivity path="/project/change/listAllProjectChangeApp.do" location="597,184" dimension="442,84" />
+  <StrutsActivity path="/project/confirm/listProjectConfirm.do" location="0,3333" dimension="418,84" />
+  <StrutsActivity path="/project/confirm/previewProjectConfirm.do" location="2245,3056" dimension="436,84" />
+  <StrutsActivity path="/project/confirm/confirmProjectApp.do" location="0,4164" dimension="412,84" />
+  <StrutsActivity path="/project/check/listProjectAppCheck.do" location="926,3333" dimension="412,84" />
+  <StrutsActivity path="/project/check/checkProjectApp.do" location="0,4293" dimension="388,84" />
+  <StrutsActivity path="/project/check/checkConfirmProjectApp.do" location="1932,3887" dimension="430,84" />
+  <StrutsActivity path="/project/check/previewCheckProjectChange.do" location="1752,3056" dimension="448,84" />
+  <StrutsActivity path="/project/check/checkChangeProjectApp.do" location="2407,3887" dimension="424,84" />
+  <StrutsActivity path="/project/check/initialAcntContApp.do" location="2700,3333" dimension="382,84" />
+  <StrutsActivity path="/project/check/confirmAcntContApp.do" location="914,4164" dimension="406,84" />
+  <StrutsActivity path="/project/query/projectQueryPre.do" location="1834,3333" dimension="388,84" />
+  <StrutsActivity path="/project/query/searchCondition.do" location="2267,3333" dimension="388,84" />
+  <StrutsActivity path="/project/query/projectQueryList.do" location="842,3610" dimension="370,84" />
+  <StrutsActivity path="/project/contractchange/listAllContApp.do" location="2624,184" dimension="436,84" />
+  <StrutsActivity path="/project/contractchange/deleteContApp.do" location="2627,0" dimension="430,84" />
+  <StrutsActivity path="/project/contractchange/addContApp.do" location="457,4164" dimension="412,84" />
+  <StrutsActivity path="/project/contractchange/displayContApp.do" location="0,645" dimension="436,84" />
+  <StrutsActivity path="/project/contractchange/updateContApp.do" location="3,461" dimension="430,84" />
+  <StrutsActivity path="/project/contractchange/selectAcntId.do" location="1474,2201" dimension="424,84" />
+  <StrutsActivity path="/project/contractchange/initialContApp.do" location="1998,2201" dimension="436,84" />
+  <StrutsActivity path="/customer/maintenance/updateIdSetting.do" location="484,461" dimension="430,84" />
+  <StrutsActivity path="/customer/maintenance/previewIdSetting.do" location="481,645" dimension="436,84" />
+  <StrutsActivity path="/customer/query/customerQueryData.do" location="409,3887" dimension="358,84" />
+  <StrutsActivity path="/customer/query/customerQueryList.do" location="812,3887" dimension="358,84" />
+  <StrutsActivity path="/customer/add/listAllCustAppInfo.do" location="1888,645" dimension="400,84" />
+  <StrutsActivity path="/customer/add/deleteCustApp.do" location="1891,461" dimension="394,84" />
+  <StrutsActivity path="/customer/add/addCustApp.do" location="433,4293" dimension="376,84" />
+  <StrutsActivity path="/customer/add/displayCustApp.do" location="2333,645" dimension="400,84" />
+  <StrutsActivity path="/customer/add/updateCustApp.do" location="2348,461" dimension="370,84" />
+  <StrutsActivity path="/customer/add/initialCustApp.do" location="0,3610" dimension="376,84" />
+  <StrutsActivity path="/customer/change/listAllCustApp.do" location="0,1106" dimension="394,84" />
+  <StrutsActivity path="/customer/change/deleteCustApp.do" location="3,922" dimension="388,84" />
+  <StrutsActivity path="/customer/change/addCustApp.do" location="1269,4293" dimension="370,84" />
+  <StrutsActivity path="/customer/change/displayCustApp.do" location="439,1106" dimension="394,84" />
+  <StrutsActivity path="/customer/change/updateCustApp.do" location="442,922" dimension="388,84" />
+  <StrutsActivity path="/customer/change/selectCustId.do" location="927,2779" dimension="382,84" />
+  <StrutsActivity path="/customer/change/initialCust.do" location="1409,2779" dimension="376,84" />
+  <StrutsActivity path="/customer/check/listAllApp.do" location="427,3610" dimension="364,84" />
+  <StrutsActivity path="/customer/check/checkAdd.do" location="0,3056" dimension="352,84" />
+  <StrutsActivity path="/customer/check/checkChange.do" location="1257,3610" dimension="370,84" />
+  <StrutsActivity path="/customer/check/confirmAddApp.do" location="452,3056" dimension="382,84" />
+  <StrutsActivity path="/customer/check/confirmAlterApp.do" location="2255,4164" dimension="394,84" />
+  <StrutsActivity path="/dept/apply/listAllDeptApp.do" location="2556,1106" dimension="364,84" />
+  <StrutsActivity path="/dept/apply/deleteDeptApp.do" location="2559,922" dimension="358,84" />
+  <StrutsActivity path="/dept/apply/addDeptApp.do" location="391,4422" dimension="340,84" />
+  <StrutsActivity path="/dept/apply/displayDeptApp.do" location="0,1567" dimension="364,84" />
+  <StrutsActivity path="/dept/apply/updateDeptApp.do" location="3,1383" dimension="358,84" />
+  <StrutsActivity path="/dept/apply/initialDeptApp.do" location="2496,3610" dimension="364,84" />
+  <StrutsActivity path="/dept/change/listAllDeptApp.do" location="1311,1106" dimension="370,84" />
+  <StrutsActivity path="/dept/change/deleteDeptApp.do" location="1314,922" dimension="364,84" />
+  <StrutsActivity path="/dept/change/addDeptApp.do" location="0,4422" dimension="346,84" />
+  <StrutsActivity path="/dept/change/displayDeptApp.do" location="1726,1106" dimension="370,84" />
+  <StrutsActivity path="/dept/change/updateDeptApp.do" location="1729,922" dimension="364,84" />
+  <StrutsActivity path="/dept/change/initialDeptApp.do" location="879,3056" dimension="370,84" />
+  <StrutsActivity path="/dept/change/selectAcntId.do" location="1349,3056" dimension="358,84" />
+  <StrutsActivity path="/dept/check/listAllDeptApp.do" location="0,3887" dimension="364,84" />
+  <StrutsActivity path="/dept/check/initialAddApp.do" location="1215,3887" dimension="358,84" />
+  <StrutsActivity path="/dept/check/confirmAddApp.do" location="2099,4293" dimension="358,84" />
+  <StrutsActivity path="/dept/check/confirmAlterApp.do" location="1684,4293" dimension="370,84" />
+  <StrutsActivity path="/dept/change/initialAlterApp.do" location="1672,3610" dimension="370,84" />
+  <StrutsActivity path="/sync/listSyncException.do" location="2141,1106" dimension="370,84" />
+  <StrutsActivity path="/sync/checkSyncException.do" location="2177,922" dimension="298,84" />
+  <StrutsActivity path="/common/querycustomer/queryCustomer.do" location="463,3333" dimension="418,84" />
+  <StrutsActivity path="/common/queryaccount/queryAccount.do" location="1383,3333" dimension="406,84" />
+  <StrutsActivity path="success;6" location="1618,3887" dimension="118,72" />
+  <StrutsActivity path="failure;6" location="1781,3887" dimension="106,72" />
+  <StrutsActivity path="/projectpre/projectcode/codemaintenance/AreaCodeGeneral.jsp" location="272,2686" dimension="394,48" />
+  <StrutsActivity path="/projectpre/projectcode/codemaintenance/AreaCodeList.jsp" location="986,829" dimension="376,48" />
+  <StrutsActivity path="/projectpre/parameter/ParameterGeneral.jsp" location="2099,2963" dimension="292,48" />
+  <StrutsActivity path="/projectpre/parameter/ParameterList.jsp" location="2371,2108" dimension="274,48" />
+  <StrutsActivity path="/projectpre/parameter/ParameterBridge.jsp" location="2126,3794" dimension="286,48" />
+  <StrutsActivity path="/projectpre/projectcode/codemaintenance/BdCodeGeneral.jsp" location="2228,2686" dimension="382,48" />
+  <StrutsActivity path="/pp/listAllBdCode.do" location="120,2385" dimension="166,72" />
+  <StrutsActivity path="/projectpre/projectcode/codemaintenance/BdCodeList.jsp" location="1455,829" dimension="364,48" />
+  <StrutsActivity path="/projectpre/customer/typeinfo/TypeCodeList.jsp" location="914,1290" dimension="316,48" />
+  <StrutsActivity path="/projectpre/customer/typeinfo/TypeCodeGeneral.jsp" location="272,2963" dimension="334,48" />
+  <StrutsActivity path="/projectpre/projectcode/codemaintenance/ProjectCodeSetting.jsp" location="2131,368" dimension="412,48" />
+  <StrutsActivity path="/projectpre/projectcode/codechange/ApplyRecordList.jsp" location="545,368" dimension="364,48" />
+  <StrutsActivity path="/projectpre/projectcode/codeapply/ApplyRecordList.jsp" location="0,368" dimension="358,48" />
+  <StrutsActivity path="/projectpre/projectcode/codeapply/MasterData.jsp" location="1398,368" dimension="328,48" />
+  <StrutsActivity path="/projectpre/projectcode/codeapply/TechnicalData.jsp" location="1274,2686" dimension="346,48" />
+  <StrutsActivity path="/projectpre/projectcode/codeapply/ProjectData.jsp" location="768,2385" dimension="334,48" />
+  <StrutsActivity path="/projectpre/projectcode/codeconfirm/CodeConfirmDetail.jsp" location="18,3517" dimension="382,48" />
+  <StrutsActivity path="/projectpre/projectcode/codeconfirm/PopCodeConfirm.jsp" location="2281,3240" dimension="364,48" />
+  <StrutsActivity path="/projectpre/projectcode/codecheck/CodeCheckDetail.jsp" location="953,3517" dimension="358,48" />
+  <StrutsActivity path="/projectpre/projectcode/codecheck/CodeCheckCompare.jsp" location="1794,3240" dimension="364,48" />
+  <StrutsActivity path="/projectpre/projectcode/codecheck/ContractAcntApp.jsp" location="2712,3517" dimension="358,48" />
+  <StrutsActivity path="/projectpre/projectcode/codequery/QueryProject.jsp" location="1858,3517" dimension="340,48" />
+  <StrutsActivity path="/projectpre/projectcode/codequery/closeOpener.jsp" location="2294,3517" dimension="334,48" />
+  <StrutsActivity path="/projectpre/projectcode/codequery/QueryRecordList.jsp" location="848,3794" dimension="358,48" />
+  <StrutsActivity path="/projectpre/projectcode/contractchange/ContractList.jsp" location="2657,368" dimension="370,48" />
+  <StrutsActivity path="/projectpre/projectcode/contractchange/ContractData.jsp" location="33,829" dimension="370,48" />
+  <StrutsActivity path="/projectpre/projectcode/contractchange/ChangeData.jsp" location="1772,2385" dimension="358,48" />
+  <StrutsActivity path="/projectpre/customer/infomaintenance/CustomerInfoSetting.jsp" location="499,829" dimension="400,48" />
+  <StrutsActivity path="/projectpre/customer/infoquery/QueryData.jsp" location="436,4071" dimension="304,48" />
+  <StrutsActivity path="/projectpre/customer/infoquery/QueryList.jsp" location="839,4071" dimension="304,48" />
+  <StrutsActivity path="/projectpre/customer/infoadd/CustomerList.jsp" location="1933,829" dimension="310,48" />
+  <StrutsActivity path="/projectpre/customer/infoadd/AddData.jsp" location="2393,829" dimension="280,48" />
+  <StrutsActivity path="/projectpre/customer/infoadd/CusInfoAdd.jsp" location="39,3794" dimension="298,48" />
+  <StrutsActivity path="/projectpre/customer/infochange/ChangeList.jsp" location="39,1290" dimension="316,48" />
+  <StrutsActivity path="/projectpre/customer/infochange/ChangeData.jsp" location="478,1290" dimension="316,48" />
+  <StrutsActivity path="/projectpre/customer/infochange/CusInfoAdd.jsp" location="1199,2963" dimension="316,48" />
+  <StrutsActivity path="/projectpre/customer/infocheck/CustomerInfoCheckList.jsp" location="421,3794" dimension="376,48" />
+  <StrutsActivity path="/projectpre/customer/infocheck/CodeCheck.jsp" location="257,3240" dimension="304,48" />
+  <StrutsActivity path="/projectpre/customer/infocheck/CusInfoCheck.jsp" location="1281,3794" dimension="322,48" />
+  <StrutsActivity path="/projectpre/deptcode/codeApply/DeptCodeList.jsp" location="2577,1290" dimension="322,48" />
+  <StrutsActivity path="/projectpre/deptcode/codeApply/DeptCodeAdd.jsp" location="24,1751" dimension="316,48" />
+  <StrutsActivity path="/projectpre/deptcode/codeApply/dataAdd.jsp" location="2532,3794" dimension="292,48" />
+  <StrutsActivity path="/projectpre/deptcode/codeEdit/CodeEditList.jsp" location="1338,1290" dimension="316,48" />
+  <StrutsActivity path="/projectpre/deptcode/codeEdit/DeptCodeEdit.jsp" location="1753,1290" dimension="316,48" />
+  <StrutsActivity path="/projectpre/deptcode/codeEdit/EditData.jsp" location="1150,3240" dimension="292,48" />
+  <StrutsActivity path="/projectpre/deptcode/codeCheck/ListCheck.jsp" location="30,4071" dimension="304,48" />
+  <StrutsActivity path="/projectpre/deptcode/codeCheck/CodeCheck.jsp" location="1242,4071" dimension="304,48" />
+  <StrutsActivity path="/projectpre/deptcode/codeCheck/AlterCheck.jsp" location="1702,3794" dimension="310,48" />
+  <StrutsActivity path="/projectpre/sync/SyncExceptionList.jsp" location="2192,1290" dimension="268,48" />
+  <StrutsActivity path="/projectpre/common/queryCustomer/Search.jsp" location="523,3517" dimension="298,48" />
+  <StrutsActivity path="/projectpre/common/queryAccount/Search.jsp" location="1440,3517" dimension="292,48" />
+  <StrutsActivity path="/success.jsp" location="1621,4059" dimension="112,48" />
+  <StrutsActivity path="/error.jsp" location="1784,4059" dimension="100,48" />
+  <StrutsTransition id="/customer/query/customerQueryList.do,success,/projectpre/customer/infoquery/QueryList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="991,3971" />
+      <AbsolutePoint location="991,4071" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/parameter/listTranLanguage.do,success,/projectpre/parameter/ParameterList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3829,1928" />
+      <AbsolutePoint location="3829,2018" />
+      <AbsolutePoint location="2577,2018" />
+      <AbsolutePoint location="2577,2108" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/parameter/listAttributeType.do,success,/projectpre/parameter/ParameterList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1729,1928" />
+      <AbsolutePoint location="1729,1988" />
+      <AbsolutePoint location="2467,1988" />
+      <AbsolutePoint location="2467,2108" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/change/listAllCustApp.do,success,/projectpre/customer/infochange/ChangeList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="197,1190" />
+      <AbsolutePoint location="197,1290" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/query/searchCondition.do,success,/projectpre/projectcode/codequery/closeOpener.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2461,3417" />
+      <AbsolutePoint location="2461,3517" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/maintenance/deleteAreaCode.do,success,/project/maintenance/listAllAreaCode.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1174,545" />
+      <AbsolutePoint location="1174,645" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/pc/previewClassCode.do,success,/projectpre/customer/typeinfo/TypeCodeGeneral.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="685,2863" />
+      <AbsolutePoint location="685,2913" />
+      <AbsolutePoint location="523,2913" />
+      <AbsolutePoint location="523,2963" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dept/check/initialAddApp.do,success,/projectpre/deptcode/codeCheck/CodeCheck.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1394,3971" />
+      <AbsolutePoint location="1394,4071" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/maintenance/deleteBdCode.do,success,/project/maintenance/listAllBdCode.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1637,545" />
+      <AbsolutePoint location="1637,645" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/apply/listAllProjectAcntApp.do,success,/projectpre/projectcode/codeapply/ApplyRecordList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="179,268" />
+      <AbsolutePoint location="179,368" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/parameter/listAllParameter.do,success,/projectpre/parameter/ParameterList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="185,1928" />
+      <AbsolutePoint location="185,2078" />
+      <AbsolutePoint location="2385,2078" />
+      <AbsolutePoint location="2385,2108" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/maintenance/listAllAreaCode.do,success,/projectpre/projectcode/codemaintenance/AreaCodeList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1174,729" />
+      <AbsolutePoint location="1174,829" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/pc/listAllByKind.do,success,/projectpre/customer/typeinfo/TypeCodeList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1072,1190" />
+      <AbsolutePoint location="1072,1290" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/apply/previewAddTechInfoApp.do,success,/projectpre/projectcode/codeapply/TechnicalData.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1705,2586" />
+      <AbsolutePoint location="1705,2636" />
+      <AbsolutePoint location="1534,2636" />
+      <AbsolutePoint location="1534,2686" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/add/listAllCustAppInfo.do,success,/projectpre/customer/infoadd/CustomerList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2088,729" />
+      <AbsolutePoint location="2088,829" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/parameter/updateParameter.do,success,/projectpre/parameter/ParameterGeneral.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2012,2863" />
+      <AbsolutePoint location="2012,2913" />
+      <AbsolutePoint location="2172,2913" />
+      <AbsolutePoint location="2172,2963" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/parameter/listTechDomain.do,success,/projectpre/parameter/ParameterList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2763,1928" />
+      <AbsolutePoint location="2763,1958" />
+      <AbsolutePoint location="2522,1958" />
+      <AbsolutePoint location="2522,2108" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/maintenance/updateBdCode.do,success,/projectpre/projectcode/codemaintenance/BdCodeGeneral.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2165,2586" />
+      <AbsolutePoint location="2165,2636" />
+      <AbsolutePoint location="2324,2636" />
+      <AbsolutePoint location="2324,2686" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/check/checkAdd.do,success,/projectpre/customer/infocheck/CodeCheck.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="176,3140" />
+      <AbsolutePoint location="176,3190" />
+      <AbsolutePoint location="333,3190" />
+      <AbsolutePoint location="333,3240" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/parameter/listProjectType.do,success,/projectpre/parameter/ParameterList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="678,1928" />
+      <AbsolutePoint location="678,2048" />
+      <AbsolutePoint location="2412,2048" />
+      <AbsolutePoint location="2412,2108" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dept/change/updateDeptApp.do,success,/dept/change/displayDeptApp.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1911,1006" />
+      <AbsolutePoint location="1911,1106" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/check/initialAcntContApp.do,success,/projectpre/projectcode/codecheck/ContractAcntApp.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2891,3417" />
+      <AbsolutePoint location="2891,3517" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/query/projectQueryPre.do,success,/projectpre/projectcode/codequery/QueryProject.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2028,3417" />
+      <AbsolutePoint location="2028,3517" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dept/change/displayDeptApp.do,success,/projectpre/deptcode/codeEdit/DeptCodeEdit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1911,1190" />
+      <AbsolutePoint location="1911,1290" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/add/updateCustApp.do,success,/customer/add/displayCustApp.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2533,545" />
+      <AbsolutePoint location="2533,645" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/apply/previewCustomerInfoApp.do,success,/projectpre/projectcode/codeapply/ProjectData.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="666,2285" />
+      <AbsolutePoint location="666,2335" />
+      <AbsolutePoint location="852,2335" />
+      <AbsolutePoint location="852,2385" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/check/listAllApp.do,success,/projectpre/customer/infocheck/CustomerInfoCheckList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="609,3694" />
+      <AbsolutePoint location="609,3794" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/apply/updateProjectAcntApp.do,success,/project/apply/previewProjectAcntApp.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1296,84" />
+      <AbsolutePoint location="1296,184" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/pc/deleteClassCode.do,success,/pc/listAllByKind.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1072,1006" />
+      <AbsolutePoint location="1072,1106" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/pc/updateClassCode.do,success,/projectpre/customer/typeinfo/TypeCodeGeneral.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="194,2863" />
+      <AbsolutePoint location="194,2913" />
+      <AbsolutePoint location="356,2913" />
+      <AbsolutePoint location="356,2963" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/parameter/listCountryCode.do,success,/projectpre/parameter/ParameterList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4853,1928" />
+      <AbsolutePoint location="4853,2078" />
+      <AbsolutePoint location="2631,2078" />
+      <AbsolutePoint location="2631,2108" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/apply/previewAddProjectAcntApp.do,success,/projectpre/projectcode/codeapply/MasterData.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1829,268" />
+      <AbsolutePoint location="1829,318" />
+      <AbsolutePoint location="1644,318" />
+      <AbsolutePoint location="1644,368" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/apply/previewAddCustomerInfoApp.do,success,/projectpre/projectcode/codeapply/ProjectData.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1205,2285" />
+      <AbsolutePoint location="1205,2335" />
+      <AbsolutePoint location="1019,2335" />
+      <AbsolutePoint location="1019,2385" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/parameter/listOrgLanguage.do,success,/projectpre/parameter/ParameterList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="3296,1928" />
+      <AbsolutePoint location="3296,1988" />
+      <AbsolutePoint location="2549,1988" />
+      <AbsolutePoint location="2549,2108" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/change/deleteCustApp.do,success,/customer/change/listAllCustApp.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="197,1006" />
+      <AbsolutePoint location="197,1106" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/contractchange/selectAcntId.do,success,/projectpre/projectcode/contractchange/ChangeData.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1686,2285" />
+      <AbsolutePoint location="1686,2335" />
+      <AbsolutePoint location="1861,2335" />
+      <AbsolutePoint location="1861,2385" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/contractchange/initialContApp.do,success,/projectpre/projectcode/contractchange/ChangeData.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2216,2285" />
+      <AbsolutePoint location="2216,2335" />
+      <AbsolutePoint location="2040,2335" />
+      <AbsolutePoint location="2040,2385" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/apply/deleteProjectAcntApp.do,success,/project/apply/listAllProjectAcntApp.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="285,84" />
+      <AbsolutePoint location="285,184" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/contractchange/updateContApp.do,success,/project/contractchange/displayContApp.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="218,545" />
+      <AbsolutePoint location="218,645" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/parameter/listBusinessType.do,success,/projectpre/parameter/ParameterList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="4344,1928" />
+      <AbsolutePoint location="4344,2048" />
+      <AbsolutePoint location="2604,2048" />
+      <AbsolutePoint location="2604,2108" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/change/initialCust.do,success,/projectpre/customer/infochange/CusInfoAdd.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1597,2863" />
+      <AbsolutePoint location="1597,2913" />
+      <AbsolutePoint location="1436,2913" />
+      <AbsolutePoint location="1436,2963" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/parameter/deleteParameter.do,success,/projectpre/parameter/ParameterBridge.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2269,3694" />
+      <AbsolutePoint location="2269,3794" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/change/updateCustApp.do,success,/customer/change/displayCustApp.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="636,1006" />
+      <AbsolutePoint location="636,1106" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/maintenance/previewIdSetting.do,success,/projectpre/customer/infomaintenance/CustomerInfoSetting.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="699,729" />
+      <AbsolutePoint location="699,829" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/confirm/previewProjectConfirm.do,success,/projectpre/projectcode/codeconfirm/PopCodeConfirm.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2463,3140" />
+      <AbsolutePoint location="2463,3240" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/parameter/listProductType.do,success,/projectpre/parameter/ParameterList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1196,1928" />
+      <AbsolutePoint location="1196,2018" />
+      <AbsolutePoint location="2440,2018" />
+      <AbsolutePoint location="2440,2108" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/change/listAllProjectChangeApp.do,success,/projectpre/projectcode/codechange/ApplyRecordList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="818,268" />
+      <AbsolutePoint location="818,368" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dept/change/initialDeptApp.do,success,/projectpre/deptcode/codeEdit/EditData.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1064,3140" />
+      <AbsolutePoint location="1064,3190" />
+      <AbsolutePoint location="1223,3190" />
+      <AbsolutePoint location="1223,3240" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/common/queryaccount/queryAccount.do,success,/projectpre/common/queryAccount/Search.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1586,3417" />
+      <AbsolutePoint location="1586,3517" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/maintenance/previewBdCode.do,success,/projectpre/projectcode/codemaintenance/BdCodeGeneral.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2674,2586" />
+      <AbsolutePoint location="2674,2636" />
+      <AbsolutePoint location="2515,2636" />
+      <AbsolutePoint location="2515,2686" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/apply/previewProjectAcntApp.do,success,/projectpre/projectcode/codeapply/MasterData.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1296,268" />
+      <AbsolutePoint location="1296,318" />
+      <AbsolutePoint location="1480,318" />
+      <AbsolutePoint location="1480,368" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/maintenance/previewAreaCode.do,success,/projectpre/projectcode/codemaintenance/AreaCodeGeneral.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="730,2586" />
+      <AbsolutePoint location="730,2636" />
+      <AbsolutePoint location="568,2636" />
+      <AbsolutePoint location="568,2686" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/check/checkChange.do,success,/projectpre/customer/infocheck/CusInfoCheck.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1442,3694" />
+      <AbsolutePoint location="1442,3794" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/parameter/listWorkItem.do,success,/projectpre/parameter/ParameterList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2254,1928" />
+      <AbsolutePoint location="2254,1958" />
+      <AbsolutePoint location="2494,1958" />
+      <AbsolutePoint location="2494,2108" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/maintenance/displayProjectId.do,success,/projectpre/projectcode/codemaintenance/ProjectCodeSetting.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2337,268" />
+      <AbsolutePoint location="2337,368" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/apply/listAllProjectAcntApp.do,change,/projectpre/projectcode/codechange/ApplyRecordList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="391,268" />
+      <AbsolutePoint location="391,318" />
+      <AbsolutePoint location="636,318" />
+      <AbsolutePoint location="636,368" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/contractchange/deleteContApp.do,success,/project/contractchange/listAllContApp.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2842,84" />
+      <AbsolutePoint location="2842,184" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/add/deleteCustApp.do,success,/customer/add/listAllCustAppInfo.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2088,545" />
+      <AbsolutePoint location="2088,645" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/maintenance/addOrUpdateProjectSetting.do,success,/project/maintenance/displayProjectId.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2337,84" />
+      <AbsolutePoint location="2337,184" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/maintenance/updateAreaCode.do,success,/projectpre/projectcode/codemaintenance/AreaCodeGeneral.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="209,2586" />
+      <AbsolutePoint location="209,2636" />
+      <AbsolutePoint location="371,2636" />
+      <AbsolutePoint location="371,2686" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dept/apply/deleteDeptApp.do,success,/dept/apply/listAllDeptApp.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2738,1006" />
+      <AbsolutePoint location="2738,1106" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/apply/previewTechInfoApp.do,success,/projectpre/projectcode/codeapply/TechnicalData.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1190,2586" />
+      <AbsolutePoint location="1190,2636" />
+      <AbsolutePoint location="1361,2636" />
+      <AbsolutePoint location="1361,2686" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/add/initialCustApp.do,success,/projectpre/customer/infoadd/CusInfoAdd.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="188,3694" />
+      <AbsolutePoint location="188,3794" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/pp/deleteBdCode.do,success,/pp/listAllBdCode.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="203,2285" />
+      <AbsolutePoint location="203,2385" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/contractchange/listAllContApp.do,success,/projectpre/projectcode/contractchange/ContractList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2842,268" />
+      <AbsolutePoint location="2842,368" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/sync/listSyncException.do,success,/projectpre/sync/SyncExceptionList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2326,1190" />
+      <AbsolutePoint location="2326,1290" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/query/customerQueryData.do,success,/projectpre/customer/infoquery/QueryData.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="588,3971" />
+      <AbsolutePoint location="588,4071" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/confirm/listProjectConfirm.do,success,/projectpre/projectcode/codeconfirm/CodeConfirmDetail.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="209,3417" />
+      <AbsolutePoint location="209,3517" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dept/apply/listAllDeptApp.do,success,/projectpre/deptcode/codeApply/DeptCodeList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2738,1190" />
+      <AbsolutePoint location="2738,1290" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/parameter/previewParameter.do,success,/projectpre/parameter/ParameterGeneral.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2479,2863" />
+      <AbsolutePoint location="2479,2913" />
+      <AbsolutePoint location="2318,2913" />
+      <AbsolutePoint location="2318,2963" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dept/change/selectAcntId.do,success,/projectpre/deptcode/codeEdit/EditData.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1528,3140" />
+      <AbsolutePoint location="1528,3190" />
+      <AbsolutePoint location="1369,3190" />
+      <AbsolutePoint location="1369,3240" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dept/change/deleteDeptApp.do,success,/dept/change/listAllDeptApp.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1496,1006" />
+      <AbsolutePoint location="1496,1106" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/check/confirmAddApp.do,duplicate,/projectpre/customer/infocheck/CodeCheck.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="643,3140" />
+      <AbsolutePoint location="643,3190" />
+      <AbsolutePoint location="485,3190" />
+      <AbsolutePoint location="485,3240" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dept/change/listAllDeptApp.do,success,/projectpre/deptcode/codeEdit/CodeEditList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1496,1190" />
+      <AbsolutePoint location="1496,1290" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dept/apply/initialDeptApp.do,success,/projectpre/deptcode/codeApply/dataAdd.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2678,3694" />
+      <AbsolutePoint location="2678,3794" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dept/change/initialAlterApp.do,success,/projectpre/deptcode/codeCheck/AlterCheck.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1857,3694" />
+      <AbsolutePoint location="1857,3794" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/query/projectQueryList.do,success,/projectpre/projectcode/codequery/QueryRecordList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1027,3694" />
+      <AbsolutePoint location="1027,3794" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dept/apply/displayDeptApp.do,success,/projectpre/deptcode/codeApply/DeptCodeAdd.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="182,1651" />
+      <AbsolutePoint location="182,1751" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dept/check/listAllDeptApp.do,success,/projectpre/deptcode/codeCheck/ListCheck.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="182,3971" />
+      <AbsolutePoint location="182,4071" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/contractchange/displayContApp.do,success,/projectpre/projectcode/contractchange/ContractData.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="218,729" />
+      <AbsolutePoint location="218,829" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/common/querycustomer/queryCustomer.do,success,/projectpre/common/queryCustomer/Search.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="672,3417" />
+      <AbsolutePoint location="672,3517" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/add/displayCustApp.do,success,/projectpre/customer/infoadd/AddData.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2533,729" />
+      <AbsolutePoint location="2533,829" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/maintenance/listAllBdCode.do,success,/projectpre/projectcode/codemaintenance/BdCodeList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1637,729" />
+      <AbsolutePoint location="1637,829" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="success;6,null,/success.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1677,3959" />
+      <AbsolutePoint location="1677,4059" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/sync/checkSyncException.do,success,/sync/listSyncException.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2326,1006" />
+      <AbsolutePoint location="2326,1106" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/check/previewCheckProjectChange.do,success,/projectpre/projectcode/codecheck/CodeCheckCompare.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1976,3140" />
+      <AbsolutePoint location="1976,3240" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/change/selectCustId.do,success,/projectpre/customer/infochange/CusInfoAdd.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1118,2863" />
+      <AbsolutePoint location="1118,2913" />
+      <AbsolutePoint location="1278,2913" />
+      <AbsolutePoint location="1278,2963" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/dept/apply/updateDeptApp.do,success,/dept/apply/displayDeptApp.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="182,1467" />
+      <AbsolutePoint location="182,1567" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/change/displayCustApp.do,success,/projectpre/customer/infochange/ChangeData.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="636,1190" />
+      <AbsolutePoint location="636,1290" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/project/check/listProjectAppCheck.do,success,/projectpre/projectcode/codecheck/CodeCheckDetail.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1132,3417" />
+      <AbsolutePoint location="1132,3517" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/customer/maintenance/updateIdSetting.do,success,/customer/maintenance/previewIdSetting.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="699,545" />
+      <AbsolutePoint location="699,645" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="failure;6,null,/error.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1834,3959" />
+      <AbsolutePoint location="1834,4059" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+

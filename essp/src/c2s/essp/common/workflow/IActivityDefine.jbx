@@ -1,0 +1,18 @@
+[PropertyInfo]
+activityID,String,false,false, , ,true,<default>
+activityName,String,false,false, , ,true,<default>
+children,java.util.List,false,false, , ,true,<default>
+end,boolean,false,false, , ,true,<default>
+endMode,String,false,false, , ,true,<default>
+MODE_AUTO,String,false,false, , ,false,<default>
+MODE_MENU,String,false,false, , ,false,<default>
+parents,java.util.List,false,false, , ,true,<default>
+participant,c2s.essp.common.workflow.IParticipant,false,false, , ,true,<default>
+processClassName,String,false,false, , ,true,<default>
+start,boolean,false,false, , ,true,<default>
+startMode,String,false,false, , ,true,<default>
+[IconNames]
+
+
+
+

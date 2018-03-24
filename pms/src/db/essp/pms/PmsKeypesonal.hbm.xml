@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+  <class name="db.essp.pms.Keypesonal" table="pms_keypesonal" dynamic-update="true" dynamic-insert="true">
+    <id name="rid" type="long" column="RID">
+      <generator class="assigned"/>
+    </id>
+    <property name="typeName" type="string" column="TYPE_NAME" length="50"/>
+    <property name="loginId" type="string" column="LOGIN_ID" length="50"/>
+    <property name="userName" type="string" column="USER_NAME" length="50"/>
+    <property name="organization" type="string" column="ORGANIZATION" length="100"/>
+    <property name="title" type="string" column="TITLE" length="100"/>
+    <property name="phone" type="string" column="PHONE" length="50"/>
+    <property name="fax" type="string" column="FAX" length="50"/>
+    <property name="email" type="string" column="EMAIL" length="100"/>
+    <property name="enable" type="string" column="ENABLE" length="10"/>
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date" column="RCT"/>
+    <property name="rut" type="date" column="RUT"/>
+
+    <many-to-one name="account" class="db.essp.pms.Account" not-null="true">
+      <column name="ACNT_RID"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,489 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="essp.tables.EsspHrEmployeeMainT" 
+    table="essp_hr_employee_main_t"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="essp_hr_employee_main_t"
+    </meta>
+
+    <id
+        name="code"
+        type="java.lang.String"
+        column="CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="CODE"
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="empCode"
+        type="java.lang.String"
+        column="EMP_CODE"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EMP_CODE"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="NAME"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="sex"
+        type="java.lang.String"
+        column="SEX"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SEX"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="birth"
+        type="java.sql.Date"
+        column="BIRTH"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BIRTH"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="nationality"
+        type="java.lang.String"
+        column="NATIONALITY"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="NATIONALITY"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="socialSecurityId"
+        type="java.lang.String"
+        column="SOCIAL_SECURITY_ID"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SOCIAL_SECURITY_ID"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="socialSecurityDescription"
+        type="java.lang.String"
+        column="SOCIAL_SECURITY_DESCRIPTION"
+        length="200"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SOCIAL_SECURITY_DESCRIPTION"
+            length="200"
+        </meta>    
+    </property>
+    <property
+        name="nativePlace"
+        type="java.lang.String"
+        column="NATIVE_PLACE"
+        length="200"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="NATIVE_PLACE"
+            length="200"
+        </meta>    
+    </property>
+    <property
+        name="marry"
+        type="java.lang.String"
+        column="MARRY"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MARRY"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="rprAddress"
+        type="java.lang.String"
+        column="RPR_ADDRESS"
+        length="200"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RPR_ADDRESS"
+            length="200"
+        </meta>    
+    </property>
+    <property
+        name="cellPjone"
+        type="java.lang.String"
+        column="CELL_PJONE"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CELL_PJONE"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="call"
+        type="java.lang.String"
+        column="CALL"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CALL"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="homePhone"
+        type="java.lang.String"
+        column="HOME_PHONE"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HOME_PHONE"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="EMail"
+        type="java.lang.String"
+        column="E_MAIL"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="E_MAIL"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="postalcode"
+        type="java.lang.String"
+        column="POSTALCODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="POSTALCODE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="address"
+        type="java.lang.String"
+        column="ADDRESS"
+        length="200"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ADDRESS"
+            length="200"
+        </meta>    
+    </property>
+    <property
+        name="famililaName1"
+        type="java.lang.String"
+        column="FAMILILA_NAME1"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FAMILILA_NAME1"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="famililaNexus1"
+        type="java.lang.String"
+        column="FAMILILA_NEXUS1"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FAMILILA_NEXUS1"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="famililaContact1"
+        type="java.lang.String"
+        column="FAMILILA_CONTACT1"
+        length="200"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FAMILILA_CONTACT1"
+            length="200"
+        </meta>    
+    </property>
+    <property
+        name="famililaName2"
+        type="java.lang.String"
+        column="FAMILILA_NAME2"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FAMILILA_NAME2"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="famililaNexus2"
+        type="java.lang.String"
+        column="FAMILILA_NEXUS2"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FAMILILA_NEXUS2"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="famililaContact2"
+        type="java.lang.String"
+        column="FAMILILA_CONTACT2"
+        length="200"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FAMILILA_CONTACT2"
+            length="200"
+        </meta>    
+    </property>
+    <property
+        name="famililaName3"
+        type="java.lang.String"
+        column="FAMILILA_NAME3"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FAMILILA_NAME3"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="famililaNexus3"
+        type="java.lang.String"
+        column="FAMILILA_NEXUS3"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FAMILILA_NEXUS3"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="famililaContact3"
+        type="java.lang.String"
+        column="FAMILILA_CONTACT3"
+        length="200"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FAMILILA_CONTACT3"
+            length="200"
+        </meta>    
+    </property>
+    <property
+        name="passNo"
+        type="java.lang.String"
+        column="PASS_NO"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PASS_NO"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="visaNo"
+        type="java.lang.String"
+        column="VISA_NO"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="VISA_NO"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="visaPeriod"
+        type="java.sql.Date"
+        column="VISA_PERIOD"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="VISA_PERIOD"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="visaNation"
+        type="java.lang.String"
+        column="VISA_NATION"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="VISA_NATION"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="dimissionFlag"
+        type="java.lang.String"
+        column="DIMISSION_FLAG"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DIMISSION_FLAG"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="types"
+        type="java.lang.String"
+        column="TYPES"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TYPES"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="dept"
+        type="java.lang.String"
+        column="DEPT"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DEPT"
+            length="100"
+        </meta>    
+    </property>
+    <property
+        name="positionLevel"
+        type="java.lang.String"
+        column="POSITION_LEVEL"
+        length="3"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="POSITION_LEVEL"
+            length="3"
+        </meta>    
+    </property>
+    <property
+        name="status"
+        type="java.lang.String"
+        column="STATUS"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="STATUS"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="company"
+        type="java.lang.String"
+        column="COMPANY"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="COMPANY"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="photo"
+        type="java.lang.String"
+        column="PHOTO"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PHOTO"
+            length="100"
+        </meta>    
+    </property>
+    <property
+        name="ldap"
+        type="java.lang.String"
+        column="LDAP"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="LDAP"
+            length="100"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

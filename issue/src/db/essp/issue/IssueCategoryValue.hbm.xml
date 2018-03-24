@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class name="db.essp.issue.IssueCategoryValue" table="ISSUE_CATEGORY" lazy="true">
+    <composite-id name="comp_id" class="db.essp.issue.IssueCategoryValuePK">
+        <key-property name="typeName"      type="string" column="Type_Name"/>
+        <key-property name="categoryName"  type="string" column="CategoryName"/>
+        <key-property name="categoryValue" type="string" column="CategoryValue"/>
+    </composite-id>
+
+    <property name="rid"         type="long"   column="RID"/>
+    <property name="sequence"    type="long"   column="Sequence"/>
+    <property name="description" type="string" column="Description"/>
+    <property name="rst"         type="string" column="RST"/>
+    <property name="rct"         type="date"   column="RCT"/>
+    <property name="rut"         type="date"   column="RUT"/>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+
+
+</class>
+</hibernate-mapping>

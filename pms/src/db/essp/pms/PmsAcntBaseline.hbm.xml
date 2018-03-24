@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+  <class name="db.essp.pms.AccountBaseline" table="pms_acnt_baseline" >
+    <id name="rid" type="java.lang.Long" column="RID">
+      <generator class="assigned"/>
+    </id>
+
+    <property name="baselineId" type="string" column="BASELINE_ID" length="50"/>
+    <property name="appDate" type="date" column="APP_DATE" />
+    <property name="appReason" type="string" column="APP_REASON" length="1000"/>
+    <property name="approveDate" type="date" column="APPROVE_DATE"/>
+    <property name="approveUser" type="string" column="APPROVE_USER" length="50"/>
+    <property name="appStatus" type="string" column="APP_STATUS" length="50"/>
+    <property name="remark" type="string" column="REMARK" length="1000"/>
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date" column="RCT"/>
+    <property name="rut" type="date" column="RUT"/>
+
+  </class>
+</hibernate-mapping>

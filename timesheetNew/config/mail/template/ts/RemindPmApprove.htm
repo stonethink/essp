@@ -1,0 +1,48 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ESSP System Mail</title>
+</head>
+
+<body>
+
+Dear $addressee,
+<br />
+<br />
+You have yet to approve the timecard as listed below.<br />
+Please log on at <a href="http://timecard.wistronits.com/">http://timecard.wistronits.com/</a> to complete the process accordingly by next 14:00 Monday.
+<br/>
+Thank you.
+<br>
+<br>
+<table width="880" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF">
+  <tr>
+    <td width="150" bgcolor="#94AAD6"><font color="#FFFFFF">Member ID</font></td>
+    <td width="180" bgcolor="#94AAD6"><font color="#FFFFFF">Member Name</font></td>
+    <td width="300" bgcolor="#94aad6"><font color="#FFFFFF">Project Name</font></td>
+    <td width="100" bgcolor="#94AAD6"><font color="#FFFFFF">From</font></td>
+    <td width="100" bgcolor="#94aad6"><font color="#FFFFFF">To</font></td>
+    
+  </tr>
+  #foreach ($c in $content)
+  <tr>
+    <td width="150">$c.employeeId</td>
+    <td width="150">$c.submiter</td>
+    <td width="300">$c.accountInfo</td>
+    <td width="100">$c.beginDate</td>
+    <td width="100">$c.endDate</td>
+    
+  </tr>
+  #end
+</table>
+<br />
+<br />
+--------------------------------------------------
+<br />
+This message was sent automatically by ESSP, please do not reply.<br />
+<br /> 
+Best regard,<br />
+$addresser<br />
+$date
+</body>
+</html>

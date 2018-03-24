@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="db.essp.tc.TcWeeklyReport"
+    table="TC_WEEKLY_REPORT"
+>
+    <id name="rid" type="java.lang.Long" column="RID">
+        <generator class="assigned" />
+    </id>
+
+    <property name="userId" type="java.lang.String" column="USER_ID" length="50">
+    </property>
+    <property name="acntRid" type="java.lang.Long" column="ACNT_RID" length="8">
+    </property>
+    <property name="activityRid" type="java.lang.Long" column="ACTIVITY_RID" length="8" >
+    </property>
+    <property name="codeValueRid" type="java.lang.Long" column="CODE_VALUE_RID" length="8">
+    </property>
+    <property name="isActivity" type="java.lang.String" column="IS_ACTIVITY" length="1">
+    </property>
+    <property name="beginPeriod" type="java.util.Date" column="BEGIN_PERIOD" length="10">
+    </property>
+    <property name="endPeriod" type="java.util.Date" column="END_PERIOD" length="10" >
+    </property>
+    <property name="jobDescription" type="java.lang.String" column="JOB_DESCRIPTION" length="500" >
+    </property>
+    <property name="satHour" type="java.math.BigDecimal" column="SAT_HOUR" length="8">
+    </property>
+    <property name="sunHour" type="java.math.BigDecimal" column="SUN_HOUR" length="8" >
+    </property>
+    <property name="monHour" type="java.math.BigDecimal" column="MON_HOUR" length="8">
+    </property>
+    <property name="tueHour" type="java.math.BigDecimal" column="TUE_HOUR" length="8" >
+    </property>
+    <property name="wedHour" type="java.math.BigDecimal" column="WED_HOUR" length="8">
+    </property>
+    <property name="thuHour" type="java.math.BigDecimal" column="THU_HOUR" length="8">
+    </property>
+    <property name="friHour" type="java.math.BigDecimal" column="FRI_HOUR" length="8">
+    </property>
+    <property name="isLocked" type="java.lang.String" column="IS_LOCKED" length="1">
+    </property>
+    <property name="confirmStatus" type="java.lang.String" column="CONFIRM_STATUS" length="1" >
+    </property>
+    <property name="comments" type="java.lang.String" column="COMMENTS" length="500" >
+    </property>
+    <property name="rct" type="java.util.Date" column="RCT" length="10" >
+    </property>
+    <property name="rut" type="java.util.Date" column="RUT" length="10" >
+    </property>
+    <property name="rst" type="java.lang.String" column="RST" length="1" >
+    </property>
+
+    <!-- Associations -->
+    <many-to-one name="account" class="db.essp.pms.Account" insert="false" update="false">
+        <column name="ACNT_RID"/>
+    </many-to-one>
+    <many-to-one name="activity" class="db.essp.pms.Activity" insert="false" update="false">
+        <column name="ACNT_RID"/>
+        <column name="ACTIVITY_RID"/>
+    </many-to-one>
+    <many-to-one name="codeValue" class="db.essp.code.CodeValue" insert="false" update="false">
+        <column name="CODE_VALUE_RID"/>
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

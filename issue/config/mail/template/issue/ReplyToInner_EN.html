@@ -1,0 +1,49 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>#foreach($dd in $content)$!dd.title#end</title>
+</head>
+
+<body>
+
+Dear,
+<br><br>
+#foreach($dd in $content)
+<br>
+The Topic: $!dd.issueDiscussTitle.title has new reply, detail infomation as:
+<br>
+
+<table width="700" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF" >
+<tr>
+  <td width="200" bgcolor="#94aad6">Title</td>
+  <td colspan="3">$!dd.title&nbsp;</td>
+</tr>
+<tr>
+  <td width="200" bgcolor="#94aad6">Filled By</td>
+  <td width="175">$!dd.filledBy&nbsp;</td>
+  <td width="120" bgcolor="#94aad6">Filled Date</td>
+  <td width="251">$!dd.returnFilledData()&nbsp;</td>
+</tr>
+<tr>
+  <td width="200" bgcolor="#94aad6">Description</td>
+  <td colspan="3">$!dd.returnHtmlDescription()&nbsp;</td>
+</tr>
+<tr>
+  <td width="200" bgcolor="#94aad6">Remark</td>
+  <td colspan="3">$!dd.returnHtmlRemark()&nbsp;</td>
+</tr>
+<tr>
+  <td width="200" bgcolor="#94aad6">Attachment Description</td>
+  <td colspan="3">$!dd.attachmentDesc&nbsp;</td>
+</tr>
+
+
+</table>
+<br />
+ --------------------------------------------------
+<br />
+<br />
+$!dd.filledBy#end<br />
+$date
+</body>
+</html>

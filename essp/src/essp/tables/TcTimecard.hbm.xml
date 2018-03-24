@@ -1,0 +1,351 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="essp.tables.TcTimecard"
+    table="tc_timecard"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="tc_timecard"
+    </meta>
+
+    <composite-id name="comp_id" class="essp.tables.TcTimecardPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property
+            name="tmcWeeklyStart"
+            column="TMC_WEEKLY_START"
+            type="java.sql.Date"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="TMC_WEEKLY_START"
+                length="10"
+            </meta>
+        </key-property>
+        <key-property
+            name="tmcWeeklyFinish"
+            column="TMC_WEEKLY_FINISH"
+            type="java.sql.Date"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="TMC_WEEKLY_FINISH"
+                length="10"
+            </meta>
+        </key-property>
+        <key-property
+            name="tmcProjId"
+            column="TMC_PROJ_ID"
+            type="java.lang.Long"
+            length="8"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="TMC_PROJ_ID"
+                length="8"
+            </meta>
+        </key-property>
+        <key-property
+            name="tmcEmpId"
+            column="TMC_EMP_ID"
+            type="java.lang.String"
+            length="20"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="TMC_EMP_ID"
+                length="20"
+            </meta>
+        </key-property>
+    </composite-id>
+
+    <property
+        name="rid"
+        type="java.lang.Long"
+        column="RID"
+        not-null="false"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RID"
+            length="8"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="tmcProjCode"
+        type="java.lang.String"
+        column="TMC_PROJ_CODE"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_PROJ_CODE"
+            length="20"
+        </meta>
+    </property>
+    <property
+        name="tmcProjName"
+        type="java.lang.String"
+        column="TMC_PROJ_NAME"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_PROJ_NAME"
+            length="100"
+        </meta>
+    </property>
+    <property
+        name="tmcEmpCode"
+        type="java.lang.String"
+        column="TMC_EMP_CODE"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_EMP_CODE"
+            length="20"
+        </meta>
+    </property>
+    <property
+        name="tmcEmpName"
+        type="java.lang.String"
+        column="TMC_EMP_NAME"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_EMP_NAME"
+            length="100"
+        </meta>
+    </property>
+    <property
+        name="tmcEmpPositionType"
+        type="java.lang.String"
+        column="TMC_EMP_POSITION_TYPE"
+        length="150"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_EMP_POSITION_TYPE"
+            length="150"
+        </meta>
+    </property>
+    <property
+        name="tmcEmpStart"
+        type="java.sql.Date"
+        column="TMC_EMP_START"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_EMP_START"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="tmcEmpFinish"
+        type="java.sql.Date"
+        column="TMC_EMP_FINISH"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_EMP_FINISH"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="tmcPersonalWorkHours"
+        type="java.math.BigDecimal"
+        column="TMC_PERSONAL_WORK_HOURS"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_PERSONAL_WORK_HOURS"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="tmcActualWorkHours"
+        type="java.math.BigDecimal"
+        column="TMC_ACTUAL_WORK_HOURS"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_ACTUAL_WORK_HOURS"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="tmcAllocatedWorkHours"
+        type="java.math.BigDecimal"
+        column="TMC_ALLOCATED_WORK_HOURS"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_ALLOCATED_WORK_HOURS"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="tmcAttenOffsetWork"
+        type="java.math.BigDecimal"
+        column="TMC_ATTEN_OFFSET_WORK"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_ATTEN_OFFSET_WORK"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="tmcAttenOvertime"
+        type="java.math.BigDecimal"
+        column="TMC_ATTEN_OVERTIME"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_ATTEN_OVERTIME"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="tmcAttenVacation"
+        type="java.math.BigDecimal"
+        column="TMC_ATTEN_VACATION"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_ATTEN_VACATION"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="tmcAttenShiftAdjustment"
+        type="java.math.BigDecimal"
+        column="TMC_ATTEN_SHIFT_ADJUSTMENT"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_ATTEN_SHIFT_ADJUSTMENT"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="tmcAttenPrivateLeave"
+        type="java.math.BigDecimal"
+        column="TMC_ATTEN_PRIVATE_LEAVE"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_ATTEN_PRIVATE_LEAVE"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="tmcAttenSickLeave"
+        type="java.math.BigDecimal"
+        column="TMC_ATTEN_SICK_LEAVE"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_ATTEN_SICK_LEAVE"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="tmcAttenAbsence"
+        type="java.math.BigDecimal"
+        column="TMC_ATTEN_ABSENCE"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_ATTEN_ABSENCE"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="tmcAttenBreakingRules"
+        type="java.math.BigDecimal"
+        column="TMC_ATTEN_BREAKING_RULES"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TMC_ATTEN_BREAKING_RULES"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="rst"
+        type="java.lang.String"
+        column="RST"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RST"
+            length="1"
+        </meta>
+    </property>
+    <property
+        name="rct"
+        type="java.sql.Date"
+        column="RCT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RCT"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="rut"
+        type="java.sql.Date"
+        column="RUT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RUT"
+            length="10"
+        </meta>
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+
+
+</class>
+</hibernate-mapping>

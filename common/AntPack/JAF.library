@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <!--JBuilder Library Definition File-->
+  <fullname>JAF</fullname>
+  <class>
+    <path>[lib/activation.jar]</path>
+  </class>
+  <lastmodsaved>1116907960414</lastmodsaved>
+</library>

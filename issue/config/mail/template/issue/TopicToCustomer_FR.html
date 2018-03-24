@@ -1,0 +1,17 @@
+﻿<html>
+<head>#foreach($dd in $content)
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>$!dd.title</title>
+</head>
+
+<body>
+
+<p align="left"><SPAN lang="FR">Bonjour,</SPAN></p>
+<p align="left"><SPAN lang="FR"></SPAN>$!dd.returnHtmlDescription()</p>
+<p align="left"><SPAN lang="FR"></SPAN><SPAN lang="EN-US">Cordialement</SPAN></p>
+<SPAN lang="EN-US"></SPAN>$!dd.filledBy<br/>
+<SPAN lang="EN-US">Wistronits</SPAN><br/>
+#end
+$date
+</body>
+</html>

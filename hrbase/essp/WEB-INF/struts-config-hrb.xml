@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <data-sources />
+  <form-beans>
+  	<form-bean name="siteForm" type="server.essp.hrbase.site.form.AfSite"/>
+   	<form-bean name="humanBaseQuery" type="server.essp.hrbase.humanbase.form.AfHumanBaseQuery"></form-bean>
+   	<form-bean name="humanBaseLog" type="server.essp.hrbase.humanbase.form.AfHumanBaseLog"></form-bean>
+   	<form-bean name="humanBase" type="server.essp.hrbase.humanbase.form.AfHumanBase"></form-bean>
+   	<form-bean name="attribute" type="server.essp.hrbase.attribute.form.AfAttribute"></form-bean>
+   	<form-bean name="attributeGroup" type="server.essp.hrbase.attributegroup.form.AfAttributeGroup"></form-bean>
+	<!--BD代码设置Form -->
+	<form-bean name="bdCode" type="server.essp.hrbase.bd.form.AfBd" />
+	<!--部門代碼查詢Form -->
+	<form-bean name="deptQuery" type="server.essp.hrbase.dept.form.AfDeptQuery" />
+	<form-bean name="hrbViewCloumnForm" type="server.essp.hrbase.humanbase.form.AfSearchCondition"/>
+   </form-beans>
+  
+  <action-mappings>
+  
+  <!-- Site -->
+  	<action path="/hrbase/site/siteList" scope="request" type="server.essp.hrbase.site.action.AcSiteList">
+      <forward name="success" path="/hrbase/site/siteData.jsp" redirect="false" />
+    </action>
+  
+    <action path="/hrbase/site/loadSite" scope="request" type="server.essp.hrbase.site.action.AcLoadSite">
+      <forward name="success" path="/hrbase/site/general.jsp" redirect="false" />
+    </action>
+  
+    <action name="siteForm" path="/hrbase/site/saveSite" scope="request" type="server.essp.hrbase.site.action.AcSaveSite">
+      <forward name="success" path="/hrbase/site/general.jsp" redirect="false" />
+    </action>
+ 
+    <action path="/hrbase/site/deleteSite" scope="request" type="server.essp.hrbase.site.action.AcDeleteSite">
+      <forward name="success" path="/hrbase/site/siteList.jsp" redirect="false" />
+    </action>
+    
+    <!-- Attribute -->
+  	<action path="/hrbase/hrbAttribute/hrbAttList" scope="request" type="server.essp.hrbase.attribute.action.AcAttributeList">
+      <forward name="success" path="/hrbase/attribute/attributeList.jsp" redirect="false" />
+    </action>
+  
+    <action path="/hrbase/hrbAttribute/loadHrbAtt" scope="request" type="server.essp.hrbase.attribute.action.AcLoadAttribute">
+      <forward name="success" path="/hrbase/attribute/attributeGeneral.jsp" redirect="false" />
+    </action>
+  
+    <action name="attribute" path="/hrbase/hrbAttribute/saveHrbAtt" scope="request" type="server.essp.hrbase.attribute.action.AcSaveAttribute">
+      <forward name="success" path="/hrbase/attribute/attributeGeneral.jsp" redirect="false" />
+    </action>
+    
+    <action path="/hrbase/hrbAttribute/deleteHrbAtt" scope="request" type="server.essp.hrbase.attribute.action.AcDeleteAttribute">
+      <forward name="success" path="/hrbase/attribute/attributeFrame.jsp" redirect="false" />
+    </action>
+    
+     <!-- Attribute Group-->
+  	<action path="/hrbase/attgroup/attGroupList" scope="request" type="server.essp.hrbase.attributegroup.action.AcAttributeGroupList">
+      <forward name="success" path="/hrbase/attributegroup/attributeGroupList.jsp" redirect="false" />
+    </action>
+  
+    <action path="/hrbase/attgroup/loadAttGroup" scope="request" type="server.essp.hrbase.attributegroup.action.AcLoadAttributeGroup">
+      <forward name="success" path="/hrbase/attributegroup/attributeGroupGeneral.jsp" redirect="false" />
+    </action>
+    
+     <action name="attributeGroup" path="/hrbase/attgroup/saveAttGroup" scope="request" type="server.essp.hrbase.attributegroup.action.AcSaveAttributeGroup">
+    <forward name="success" path="/hrbase/attgroup/loadAttGroup.do" redirect="false" />
+    </action> 
+   <!-- human base info -->
+  	<action name="humanBaseQuery" path="/hrbase/humanbase/humanBaseQuery" type="server.essp.hrbase.humanbase.action.AcListHumanBase" validate="false">
+  		<forward name="success" path="/hrbase/humanbase/humanBaseList.jsp"></forward>
+  	</action>
+  	<action name="humanBaseQuery" path="/hrbase/humanbase/humanBaseExport" type="server.essp.hrbase.humanbase.action.AcHumanBaseExport" validate="false">
+  	</action>
+  	<action name="humanBase" path="/hrbase/humanbase/addHumanBase" type="server.essp.hrbase.humanbase.action.AcAddHumanBase" validate="false">
+  	</action>
+  	<action path="/hrbase/humanbase/editHumanBasePre" type="server.essp.hrbase.humanbase.action.AcUpdateHumanBasePre" validate="false">
+  		<forward name="success" path="/hrbase/humanbase/editHumanBase.jsp"></forward>
+  	</action>
+  	<action name="humanBase" path="/hrbase/humanbase/editHumanBase" type="server.essp.hrbase.humanbase.action.AcUpdateHumanBase" validate="false">
+  	</action>
+  	<action path="/hrbase/humanbase/editHumanBaseLogPre" type="server.essp.hrbase.humanbase.action.AcUpdateHumanBaseLogPre" validate="false">
+  		<forward name="success" path="/hrbase/humanbase/editHumanBaseLog.jsp"></forward>
+  	</action>
+  	<action name="humanBaseLog" path="/hrbase/humanbase/editHumanBaseLog" type="server.essp.hrbase.humanbase.action.AcUpdateHumanBaseLog" validate="false">
+  	</action>
+  	<action path="/hrbase/humanbase/deleteHumanBase" scope="request" type="server.essp.hrbase.humanbase.action.AcDeleteHumanBase" validate="false">
+  	</action>
+  	<action path="/hrbase/humanbase/abortHumanBaseLog" scope="request" type="server.essp.hrbase.humanbase.action.AcCancelHumanBaseLog" validate="false">
+  	</action>
+  	<action path="/hrbase/humanbase/viewHumanBase" type="server.essp.hrbase.humanbase.action.AcLoadHumanBase" validate="false">
+  		<forward name="success" path="/hrbase/humanbase/viewHumanBase.jsp"></forward>
+  	</action>
+  	<action path="/hrbase/humanbase/viewHumanBaseLog" type="server.essp.hrbase.humanbase.action.AcLoadHumanBaseLog" validate="false">
+  		<forward name="success" path="/hrbase/humanbase/viewHumanBaseLog.jsp"></forward>
+  	</action>
+  	<action path="/hrbase/humanbase/listAddingLog" type="server.essp.hrbase.humanbase.action.AcListAddingLog" validate="false">
+  		<forward name="success" path="/hrbase/humanbase/addingLogList.jsp"></forward>
+  	</action>
+  	<action path="/hrbase/humanbase/listEditingLog" type="server.essp.hrbase.humanbase.action.AcListEditingLog" validate="false">
+  		<forward name="success" path="/hrbase/humanbase/editingLogList.jsp"></forward>
+  	</action>
+  	<action path="/hrbase/humanbase/searchCondition" name="hrbViewCloumnForm" scope="request" type="server.essp.hrbase.humanbase.action.AcSearchCondition" validate="false">
+			<forward name="success" path="/hrbase/humanbase/closeOpener.jsp" />
+	</action>
+  
+  <!--BD代码设置Action-->
+	<action name="bdCode" path="/hrb/bd/addBdCode" scope="request" type="server.essp.hrbase.bd.action.AcAddBdCode" validate="false"></action>
+	
+	<action path="/hrb/bd/updateBdCode" name="bdCode" scope="request" type="server.essp.hrbase.bd.action.AcUpdateBdCode" validate="false">
+		<forward name="success" path="/hrbase/bd/BdCodeGeneral.jsp" />
+	</action>
+	<action path="/hrb/bd/previewBdCode" name="bdCode" scope="request" type="server.essp.hrbase.bd.action.AcPreviewBdCode" validate="false">
+		<forward name="success" path="/hrbase/bd/BdCodeGeneral.jsp" />
+	</action>
+    <action path="/hrb/bd/deleteBdCode" scope="request" type="server.essp.hrbase.bd.action.AcDeleteBdCode" validate="false">
+		<forward name="success" path="/hrb/bd/listAllBdCode.do" />
+    </action>
+    <action path="/hrb/bd/listAllBdCode" scope="request" type="server.essp.hrbase.bd.action.AcListAllBdCode" validate="false">
+		<forward name="success" path="/hrbase/bd/BdCodeList.jsp" />
+	</action>
+		
+  <!--部门维护 -->
+   	<action path="/dept/initDeptQuery" scope="request" type="server.essp.hrbase.dept.action.AcInitDept"  validate="false">
+		<forward name="success" path="/hrbase/dept/DeptQuery.jsp" />
+	</action>
+	<action name="deptQuery" path="/dept/query/deptList" scope="request"  type="server.essp.hrbase.dept.action.AcListDept"  validate="false">
+		<forward name="success" path="/hrbase/dept/DepetCodeList.jsp" />
+	</action> 
+	<action  path="/dept/initAddDeptQuery" scope="request" type="server.essp.hrbase.dept.action.AcInitDept"  validate="false">
+		<forward name="success" path="/hrbase/dept/AddDept.jsp" />
+	</action>	
+	<action name="deptQuery" path="/dept/addDept" scope="request" type="server.essp.hrbase.dept.action.AcAddDept"  validate="false">
+	</action>
+	<action  path="/dept/initUpdateDeptInfo" scope="request" type="server.essp.hrbase.dept.action.AcInitUpdateDeptInfo"  validate="false">
+		<forward name="success" path="/hrbase/dept/UpdateDept.jsp" />
+	</action>	
+	<action name="deptQuery" path="/dept/updateDept" scope="request" type="server.essp.hrbase.dept.action.AcUpdateDept"  validate="false">
+	</action>
+	<action path="/dept/deleteDept" scope="request" type="server.essp.hrbase.dept.action.AcDeleteDept"  validate="false">
+	<forward name="success" path="/dept/query/deptList.do" redirect="true"/>
+	</action>
+	<action  name="deptQuery" path="/dept/displayDeptInfo" scope="request" type="server.essp.hrbase.dept.action.AcInitUpdateDeptInfo"  validate="false">
+		<forward name="success" path="/hrbase/dept/DeptDisplayInfo.jsp" />
+	</action>	
+	
+	<!--授权维护 -->
+	<action path="/privilege/privilegeSiteList" scope="request" type="server.essp.hrbase.privilege.action.AcPrivilegeSiteList" validate="false">
+      <forward name="success" path="/hrbase/privilege/SitePrivilegeList.jsp" />
+    </action>
+    <action path="/privilege/updatePrivilegeSite" scope="request" type="server.essp.hrbase.privilege.action.AcUpdatePrivilegeSite" validate="false">
+      <forward name="success" path="/privilege/privilegeSiteList.do"/>
+    </action>
+    <action path="/privilege/initUserList" scope="request" type="server.essp.hrbase.privilege.action.AcInitUserList" validate="false">
+      <forward name="success" path="/hrbase/privilege/UserList.jsp"/>
+    </action>
+    <action path="/privilege/deletePrivilege" scope="request" type="server.essp.hrbase.privilege.action.AcDeleteUserPrivilege" validate="false">
+      <forward name="success" path="/privilege/initUserList.do"/>
+    </action>
+    <!-- 结转异常 -->
+    <action path="/syncexception/listException" scope="request" type="server.essp.hrbase.synchronization.syncexception.action.AcListException" validate="false">
+      <forward name="success" path="/hrbase/syncexception/exceptionList.jsp"/>
+    </action>
+    <action path="/syncexception/previewException" scope="request" type="server.essp.hrbase.synchronization.syncexception.action.AcPreviewException" validate="false">
+      <forward name="success" path="/hrbase/syncexception/exceptionGeneral.jsp"/>
+    </action>
+    <action path="/syncexception/carryForward" scope="request" type="server.essp.hrbase.synchronization.syncexception.action.AcCarryForward" validate="false">
+      <forward name="success" path="/syncexception/listException.do"/>
+    </action>
+    <action path="/syncexception/cancel" scope="request" type="server.essp.hrbase.synchronization.syncexception.action.AcCancel" validate="false">
+      <forward name="success" path="/syncexception/listException.do"/>
+    </action>
+  </action-mappings>
+  <message-resources key="hrbase" parameter="resources.hrbase" />
+  <message-resources key="application" parameter="resources.application" />
+</struts-config>
+

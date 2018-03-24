@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+  <class name="db.essp.pms.Issue" table="pms_issue">
+    <composite-id name="pk" class="db.essp.pms.IssuePK">
+      <key-property name="joinType" column="JOIN_TYPE" type="string" length="10"/>
+      <key-property name="acntRid" column="ACNT_RID" type="long"/>
+      <key-property name="joinRid" column="JOIN_RID" type="long"/>
+      <key-property name="issueRid" column="ISSUE_RID" type="long"/>
+    </composite-id>
+
+  </class>
+</hibernate-mapping>

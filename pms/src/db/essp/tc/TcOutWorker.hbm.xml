@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<class
+    name="db.essp.tc.TcOutWorker"
+    table="TC_OUTWORKER"
+>
+    <id name="rid" type="java.lang.Long" column="RID" >
+        <generator class="assigned" />
+    </id>
+
+    <property name="acntRid" type="java.lang.Long" column="ACNT_RID" length="10" not-null="true">
+    </property>
+    <property name="activityRid" type="java.lang.Long" column="ACTIVITY_RID" length="10" >
+    </property>
+
+    <property name="loginId" type="java.lang.String" column="LOGIN_ID" length="50" not-null="true">
+    </property>
+    <property name="beginDate" type="java.util.Date" column="BEGIN_DATE" length="10" not-null="true" >
+    </property>
+    <property name="endDate" type="java.util.Date" column="END_DATE" length="10" not-null="true">
+    </property>
+    <property name="days" type="java.lang.Long" column="DAYS" length="10" not-null="true">
+    </property>
+    <property name="isAutoWeeklyReport" type="boolean" column="IS_AUTO_WEEKLYREPORT" length="1"  >
+    </property>
+    <property name="evectionType" type="java.lang.String" column="EVECTION_TYPE" length="1"  >
+    </property>
+    <property name="destAddress" type="java.lang.String" column="DEST_ADDRESS" length="500"  >
+    </property>
+    <property name="isTravellingAllowance" type="java.lang.String" column="IS_TRAVELLING_ALLOWANCE" length="10"  >
+    </property>
+    <property name="rct" type="java.util.Date" column="RCT" length="10" >
+    </property>
+    <property name="rut" type="java.util.Date" column="RUT" length="10" >
+    </property>
+    <property name="rst" type="java.lang.String" column="RST" length="1" >
+    </property>
+
+    <!-- Associations -->
+
+</class>
+</hibernate-mapping>
+

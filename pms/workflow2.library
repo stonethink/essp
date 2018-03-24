@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+<!--JBuilder Library Definition File-->
+<fullname>workflow2</fullname>
+<class>
+<path>[lib/workflow2_server.jar]</path>
+</class>
+<lastmodsaved>1157601150875</lastmodsaved>
+</library>

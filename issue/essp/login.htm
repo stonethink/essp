@@ -1,0 +1,297 @@
+<html>
+
+<head>
+
+    <meta http-equiv="Expires" content="0">
+	<meta http-equiv="Pragma"  content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <TITLE> ESSP </TITLE>
+
+	<link rel="stylesheet" type="text/css" href="css/Theme.css">
+	<link rel="stylesheet" type="text/css" href="css/wits.css">
+	<script type="text/javascript" language="JavaScript" src="js/AppMessage.js"></script>
+	<script type="text/javascript" language="JavaScript" src="js/UIdesignDef.js"></script>
+	<script type="text/javascript" language="JavaScript" src="js/sysjava.js"></script>
+	<script type="text/javascript" language="JavaScript" src="js/EventHandler.js"></script>
+	<script type="text/javascript" language="JavaScript" src="js/FieldCheck.js"></script>
+	<script type="text/javascript" language="JavaScript" src="js/Format.js"></script>
+	<script type="text/javascript" language="JavaScript" src="js/UserUtils.js"></script>
+    <script type="text/javascript" language="JavaScript" src="js/get_calendar.js"></script>
+    <script type="text/javascript" language="JavaScript" src="js/tab.js"></script>
+    <script type="text/javascript" language="JavaScript" src="js/hashmap.js"></script>
+
+<script type="text/javascript" language="Javascript1.1">
+<!-- Begin 
+
+function doNextFocus() {
+var doc = window.document;
+var target;
+var targetObj;
+var lineno;
+var nextid;
+var nextObj;
+target = String(doc.forms[0].focus_name.value);
+if((target!=null)&&(target!="")){
+nextid = target.split("+");
+targetObj=doc.all(nextid[0]);
+if(targetObj.type!="select-one" && targetObj.length) {
+if(nextid[1]==null) {
+nextObj=targetObj[0];
+}else {
+nextObj=targetObj[Number(nextid[1])];
+}
+}else{
+nextObj = doc.forms[0].elements[target];
+}
+nextObj.focus();
+}
+ }
+//End --> 
+</script>
+
+
+	
+<script type="text/javascript" language="Javascript1.1">
+<!-- Begin 
+
+function doMessageDialog() {
+ }
+//End --> 
+</script>
+
+
+	
+<script type="text/javascript" language="Javascript1.1">
+<!-- Begin 
+
+function doWindowOpen() {
+ }
+//End --> 
+</script>
+
+
+	
+<script type="text/javascript" language="Javascript1.1">
+<!-- Begin 
+
+function doConfirmSubmit() {
+ }
+//End --> 
+</script>
+
+
+<!--<link rel="stylesheet" href="css/essp.css" type="text/css">-->
+<style>
+.list_desc
+{
+	text-align : left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+
+}
+.button {
+	BORDER-RIGHT: #104a7b 1px solid; BORDER-TOP: #afc4d5 1px solid; FONT-SIZE: 11px; BACKGROUND: #d6e7ef; BORDER-LEFT: #afc4d5 1px solid; CURSOR: hand; COLOR: #000066; BORDER-BOTTOM: #104a7b 1px solid; FONT-FAMILY: Arial, Helvetica, sans-serif; HEIGHT: 19px; font-weight : bold;TEXT-DECORATION: none
+} 
+
+#loginID {
+	width:150;
+}
+
+#passwd {
+	width:150;
+}
+</style>
+</head>
+<script >
+  function check(){
+	 onUserTypeChange();
+     if ( mains.loginID.value == "" ) {
+          alert("Login ID can't null.");
+          mains.loginID.focus();
+          return false ;
+     }
+     
+     if ( mains.passwd.value == ""){
+         alert("Password can't null.");
+         mains.passwd.focus();
+         return false ;
+     }
+     
+     mains.submit();
+     
+  
+  }
+  
+  function onPress(obj,obj2){
+   
+  	if((event.keyCode==13)){
+  	   if ( obj == ""){
+  	     alert("This value can't null");  	     
+  	   }else{
+  	     obj2.focus();
+  	   }
+  	}
+  }
+  
+  function doLogin() {
+	if((event.keyCode==13)){
+		if ( mains.passwd.value != ""){
+			mains.B1.focus();
+		}
+		//alert("mains.action='"+mains.action+"'");
+		//alert("mains.loginID='"+mains.loginID.value+"'");
+		//alert("mains.passwd='"+mains.passwd.value+"'");
+		//alert("mains.isCustomer.checked="+mains.isCustomer.checked);
+		check();
+	}
+  }
+  
+  function onUserTypeChange() {
+    mains.loginName.value=mains.loginID.value;
+    mains.password.value=mains.passwd.value;
+	if(mains.isCustomer.checked) {
+		mains.action="/essp/customerLogin.do";
+	} else {
+		mains.action="/essp/employeeLogin.do";
+	}
+	//alert("mains.action='"+mains.action+"'");
+  }
+</script>
+<body leftmargin="0" topmargin="0">
+<form name="mains" method="POST" action="/essp/employeeLogin.do">
+	<input type="hidden" name="focus_name" value=""/>
+	<input type="hidden" name="list_start_index" value=""/>
+	<input type="hidden" name="subsessionid" value=""/>
+	<input type="hidden" name="change_flag" value=""/>
+	<input type="hidden" name="cancel_flag" value=""/>
+	<input type="hidden" name="forward_path" value=""/>
+	<input type="hidden" name="querystring" value=""/>
+	<input type="hidden" name="back_path" value=""/>
+	<input type="hidden" name="context_path" value="/crm"/>
+	<input type="hidden" name="url_suffix" value=".do"/>
+	<input type="hidden" name="text_length_evaluation_mode" value="byte"/>
+	<input type="hidden" name="loginName" value=""/>
+	<input type="hidden" name="password" value=""/>
+	
+   <table border="0" cellpadding="0" width="925" cellspacing="9" height="275" style="border-collapse: collapse" bordercolor="#111111">
+    <tr>
+      <td height="111" colspan="6" width="901">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+    </tr>
+    <tr>
+      <td width="202" height="146" rowspan="6"></td>
+      <td height="44" colspan="4" bgcolor="#FFFFFF" width="619" >
+        <font size="6" style="font-family:Arial, Helvetica, sans-serif"><b><font color="#174D70" >E</font>xcellent</b>
+        <b>
+        <font color="#174D70">S</font>oftware</b> <b> <FONT color="#174D70">S</font>ervice</b>
+        <b>
+        <FONT color="#174D70">P</font>latform</b></b></font></td>
+      <td height="146" width="68" rowspan="6">
+        </a></td>
+    </tr>
+    <tr>
+      <td height="9" colspan="3" width="465"></td>
+    </tr>
+
+
+    <tr>
+      <td width="90" class="list_desc" height="18"></td>
+      <td width="127"  height="18" class="list_desc"></td>
+      <td width="230" height="18" class="list_desc"></td>
+    </tr>
+
+
+    <tr>
+      <td width="90" class="list_desc" height="19"></td>
+      <td width="127"  height="19" class="list_desc"><font size="3">Login ID:</font></td>
+      <td width="230" height="19" class="list_desc">
+        <font size="3">
+        <input name="loginID" value="" next="" prev="" msg="" req="true" 
+               sreq="false" class=" Xtext Req" id="loginID" onblur="doBlur();" onfocus="doFocus();" 
+               fieldtype="text" fmt="" type="text" maxlength="20" fielderrorflg="" fieldmsg="" 
+               defaultvalue="true" onKeyPress="onPress(this.value,mains.passwd)"/>
+    </tr>
+<script>
+document.mains.loginID.focus();
+</script>
+    <tr>
+      <td class="list_desc" width="90" height="20"></td>
+      <td  height="20" class="list_desc" width="127"><font size="3">Password :</font></td>
+      <td  height="20" class="list_desc" width="230">
+<font size="3">
+<input name="passwd" value="" next="" prev="" 
+	       msg="" req="true" sreq="false" 
+	       class="Req" id="passwd" onblur="doBlur();" 
+	       onfocus="doFocus();" type="password" maxlength="20" onKeyPress="doLogin();"/>
+&nbsp;&nbsp;&nbsp; </font>
+<font size="3"><input type="button" value="Login" name="B1" class="button" onclick="check()"></font></td>
+      <td width="145" rowspan="3" height="20"></td>
+    </tr>
+    <tr>
+      <td class="list_desc" width="90"></td>
+      <td  height="20" class="list_desc" width="127"><font size="3">Is customer :</font></td>
+      <td  height="20" class="list_desc" width="230"><input type="checkbox" name="isCustomer" onclick="onUserTypeChange();"></td>
+    </tr>
+  </table>
+
+
+
+  <table border="0" cellpadding="0" width="100%" cellspacing="9" height="58">
+
+  <tr>
+    <td width="306" height="7"></td>
+    <td width="315" height="7" align="center"></td>
+    <td width="9" height="7"></td>
+    <td width="450" height="7"></td>
+  </tr>
+  <tr>
+    <td width="306" height="7"></td>
+    <td width="315" height="7" align="center"></td>
+    <td width="9" height="7"></td>
+    <td width="450" height="7"></td>
+  </tr>
+  <tr>
+    <td width="100%" height="7" colspan="4" align="center"></td>
+  </tr>
+  <tr>
+    <td width="100%" height="7" colspan="4" align="center"></td>
+  </tr>
+  <tr>
+    <td width="100%" height="7" colspan="4" align="center">
+    <a target="_blank" href="http://www.wistronits.com">
+    <img src="image/wistron.jpg"  border="0" width="131" height="19"></a> </td>
+  </tr>
+  <tr>
+    <td width="100%" height="7" colspan="4" align="center" style="font-size: 12px;font-family: Arial, Helvetica, sans-serif;">
+    <span dir="ltr">Copyright &copy;</span>2004 Wistron
+    Information Technology &amp; Services Corp, All Rights Reserved .</td>
+  </tr>
+</table>
+</form>
+<p><font face="Arial">&nbsp;&nbsp;&nbsp;
+</font></p>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

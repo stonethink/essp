@@ -1,0 +1,61 @@
+﻿<?xml version="1.0"?>
+<project name="run.tomcat" basedir="." default="run">
+	<property environment="env"/>
+	<property name="catalina_home" value="${env.CATALINA_HOME}"/>
+	
+    <target name="init">
+      <echo message="catalina_home: ${catalina_home}"/>
+    </target>
+	
+	<!-- 璁剧疆閰嶇疆鏂囦欢 -->
+	<target name="set_xml">
+		<property name="project.config" value="${basedir}\config"/>
+        <property name="essp.web.xml" value="${catalina_home}/conf\Catalina\localhost\essp.xml"/>
+        <property name="crm.web.xml" value="${catalina_home}/conf\Catalina\localhost\crm.xml"/>
+		
+		<property name="project.web.home" value="${basedir}\essp"/>
+		<property name="crm.project.web.home" value="${basedir}\..\crm\crm"/>
+		    <property name="crm.project.web.path" value="/crm"/>
+        <property name="project.web.path" value="/essp"/>
+        
+        <!-- <Context docBase="D:\essp\essp2005\essp2\esspruntime\essp" path="/essp" reloadable="true"></Context> -->
+        <property name="web.context" value="&lt;Context docBase=&quot;${project.web.home}&quot; path=&quot;${project.web.path}&quot; reloadable=&quot;true&quot;/&gt;"/>
+        <property name="crm.web.context" value="&lt;Context docBase=&quot;${crm.project.web.home}&quot; path=&quot;${crm.project.web.path}&quot; reloadable=&quot;true&quot;/&gt;"/>
+        
+        <echo message="web.context=[${web.context}]"/>
+        <echo message="crm.web.context=[${crm.web.context}]"/>
+        
+  		<delete file="${essp.web.xml}"/>
+  		<delete file="${crm.web.xml}"/>
+        
+        <echo message="${web.context}"/>
+        <echo message="${crm.web.context}"/>
+        <!--鍐欏叆鍒伴厤缃枃浠朵腑鍘?-->
+        <echo message="${web.context}"
+          file="${essp.web.xml}">
+        </echo>
+        <echo message="${crm.web.context}"
+          file="${crm.web.xml}">
+        </echo>
+	</target>
+	
+	<target name="run" depends="set_xml">
+		<property name="tomcat.log.file" value="..\..\tomcat.log"/>
+		<property name="cmd.line" value="/c call ${catalina_home}\bin\catalina run"/>
+		<echo message="tomcat鐨勬棩蹇楁枃浠朵负锛?{tomcat.log.file}"/>
+		<echo message="${cmd.line}"/>
+		<exec executable="cmd.exe" failonerror="true" output="${tomcat.log.file}">
+			<arg line="${cmd.line}"/>
+			<env key="CATALINA_HOME" value="${catalina_home}"/>
+		</exec>
+	</target>
+	
+	<target name="shutdown">
+		<property name="cmd.line" value="/c call ${catalina_home}\bin\catalina stop"/>
+		<echo message="${cmd.line}"/>
+		<exec executable="cmd.exe" failonerror="true" >
+			<arg line="${cmd.line}"/>
+			<env key="CATALINA_HOME" value="${catalina_home}"/>
+		</exec>
+	</target>
+</project>

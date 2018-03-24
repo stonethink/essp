@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="db.essp.workflow.WkActivity" 
+    table="wk_activity"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="wk_activity"
+    </meta>
+
+    <id
+        name="rid"
+        type="java.lang.Long"
+        column="RID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="RID"
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="instanceID"
+        type="java.lang.Long"
+        column="INSTANCE_ID"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="INSTANCE_ID"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="processClassName"
+        type="java.lang.String"
+        column="PROCESS_CLASS_NAME"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PROCESS_CLASS_NAME"
+            length="100"
+        </meta>    
+    </property>
+    <property
+        name="currentEmpLoginID"
+        type="java.lang.String"
+        column="CURRENT_EMP_LOGINID"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CURRENT_EMP_LOGINID"
+            length="100"
+        </meta>    
+    </property>
+    <property
+        name="status"
+        type="java.lang.String"
+        column="STATUS"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="STATUS"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="steps"
+        type="java.lang.String"
+        column="STEPS"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="STEPS"
+            length="100"
+        </meta>    
+    </property>
+    <property
+        name="startDate"
+        type="java.util.Date"
+        column="START_DATE"
+        length="19"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="START_DATE"
+            length="19"
+        </meta>    
+    </property>
+    <property
+        name="finishDate"
+        type="java.util.Date"
+        column="FINISH_DATE"
+        length="19"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FINISH_DATE"
+            length="19"
+        </meta>    
+    </property>
+    <property
+        name="defineID"
+        type="java.lang.String"
+        column="DEFINE_ID"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DEFINE_ID"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="rst"
+        type="java.lang.String"
+        column="RST"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RST"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="rct"
+        type="java.util.Date"
+        column="RCT"
+        length="19"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RCT"
+            length="19"
+        </meta>    
+    </property>
+    <property
+        name="rut"
+        type="java.util.Date"
+        column="RUT"
+        length="19"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RUT"
+            length="19"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

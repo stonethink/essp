@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="essp.tables.QcQtgoalRelease"
+    table="qc_qtgoal_release"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="qc_qtgoal_release"
+    </meta>
+
+    <id
+        name="rid"
+        type="java.lang.Long"
+        column="RID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="RID"
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="qtgoalId"
+        type="java.lang.Long"
+        column="QTGOAL_ID"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="QTGOAL_ID"
+            length="8"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="vesion"
+        type="java.lang.String"
+        column="VESION"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="VESION"
+            length="100"
+        </meta>
+    </property>
+    <property
+        name="releaseDate"
+        type="java.util.Date"
+        column="RELEASE_DATE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RELEASE_DATE"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DESCRIPTION"
+            length="65535"
+        </meta>
+    </property>
+     <property
+        name="statDate"
+        type="java.util.Date"
+        column="STAT_DATE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="STAT_DATE"
+            length="10"
+        </meta>
+    </property>
+     <property
+        name="size"
+        type="java.lang.Long"
+        column="SIZE"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SIZE"
+            length="8"
+        </meta>
+    </property>
+     <property
+        name="problems"
+        type="java.lang.Long"
+        column="PROBLEMS"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PROBLEMS"
+            length="8"
+        </meta>
+    </property>
+     <property
+        name="defects"
+        type="java.lang.Long"
+        column="DEFECTS"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PROBLEMS"
+            length="8"
+        </meta>
+    </property>
+     <property
+        name="qualificationRate"
+        type="java.math.BigDecimal"
+        column="QUALIFICATION_RATE"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PROBLEMS"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="rct"
+        type="java.util.Date"
+        column="RCT"
+        length="19"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RCT"
+            length="19"
+        </meta>
+    </property>
+    <property
+        name="rut"
+        type="java.util.Date"
+        column="RUT"
+        length="19"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RUT"
+            length="19"
+        </meta>
+    </property>
+    <property
+        name="rst"
+        type="java.lang.String"
+        column="RST"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RST"
+            length="1"
+        </meta>
+    </property>
+
+    <!-- Associations -->
+
+
+</class>
+</hibernate-mapping>

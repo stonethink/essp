@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<class  name="db.essp.code.SysCurrency"  table="sys_currency">
+    <id name="currency" type="string" column="CURRENCY">
+        <generator class="assigned" />
+    </id>
+
+    <property name="rid" type="java.lang.Long"  column="RID" not-null="true" />
+    <property name="name" type="string" column="NAME" length="50"/>
+    <property name="symbol" type="string" column="SYMBOL" length="50"/>
+    <property name="description" type="string" column="DESCRIPTION" length="1000" />
+    <property name="decimalNum" type="java.lang.Long" column="DECIMAL_NUM" length="8" />
+    <property name="sequence" type="java.lang.Long" column="SEQUENCE"  length="8" />
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date"  column="RCT" />
+    <property name="rut" type="date" column="RUT" />
+
+</class>
+</hibernate-mapping>

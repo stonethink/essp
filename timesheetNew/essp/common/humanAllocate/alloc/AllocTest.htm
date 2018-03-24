@@ -1,0 +1,301 @@
+﻿<html>
+<body >
+<script type="text/javascript" language="JavaScript" src="/essp/js/humanAllocate.js"></script>
+<script type="text/javascript">
+function HashMap()
+{
+    this.length = 0;
+    this.prefix = "hashmap_prefix_20040716_";
+}
+/**
+ * ��HashMap������������
+ */
+HashMap.prototype.put = function (key, value)
+{
+    this[this.prefix + key] = value;
+    this.length ++;
+}
+/**
+ * ��HashMap������value��
+ */
+HashMap.prototype.get = function(key)
+{
+    return typeof this[this.prefix + key] == "undefined" 
+            ? null : this[this.prefix + key];
+}
+/**
+ * ��HashMap����������key����������������������
+ */
+HashMap.prototype.keySet = function()
+{
+    var arrKeySet = new Array();
+    var index = 0;
+    for(var strKey in this)
+    {
+        if(strKey.substring(0,this.prefix.length) == this.prefix)
+            arrKeySet[index ++] = strKey.substring(this.prefix.length);
+    }
+    return arrKeySet.length == 0 ? null : arrKeySet;
+}
+/**
+ * ��HashMap������value����������������������
+ */
+HashMap.prototype.values = function()
+{
+    var arrValues = new Array();
+    var index = 0;
+    for(var strKey in this)
+    {
+        if(strKey.substring(0,this.prefix.length) == this.prefix)
+            arrValues[index ++] = this[strKey];
+    }
+    return arrValues.length == 0 ? null : arrValues;
+}
+/**
+ * ����HashMap��value������
+ */
+HashMap.prototype.size = function()
+{
+    return this.length;
+}
+/**
+ * ������������
+ */
+HashMap.prototype.remove = function(key)
+{
+    delete this[this.prefix + key];
+    this.length --;
+}
+/**
+ * ����HashMap
+ */
+HashMap.prototype.clear = function()
+{
+    for(var strKey in this)
+    {
+        if(strKey.substring(0,this.prefix.length) == this.prefix)
+            delete this[strKey];   
+    }
+    this.length = 0;
+}
+/**
+ * ����HashMap��������
+ */
+HashMap.prototype.isEmpty = function()
+{
+    return this.length == 0;
+}
+/**
+ * ����HashMap������������key
+ */
+HashMap.prototype.containsKey = function(key)
+{
+    for(var strKey in this)
+    {
+       if(strKey == this.prefix + key)
+          return true;  
+    }
+    return false;
+}
+/**
+ * ����HashMap������������value
+ */
+HashMap.prototype.containsValue = function(value)
+{
+    for(var strKey in this)
+    {
+       if(this[strKey] == value)
+          return true;  
+    }
+    return false;
+}
+/**
+ * ������HashMap����������������HashMap��������������HashMap
+ */
+HashMap.prototype.putAll = function(map)
+{
+    if(map == null)
+        return;
+    if(map.constructor != HashMap)
+        return;
+    var arrKey = map.keySet();
+    var arrValue = map.values();
+    for(var i in arrKey)
+       this.put(arrKey[i],arrValue[i]);
+}
+//toString
+HashMap.prototype.toString = function()
+{
+    var str = "";
+    for(var strKey in this)
+    {
+        if(strKey.substring(0,this.prefix.length) == this.prefix)
+              str += strKey.substring(this.prefix.length) 
+                  + " : " + this[strKey] + "\r\n";
+    }
+    return str;
+}
+
+//定义传入参数对象
+function allocUser(loginId,name,domain,type) {
+  this.loginId=loginId;
+  this.name=name;
+  this.domain=domain;
+  this.type=type;
+}
+
+
+ function onAllocSingle(type){
+        var param = new HashMap();
+//        objTest = new allocUser("wenhai.zheng","zhengwenhai","wh","EMP");
+//        param.put("wenhai.zheng",objTest);
+        var oldValue = document.getElementsByName("odlValueText")[0];
+	      var result;
+	      if(type=="ad") {
+	         result = allocSingleInAD(param,"","",oldValue.value);
+	      } else {
+	         result = allocSingleInALL(param,"","",oldValue.value);
+	      }
+	      var userStr = "";
+	      for(var m = 0;m<param.size();m++) {
+	      	userStr = userStr + "\n\nUser" + m +": LonginId:" + param.values()[m].loginId + ", Name:"
+	      	                  + param.values()[m].name + ", Type:" + param.values()[m].type
+	      	                  + ", Domain:" + param.values()[m].domain;
+	      }
+	      var collTextarea = document.getElementById("textAreaForTooltip");
+	      collTextarea.value = userStr;
+	      oldValue.value = result;
+ 
+ }
+ function onAllocMulti(type){
+        var param = new HashMap();
+//        var objTest = new allocUser("lipeng.xu","xulipeng","wh","EMP");
+//        param.put("xlp",objTest);
+        var oldValue = document.getElementsByName("odlValueText")[0];
+//        objTest = new allocUser("wenhai.zheng","zhengwenhai","wh","EMP");
+//        param.put("wenhai.zheng",objTest);
+	      var result;
+	      if(type=="ad") {
+	         result = allocMultipleInAD(param,"","",oldValue.value);
+	      } else {
+	         result = allocMultipleInALL(param,"","",oldValue.value);
+	      }
+	      var userStr = "";
+	      for(var m = 0;m<param.size();m++) {
+	      	userStr = userStr + "\n\nUser" + m +": LonginId:" + param.values()[m].loginId + ", Name:"
+	      	                  + param.values()[m].name + ", Type:" + param.values()[m].type
+	      	                  + ", Domain:" + param.values()[m].domain;
+	      }
+	      var collTextarea = document.getElementById("textAreaForTooltip");
+	      collTextarea.value = userStr;
+	      oldValue.value = result;
+ 
+ }
+ 
+ function onAllocSingleInDB(){
+        var oldValue = document.getElementsByName("odlValueText")[0];
+        var userStr = allocSingleInJsp(oldValue.value,"","");
+	      var collTextarea = document.getElementById("textAreaForTooltip");
+	      collTextarea.value = userStr;
+	      oldValue.value = userStr;
+ 
+ }
+ function onAllocMultiInDB(){
+        var oldValue = document.getElementById("odlValueText");
+        var userStr = allocMultipleInJsp(oldValue.value,"","");
+	      var collTextarea = document.getElementById("textAreaForTooltip");
+	      collTextarea.value = userStr;
+	      oldValue.value = userStr;
+ 
+ }
+
+
+  function openWin(sType,requestType){
+        var param = new HashMap();
+        var objTest = new allocUser("lipeng.xu","xulipeng","wh","EMP");
+        param.put("xlp",objTest);
+        objTest = new allocUser("wenhai.zheng","zhengwenhai","wh","EMP");
+        param.put("wenhai.zheng",objTest);
+	      var result=window.showModalDialog("/essp/common/humanAllocate/alloc/UserAlloc.do?type="+sType+"&requestType="+requestType+"&requestStr=&oldValue=mingxingzhang&acntRid=",param,"dialogHeight:500px;dialogWidth:740px;dialogLeft:200; dialogTop:100");
+	      var userStr = "";
+	      for(var m = 0;m<param.size();m++) {
+	      	userStr = userStr + "\n\nUser" + m +": LonginId:" + param.values()[m].loginId + ", Name:"
+	      	                  + param.values()[m].name + ", Type:" + param.values()[m].type
+	      	                  + ", Domain:" + param.values()[m].domain;
+	      }
+	      var collTextarea = document.getElementById("textAreaForTooltip");
+	      collTextarea.value = userStr;
+//	      alert("Object:"+userStr);
+//	      alert("String:"+result);
+	      
+//	      if(result!=null){
+//	         alert("get it:"+result.values()[0].name);
+//	      }else{
+//	      alert("can't get!");
+//			}
+  }
+  function ShowBtn() {
+      var param = new HashMap();
+      var objTest = new allocUser("lipeng.xu","xulipeng","fff","ssss");
+      param.put("sss",objTest);
+      var rsultStr = allocMultipleInAD(param,"","","");
+      var userStr = "";
+	      for(var m = 0;m<param.size();m++) {
+	      	userStr = userStr + "\n\nUser" + m +": LonginId:" + param.values()[m].loginId + ", Name:"
+	      	                  + param.values()[m].name + ", Type:" + param.values()[m].type
+	      	                  + ", Domain:" + param.values()[m].domain;
+	      }
+	      userStr += "\n\n\n\n"+rsultStr
+	      var collTextarea = document.getElementById("textAreaForTooltip");
+	      collTextarea.value = userStr;
+	}
+  function goBack() {
+     window.history.go(-1);
+  }
+</script>
+<form name="mains">
+<br/>
+<br/>
+<br/>
+<br/>
+<table>
+ <tr>
+   <td>Old Value:
+   </td>
+   <td width="600px"><input name="odlValueText" id="odlValueText" type="text" value="mingxingzhang" style="width:600px;">
+   </td>
+   </tr>
+</table>
+   <table name="tb1" align="center">
+    <tr name="tr1">
+    <td>
+    <input type="button" value="lochost AD single"  onclick="onAllocSingle('ad')">
+    </td>
+    <td>
+    <input type="button" value="lochost AD multi"  onclick="onAllocMulti('ad')">
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <input type="button" value="lochost DB single"  onclick="onAllocSingleInDB()">
+    </td>
+    <td>
+    <input type="button" value="lochost DB multi"  onclick="onAllocMultiInDB()">
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <input type="button" value="lochost ALL single"  onclick="onAllocSingle('all')">
+    </td>
+    <td>
+    <input type="button" value="lochost ALL multi"  onclick="onAllocMulti('all')">
+    </td>
+    </tr>
+    <tr></tr>
+  </table>
+  <center>
+     <TEXTAREA COLS=100 ROWS=17 id="textAreaForTooltip" style="font-family: Arial, Helvetica, sans-serif;font-size: 15px; font-style: normal;">Reslut Test Area</TEXTAREA>
+  </center>
+</form>
+</body>
+</html>

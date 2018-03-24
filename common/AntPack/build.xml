@@ -1,0 +1,59 @@
+<project name="AntPack" basedir="." default="encoding">
+	<property file="build.properties"/>
+	<property environment="env"/>
+	<path id="id.classes">
+		<pathelement path ="${project.classes}"/>
+	</path>
+	<!--
+	<taskdef name="GiveMoney" classname="antpack.DataTransformer">
+		<classpath>
+			<pathelement location="${AntPack_LIB}/antpack.jar"/>
+		</classpath>
+	</taskdef>
+	<target name="GiveMoney">
+		<GiveMoney DbUrl="${DbUrl}" DbUserName="${DbUserName}" DbPassword="${DbPassword}">
+			<DataFormat type="Integer" value="1111"/>
+		</GiveMoney>
+
+		<exec executable="ss">
+			<arg line="View '1-Document\4-Source Code\1-commonSRC\1-Develop Environment\build.xml'"/>
+		</exec>
+
+	</target>
+	-->
+
+	<taskdef name="ChangeEncoding" classname="antpack.ChangeEncoding">
+		<classpath>
+			<pathelement location="${AntPack_LIB}/antpack.jar"/>
+		</classpath>
+	</taskdef>
+
+        <taskdef name="ChgFOPFontPath" classname="antpack.ChgFOPFontPath">
+		<classpath>
+                  	<pathelement location="${AntPack_LIB}/antpack.jar"/>
+		</classpath>
+	</taskdef>
+
+        <taskdef name="ChgDTDPath" classname="antpack.ChgDTDPath">
+		<classpath>
+                  	<pathelement location="${AntPack_LIB}/antpack.jar"/>
+		</classpath>
+	</taskdef>
+
+	<target name="encoding">
+	        <delete dir="F:/myScore/temp"/>
+		<ChangeEncoding src="F:/work/POITest/src/com/enovation/essp/finance"
+		                dest="F:/myScore/temp"
+		                srcEncoding="BIG5"
+		                destEncoding="GBK"
+		                ext="java"/>
+	</target>
+
+        <target name="Change Path of FOP font">
+		<ChgFOPFontPath cfgPath="E:\struts\eclipse2.1.1\workspace\qualica\WEB-INF\userconfig.xml" fontPath="file:///E:\struts\eclipse2.1.1\workspace\qualica\WEB-INF\"/>
+	</target>
+
+        <target name="Change Path of DTD">
+		<ChgDTDPath xmlPath="E:/temp" dtdPath="http://10.5.2.250/dtd"/>
+	</target>
+</project>

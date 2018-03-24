@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+    <form-beans>
+        <form-bean name="overTimeAppForm" type="server.essp.attendance.overtime.form.AfOverTimeApp" />
+        <form-bean name="overTimeReviewForm" type="server.essp.attendance.overtime.form.AfOverTimeReview" />
+        <form-bean name="overTimeAppCaculateForm" type="server.essp.attendance.overtime.form.AfOverTimeAppCaculate" />
+        <form-bean name="leaveTypeForm" type="server.essp.attendance.leave.form.AfLeaveType" />
+        <form-bean name="leaveTimeCaculateForm" type="server.essp.attendance.leave.form.AfLeaveTimeCaculate" />
+        <form-bean name="leaveAppForm" type="server.essp.attendance.leave.form.AfLeaveApp" />
+        <form-bean name="leaveReviewForm" type="server.essp.attendance.leave.form.AfLeaveReview" />
+        <form-bean name="leaveOrgStatusForm" type="server.essp.attendance.leave.form.AfLeaveOrgStatus" />
+        <form-bean name="overTimeImportForm" type="server.essp.attendance.overtime.form.AfOverTimeImport" />
+        <form-bean name="overTimeSearchForm" type="server.essp.attendance.overtime.form.AfOverTimeSearch" />
+    </form-beans>
+  <action-mappings>
+
+    <!-- Over Time -->
+    <action  path="/attendance/overtime/OverTimeAppPre" scope="request" type="server.essp.attendance.overtime.action.AcOverTimeAppPre">
+      <forward name="success" path="/attendance/overtime/OverTimeApp.jsp" redirect="false"/>
+    </action>
+    <action  name="overTimeAppForm" path="/attendance/overtime/OverTimeApp" scope="request" type="server.essp.attendance.overtime.action.AcOverTimeApp">
+      <forward name="success" path="/attendance/success.jsp" redirect="true"/>
+    </action>
+    <action  name="overTimeAppCaculateForm" path="/attendance/overtime/OverTimeAppCaculate" scope="request" type="server.essp.attendance.overtime.action.AcOverTimeAppCaculate">
+      <forward name="success" path="/attendance/overtime/OverTimePerDay.jsp" />
+    </action>
+    <action  path="/attendance/overtime/OverTimeReviewPre" scope="request" type="server.essp.attendance.overtime.action.AcOverTimeReviewPre">
+      <forward name="success" path="/attendance/overtime/OverTimeReview.jsp" redirect="false"/>
+    </action>
+    <action  path="/attendance/overtime/OverTimeDetailList" scope="request" type="server.essp.attendance.overtime.action.AcOverTimeDetailList">
+      <forward name="success" path="/attendance/overtime/OverTimePerDay.jsp" redirect="false"/>
+    </action>
+    <action  path="/attendance/overtime/OverTimeReviewLog" scope="request" type="server.essp.attendance.overtime.action.AcOverTimeReviewLog">
+      <forward name="success" path="/attendance/overtime/OverTimeLog.jsp" redirect="false"/>
+    </action>
+    <action  name="overTimeReviewForm" path="/attendance/overtime/OverTimeReview" scope="request" type="server.essp.attendance.overtime.action.AcOverTimeReview">
+      <forward name="success" path="/attendance/success.jsp" redirect="false"/>
+    </action>
+
+    <action  path="/attendance/overtime/OverTimeView" scope="request" type="server.essp.attendance.overtime.action.AcOverTimeView">
+      <forward name="success" path="/attendance/overtime/OverTimeReview.jsp" redirect="false"/>
+    </action>
+
+    <action  path="/attendance/overtime/OverTimeList" scope="request" type="server.essp.attendance.overtime.action.AcOverTimeList">
+      <forward name="success" path="/attendance/overtime/OverTimeList.jsp" redirect="false"/>
+    </action>
+
+    <action  name="overTimeImportForm" path="/attendance/overtime/OverTimeImport" scope="request" type="server.essp.attendance.overtime.action.AcOverTimeImport">
+      <forward name="success" path="/attendance/overtime/OverTimeImport.jsp" redirect="false"/>
+    </action>
+
+    <action  path="/attendance/overtime/OverTimeSearchPre" scope="request" type="server.essp.attendance.overtime.action.AcOverTimeSearchPre">
+      <forward name="success" path="/attendance/overtime/OverTimeSearch.jsp" redirect="false"/>
+    </action>
+
+    <action  name="overTimeSearchForm" path="/attendance/overtime/OverTimeSearch"  scope="request" type="server.essp.attendance.overtime.action.AcOverTimeSearch">
+      <forward name="success" path="/attendance/overtime/OverTimeSearchResult.jsp" redirect="false"/>
+    </action>
+
+    <action  path="/attendance/overtime/OverTimeReportPre" scope="request" type="server.essp.attendance.overtime.action.AcOverTimeReportPre">
+      <forward name="success" path="/attendance/overtime/OverTimeReport.jsp" redirect="false"/>
+    </action>
+
+    <action  name="overTimeImportForm" path="/attendance/overtime/OverTimeCleanImport" scope="request" type="server.essp.attendance.overtime.action.AcOverTimeCleanImport">
+      <forward name="success" path="/attendance/overtime/OverTimeCleanConfirm.jsp" redirect="false"/>
+    </action>
+
+    <action name="overTimeImportForm" path="/attendance/overtime/OverTimeCleanImport" scope="request" type="server.essp.attendance.overtime.action.AcOverTimeCleanImport">
+      <forward name="success" path="/attendance/overtime/OverTimeCleanConfirm.jsp" redirect="false"/>
+    </action>
+
+    <action path="/attendance/overtime/OverTimeClean" scope="request" type="server.essp.attendance.overtime.action.AcOverTimeClean">
+      <forward name="success" path="/attendance/overtime/OverTimeCleanConfirm.jsp" redirect="false"/>
+    </action>
+
+    <!-- Leave -->
+    <action  path="/attendance/leave/LeaveTypeList" scope="request" type="server.essp.attendance.leave.action.AcLeaveTypeList">
+      <forward name="success" path="/attendance/leave/LeaveTypeList.jsp" redirect="false"/>
+    </action>
+    <action  path="/attendance/leave/LeaveTypeAddPre" scope="request" type="server.essp.attendance.leave.action.AcLeaveTypeAddPre">
+      <forward name="success" path="/attendance/leave/LeaveTypeDetail.jsp" redirect="false"/>
+    </action>
+    <action  name="leaveTypeForm" path="/attendance/leave/LeaveTypeAdd" scope="request" type="server.essp.attendance.leave.action.AcLeaveTypeAdd">
+      <forward name="success" path="/attendance/success.jsp" redirect="false"/>
+    </action>
+    <action  path="/attendance/leave/LeaveTypeUpdatePre" scope="request" type="server.essp.attendance.leave.action.AcLeaveTypeUpdatePre">
+      <forward name="success" path="/attendance/leave/LeaveTypeDetail.jsp" redirect="false"/>
+    </action>
+    <action  name="leaveTypeForm" path="/attendance/leave/LeaveTypeUpdate" scope="request" type="server.essp.attendance.leave.action.AcLeaveTypeUpdate">
+      <forward name="success" path="/attendance/success.jsp" redirect="false"/>
+    </action>
+
+    <action  path="/attendance/leave/LeaveStatus" scope="request" type="server.essp.attendance.leave.action.AcLeavePersonalStatus">
+      <forward name="success" path="/attendance/leave/LeaveStatus.jsp" redirect="false"/>
+    </action>
+    <action  path="/attendance/leave/LeaveList" scope="request" type="server.essp.attendance.leave.action.AcLeavePersonalList">
+      <forward name="success" path="/attendance/leave/LeaveList.jsp" redirect="false"/>
+    </action>
+
+    <action name="leaveTimeCaculateForm" path="/attendance/leave/LeaveTimeCaculate" scope="request" type="server.essp.attendance.leave.action.AcLeaveTimeCaculate">
+      <forward name="success" path="/attendance/leave/LeaveTimeCaculate.jsp" redirect="false"/>
+    </action>
+    <action  path="/attendance/leave/LeaveAppPre" scope="request" type="server.essp.attendance.leave.action.AcLeaveAppPre">
+      <forward name="success" path="/attendance/leave/LeaveApp.jsp" redirect="false"/>
+    </action>
+    <action  name="leaveAppForm" path="/attendance/leave/LeaveApp" scope="request" type="server.essp.attendance.leave.action.AcLeaveApp">
+      <forward name="success" path="/attendance/success.jsp" redirect="false"/>
+    </action>
+
+    <action  path="/attendance/leave/LeaveReviewPre" scope="request" type="server.essp.attendance.leave.action.AcLeaveReviewPre">
+      <forward name="success" path="/attendance/leave/LeaveReview.jsp" redirect="false"/>
+    </action>
+    <action name="leaveReviewForm" path="/attendance/leave/LeaveReview" scope="request" type="server.essp.attendance.leave.action.AcLeaveReview">
+      <forward name="success" path="/attendance/success.jsp" redirect="false"/>
+    </action>
+    <action  path="/attendance/leave/LeaveReviewLog" scope="request" type="server.essp.attendance.leave.action.AcLeaveReviewLog">
+      <forward name="success" path="/attendance/leave/LeaveReviewLog.jsp" redirect="false"/>
+    </action>
+    <action  path="/attendance/leave/LeaveView" scope="request" type="server.essp.attendance.leave.action.AcLeaveView">
+      <forward name="success" path="/attendance/leave/LeaveReview.jsp" redirect="false"/>
+    </action>
+    <action  path="/attendance/leave/LeaveList" scope="request" type="server.essp.attendance.leave.action.AcLeavePersonalList">
+      <forward name="success" path="/attendance/leave/LeaveList.jsp" redirect="false"/>
+    </action>
+
+    <action  name="leaveOrgStatusForm" path="/attendance/leave/LeaveOrgStatus" scope="request" type="server.essp.attendance.leave.action.AcLeaveOrgStatus">
+      <forward name="success" path="/attendance/leave/LeaveOrgStatus.jsp" redirect="false"/>
+    </action>
+
+    <!-- modify leave -->
+    <action  path="/attendance/modify/ModifyLeavePre" scope="request" type="server.essp.attendance.modify.action.AcLeaveModifyPre">
+      <forward name="success" path="/attendance/modify/ModifyLeaveApp.jsp" redirect="false"/>
+    </action>
+    <action  path="/attendance/modify/ModifyLeaveApp" scope="request" type="server.essp.attendance.modify.action.AcLeaveModifyApp">
+      <forward name="success" path="/attendance/success.jsp" redirect="false"/>
+    </action>
+    <action  path="/attendance/modify/ModifyLeaveReviewPre" scope="request" type="server.essp.attendance.modify.action.AcLeaveModifyReviewPre">
+      <forward name="success" path="/attendance/modify/ModifyLeaveReview.jsp" redirect="false"/>
+    </action>
+    <action  path="/attendance/modify/ModifyLeaveReview" scope="request" type="server.essp.attendance.modify.action.AcLeaveModifyReview">
+      <forward name="success" path="/attendance/success.jsp" redirect="false"/>
+    </action>
+
+
+    <!-- workflow -->
+    <action  path="/attendance/WorkProcessList" scope="request" type="server.essp.attendance.workflow.action.AcProcessList">
+      <forward name="success" path="/attendance/WorkProcessList.jsp" redirect="false"/>
+    </action>
+    <action  path="/wf/WorkProcessHandle" scope="request" type="server.essp.attendance.workflow.action.AcProcessHandle">
+      <forward name="single" path="/attendance/success.jsp" redirect="true"/>
+      <forward name="multi" path="/attendance/WorkProcessList.do" redirect="true"/>
+    </action>
+    <action  path="/wf/ViewProcess" scope="request" type="server.essp.attendance.workflow.action.AcViewProcess">
+      <forward name="success" path="/attendance/ViewProcess.jsp" redirect="false"/>
+    </action>
+    <action  path="/wf/AbortProcess" scope="request" type="server.essp.attendance.workflow.action.AcProcessAbort">
+      <forward name="success" path="/attendance/success.jsp" redirect="false"/>
+    </action>
+  </action-mappings>
+  <!--message-resources  key="issue" parameter="server/essp/issue/resources/application" /-->
+</struts-config>

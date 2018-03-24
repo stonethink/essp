@@ -1,0 +1,118 @@
+﻿<?xml version="1.0"?>
+<project name="essp">
+	<property name="project.name" value="esspcom"/>
+   <property name="uncopy_lib_essp" value="true"/>
+	<property file="../buildCommon.properties" />
+
+  	<!-- clean -->
+  	<target name="clean_for_compile" description="clean classes for compile">
+		<ant antfile="${buildCommon.xml}" target="clean_for_compile" dir="." >
+		</ant>
+  	</target>
+
+  	<target name="clean" description="clean all the file not in the cvs">
+		<ant antfile="${buildCommon.xml}" target="clean" dir="." >
+		</ant>
+  	</target>
+
+  	<target name="prepare" description="create dir for other target">
+    	<ant antfile="${buildCommon.xml}" target="prepare" dir="." >
+		</ant>
+  	</target>
+
+  	<!--将资源文件从本工程的project.src,project.config拷贝到classes目录 -->
+  	<target name="resources">
+		<ant antfile="${buildCommon.xml}" target="resources" dir="." >
+		</ant>
+
+  	</target>
+
+  	<target name="compile"  >
+		<ant antfile="${buildCommon.xml}" target="compile" dir="." >
+		</ant>
+  	</target>
+
+        <target name="junit">
+          <ant antfile="${buildCommon.xml}" target="junit" dir=".">    </ant>
+        </target>
+
+  	<target name="copy_lib">
+		<ant antfile="${buildCommon.xml}" target="copy_lib" dir="." >
+		</ant>
+	</target>
+
+	<!--要设置属性project.name,打的jar包要用它命名-->
+	<target name="jar_client">
+		<ant antfile="${buildCommon.xml}" target="jar_client" dir="." >
+                <property name="client.resources" value="resources/*.*"/>
+		</ant>
+	</target>
+
+  	<target name="jar_server">
+		<ant antfile="${buildCommon.xml}" target="jar_server" dir="." >
+			<property name="server.resources" value="BaseMail.properties,ldap.properties,PrimaveraApi.properties"/>
+		</ant>
+	</target>
+
+	<!--	jar_tabbed -->
+	<target name="jar_AppletTabbed" depends="prepare">
+		<property name="JAR_FILE_NAME" value="${project.applet}/AppletTabbed.jar">
+		</property>
+		<delete file="${JAR_FILE_NAME}"/>
+		<jar destfile="${JAR_FILE_NAME}">
+		  <fileset dir="${project.classes}">
+		    <include name="client/essp/common/appletTabbed/*.*"/>
+		    <include name="client/essp/common/view/*.*"/>
+		    <include name="com/uic/side/*.*"/>
+		  </fileset>
+		</jar>
+		<ant antfile="${buildCommon.xml}" target="jar_sign" dir="." >
+	    	<property name="sign.jar" value="${project.applet}/AppletTabbed.jar"/>
+		</ant>
+	</target>
+
+        <target name="jar_security_client">
+          <delete file="${project.applet}/security_client.jar"/>
+          <jar destfile="${project.applet}/security_client.jar">
+            <fileset dir="${project.classes}">
+              <include name="MenuAppletCfg.properties"/>
+              <include name="c2s/essp/common/menu/**/*.*"/>
+              <include name="c2s/essp/common/user/**/*.*"/>
+              <include name="client/essp/common/security/role/**/*.*"/>
+            </fileset>
+          </jar>
+
+          <ant antfile="${buildCommon.xml}" target="jar_sign" dir="." >
+            <property name="sign.jar" value="${project.applet}/security_client.jar"/>
+          </ant>
+        </target>
+
+  	<target name="jar_src">
+  		<ant antfile="${buildCommon.xml}" target="jar_src" dir="." >
+		</ant>
+	</target>
+
+  	<target name="jar" depends="jar_client,jar_security_client, jar_server, jar_AppletTabbed, jar_src">
+	</target>
+
+  	<target name="hbm_generate_class">
+		<ant antfile="${buildCommon.xml}" target="hbm_generate_class" dir="." >
+		</ant>
+	</target>
+
+  	<target name="hbm_generate_db">
+		<ant antfile="${buildCommon.xml}" target="hbm_generate_db" dir="." >
+		</ant>
+	</target>
+
+  	<target name="hbm_generate_xml">
+		<ant antfile="${buildCommon.xml}" target="hbm_generate_xml" dir="." >
+		</ant>
+	</target>
+
+
+    <target name="clean_compile" depends="clean_for_compile, compile"/>
+
+	<target name="clean_jar" depends="clean,copy_lib, compile, resources, junit, jar"/>
+
+</project>

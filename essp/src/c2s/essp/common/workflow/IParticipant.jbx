@@ -1,0 +1,15 @@
+[PropertyInfo]
+loginID,String,false,false, , ,true,<default>
+PART_TYPE_DM_OF_SUBMITUSER,String,false,false, , ,false,<default>
+PART_TYPE_EMPLOYEE,String,false,false, , ,false,<default>
+PART_TYPE_GM_OF_SUBMITUSER,String,false,false, , ,false,<default>
+PART_TYPE_PM_OF_SUBMITUSER,String,false,false, , ,false,<default>
+PART_TYPE_UPLEADER_IN_EBS_OF_ACTIVITY,String,false,false, , ,false,<default>
+PART_TYPE_UPLEADER_IN_OBS_OF_ACTIVITY,String,false,false, , ,false,<default>
+type,String,false,false, , ,true,<default>
+userName,String,false,false, , ,true,<default>
+[IconNames]
+
+
+
+

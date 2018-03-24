@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="db.essp.cbs.CbsBudgetLog"
+    table="cbs_budget_log"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="cbs_budget_log"
+    </meta>
+
+    <id
+        name="rid"
+        type="java.lang.Long"
+        column="RID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="RID"
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="logDate"
+        type="java.util.Date"
+        column="LOG_DATE"
+        length="19"
+    />
+    <property
+        name="budgetRid"
+        type="java.lang.Long"
+        column="BUDGET_RID"
+        length="8"
+    />
+    <property
+        name="baseId"
+        type="java.lang.String"
+        column="BASE_ID"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BASE_ID"
+            length="50"
+        </meta>
+    </property>
+    <property
+        name="basePm"
+        type="java.lang.Double"
+        column="BASE_PM"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BASE_PM"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="baseAmt"
+        type="java.lang.Double"
+        column="BASE_AMT"
+        length="14"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BASE_AMT"
+            length="14"
+        </meta>
+    </property>
+    <property
+        name="totalBugetAmt"
+        type="java.lang.Double"
+        column="TOTAL_BUGET_AMT"
+        length="14"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TOTAL_BUGET_AMT"
+            length="14"
+        </meta>
+    </property>
+    <property
+        name="totalBugetPm"
+        type="java.lang.Double"
+        column="TOTAL_BUGET_PM"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TOTAL_BUGET_PM"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="changeBugetAmt"
+        type="java.lang.Double"
+        column="CHANGE_BUGET_AMT"
+        length="14"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CHANGE_BUGET_AMT"
+            length="14"
+        </meta>
+    </property>
+    <property
+        name="changeBugetPm"
+        type="java.lang.Double"
+        column="CHANGE_BUGET_PM"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CHANGE_BUGET_PM"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="changedBy"
+        type="java.lang.String"
+        column="CHANGED_BY"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CHANGED_BY"
+            length="50"
+        </meta>
+    </property>
+    <property
+        name="reson"
+        type="java.lang.String"
+        column="RESON"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RESON"
+            length="65535"
+        </meta>
+    </property>
+    <property
+        name="rst"
+        type="java.lang.String"
+        column="RST"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RST"
+            length="1"
+        </meta>
+    </property>
+    <property
+        name="rct"
+        type="java.sql.Timestamp"
+        column="RCT"
+        length="19"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RCT"
+            length="19"
+        </meta>
+    </property>
+    <property
+        name="rut"
+        type="java.util.Date"
+        column="RUT"
+        length="19"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RUT"
+            length="19"
+        </meta>
+    </property>
+
+    <!-- Associations -->
+
+
+</class>
+</hibernate-mapping>

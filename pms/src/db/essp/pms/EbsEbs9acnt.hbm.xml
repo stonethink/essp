@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="db.essp.pms.EbsEbs9acnt"
+    table="EBS_EBS9ACNT"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.classd
+        table="EBS_EBS9ACNT"
+    </meta>
+
+    <composite-id name="comp_id" class="db.essp.pms.EbsEbs9acntPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property
+            name="ebsRid"
+            column="EBS_RID"
+            type="java.lang.Long"
+            length="8"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="EBS_RID"
+                length="8"
+            </meta>
+        </key-property>
+        <key-property
+            name="acntRid"
+            column="ACNT_RID"
+            type="java.lang.Long"
+            length="8"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="ACNT_RID"
+                length="8"
+            </meta>
+        </key-property>
+    </composite-id>
+
+    <!-- end of derived association(s) -->
+
+
+</class>
+</hibernate-mapping>

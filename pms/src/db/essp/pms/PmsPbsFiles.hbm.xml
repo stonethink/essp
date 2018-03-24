@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+  <class name="db.essp.pms.PbsFiles" table="pms_pbs_files">
+    <composite-id name="pk" class="db.essp.pms.PbsFilesPK">
+      <key-property name="acntRid" column="ACNT_RID" type="long"/>
+      <key-property name="pbsRid" column="PBS_RID" type="long"/>
+      <key-property name="filesRid" column="FILES_RID" type="long"/>
+    </composite-id>
+    <property name="fileName" type="string" column="FILE_NAME" length="500"/>
+    <property name="fileVersion" type="string" column="FILE_VERSION" length="50"/>
+    <property name="fileAuthor" type="string" column="FILE_AUTHOR" length="50"/>
+    <property name="fileCreateDate" type="date" column="FILE_CREATE_DATE"/>
+    <property name="fileModDate" type="date" column="FILE_MOD_DATE"/>
+    <property name="fileLink" type="string" column="FILE_LINK" length="1000"/>
+    <property name="fileRemark" type="string" column="FILE_REMARK" length="1000"/>
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date" column="RCT"/>
+    <property name="rut" type="date" column="RUT"/>
+
+    <many-to-one name="pbs" class="db.essp.pms.Pbs" update="false" insert="false">
+      <column name="ACNT_RID"/>
+      <column name="PBS_RID"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

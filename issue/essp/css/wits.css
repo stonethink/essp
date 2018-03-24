@@ -1,0 +1,102 @@
+/* LabelTag */
+.normalLabel	{background:#FFFFFF; color:#000000; border:none}
+.referenceLabel	{background:#BFBFBF;}
+.LabelClass		{background:#308030;color:white;}
+.commentLabel	{}
+
+/* ButtonTag */
+.Button			{}
+
+/* FooterButtonTag */
+.FooterButton	{}
+
+/* MultiBoxTag */
+.Checkbox		{}
+
+/* RadioButtonTag */
+.Radio			{}
+.RadioLabel		{}
+
+/* PasswordTag */
+.Password		{}
+
+/* TextTag */
+.Req			{color:Black;background:#FFFACD;}
+.Sreq			{color:Black;background:#FF9966;}
+/* .Nreq			{color:Black;background:#FFFACD;} */
+.Nreq			{color:Black;background:#FFFFFF;}
+.Display		{color:Black;background:#F1F1F1;}
+.Err			{background:#FF3300;}
+/*
+.Ded			{color:White;background:#DDDDDD;}
+*/
+
+.Ntext			{ime-mode:disabled;text-align:right}
+.Mtext			{ime-mode:disabled;text-align:right}
+.Xtext			{ime-mode:active;}
+.Atext			{ime-mode:disabled;}
+.Ctext			{ime-mode:inactive;}
+.Dtext	   	 	{ime-mode:disabled;}
+.CapitalText 	{ime-mode:disabled;}
+.Ttext			{ime-mode:disabled;}
+
+/* SELECTBOX-ATTRIBUTE */
+/*
+SELECT.Nreq		{color:Black;background:#C3C8CA;}
+*/
+
+.labelText {
+	BACKGROUND-COLOR: #FFFFFF;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	text-align: left;
+}
+
+.subTitleText {
+	BACKGROUND-COLOR: #FFFFFF;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: center;
+}
+
+.project_select{
+	width:300px;
+	font-size:8pt;
+}
+
+.orarowheader {
+	background-color: White;
+	color: #336699;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	border-bottom-color: #336699;
+	border-bottom-style: inset;
+	border-bottom-width: 3px;
+	border-collapse: separate;
+}
+
+.list_desc
+{
+	text-align : left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+
+}
+
+.form_title
+{
+	font-size:16px;
+	font-family: Arial Black;
+	font-style: normal;
+	text-align: center;
+}

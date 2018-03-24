@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <!--JBuilder Library Definition File-->
+  <fullname>dom4j</fullname>
+  <class>
+    <path>[lib/dom4j-1.4.jar]</path>
+  </class>
+  <lastmodsaved>1110266794320</lastmodsaved>
+</library>

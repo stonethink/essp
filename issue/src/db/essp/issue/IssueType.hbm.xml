@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class name="db.essp.issue.IssueType" table="ISSUE_TYPE" lazy="true">
+    <id name="typeName" type="string" column="Type_Name">
+        <generator class="assigned" />
+    </id>
+
+    <property name="rid"         type="long"   column="RID"/>
+    <property name="sequence"    type="long"   column="Sequence"/>
+    <property name="description" type="string" column="Description"/>
+    <property name="saveStatusHistory" type="string" column="SAVE_STATUS_HISTORY"/>
+    <property name="saveInfluenceHistory" type="string" column="SAVE_INFLUENCE_HISTORY"/>
+    <property name="rst"         type="string" column="RST"/>
+    <property name="rct"         type="date"   column="RCT"/>
+    <property name="rut"         type="date"   column="RUT"/>
+
+    <!-- Associations -->
+
+    <!-- bi-directional one-to-many association to IssueCategoryType -->
+    <set name="issueCategoryTypes" lazy="true" inverse="true" cascade="none" order-by="sequence"
+         where="rst='1'">
+        <key>
+            <column name="Type_Name" />
+        </key>
+        <one-to-many  class="db.essp.issue.IssueCategoryType"/>
+    </set>
+
+
+    <!-- bi-directional one-to-many association to IssueStatus -->
+    <set name="issueStatuses"
+        lazy="true"
+        inverse="true"
+        cascade="none"
+        order-by="sequence"
+        where="rst='1'"
+    >
+        <key>
+            <column name="Type_Name" />
+        </key>
+        <one-to-many class="db.essp.issue.IssueStatus"/>
+    </set>
+    <!-- bi-directional one-to-many association to IssuePriority -->
+    <set
+        name="issuePriorities"
+        lazy="true"
+        inverse="true"
+        cascade="none"
+        order-by="sequence"
+        where="rst='1'"
+    >
+        <key>
+            <column name="Type_Name" />
+        </key>
+        <one-to-many class="db.essp.issue.IssuePriority"/>
+    </set>
+    <!-- bi-directional one-to-many association to IssueScope -->
+    <set
+        name="issueScopes"
+        lazy="true"
+        inverse="true"
+        cascade="none"
+        order-by="sequence"
+        where="rst='1'"
+    >
+        <key>
+            <column name="Type_Name" />
+        </key>
+        <one-to-many class="db.essp.issue.IssueScope"/>
+    </set>
+    <!-- bi-directional one-to-many association to IssueRisk -->
+    <set
+        name="issueRisks"
+        lazy="true"
+        inverse="true"
+	    cascade="none"
+        order-by="sequence"
+        where="rst='1'"
+    >
+        <key>
+            <column name="Type_Name" />
+        </key>
+        <one-to-many class="db.essp.issue.IssueRisk"/>
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+  <class name="db.essp.pms.Ebs" table="EBS_EBS">
+    <id name="rid" type="long" column="RID">
+      <generator class="assigned"/>
+    </id>
+    <many-to-one name="parent" class="db.essp.pms.Ebs">
+      <column name="EBS_PARENT_RID"/>
+    </many-to-one>
+    <property name="ebsId" type="string" column="EBS_ID" not-null="true" length="20"/>
+    <property name="ebsName" type="string" column="EBS_NAME" length="50"/>
+    <property name="ebsManager" type="string" column="EBS_MANAGER" length="50"/>
+    <property name="ebsStatus" type="string" column="EBS_STATUS" length="50"/>
+    <property name="ebsDescription" type="string" column="EBS_DESCRIPTION" length="1000"/>
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date" column="RCT"/>
+    <property name="rut" type="date" column="RUT"/>
+    <set name="childs" order-by="EBS_ID" lazy="true">
+      <key>
+        <column name="EBS_PARENT_RID"/>
+      </key>
+      <one-to-many class="db.essp.pms.Ebs"/>
+    </set>
+    <set name="accounts" table="EBS_EBS9ACNT" lazy="true" order-by="acnt_rid desc">
+      <key column="EBS_RID"/>
+      <many-to-many column="ACNT_RID" class="db.essp.pms.Account"/>
+    </set>
+  </class>
+</hibernate-mapping>

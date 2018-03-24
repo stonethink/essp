@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="essp.tables.TcPeriod"
+    table="tc_period"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="tc_period"
+    </meta>
+
+    <id
+        name="periodPid"
+        type="java.lang.String"
+        column="PERIOD_PID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="PERIOD_PID"
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="rid"
+        type="java.lang.Integer"
+        column="RID"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RID"
+            length="8"
+        </meta>
+    </property>
+    <property
+        name="peridoRule"
+        type="java.lang.String"
+        column="PERIDO_RULE"
+        not-null="true"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PERIDO_RULE"
+            length="65535"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="rst"
+        type="java.lang.String"
+        column="RST"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RST"
+            length="1"
+        </meta>
+    </property>
+    <property
+        name="rct"
+        type="java.util.Date"
+        column="RCT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RCT"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="rut"
+        type="java.util.Date"
+        column="RUT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RUT"
+            length="10"
+        </meta>
+    </property>
+
+    <!-- Associations -->
+
+
+</class>
+</hibernate-mapping>

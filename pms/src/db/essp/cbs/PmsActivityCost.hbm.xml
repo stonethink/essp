@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+
+<class  name="db.essp.cbs.PmsActivityCost"  table="pms_activity_cost" dynamic-insert="true" dynamic-update="true" lazy="true">
+    <id name="pk" type="db.essp.pms.ActivityUserType">
+      <column name="ACNT_RID"/>
+      <column name="ACTIVITY_RID"/>
+      <generator class="assigned"/>
+    </id>
+
+    <property name="costDate" type="java.util.Date" column="COST_DATE" length="19">
+    </property>
+    <property name="budgetPh" type="java.lang.Long" column="BUDGET_PH" length="12">
+    </property>
+    <property name="budgetLaborAmt" type="java.lang.Double" column="BUDGET_LABOR_AMT" length="12">
+    </property>
+    <property name="budgetNonlaborAmt" type="java.lang.Double" column="BUDGET_NONLABOR_AMT" length="12">
+    </property>
+    <property name="budgetExpAmt" type="java.lang.Double" column="BUDGET_EXP_AMT" length="12">
+    </property>
+    <property name="actualPh" type="java.lang.Long" column="ACTUAL_PH" length="12">
+    </property>
+    <property name="actualLaborAmt" type="java.lang.Double" column="ACTUAL_LABOR_AMT" length="12">
+    </property>
+    <property name="actualNonlaborAmt" type="java.lang.Double" column="ACTUAL_NONLABOR_AMT" length="12">
+    </property>
+    <property name="actualExpAmt" type="java.lang.Double" column="ACTUAL_EXP_AMT" length="12">
+    </property>
+    <property name="rst" type="java.lang.String" column="RST" length="1">
+    </property>
+    <property name="rct" type="java.util.Date" column="RCT" length="19">
+    </property>
+    <property name="rut" type="java.util.Date" column="RUT" length="19">
+    </property>
+
+   <one-to-one name="activity" class="db.essp.pms.Activity" />
+
+</class>
+</hibernate-mapping>

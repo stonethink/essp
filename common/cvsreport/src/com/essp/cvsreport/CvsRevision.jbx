@@ -1,0 +1,17 @@
+[PropertyInfo]
+action,String,false,false, , ,false,<default>
+actionString,String,false,false, , ,true,<default>
+author,String,false,false, , ,false,<default>
+cvsFile,CvsFile,false,false, , ,false,<default>
+date,Calendar,false,false, , ,false,<default>
+deleteAction,boolean,false,false, , ,true,<default>
+id,String,false,false, , ,false,<default>
+lineAdd,int,false,false, , ,false,<default>
+lineSubstract,int,false,false, , ,false,<default>
+msg,String,false,false, , ,false,<default>
+state,String,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

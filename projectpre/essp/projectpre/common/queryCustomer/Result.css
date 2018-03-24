@@ -1,0 +1,40 @@
+a.linkup:visited {
+	font-family: "Webdings";
+	font-size: 14px;
+	color: #000000;
+	text-decoration: none;
+}
+a.linkup:link {
+	font-family: "Webdings";
+	font-size: 14px;
+	color: #000000;
+	text-decoration: none;
+}
+a.linkup:hover {
+	font-family: "Webdings";
+	font-size: 14px;
+	color: #999933;
+	text-decoration: none;
+}
+
+
+.line3 {
+	background-color: #DDDDFF;
+}
+.line2 {
+	background-color: #EFF2EE;
+}
+
+.howmany {
+	font-size: 12px;
+	color: #777777;
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+}
+.np {
+	font-family: "Webdings";
+	font-size: 14px;
+}
+
+.subbody {
+       background-color: #eeeeee;
+}

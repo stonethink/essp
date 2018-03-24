@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+  <class name="db.essp.pms.AccountSeq" table="pms_acnt_seq">
+    <composite-id name="pk" class="db.essp.pms.AccountSeqPK">
+      <key-property name="rid" column="RID" type="long"/>
+      <key-property name="seqType" column="SEQ_TYPE" type="string" length="50"/>
+    </composite-id>
+    <property name="lastRid" type="long" column="LAST_RID"/>
+    <property name="rootRid" type="long" column="ROOT_RID"/>
+    <property name="seq" type="long" column="SEQ"/>
+    <property name="step" type="long" column="STEP"/>
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date" column="RCT"/>
+    <property name="rut" type="date" column="RUT"/>
+    <many-to-one name="account" class="db.essp.pms.Account" update="false" insert="false">
+      <column name="RID"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

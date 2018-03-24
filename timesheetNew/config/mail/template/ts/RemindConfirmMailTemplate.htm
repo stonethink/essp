@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ESSP System Mail</title>
+</head>
+
+<body>
+
+Dear,$addressee:
+<br />
+<br />
+Please approve the Timesheet as soon as possible! <br />
+<br>
+<table width="700" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF">
+  <tr>
+    <td width="150" bgcolor="#94AAD6"><strong><font color="#FFFFFF">Reporter</font></strong></td>
+    <td width="100" bgcolor="#94AAD6"><font color="#FFFFFF"><strong>Begin </strong></font></td>
+    <td width="100" bgcolor="#94aad6"><font color="#FFFFFF"><strong>Finish</strong></font></td>
+    <td width="400" bgcolor="#94aad6"><strong><font color="#FFFFFF">Account Information</font></strong> </td>
+  </tr>
+  #foreach ($c in $content)
+  <tr>
+    <td width="150">$c.submiter</td>
+    <td width="100">$c.beginDate</td>
+    <td width="100">$c.endDate</td>
+    <td width="400">$c.accountInfo</td>
+  </tr>
+  #end
+</table>
+<br />
+--------------------------------------------------
+<br />
+Best regard!<br />
+The above information was sent by ESSP automatically, you need not reply.<br />
+<br />
+$addresser<br />
+$date
+</body>
+</html>

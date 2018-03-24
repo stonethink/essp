@@ -1,0 +1,192 @@
+/*
+    ファイルID：common
+    画面パターン名：共通
+    作成者：馬場 昭典
+    作成日：2003/12/16
+    更新者：
+    更新日：
+    更新履歴：
+ */
+
+/* アンカー色の設定 */
+A:link { color: blue }
+A:visited { color: blue }
+A:active { color: blue }
+
+/* 画面全体の基本書式 */
+BODY {
+    font-size:10pt;
+}
+/*BODY {
+    font-size:10pt;
+    font-family:"ＭＳ ゴシック";
+    text-align:center;
+    margin:0px 0px 0px 0px;
+    color:#000000;
+    background-color:#ffffff;
+    text:#000066;
+    link:#0000ff;
+    vlink:#0000ff;
+    alink:#0000ff
+}*/
+  
+/* 画面名表示エリア */
+/*DIV.title_area {
+    font-size:20pt;
+    font-style:normal;
+    font-weight:700;
+    font-family:"HG丸ｺﾞｼｯｸM-PRO";
+    text-align:left;
+    width:100%;
+    margin:0.5% 0% 0.5% 0%;
+    padding:5px 20px 5px 20px;
+    color:#ffffff;
+    background-color:"#7cfc00;
+}*/
+
+/* ヘッダー */
+/*SPAN.list_header {
+    font-size:15pt;
+    font-weight:bolder;
+    text-align:left;
+    width:100%;
+    margin:0.5% 0% 0.5% 0%;
+    padding:10px 10px 30px 20px;
+    color:#000000;
+    background-color:#ffffff;
+}*/
+
+/* テーブル */
+TD {
+    font-size:10pt;
+}
+
+TH {
+    font-size:10pt;
+}
+
+CAPTION {
+    font-size:10pt;
+}
+
+TD.menu {
+    font-size:20pt;
+}
+
+TD.header {
+    font-size:13pt;
+}
+
+.TabbedPanelStyle {
+  background-color: #c0c0c0;
+  bordercolor: #000000;
+  vertical-align: bottom;
+	left: 0px;
+	top: 1024px;
+	right: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 25;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+.TableContainer {
+  	background-color: #c0c0c0;
+	clear: both;
+	border: 1px solid #963;
+	width: 100%;
+	height: 100%;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+}
+
+.tdone{
+	background-color: White;
+}
+
+.tdtwo{
+	BACKGROUND-COLOR: #f1f1f1;
+}
+
+.columnheader {
+	background-color: Blue;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: center;
+}
+
+.totaltext {
+	background-color: #C5E3FC;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: right;
+}
+
+.button {
+	BORDER-RIGHT: #104a7b 1px solid; BORDER-TOP: #afc4d5 1px solid; FONT-SIZE: 11px; BACKGROUND: #d6e7ef; BORDER-LEFT: #afc4d5 1px solid; CURSOR: hand; COLOR: #000066; BORDER-BOTTOM: #104a7b 1px solid; FONT-FAMILY: Arial, Helvetica, sans-serif; HEIGHT: 19px; font-weight : bold;TEXT-DECORATION: none
+}
+
+.select_button {
+	BORDER-RIGHT: #104a7b 1px solid; 
+    BORDER-TOP: #afc4d5 1px solid; 
+    FONT-SIZE: 11px; 
+    BACKGROUND: #d6e7ef; 
+	BORDER-LEFT: #afc4d5 1px solid; 
+	CURSOR: hand; 
+	COLOR: #000066; 
+	BORDER-BOTTOM: #104a7b 1px solid; 
+	FONT-FAMILY: Arial, Helvetica, sans-serif; 
+	HEIGHT: 19px; 
+	font-weight : bold;
+	TEXT-DECORATION: none;
+    TEXT-ALIGN:center;
+}
+
+.input
+{
+BACKGROUND-COLOR: white;font-family: "Arial, Helvetica, sans-serif";FONT-SIZE: 12px
+}
+
+.input_noboarder {
+ 	border-bottom: White; border-bottom-width: 0px; border-color: White; border-left: White; border-left-width: 0px; border-right: White; border-right-width: 0px; border-top: White; border-top-width: 0px;font-family: "Arial, Helvetica, sans-serif";FONT-SIZE: 12px
+}
+
+
+.input_num
+{
+text-align : right;BACKGROUND-COLOR: white;font-family: "Arial, Helvetica, sans-serif";FONT-SIZE: 12px;
+}
+
+.input_noboarder_num {
+ 	border-bottom: White; border-bottom-width: 0px; border-color: White; border-left: White; border-left-width: 0px; border-right: White; border-right-width: 0px; border-top: White; border-top-width: 0px;text-align:right;font-family: "Arial, Helvetica, sans-serif";FONT-SIZE: 12px
+}
+
+.inn { background-color: #ccccff;border: 1px solid #AFC4D5;}
+
+.list_desc
+{
+	text-align : left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.select
+{
+FONT-SIZE: 12px
+}

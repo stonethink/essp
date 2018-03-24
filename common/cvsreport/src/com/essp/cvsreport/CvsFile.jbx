@@ -1,0 +1,23 @@
+[PropertyInfo]
+classFile,boolean,false,false, , ,true,<default>
+cvsModule,CvsModule,false,false, , ,true,<default>
+dead,boolean,false,false, , ,true,<default>
+extend,String,false,false, , ,true,<default>
+firstRevision,CvsRevision,false,false, , ,false,<default>
+fullName,String,false,false, , ,true,<default>
+isDead,boolean,false,false, , ,false,<default>
+javaProject,JavaProject,false,false, , ,true,<default>
+lastRevision,CvsRevision,false,false, , ,false,<default>
+name,String,false,false, , ,true,<default>
+out,PrintStream,false,false, , ,false,<default>
+packageInfo,String,false,false, , ,true,<default>
+projectInfo,String,false,false, , ,true,<default>
+rcsFile,String,false,false, , ,true,<default>
+revisionNum,int,false,false, , ,true,<default>
+revisions,List,false,false, , ,true,<default>
+symbolics,List,false,false, , ,true,<default>
+[IconNames]
+
+
+
+

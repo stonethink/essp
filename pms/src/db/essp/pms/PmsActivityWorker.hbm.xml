@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<class name="db.essp.pms.ActivityWorker" table="PMS_ACTIVITY_WORKERS" dynamic-update="true" dynamic-insert="true">
+    <id name="rid" type="long" column="RID">
+      <generator class="assigned"/>
+    </id>
+
+    <property name="loginId" type="string" column="LOGIN_ID" length="50"/>
+    <property name="jobcodeId" type="java.lang.String" column="JOBCODE_ID" />
+    <property name="empName" type="string" column="EMP_NAME" length="100"/>
+    <property name="roleName" type="string" column="ROLE_NAME" length="100"/>
+    <property name="jobDescription" type="string" column="JOB_DESCRIPTION" length="1000"/>
+    <property name="planStart" type="date" column="PLAN_START"/>
+    <property name="planFinish" type="date" column="PLAN_FINISH"/>
+    <property name="planWorkTime" type="java.lang.Long" column="PLAN_WORK_TIME"/>
+    <property name="actualStart" type="date" column="ACTUAL_START"/>
+    <property name="actualFinish" type="date" column="ACTUAL_FINISH"/>
+    <property name="personWorkTime" type="java.lang.Long" column="PERSON_WORK_TIME"/>
+    <property name="actualWorkTime" type="java.lang.Long" column="ACTUAL_WORK_TIME"/>
+    <property name="etcWorkTime" type="java.lang.Long" column="ETC_WORK_TIME"/>
+    <property name="remark" type="string" column="REMARK" length="2000"/>
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date" column="RCT"/>
+    <property name="rut" type="date" column="RUT"/>
+
+    <many-to-one name="activity" class="db.essp.pms.Activity" cascade="none" >
+         <column name="ACNT_RID" />
+         <column name="ACTIVITY_RID" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

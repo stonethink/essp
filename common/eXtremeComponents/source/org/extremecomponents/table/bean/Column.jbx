@@ -1,0 +1,52 @@
+[PropertyInfo]
+alias,String,false,false, , ,true,<default>
+calc,String[],false,false, , ,true,<default>
+calc,String,false,false, , ,true,<default>
+calcTitle,String[],false,false, , ,true,<default>
+calcTitle,String,false,false, , ,true,<default>
+calculated,boolean,false,false, , ,true,<default>
+cell,String,false,false, , ,true,<default>
+cellDisplay,String,false,false, , ,true,<default>
+currency,boolean,false,false, , ,true,<default>
+date,boolean,false,false, , ,true,<default>
+escapeAutoFormat,boolean,false,false, , ,true,<default>
+escapeAutoFormat,Boolean,false,false, , ,true,<default>
+filterable,boolean,false,false, , ,true,<default>
+filterable,Boolean,false,false, , ,true,<default>
+filterCell,String,false,false, , ,true,<default>
+filterClass,String,false,false, , ,true,<default>
+filterOptions,java.util.Collection,false,false, , ,true,<default>
+filterOptions,Object,false,false, , ,true,<default>
+filterStyle,String,false,false, , ,true,<default>
+firstColumn,boolean,false,false, , ,true,<default>
+format,String,false,false, , ,true,<default>
+headerCell,String,false,false, , ,true,<default>
+headerClass,String,false,false, , ,true,<default>
+headerStyle,String,false,false, , ,true,<default>
+interceptor,String,false,false, , ,true,<default>
+isFirstColumn,boolean,false,false, , ,false,<default>
+isLastColumn,boolean,false,false, , ,false,<default>
+lastColumn,boolean,false,false, , ,true,<default>
+model,org.extremecomponents.table.core.TableModel,false,false, , ,false,<default>
+parse,String,false,false, , ,true,<default>
+property,String,false,false, , ,true,<default>
+propertyValue,Object,false,false, , ,true,<default>
+propertyValueAsString,String,false,false, , ,true,<default>
+sortable,boolean,false,false, , ,true,<default>
+sortable,Boolean,false,false, , ,true,<default>
+style,String,false,false, , ,true,<default>
+styleClass,String,false,false, , ,true,<default>
+title,String,false,false, , ,true,<default>
+value,Object,false,false, , ,true,<default>
+valueAsString,String,false,false, , ,true,<default>
+viewsAllowed,String[],false,false, , ,true,<default>
+viewsAllowed,String,false,false, , ,true,<default>
+viewsDenied,String[],false,false, , ,true,<default>
+viewsDenied,String,false,false, , ,true,<default>
+width,String,false,false, , ,true,<default>
+tooltip,String,false,false,tooltip,tooltip,true,<default>
+[IconNames]
+
+
+
+

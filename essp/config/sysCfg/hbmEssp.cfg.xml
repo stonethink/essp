@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+     
+
+    <!-- sys -->
+    <!--<mapping resource="db/essp/code/SysAcntActivityType.hbm.xml"/>-->
+    <!--<mapping resource="db/essp/code/SysAcntCode.hbm.xml"/>-->
+    <!--<mapping resource="db/essp/code/SysAcntCodeType.hbm.xml"/>-->
+    <!--<mapping resource="db/essp/code/SysAcntWbsType.hbm.xml"/>-->
+    <!--<mapping resource="db/essp/code/SysActivityCode.hbm.xml"/>-->
+    <mapping resource="db/essp/code/SysCurrency.hbm.xml"/>
+    <mapping resource="db/essp/code/SysExchRate.hbm.xml"/>
+    <mapping resource="db/essp/code/SysParameter.hbm.xml"/>
+    <!--<mapping resource="db/essp/code/SysWbsCode.hbm.xml"/>-->
+    <mapping resource="db/essp/code/SysCode.hbm.xml"/>
+    <mapping resource="db/essp/code/SysCodeValue.hbm.xml"/>
+
+     <!--old essp tables-->
+    <mapping resource="essp/tables/EsspHrEmployeeMainT.hbm.xml"/>
+    <mapping resource="essp/tables/EsspEbsParametersT.hbm.xml"/>
+    <mapping resource="essp/tables/EsspPwpTemcln.hbm.xml"/>
+    <mapping resource="essp/tables/EsspSysAccountT.hbm.xml"/>
+    <mapping resource="essp/tables/EsspSysAccounttypeT.hbm.xml"/>
+    
+    <!-- calendar -->
+    <mapping resource="essp/tables/TcWt.hbm.xml"/>
+
+  </session-factory>
+</hibernate-configuration>

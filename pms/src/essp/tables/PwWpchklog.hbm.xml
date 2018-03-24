@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="essp.tables.PwWpchklog"
+    table="pw_wpchklogs"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="pw_wpchklogs"
+    </meta>
+
+    <id
+        name="rid"
+        type="java.lang.Long"
+        column="RID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="RID"
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="wpchkId"
+        type="java.lang.Long"
+        column="WPCHK_ID"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPCHK_ID"
+            length="8"
+            not-null="true"
+        </meta>
+    </property>
+    <property
+        name="wpchklogsDate"
+        type="java.util.Date"
+        column="WPCHKLOGS_DATE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPCHKLOGS_DATE"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="wpchklogsFrom"
+        type="java.lang.String"
+        column="WPCHKLOGS_FROM"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPCHKLOGS_FROM"
+            length="50"
+        </meta>
+    </property>
+    <property
+        name="wpchklogsReason"
+        type="java.lang.String"
+        column="WPCHKLOGS_REASON"
+        length="65535"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPCHKLOGS_REASON"
+            length="65535"
+        </meta>
+    </property>
+    <property
+        name="wpchklogsBaselinechk"
+        type="java.util.Date"
+        column="WPCHKLOGS_BASELINECHK"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPCHKLOGS_BASELINECHK"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="wpchklogsActchk"
+        type="java.util.Date"
+        column="WPCHKLOGS_ACTCHK"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPCHKLOGS_ACTCHK"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="rst"
+        type="java.lang.String"
+        column="RST"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RST"
+            length="1"
+        </meta>
+    </property>
+    <property
+        name="rct"
+        type="java.util.Date"
+        column="RCT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RCT"
+            length="10"
+        </meta>
+    </property>
+    <property
+        name="rut"
+        type="java.util.Date"
+        column="RUT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RUT"
+            length="10"
+        </meta>
+    </property>
+
+    <!-- Associations -->
+
+
+</class>
+</hibernate-mapping>

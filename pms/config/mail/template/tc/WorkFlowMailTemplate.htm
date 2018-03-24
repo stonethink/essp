@@ -1,0 +1,37 @@
+<html>
+<head>
+
+<title>ESSP System Mail</title>
+</head>
+
+<body>
+
+Dear,$addressee:
+<br />
+<br />
+Please confirm  the following works as soon as possible! <br />
+<br>
+<table width="700" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF">
+  <tr>
+    <td width="100" bgcolor="#94aad6"><strong><font color="#FFFFFF">Applicant</font></strong></td>
+    <td width="200" bgcolor="#94aad6"><font color="#FFFFFF"><strong>Process Name</strong></font></td>
+    <td width="400" bgcolor="#94aad6"><font color="#FFFFFF"><strong>Description</strong></font></td>
+  </tr>
+  #foreach ($c in $content) 
+  <tr>
+    <td width="100">$c.submiter</td>
+    <td width="200">$c.title</td>
+    <td width="400">$c.desc</td>
+  </tr>
+  #end 
+</table>
+<br />
+--------------------------------------------------
+<br />
+Best regard!<br />
+The above information was sent by ESSP automatically, you need not reply.<br />
+<br />
+$addresser<br />
+$date
+</body>
+</html>

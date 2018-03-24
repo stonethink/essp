@@ -1,0 +1,127 @@
+<html>
+<head>
+
+<title>ESSP System Mail</title>
+</head>
+
+<body>
+
+Dear,$addressee:
+<br />
+<br /> 
+请您核对以下工时及考勤数据：<br>
+<br> 
+#foreach ($all in $content)
+时间段:$all.startDate 到 $all.finishDate
+<br>
+
+<br>
+<TABLE borderColor="#0099FF" cellSpacing="1" cellPadding="0" width="830" border="1">
+    <TBODY>
+      
+      <TR>
+        <TD width="100" bgcolor="#94AAD6"><strong><font color="#FFFFFF">员工姓名</font></strong></TD>
+        <TD width="90" bgcolor="#94AAD6"><strong><font color="#FFFFFF">工作起日</font></strong></TD>
+        <TD width="90" bgcolor="#94AAD6"><strong><font color="#FFFFFF">工作止日</font></strong></TD>
+        <TD width="40" bgcolor="#94AAD6"><strong><font color="#FFFFFF">标准工时</font></strong></TD>
+        <TD width="40" bgcolor="#94AAD6"><strong><font color="#FFFFFF">实际工时</font></strong></TD>
+        <TD width="40" bgcolor="#94AAD6"><strong><font color="#FFFFFF">正常工时</font></strong></TD>
+        <TD width="40" bgcolor="#94AAD6"><font color="#FFFFFF"><strong>工时差</strong></font></TD>
+        <TD width="40" bgcolor="#94AAD6"><strong><font color="#FFFFFF">发薪工时</font></strong></TD>
+        <TD width="40" bgcolor="#94AAD6"><strong><font color="#FFFFFF">加班</font></strong></TD>
+        <TD width="50" bgcolor="#94AAD6"><strong><font color="#FFFFFF">休假(全薪)</font></strong></TD>
+        <TD width="50" bgcolor="#94AAD6"><strong><font color="#FFFFFF">休假(半薪)</font></strong></TD>
+        <TD width="50" bgcolor="#94AAD6"><strong><font color="#FFFFFF">休假(无薪)</font></strong></TD>
+        <TD width="35" bgcolor="#94AAD6"><strong><font color="#FFFFFF">旷工</font></strong></TD>
+        <TD width="35" bgcolor="#94AAD6"><strong><font color="#FFFFFF">违规</font></strong></TD>
+      </TR>
+	 
+      <TR>
+        <TD width="100">$all.baseInfo.name</TD>
+        <TD width="90">$all.baseInfo.beginDateOfWork</TD>
+        <TD width="90">$all.baseInfo.endDateOfWork</TD>
+        <TD width="40">$all.baseInfo.standardWorkTime</TD>
+        <TD width="40">$all.baseInfo.actualWorkTime</TD>
+        <TD width="40">$all.baseInfo.normalWorkTime</TD>
+        <TD width="40">$all.baseInfo.subWorkTime</TD>
+        <TD width="40">$all.baseInfo.salaryWorkTime</TD>
+        <TD width="40">$all.baseInfo.overTime</TD>
+        <TD width="50">$all.baseInfo.fullSalaryLeave</TD>
+        <TD width="50">$all.baseInfo.halfSalaryLeave</TD>
+        <TD width="50">$all.baseInfo.leave</TD>
+        <TD width="35">$all.baseInfo.absentFromWork</TD>
+        <TD width="35">$all.baseInfo.violat</TD>
+      </TR>
+      
+      <TR>
+        <TD bgcolor="#94AAD6"><strong><font color="#FFFFFF">备注</font></strong></TD>
+        <TD colspan="13">$all.baseInfo.remark  </TD>
+      </TR>
+    </TBODY>
+</TABLE>
+
+
+<br>
+<br /> #if($all.hasWR)
+您还未填写个人工作周报，请尽快填写并提交给项目经理确认：
+<br>
+<table width="450" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF">
+  <tr>
+    <td width="150" bgcolor="#94AAD6"><font color="#FFFFFF"><strong>Begin</strong> </font></td>
+    <td width="150" bgcolor="#94AAD6"><font color="#FFFFFF"><strong>Finish</strong></font></td>
+    <td width="150" bgcolor="#94aad6"><font color="#FFFFFF"><strong>Status</strong></font></td>
+  </tr>
+  #foreach ($w in $all.wrContent)
+  <tr>
+    <td width="150">$w.beginDate</td>
+    <td width="150">$w.endDate</td>
+    <td width="150">$w.type</td>
+  </tr>
+  #end
+</table>
+<br />#end #if($all.hasWF)
+您的周报未得到以下项目经理的确认，请尽快与项目经理沟通确认：
+<br />
+<table width="800" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF">
+  <tr>
+    <td width="150" bgcolor="#94AAD6"><font color="#FFFFFF"><strong>Begin</strong></font></td>
+    <td width="150" bgcolor="#94AAD6"><font color="#FFFFFF"><strong>Finish</strong></font></td>
+    <td width="150" bgcolor="#94aad6"><font color="#FFFFFF"><strong>PM</strong></font></td>
+	<td width="350" bgcolor="#94aad6"><font color="#FFFFFF"><strong>Account</strong></font></td>
+  </tr>
+  #foreach ($wruc in $all.wfContent)
+  <tr>
+    <td>$wruc.beginDate</td>
+    <td>$wruc.endDate</td>
+    <td>$wruc.type</td>
+  </tr>
+  #end
+</table>
+<br /> #end #if($all.hasATT)
+您有以下差勤记录未通过审核，请尽快与审核者沟通确认：
+<br />
+<table width="800" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF">
+  <tr>
+    <td width="100" bgcolor="#94aad6"><font color="#FFFFFF"><strong>Confirm By</strong></font></td>
+    <td width="200" bgcolor="#94aad6"><font color="#FFFFFF"><strong>Process Name</strong></font></td>
+    <td width="500" bgcolor="#94aad6"><font color="#FFFFFF"><strong>Description</strong></font></td>
+  </tr>
+  #foreach ($att in $all.attContent) 
+  <tr>
+    <td width="100">$att.submiter</td>
+    <td width="200">$att.title</td>
+    <td width="500">$att.desc</td>
+  </tr>
+  #end 
+</table>#end #end<br>
+如果您对以上差勤记录存在其它疑问，请在下午14：00之前与差勤管理员<a href="mailto:wenjuanzhang@wistronits.com">wenjuan.zhang</A></a>核对确认。逾期不再调整，谢谢合作！<br>
+<br />
+--------------------------------------------------
+<br />
+Best regard!<br />
+The above information was sent by ESSP automatically, you need not reply.<br />
+<br />
+$addresser<br />
+$date
+</body>
+</html>

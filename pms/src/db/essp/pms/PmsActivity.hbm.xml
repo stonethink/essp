@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+  <class name="db.essp.pms.Activity" table="PMS_ACTIVITY" lazy="true">
+    <!--
+      <composite-id name="pk" class="db.essp.pms.ActivityPK">
+      <key-property name="acntRid" column="ACNT_RID" type="java.lang.Long"/>
+      <key-property name="activityId" column="ACTIVITY_RID" type="java.lang.Long"/>
+      </composite-id>
+    -->
+    <id name="pk" type="db.essp.pms.ActivityUserType">
+      <column name="ACNT_RID"/>
+      <column name="ACTIVITY_RID"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one name="wbs" class="db.essp.pms.Wbs" index="seq">
+      <column name="WBS_ACNT_RID"/>
+      <column name="WBS_RID"/>
+    </many-to-one>
+    <property name="code" type="string" column="CODE" not-null="true" length="50"/>
+    <property name="name" type="string" column="NAME" length="100"/>
+    <property name="manager" type="string" column="MANAGER" length="50"/>
+    <property name="weight" type="java.lang.Double" column="WEIGHT"/>
+    <property name="brief" type="string" column="BRIEF" length="2000"/>
+    <property name="keyPath" type="java.lang.Boolean" column="IS_KEY_PATH"/>
+    <property name="anticipatedStart" type="date" column="ANTICIPATED_START"/>
+    <property name="anticipatedFinish" type="date" column="ANTICIPATED_FINISH"/>
+    <property name="plannedStart" type="date" column="PLANNED_START"/>
+    <property name="plannedFinish" type="date" column="PLANNED_FINISH"/>
+    <property name="actualStart" type="date" column="ACTUAL_START"/>
+    <property name="actualFinish" type="date" column="ACTUAL_FINISH"/>
+    <property name="durationPlan" type="java.lang.Long" column="DURATION_PLAN"/>
+    <property name="durationActual" type="java.lang.Long" column="DURATION_ACTUAL"/>
+    <property name="durationRemain" type="java.lang.Long" column="DURATION_REMAIN"/>
+    <property name="durationComplete" type="double" column="DURATION_COMPLETE"/>
+    <property name="start" type="java.lang.Boolean" column="IS_START"/>
+    <property name="finish" type="java.lang.Boolean" column="IS_FINISH"/>
+    <property name="completeRate" type="java.lang.Double" column="COMPLETE_RATE"/>
+    <property name="completeMethod" type="string" column="COMPLETE_METHOD" length="10"/>
+    <property name="etcMethod" type="string" column="ETC_METHOD" length="10"/>
+    <property name="preRid" type="java.lang.Long" column="PRE_RID"/>
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date" column="RCT"/>
+    <property name="rut" type="date" column="RUT"/>
+    <property name="timeLimit" type="double" column="TIMELIMIT"/>
+    <property name="timeLimitType" type="string" column="TIMELIMIT_TYPE"/>
+    <property name="isActivityQuality" type="string" column="IS_QUALITY_ACT"/>
+    <property name="milestone" type="java.lang.Boolean" column="MILESTONE"/>
+    <property name="milestoneType" type="string" column="MILESTONE_TYPE"/>
+    <property name="reachCondition" type="string" column="REACH_CONDITION"/>
+    <set name="activityRelations" lazy="true" inverse="true" cascade="none">
+      <key>
+        <column name="ACNT_RID"/>
+        <column name="ACTIVITY_ID"/>
+      </key>
+      <one-to-many class="db.essp.pms.ActivityRelation"/>
+    </set>
+    <!--
+      <set name="activityWorkers" lazy="true" inverse="true" cascade="none">
+      <key>
+      <column name="ACNT_RID" />
+      <column name="ACTIVITY_RID" />
+      </key>
+      <one-to-many class="db.essp.pms.ActivityWorker"/>
+      </set>
+    -->
+    <one-to-one name="activityQuality" class="db.essp.pms.ActivityQuality" cascade="all"/>
+    <!--add by xh-->
+    <set name="activityCodes" lazy="true" table="PMS_ACTIVITY_CODE">
+      <key>
+        <column name="ACNT_RID"/>
+        <column name="ACTIVITY_RID"/>
+      </key>
+      <many-to-many class="db.essp.code.CodeValue" column="VALUE_RID"/>
+    </set>
+  </class>
+</hibernate-mapping>

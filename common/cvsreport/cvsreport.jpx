@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--JBuilder XML Project-->
+<project>
+  <property category="config" name="autoformat.java.continuationPrefix" value="&quot;        &quot;"/>
+  <property category="config" name="autoformat.java.elseStatementOnNewLine" value="false"/>
+  <property category="config" name="autoformat.java.indentWidth" value="4"/>
+  <property category="config" name="autoformat.java.keepArrayInitialization" value="true"/>
+  <property category="config" name="autoformat.java.keepEndOfLines" value="true"/>
+  <property category="config" name="autoformat.java.maxNumOfEmptyNeightbouringLines" value="1"/>
+  <property category="config" name="autoformat.java.numOfEmptyLinesAfterClass" value="2"/>
+  <property category="config" name="autoformat.java.optimize.imports.numOfClassesToImportOnDemandUse" value="0"/>
+  <property category="config" name="options.umlVersion" value="14"/>
+  <property category="config" name="parser.java.syntax" value="1.3"/>
+  <property category="config" name="project.encoding" value="GBK"/>
+  <property category="generalFormatting" name="baseCodeStyle" value="java/Java Standard.codestyle"/>
+  <property category="generalFormatting2" name="blockIndent" value="4"/>
+  <property category="generalFormatting2" name="continuationIndent" value="8"/>
+  <property category="generalFormatting2" name="overrideBasicFormatting" value="1"/>
+  <property category="javaFormatting" name="alignMultilineAssign" value="1"/>
+  <property category="javaFormatting" name="arrayInitDataOnNewLine" value="0"/>
+  <property category="javaFormatting" name="blankLinesAfterClass" value="2"/>
+  <property category="javaFormatting" name="catchOnNewLine" value="0"/>
+  <property category="javaFormatting" name="elseOnNewLine" value="0"/>
+  <property category="javaFormatting" name="extendsOnNewLine" value="0"/>
+  <property category="javaFormatting" name="finallyOnNewLine" value="0"/>
+  <property category="javaFormatting" name="implementsOnNewLine" value="0"/>
+  <property category="javaFormatting" name="indentCase" value="0"/>
+  <property category="javaFormatting" name="packagePrefixGroups" value="java;BLANK_LINE;javax;BLANK_LINE;(*)"/>
+  <property category="javaFormatting" name="preservedBlankLinesInDecl" value="2"/>
+  <property category="javaFormatting" name="spaceBeforeLparen" value="0"/>
+  <property category="javaFormatting" name="whileOnNewLine" value="0"/>
+  <property category="javadoc" name="custom.tags.1" value="todo;a;To Do:"/>
+  <property category="module" name="ProjectConvertedToEnsureModulesHaveSupportedFeatures" value="1"/>
+  <property category="module" name="ProjectConvertedToUseFilesAndDependenciesAsDefaultContent" value="1"/>
+  <property category="module" name="ProjectConvertedToUseProperModuleDefaults" value="1"/>
+  <property category="module" name="last.wizard.module.name" value="cvsreport"/>
+  <property category="module" name="projectConvertedFromModuleExtensionsToModuleFileTypes" value="1"/>
+  <property category="path" name="DefaultDiagram" value="diagrams"/>
+  <property category="path" name="Diagram" value="diagrams"/>
+  <property category="personality" name="personality" value="com.borland.jbuilder.personality.JBuilderUMLPersonality "/>
+  <property category="runtime" name="ConfigurationCount" value="3"/>
+  <property category="runtime" name="DefaultConfiguration" value="-1"/>
+  <property category="runtime.0" name="BuildTargetOnRun" value="&lt;None&gt;"/>
+  <property category="runtime.0" name="ConfigurationName" value="Command"/>
+  <property category="runtime.0" name="RunnableType" value="com.borland.jbuilder.runtime.ApplicationRunner"/>
+  <property category="runtime.0" name="application.class" value="Command"/>
+  <property category="runtime.0" name="application.vmparameters" value=" "/>
+  <property category="runtime.1" name="BuildTargetOnRun" value="&lt;None&gt;"/>
+  <property category="runtime.1" name="ConfigurationName" value="Test"/>
+  <property category="runtime.1" name="RunnableType" value="com.borland.jbuilder.runtime.TestRunner"/>
+  <property category="runtime.1" name="test.class" value="CvsFileTest"/>
+  <property category="runtime.1" name="test.harness" value="junit.textui.TestRunner"/>
+  <property category="runtime.2" name="BuildTargetOnRun" value="&lt;None&gt;"/>
+  <property category="runtime.2" name="ConfigurationName" value="TestAll"/>
+  <property category="runtime.2" name="RunnableType" value="com.borland.jbuilder.runtime.TestRunner"/>
+  <property category="runtime.2" name="test.class" value="com.essp.cvsreport.test.TestAll"/>
+  <property category="runtime.2" name="test.harness" value="junit.textui.TestRunner"/>
+  <property category="runtime.3" name="BuildTargetOnRun" value="&lt;None&gt;"/>
+  <property category="runtime.3" name="ConfigurationName" value="server"/>
+  <property category="runtime.3" name="RunnableType" value="com.borland.jbuilder.runtime.ServerRunner"/>
+  <property category="runtime.3" name="appserver.parameters" value=""/>
+  <property category="runtime.3" name="appserver.servername" value=""/>
+  <property category="runtime.3" name="appserver.vmparameters" value=""/>
+  <property category="runtime.3" name="enabled.services" value="jsp;naming"/>
+  <property category="runtime.3" name="server.arguments" value=""/>
+  <property category="runtime.3" name="server.disableServerClassTracing" value="0"/>
+  <property category="runtime.3" name="server.instance.name" value=""/>
+  <property category="runtime.3" name="server.name" value="Tomcat 5.0"/>
+  <property category="runtime.3" name="server.vmparameters" value=""/>
+  <property category="serverservices" name="disabled.services" value="jdatastore;sqlj"/>
+  <property category="serverservices" name="single.server.name" value="Tomcat 5.0"/>
+  <property category="sys" name="AuthorLabel" value="@author"/>
+  <property category="sys" name="BackupPath" value="bak"/>
+  <property category="sys" name="CheckStable" value="1"/>
+  <property category="sys" name="Company" value=""/>
+  <property category="sys" name="CompanyLabel" value="Company:"/>
+  <property category="sys" name="Copyright" value="Copyright (c) 2006"/>
+  <property category="sys" name="CopyrightLabel" value="Copyright:"/>
+  <property category="sys" name="DefaultPath" value="src"/>
+  <property category="sys" name="Description" value=""/>
+  <property category="sys" name="DescriptionLabel" value="Description:"/>
+  <property category="sys" name="DocPath" value="doc"/>
+  <property category="sys" name="Encoding" value="GBK"/>
+  <property category="sys" name="ExcludeClassEnabled" value="0"/>
+  <property category="sys" name="IncludeTestPath" value="1"/>
+  <property category="sys" name="InstanceVisibility" value="2"/>
+  <property category="sys" name="JDK" value="java version 1.4.2_01-b06"/>
+  <property category="sys" name="JvmVersion" value="1.2"/>
+  <property category="sys" name="LastTag" value="0"/>
+  <property category="sys" name="Libraries" value="lib;Servlet"/>
+  <property category="sys" name="MakeStable" value="0"/>
+  <property category="sys" name="OutPath" value="classes"/>
+  <property category="sys" name="SourcePath" value="src"/>
+  <property category="sys" name="TestPath" value="src"/>
+  <property category="sys" name="Title" value=""/>
+  <property category="sys" name="TitleLabel" value="Title:"/>
+  <property category="sys" name="Version" value="1.0"/>
+  <property category="sys" name="VersionLabel" value="@version"/>
+  <property category="sys" name="WorkingDirectory" value="."/>
+  <property category="team" name="ignorePath.0" value="Tomcat"/>
+  <property category="team" name="ignorePath.1" value="Tomcat56"/>
+  <property category="together" name="language" value="java"/>
+  <property category="webModule" name="last.wizard.module.name" value="cvsreport"/>
+  <node name="cvsreport" type="WebModuleNode">
+    <property category="archiving" name="archiverClass" value="com.borland.jbuilder.enterprise.module.web.WebModuleArchiver"/>
+    <property category="archiving" name="contentRules.1" value="I:**/*.*"/>
+    <property category="archiving" name="defaultLibraryState" value="3"/>
+    <property category="archiving" name="libraryStates.1" value="0:Servlet"/>
+    <property category="archiving" name="libraryStates.2" value="0:Tomcat 5.0 Servlet"/>
+    <property category="archiving" name="targetPath" value="cvsreport.war"/>
+    <property category="archiving" name="usingRules" value="1"/>
+    <property category="module" name="build.exploded.archive" value="1"/>
+    <property category="module" name="buildModuleArchiveWithModuleNode" value="0"/>
+    <property category="module" name="buildModuleArchiveWithProject" value="0"/>
+    <property category="module" name="cleanRules.1" value="I:/WEB-INF/classes/**"/>
+    <property category="module" name="cleanRules.2" value="I:/WEB-INF/lib/**"/>
+    <property category="module" name="cleanRules.3" value="X:/WEB-INF/**/*.ds"/>
+    <property category="module" name="cleanRules.4" value="X:/WEB-INF/**/*.wsdd"/>
+    <property category="module" name="cleanRules.5" value="X:/WEB-INF/*.xml"/>
+    <property category="module" name="cleanRules.6" value="X:/WEB-INF/*.xmi"/>
+    <property category="module" name="directory" value="cvsreport"/>
+    <property category="module" name="extensions.exclude" value="xmi"/>
+    <property category="module" name="extraDefaultDirectoriesToKeepOnClean.1" value="CVS"/>
+    <property category="module" name="extraDefaultDirectoriesToKeepOnClean.2" value=".cvsignore"/>
+    <property category="module" name="extraDefaultDirectoriesToKeepOnClean.3" value="vssver.scc"/>
+    <property category="module" name="lastServer" value="Tomcat 5.0"/>
+    <property category="module" name="supported.features.1" value="Servlet 2.2"/>
+    <property category="module" name="supported.features.2" value="JSP 1.1"/>
+    <property category="web" name="context-root" value="cvsreport"/>
+  </node>
+  <file path="build">
+    <property category="ant" name="isantfile" value="1"/>
+  </file>
+</project>

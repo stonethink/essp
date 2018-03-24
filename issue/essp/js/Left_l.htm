@@ -1,0 +1,159 @@
+
+<html>
+
+
+<script language="JavaScript" type="text/JavaScript">
+
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+<head >
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<META HTTP-EQUIV="Expires" CONTENT="0">
+<title>无标题文档</title>
+<style>
+.navPoint{font-family: Webdings;font-size:9pt;color:white;cursor:hand;}
+p{
+	font-size:9pt;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="css/essp.css">
+<link rel=stylesheet href="css/css.css">
+
+</head>
+<SCRIPT language=javascript>
+
+function switchSysBar(){
+	if (switchPoint.innerText==3){
+		switchPoint.innerText=4
+		document.all("mnuList").style.display="none"
+		parent.content.cols="20,*"
+	}
+	else{
+		switchPoint.innerText=3
+		document.all("mnuList").style.display=""
+		parent.content.cols="180,*"
+	}
+}
+
+/************************************************
+*   Stuff from menu_functions.js *
+************************************************/
+
+// Global variables
+
+var skin;
+var isNav4, isIE, isDomvar, foropera = window.navigator.userAgent.toLowerCase();
+// alert(foropera);
+
+var itsopera = foropera.indexOf("opera",0) + 1;
+var itsgecko = foropera.indexOf("gecko",0) + 1;
+var itsmozillacompat = foropera.indexOf("mozilla",0) + 1;
+var itsmsie = foropera.indexOf("msie",0) + 1;        if (itsopera > 0){
+                //thebrowser = 3;
+                //alert("its opera");
+                isNav4 = true;
+        }        if (itsmozillacompat > 0){
+                //alert("its mozilla compatible");
+                if (itsgecko > 0) {
+                        //thebrowser = 4
+                       // alert("its gecko");
+                       isNav4 = true;
+                       isDom = true;
+
+                }
+                else if (itsmsie > 0) {
+                      //  alert("its msie");
+                       // thebrowser = 2
+                        isIE = true;
+                }
+                else {
+                        if (parseInt(navigator.appVersion) < 5) {
+                                // alert("its ns4.x")
+                                //thebrowser = 1
+                                isNav4 = true;
+                        }
+                        else {
+                                thebrowser = 2
+                                isIE = true;
+                        }
+                }
+        }
+function NSResize() {
+   top.header.location.reload();
+   top.detail.location.reload();
+   top.HelpNavigation.location.reload();
+   return false;
+}
+
+if (isNav4 && !isDom) {
+   window.captureEvents(Event.RESIZE);
+   window.onresize = NSResize;
+}
+
+function loadMain() {
+   window.open("myactive.htm", "main");
+}
+
+</SCRIPT>
+
+<body onload='loadMain();' class="navtree" leftMargin=0 topMargin=0 MARGINWIDTH="0" MARGINHEIGHT="0" rightmargin="0" >
+
+<table width="100%" border="0" cellSpacing=0 cellPadding=0  height="100%">
+
+
+<script type="text/javascript" language="JavaScript" src="js/aptree.js"></script>
+<script type="text/javascript" language="JavaScript1.2">
+
+setShowExpanders(true);
+
+//全部展开
+setExpandDepth(-1);
+//采用卡片形式时，点击的样式
+setclickType(1);
+
+setKeepState(true);
+setShowHealth(false);
+setInTable(false);
+setTargetFrame("main");
+openFolder = "image/open_folder.gif";
+closedFolder = "image/closed_folder.gif";
+plusIcon = "image/lplus.gif";
+minusIcon = "image/lminus.gif";
+blankIcon = "image/blank20.gif";
+
+</script>
+
+    <td id='mnuList' class="LeftFrame" background="image/left_bg.gif">
+    <div style=" left: 0px; top: 0px;height:100%">
+    <table hight=100% border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1" >
+
+    <b>ESSP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+
+<script type="text/javascript" language="JavaScript1.2">
+	var companyGif = "";
+	var rootGif = "";
+	var funcGif = "";
+
+ root  = addRoot(companyGif, '','');M240000000 = addItem(  root ,  rootGif , 'Sales' ,  '' ); M210000000 = addItem( M240000000,  funcGif , 'Sales Account' ,  '/essp/sales/Project/projectcode_index.jsp?SessionID=4243A8CA12E9C93983849BC29E7BE30E' ); M220000000 = addItem( M240000000,  funcGif , 'Selling Materials' ,  '/essp/sales/Material/material_index.jsp?SessionID=4243A8CA12E9C93983849BC29E7BE30E' ); M230000000 = addItem( M240000000,  funcGif , 'Customers' ,  '/essp/sales/Custom/account_index.jsp?SessionID=4243A8CA12E9C93983849BC29E7BE30E' ); M232000000 = addItem( M240000000,  funcGif , 'Contacts' ,  '/essp/sales/Contact/contact_index.jsp?SessionID=4243A8CA12E9C93983849BC29E7BE30E' ); M241000000 = addItem( M240000000,  funcGif , 'Opportunities' ,  '/essp/sales/Opportunity/opportunity_index.jsp?SessionID=4243A8CA12E9C93983849BC29E7BE30E' ); M250000000 = addItem( M240000000,  funcGif , 'Activity' ,  '/essp/sales/Activities/activities_index.jsp?SessionID=4243A8CA12E9C93983849BC29E7BE30E' ); M270000000 = addItem( M240000000,  funcGif , 'PWP' ,  '/essp/sales/PWP/pwp_index.jsp?SessionID=4243A8CA12E9C93983849BC29E7BE30E' ); M280000000 = addItem( M240000000,  funcGif , 'Threshold' ,  '/essp/sales/Threshold/threshold_index.jsp?SessionID=4243A8CA12E9C93983849BC29E7BE30E' ); M290000000 = addItem( M240000000,  funcGif , 'Issue' ,  '/essp/sales/Issue/issue_index.jsp?SessionID=4243A8CA12E9C93983849BC29E7BE30E' ); F000000051 = addItem( M240000000,  funcGif , 'Report' ,  '/essp/report/reportmain.jsp?kindcode=T00001&&SessionID=4243A8CA12E9C93983849BC29E7BE30E' ); F000000050 = addItem(  root ,  rootGif , 'Administrator' ,  '' ); F000000058 = addItem( F000000050,  funcGif , 'Parameter Initialization' ,  '/essp/sales/Parameter/parameter_index.jsp?SessionID=4243A8CA12E9C93983849BC29E7BE30E' ); M000000143 = addItem( F000000050,  funcGif , 'Sales Method' ,  '/essp/sales/Parameter/parameter_smethod_index.jsp?SessionID=4243A8CA12E9C93983849BC29E7BE30E' ); M000000144 = addItem( F000000050,  funcGif , 'Material Type' ,  '/essp/sales/Parameter/parameter_mtype_index.jsp?SessionID=4243A8CA12E9C93983849BC29E7BE30E' ); M000000145 = addItem( F000000050,  funcGif , 'Region' ,  '/essp/sales/Parameter/parameter_region_index.jsp?SessionID=4243A8CA12E9C93983849BC29E7BE30E' ); 
+
+    </script><script type="text/javascript" language="JavaScript1.2">
+initialize()
+    </script>    </table>
+    </div>
+    </td>
+
+    <td class="HalfWindow"  width="15" height="100%"  vAlign=center onclick=switchSysBar() align=middle><SPAN class=navPoint id=switchPoint
+            >3</SPAN> </td></tr>
+</table>
+
+
+
+</body>
+</html>

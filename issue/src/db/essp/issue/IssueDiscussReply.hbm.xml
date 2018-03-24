@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class name="db.essp.issue.IssueDiscussReply" table="ISSUE_DISCUSS_REPLY" lazy="true">
+    <id name="rid" type="long" column="RID">
+        <generator class="assigned" />
+    </id>
+
+    <property name="title"          type="string" column="TITLE"/>
+    <property name="description"    type="string" column="DESCRIPTION"/>
+    <property name="filledDate"     type="date"   column="FILLED_DATE"/>
+    <property name="filledBy"       type="string" column="FILLED_BY"/>
+    <property name="attachment"     type="string" column="ATTACHMENT"/>
+    <property name="attachmentId"   type="string" column="ATTACHMENT_ID"/>
+    <property name="attachmentDesc" type="string" column="ATTACHMENT_DESC"/>
+    <property name="rst"            type="string" column="RST"/>
+    <property name="rct"            type="date"   column="RCT"/>
+    <property name="rut"            type="date"   column="RUT"/>
+    <property name="to"             type="string" column="MAILTO"/>
+    <property name="cc"             type="string" column="CC"/>
+    <property name="sendremark"     type="string" column="SENDREMARK"/>
+    <property name="remark"         type="string" column="REMARK"/>
+    <property name="filledByScope"  type="string" column="FILLED_BY_SCOPE"/>
+    <!-- Associations -->
+
+    <!-- bi-directional many-to-one association to IssueDiscussTitle -->
+    <many-to-one  name="issueDiscussTitle"  class="db.essp.issue.IssueDiscussTitle">
+        <column name="TITLE_ID" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

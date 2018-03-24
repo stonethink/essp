@@ -1,0 +1,66 @@
+#BODY_TAG			{}
+
+#DAMMY_TEXT         {LEFT:0px;TOP:1px;HEIGHT:0px;WIDTH:0px;}
+#INPUT_BLOCK		{LEFT:0px;TOP:2px;HEIGHT:0px;WIDTH:0px;}
+
+#DIV_HEADER			{LEFT:0px;  TOP:1px;HEIGHT:20px;WIDTH:800px;}
+
+#BODY_TAG {	color: #FFFFFF;}
+#LOGIN_TITLE		{LEFT:0px;  TOP:1px;HEIGHT:20px;WIDTH:96px;
+						BORDER-RIGHT: #a8a8a8 1px solid; BORDER-TOP: #a8a8a8 1px solid; BACKGROUND: #99cccc; BORDER-LEFT: #a8a8a8 1px solid; COLOR: black; BORDER-BOTTOM: #a8a8a8 1px solid; 
+					}
+#LOGIN_ID			{LEFT:96px; TOP:1px;HEIGHT:20px;WIDTH:62px;
+						BORDER-RIGHT: #a8a8a8 1px solid; BORDER-TOP: #a8a8a8 1px solid; BACKGROUND: #99cccc; BORDER-LEFT: #a8a8a8 1px solid; COLOR: black; BORDER-BOTTOM: #a8a8a8 1px solid; 
+					}
+#LOGIN_NAME			{LEFT:154px;TOP:1px;HEIGHT:20px;WIDTH:124px;
+						BORDER-RIGHT: #a8a8a8 1px solid; BORDER-TOP: #a8a8a8 1px solid; BACKGROUND: #99cccc; BORDER-LEFT: #a8a8a8 1px solid; COLOR: black; BORDER-BOTTOM: #a8a8a8 1px solid; 
+					}
+#BUMON_TITLE		{LEFT:278px;TOP:1px;HEIGHT:20px;WIDTH:42px;
+						BORDER-RIGHT: #a8a8a8 1px solid; BORDER-TOP: #a8a8a8 1px solid; BACKGROUND: #99cccc; BORDER-LEFT: #a8a8a8 1px solid; COLOR: black; BORDER-BOTTOM: #a8a8a8 1px solid; 
+					}
+#BUMON_ID			{LEFT:320px;TOP:1px;HEIGHT:20px;WIDTH:62px;
+						BORDER-RIGHT: #a8a8a8 1px solid; BORDER-TOP: #a8a8a8 1px solid; BACKGROUND: #99cccc; BORDER-LEFT: #a8a8a8 1px solid; COLOR: black; BORDER-BOTTOM: #a8a8a8 1px solid; 
+					}
+#BUMON_NAME			{LEFT:382px;TOP:1px;HEIGHT:20px;WIDTH:92px;
+						BORDER-RIGHT: #a8a8a8 1px solid; BORDER-TOP: #a8a8a8 1px solid; BACKGROUND: #99cccc; BORDER-LEFT: #a8a8a8 1px solid; COLOR: black; BORDER-BOTTOM: #a8a8a8 1px solid; 
+					}
+#COMPANY_TITLE		{LEFT:474px;TOP:1px;HEIGHT:20px;WIDTH:42px;
+						BORDER-RIGHT: #a8a8a8 1px solid; BORDER-TOP: #a8a8a8 1px solid; BACKGROUND: #99cccc; BORDER-LEFT: #a8a8a8 1px solid; COLOR: black; BORDER-BOTTOM: #a8a8a8 1px solid; 
+					}
+#COMPANY_ID			{LEFT:516px;TOP:1px;HEIGHT:20px;WIDTH:62px;
+						BORDER-RIGHT: #a8a8a8 1px solid; BORDER-TOP: #a8a8a8 1px solid; BACKGROUND: #99cccc; BORDER-LEFT: #a8a8a8 1px solid; COLOR: black; BORDER-BOTTOM: #a8a8a8 1px solid; 
+					}
+#COMPANY_NAME		{LEFT:578px;TOP:1px;HEIGHT:20px;WIDTH:222px;
+						BORDER-RIGHT: #a8a8a8 1px solid; BORDER-TOP: #a8a8a8 1px solid; BACKGROUND: #99cccc; BORDER-LEFT: #a8a8a8 1px solid; COLOR: black; BORDER-BOTTOM: #a8a8a8 1px solid; 
+					}
+
+
+
+#DIV_BODY			{LEFT:0px;TOP:0px;HEIGHT:600px;WIDTH:800;}
+
+#DIV_FOOTER			{LEFT:0px;TOP:500px;HEIGHT:65px;WIDTH:800;}
+#PF1_TITLE			{LEFT:20px; TOP:5px; HEIGHT:18px;WIDTH:62;}
+#PF1				{LEFT:20px; TOP:24px;HEIGHT:22px;WIDTH:62;border:1 ridge #A8A8A8;}
+#PF2_TITLE			{LEFT:82px; TOP:5px; HEIGHT:18px;WIDTH:62;}
+#PF2				{LEFT:82px; TOP:24px;HEIGHT:22px;WIDTH:62;border:1 ridge #A8A8A8;}
+#PF3_TITLE			{LEFT:144px;TOP:5px; HEIGHT:18px;WIDTH:62;}
+#PF3				{LEFT:144px;TOP:24px;HEIGHT:22px;WIDTH:62;border:1 ridge #A8A8A8;}
+#PF4_TITLE			{LEFT:206px;TOP:5px; HEIGHT:18px;WIDTH:62;}
+#PF4				{LEFT:206px;TOP:24px;HEIGHT:22px;WIDTH:62;border:1 ridge #A8A8A8;}
+#PF5_TITLE			{LEFT:268px;TOP:5px; HEIGHT:18px;WIDTH:62;}
+#PF5				{LEFT:268px;TOP:24px;HEIGHT:22px;WIDTH:62;border:1 ridge #A8A8A8;}
+#PF6_TITLE			{LEFT:330px;TOP:5px; HEIGHT:18px;WIDTH:62;}
+#PF6				{LEFT:330px;TOP:24px;HEIGHT:22px;WIDTH:62;border:1 ridge #A8A8A8;}
+#PF7_TITLE			{LEFT:392px;TOP:5px; HEIGHT:18px;WIDTH:62;}
+#PF7				{LEFT:392px;TOP:24px;HEIGHT:22px;WIDTH:62;border:1 ridge #A8A8A8;}
+#PF8_TITLE			{LEFT:454px;TOP:5px; HEIGHT:18px;WIDTH:62;}
+#PF8				{LEFT:454px;TOP:24px;HEIGHT:22px;WIDTH:62;border:1 ridge #A8A8A8;}
+#PF9_TITLE			{LEFT:516px;TOP:5px; HEIGHT:18px;WIDTH:62;}
+#PF9				{LEFT:516px;TOP:24px;HEIGHT:22px;WIDTH:62;border:1 ridge #A8A8A8;}
+#PF10_TITLE			{LEFT:578px;TOP:5px; HEIGHT:18px;WIDTH:62;}
+#PF10				{LEFT:578px;TOP:24px;HEIGHT:22px;WIDTH:62;border:1 ridge #A8A8A8;}
+#PF11_TITLE			{LEFT:640px;TOP:5px; HEIGHT:18px;WIDTH:62;}
+#PF11				{LEFT:640px;TOP:24px;HEIGHT:22px;WIDTH:62;border:1 ridge #A8A8A8;}
+#PF12_TITLE			{LEFT:702px;TOP:5px; HEIGHT:18px;WIDTH:62;}
+#PF12				{LEFT:702px;TOP:24px;HEIGHT:22px;WIDTH:62;border:1 ridge #A8A8A8;}
+#INFOMATION_AREA	{LEFT:20px;TOP:48px;HEIGHT:20px;WIDTH:744;text-align:left;}

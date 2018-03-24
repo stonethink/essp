@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+<!--JBuilder Library Definition File-->
+<fullname>ganttLib</fullname>
+<class>
+<path>[lib/commons-httpclient.jar]</path>
+<path>[lib/commons-httpclient-contrib.jar]</path>
+<path>[lib/commons-logging.jar]</path>
+<path>[lib/commons-transaction-1.0.jar]</path>
+<path>[lib/eclipsito.jar]</path>
+<path>[lib/jakarta-slide-webdavlib-2.1.jar]</path>
+</class>
+<lastmodsaved>1160359498328</lastmodsaved>
+</library>

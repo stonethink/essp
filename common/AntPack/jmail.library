@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <!--JBuilder Library Definition File-->
+  <fullname>jmail</fullname>
+  <class>
+    <path>[lib/jmail.jar]</path>
+    <path>[lib/mail.jar]</path>
+    <path>[lib/mailapi.jar]</path>
+    <path>[lib/pop3.jar]</path>
+    <path>[lib/smtp.jar]</path>
+  </class>
+  <lastmodsaved>1116908029073</lastmodsaved>
+</library>

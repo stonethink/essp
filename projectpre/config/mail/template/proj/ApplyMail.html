@@ -1,0 +1,226 @@
+
+
+<html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ESSP System Mail</title>
+
+</head>
+  
+   <body>
+   Dear $addressee:
+<br>
+<br>
+ #foreach($dd in $content) &nbsp;&nbsp;&nbsp;&nbsp;A "project add" application has just been submitted!
+<br>    
+
+<br>
+<table  width="700" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF" style='word-break:break-all;'>
+  <tr> 
+    <td  width="120" bgcolor="#94aad6" colspan="2">申請單號</td>
+    <td >$!dd.rid&nbsp;</td>
+    <td width="100" bgcolor="#94aad6">申請人</td>
+    <td >$!dd.applicantName&nbsp;</td>
+  </tr>
+  <tr>
+    <td  bgcolor="#94aad6" colspan="2">狀態碼</td>
+    <td >$!dd.applicationStatus&nbsp;</td>
+    <td  bgcolor="#94aad6">類型</td>
+    <td width="160">$!dd.relPrjType&nbsp;</td>
+  </tr>
+  <tr> 
+    <td  bgcolor="#94aad6" colspan="2">專案簡稱</td>
+    <td >$!dd.acntName&nbsp;</td>
+    <td  bgcolor="#94aad6">專案全名</td>
+    <td width="160">$!dd.acntFullName&nbsp;</td>
+  </tr>
+  <tr> 
+    <td  bgcolor="#94aad6" colspan="2">
+					 工時表簽核者
+				</td>
+    <td >$!dd.TCSName&nbsp;</td>
+    <td  bgcolor="#94aad6">
+					 專案經理
+				</td>
+    <td width="160">$!dd.PMName&nbsp;</td>
+  </tr>
+  <tr> 
+    <td  bgcolor="#94aad6" colspan="2">
+					 BD主管
+				</td>
+    <td >$!dd.BDMName&nbsp;</td>
+    <td  bgcolor="#94aad6">
+					 業務經理
+				</td>
+    <td width="160">$!dd.leaderName&nbsp;</td>
+  </tr>
+  <tr> 
+    <td  bgcolor="#94aad6" colspan="2">
+					 專案內容
+				</td>
+    <td colspan="3" width="580">$!dd.acntBrief&nbsp;</td>
+  </tr>
+  <tr>
+    <td  bgcolor="#94aad6" colspan="2">產品名稱</td>
+    <td colspan="3" width="580">$!dd.productName&nbsp;</td>
+  </tr>
+  
+  <tr> 
+    <td bgcolor="#94aad6" colspan="2">執行據點</td>
+    <td >$!dd.execSite&nbsp;</td>
+    <td  bgcolor="#94aad6">執行單位</td>
+    <td width="160">$!dd.execUnitName&nbsp;</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#94aad6" colspan="2">成本歸屬單位</td>
+    <td >$!dd.costAttachBd&nbsp;</td>
+    <td  bgcolor="#94aad6">業務來源</td>
+    <td width="160">$!dd.bizSource&nbsp;</td>
+  </tr>
+<tr> 
+    <td  bgcolor="#94aad6" colspan="2">業務代表</td>
+    <td >$!dd.salesName&nbsp;</td>
+    <td  bgcolor="#94aad6">專案屬性</td>
+    <td width="160">$!dd.acntAttribute&nbsp;</td>
+  </tr>
+<tr> 
+    <td  bgcolor="#94aad6" colspan="2">
+					 業績歸屬單位
+				</td>
+    <td >$!dd.achieveBelong&nbsp;</td>
+    <td  bgcolor="#94aad6">預計工作量 字數</td>
+    <td width="160">$!dd.estSize&nbsp;</td>
+  </tr>
+<tr> 
+    <td  bgcolor="#94aad6" colspan="2">預計開始</td>
+    <td >$!dd.acntPlannedStart&nbsp;</td> 
+    <td  bgcolor="#94aad6">預計結束</td>
+    <td width="160">$!dd.acntPlannedFinish&nbsp;</td>
+  </tr>
+<tr> 
+    <td   bgcolor="#94aad6" colspan="2">
+					 預計人月
+				</td>
+    <td >$!dd.estManmonth&nbsp;</td>
+    <td  bgcolor="#94aad6" >實際人月</td>
+    <td width="160">$!dd.actualManmonth&nbsp;</td>
+  </tr>
+<tr> 
+    <td bgcolor="#94aad6" colspan="2">實際開始</td>
+    <td>$!dd.acntActualStart&nbsp;</td>
+    <td  bgcolor="#94aad6">
+					 實際結束
+				</td>
+    <td width="160">$!dd.acntActualFinish&nbsp;</td>
+  </tr>
+
+  <tr> 
+    <td  bgcolor="#94aad6" colspan="2">
+					 客戶代號
+				</td>
+    <td >$!dd.customerId&nbsp;</td>
+    <td  bgcolor="#94aad6" >
+					 客戶服務總監
+				</td>
+    <td width="160">$!dd.custServiceManagerName&nbsp;</td>
+  </tr>
+  <tr> 
+    <td  bgcolor="#94aad6" colspan="2">
+					 使用Primavera
+				</td>
+    <td >$!dd.primaveraAdapted&nbsp;</td>
+    <td  bgcolor="#94aad6" >
+					 業務屬性
+				</td>
+    <td width="160">$!dd.bizProperty&nbsp;</td>
+  </tr>
+  <tr>
+  <td  bgcolor="#94aad6" colspan="2">
+					 是否向客戶收費
+				</td>
+    <td width="160">$!dd.billingBasis&nbsp;</td>
+    <td  bgcolor="#94aad6" >
+					 收費類型
+				</td>
+    <td width="160">$!dd.billType&nbsp;</td>
+  </tr>
+  <tr>
+    <td  bgcolor="#94aad6" colspan="2">
+					 銷售支援經理
+				</td>
+    <td colspan="3">$!dd.engageManagerName&nbsp;</td>
+  </tr>
+  <tr>
+    <td  bgcolor="#94aad6" rowspan="3">
+					 合約聯絡人
+				</td>
+				<td bgcolor="#94aad6" width="70">
+					 姓名
+				</td>
+    <td colspan="3">$!dd.contract&nbsp;</td>
+  
+  </tr>
+  <tr>
+  <td bgcolor="#94aad6">
+  電話
+  </td>
+  <td colspan="3">$!dd.contractTel&nbsp;</td>
+     
+  </tr>
+  <tr>
+  <td bgcolor="#94aad6">
+  Email
+  </td>
+  <td colspan="3">$!dd.contractEmail&nbsp;</td>
+ 
+  </tr>
+  <tr>
+    <td  bgcolor="#94aad6" rowspan="3">
+					 執行聯絡人
+				</td>
+    <td bgcolor="#94aad6"> 姓名 </td>
+    <td colspan="3">$!dd.executive&nbsp;</td>
+  </tr>
+   <tr>
+  <td bgcolor="#94aad6">
+  電話
+  </td>
+				<td colspan="3">
+					$!dd.executiveTel&nbsp;
+				</td>
+  </tr>
+  <tr>
+  <td bgcolor="#94aad6">Email</td>
+  
+  <td colspan="3">$!dd.executiveEmail&nbsp;</td>
+  </tr>
+  <tr>
+    <td  bgcolor="#94aad6" rowspan="3">
+					 財務聯絡人
+				</td>
+    <td bgcolor="#94aad6" >  姓名</td>
+  <td colspan="3">
+  $!dd.financial&nbsp;
+  </td>
+  </tr>
+   <tr>
+  <td bgcolor="#94aad6">電話</td>
+  <td colspan="3">$!dd.financialTel&nbsp;</td>
+  </tr>
+  <tr>
+  <td bgcolor="#94aad6">Email</td>
+  
+  <td colspan="3">$!dd.financialEmail&nbsp;</td>
+  </tr>
+  <tr>
+</table>
+<br />
+ #end --------------------------------------------------
+<br />
+ Best regard!<br />
+ The above information was sent by ESSP automatically, you need not reply.<br />
+<br />
+ $addresser<br />
+ $date <br>
+  </body>
+</html>

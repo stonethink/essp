@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+<!--
+        <property name="hibernate.connection.driver_class">com.microsoft.jdbc.sqlserver.SQLServerDriver</property>
+        <property name="hibernate.connection.url">jdbc:microsoft:sqlserver://10.5.2.5:1433;databaseName=FA;selectMethod=selectMethod</property>
+-->
+<!--
+        <property name="hibernate.connection.driver_class">com.sybase.jdbc2.jdbc.SybDriver</property>
+        <property name="hibernate.connection.url">jdbc:sybase:Tds:192.168.0.33:5000/LIMS</property>
+-->
+
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@10.5.2.251:1521:essp</property>
+
+<!--
+        <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://10.5.2.56/xplanner</property>
+-->
+        <property name="hibernate.connection.username">essp</property>
+        <property name="hibernate.connection.password">essp</property>
+        <property name="hibernate.connection.pool_size">5</property>
+
+
+        <property name="show_sql">true</property>
+        <property name="use_outer_join">true</property>
+        <property name="dialect">net.sf.hibernate.dialect.MySQLDialect</property>
+
+<!--
+        <property name="dialect">net.sf.hibernate.dialect.OracleDialect</property>
+-->
+        <!-- Mapping files -->
+<!--
+-->
+	<mapping resource="essp/tables/PwWp.hbm.xml"/>
+	<mapping resource="essp/tables/PwWpsum.hbm.xml"/>
+	<mapping resource="essp/tables/PwWkitem.hbm.xml"/>
+
+    <mapping resource="essp/tables/QcQtactv.hbm.xml"/>
+
+    </session-factory>
+
+</hibernate-configuration>

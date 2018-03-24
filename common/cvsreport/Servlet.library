@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <!--JBuilder Library Definition File-->
+  <fullname>Servlet</fullname>
+  <class>
+    <path>[C%|/Tomcat50/common/lib/jsp-api.jar]</path>
+    <path>[C%|/Tomcat50/common/lib/servlet-api.jar]</path>
+  </class>
+  <required>Tomcat 5.0 Servlet</required>
+  <lastmodsaved>1142322063968</lastmodsaved>
+</library>

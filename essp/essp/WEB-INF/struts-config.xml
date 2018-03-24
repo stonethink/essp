@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="FmLogin" type="server.essp.security.ui.auth.AfLogin" />
+    <form-bean name="Role" type="server.essp.security.ui.role.AfRole"/>
+    <form-bean name="addAuthorize" type="server.essp.security.ui.auth.AfAuthorize"/>
+  </form-beans>
+  <global-forwards>
+    <forward name="failure" path="/error.jsp" redirect="false" />
+    <forward name="success" path="/success.jsp" redirect="false" />
+  </global-forwards>
+  <action-mappings>
+    <action name="FmLogin" path="/login" type="server.essp.security.ui.auth.AcLogin">
+      <forward name="success" path="/index.jsp" />
+    </action>
+   <action name="FmLogin" path="/superLogin" type="server.essp.security.ui.auth.AcSuperLogin">
+      <forward name="success" path="/index.jsp" />
+    </action>
+    <action path="/logout" type="server.essp.security.ui.auth.AcLogout">
+      <forward name="success" path="/login.jsp" />
+    </action>
+    <action path="/security/agent" scope="request" type="server.essp.security.ui.auth.AcAgent" validate="false">
+      <forward name="success" path="/toIndex.jsp" />
+    </action>
+    <action path="/security/listAuth" scope="request" type="server.essp.security.ui.auth.AcListAuthorize" validate="false">
+      <forward name="success" path="/security/agent/authGeneral.jsp" />
+    </action>
+    <action path="/security/listAgent" scope="request" type="server.essp.security.ui.auth.AcListAgent" validate="false">
+      <forward name="success" path="/security/agent/agent.jsp" />
+    </action>
+    <action  name="addAuthorize" path="/security/AddAuthorize" scope="request" type="server.essp.security.ui.auth.AcAddAuthorize" validate="false">
+      <forward name="success" path="/security/listAuth.do" />
+    </action>
+    <action path="/security/deleteAuthorize" scope="request" type="server.essp.security.ui.auth.AcDeleteAgent" validate="false">
+      <forward name="success" path="/security/listAuth.do" />
+    </action>
+    <action path="/security/previewRole" scope="request" type="server.essp.security.ui.role.AcPreviewRole" validate="false">
+      <forward name="success" path="/security/role/RoleGeneral.jsp" />
+    </action>
+    <action path="/security/AllParentList" scope="request" type="server.essp.security.ui.role.AcPreviewRole" validate="false">
+      <forward name="success" path="/security/role/RoleAdd.jsp" />
+    </action>
+    <action path="/security/listAllRole" scope="request" type="server.essp.security.ui.role.AcListAllRole" validate="false">
+      <forward name="success" path="/security/role/RoleList.jsp" />
+    </action>
+    <action path="/security/listRoleUser" scope="request" type="server.essp.security.ui.role.AcRoleUserList" validate="false">
+      <forward name="success" path="/security/role/RoleUserList.jsp" />
+    </action>
+    <action path="/security/addRole" name="Role" scope="request" type="server.essp.security.ui.role.AcAddRole" validate="false">
+    </action>
+    <action path="/security/deleteRole" scope="request" type="server.essp.security.ui.role.AcDeleteRole" validate="false">
+      <forward name="success" path="/security/listAllRole.do" />
+    </action>
+    <action path="/security/updateRole" name="Role" scope="request" type="server.essp.security.ui.role.AcUpdateRole" validate="false">
+      <forward name="success" path="/security/previewRole.do" />
+    </action>
+    <action path="/security/UserRoleList" scope="request" type="server.essp.security.ui.role.AcUserRoleList" validate="false">
+      <forward name="success" path="/security/authority/UserRoleList.jsp" />
+    </action>
+    <action path="/security/Authority" scope="request" type="server.essp.security.ui.auth.AcAuthority" validate="false">
+      <forward name="success" path="/security/UserRoleList.do"/>
+    </action>
+    <action path="/strutsExcelExport" scope="request" type="server.essp.common.excelUtil.AcStrutsExcel" validate="false">
+      <forward name="success" path="/common/excelUtil/outExcel.jsp"/>
+    </action>
+  </action-mappings>
+  <message-resources key="application" parameter="resources.application" />
+  <message-resources key="error" parameter="resources.errorMessage" />
+</struts-config>

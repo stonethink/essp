@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- LDAP验证方式 -->
+	<bean id="UserService" class="server.essp.security.service.user.LDAPUserServiceImp" singleton="false">
+		<property name="roleService" ref="RoleService" />
+	</bean>
+	<!-- DB验证方式 -->
+	<!--  bean id="UserService" class="server.essp.security.service.user.DBUserServiceImp" singleton="false">
+		<property name="roleService" ref="RoleService" />
+	</bean  -->
+
+	<bean id="MenuService" class="server.essp.security.service.menu.MenuServiceImp" singleton="false"/>
+
+	<bean id="RoleService" class="server.essp.security.service.role.RoleServiceImpl" singleton="false"/>
+
+	<bean id="AuthService" class="server.essp.security.service.authorize.AuthServiceImp" singleton="false"/>
+	
+	<bean id="queryPrivilegeService" class="server.essp.security.service.queryPrivilege.QueryPrivilegeServiceImp" singleton="false">
+		<property name="roleService" ref="RoleService" />
+		<!--property name="rootOuId" value="W3000" /-->
+	</bean>
+	
+	<!-- transaction mananger -->	
+	<bean id="jotm" class="org.springframework.transaction.jta.JotmFactoryBean"/>
+	
+	<bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager">
+			<property name="userTransaction" ref="jotm"/>
+	</bean>
+
+	<!-- transaction proxy -->
+	<bean id="baseTransactionProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" abstract="true">
+		<property name="transactionManager" ref="transactionManager"/>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

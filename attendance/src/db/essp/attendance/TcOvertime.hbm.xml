@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+
+<class  name="db.essp.attendance.TcOvertime"  table="tc_overtime" lazy="true" dynamic-insert="true" dynamic-update="true">
+    <id name="rid" type="java.lang.Long" column="RID">
+        <generator class="assigned" />
+    </id>
+
+    <property name="loginId" type="java.lang.String" column="LOGIN_ID" length="100" />
+    <property name="acntRid" type="java.lang.Long" column="ACNT_RID" length="8" />
+    <property name="datetimeStart" type="java.util.Date" column="DATETIME_START" length="19" />
+    <property name="datetimeFinish" type="java.util.Date" column="DATETIME_FINISH" length="19" />
+    <property name="totalHours" type="java.lang.Double" column="TOTAL_HOURS" length="8" />
+    <property name="isEachDay" type="java.lang.Boolean" column="IS_EACH_DAY" length="1" />
+    <property name="cause" type="java.lang.String" column="CAUSE" length="500" />
+
+    <property name="actualDatetimeStart" type="java.util.Date" column="ACTUAL_DATETIME_START" length="19" />
+    <property name="actualDatetimeFinish" type="java.util.Date" column="ACTUAL_DATETIME_FINISH" length="19" />
+    <property name="actualTotalHours" type="java.lang.Double" column="ACTUAL_TOTAL_HOURS" length="8" />
+    <property name="actualIsEachDay" type="java.lang.Boolean" column="ACTUAL_IS_EACH_DAY" length="1" />
+    <property name="comments" type="java.lang.String" column="COMMENTS" length="500" />
+
+    <property name="status" type="java.lang.String" column="STATUS" length="20" />
+    <property name="wkId" type="java.lang.Long"  column="WK_ID" length="8" />
+    <property name="changeDesc" type="java.lang.String" column="CHANGE_DESC" length="500" />
+    <property name="changeType" type="java.lang.String" column="CHANGE_TYPE" length="100" />
+    <property name="rst" type="java.lang.String" column="RST" length="1"  />
+    <property name="rct" type="java.util.Date" column="RCT" length="19" />
+    <property name="rut" type="java.util.Date" column="RUT" length="19" />
+
+    <!-- Associations -->
+
+    <!-- bi-directional one-to-many association to TcOvertimeDetail -->
+    <set
+        name="tcOvertimeDetails"
+        lazy="true"
+        inverse="true"
+	cascade="delete-orphan"
+        order-by="OVERTIME_DAY"
+    >
+        <key>
+            <column name="OVERTIME_ID" />
+        </key>
+        <one-to-many
+            class="db.essp.attendance.TcOvertimeDetail"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcOvertimeLog -->
+    <set
+        name="tcOvertimeLogs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+                order-by="log_date"
+    >
+        <key>
+            <column name="OVERTIME_ID" />
+        </key>
+        <one-to-many
+            class="db.essp.attendance.TcOvertimeLog"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

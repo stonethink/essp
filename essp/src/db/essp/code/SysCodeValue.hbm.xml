@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+  <class name="db.essp.code.CodeValue" table="SYS_CODE_VALUE">
+    <id name="rid" type="long" column="RID">
+      <generator class="assigned"/>
+    </id>
+    <many-to-one name="parent" class="db.essp.code.CodeValue"  index="SEQUENCE">
+      <column name="PARENT_RID"/>
+    </many-to-one>
+    <many-to-one name="code" class="db.essp.code.Code">
+      <column name="CODE_RID"/>
+    </many-to-one>
+    <property name="codeName" type="string" column="CODE_NAME" length="50"/>
+    <property name="value" type="string" column="VALUE" length="50"/>
+    <property name="path" type="string" column="VALUE_PATH" length="500"/>
+    <property name="description" type="string" column="DESCRIPTION" length="1000"/>
+    <property name="status" type="string" column="STATUS" length="1"/>
+
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date" column="RCT"/>
+    <property name="rut" type="date" column="RUT"/>
+
+    <list name="childs"  lazy="true">
+      <key>
+        <column name="PARENT_RID"/>
+      </key>
+      <index column="SEQUENCE"/>
+      <one-to-many class="db.essp.code.CodeValue"/>
+    </list>
+  </class>
+</hibernate-mapping>
+

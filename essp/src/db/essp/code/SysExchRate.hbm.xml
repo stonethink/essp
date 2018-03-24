@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<class name="db.essp.code.SysExchRate" table="sys_exch_rate" dynamic-insert="true" dynamic-update="true">
+    <composite-id name="comp_id" class="db.essp.code.SysExchRatePK">
+        <key-property name="exchDate"  column="EXCH_DATE"  type="java.util.Date" length="20"/>
+        <key-property  name="fromCurrency"  column="FROM_CURRENCY"  type="java.lang.String" length="50"/>
+        <key-property  name="toCurrency"  column="TO_CURRENCY"  type="java.lang.String" length="50" />
+    </composite-id>    
+
+    <property name="rid" type="java.lang.Long" column="RID" length="8"/>   
+    <property name="rate" type="java.lang.Double" column="RATE" length="8" />
+    <property  name="rst" type="java.lang.String" column="RST" length="1" />
+    <property name="rct" type="java.util.Date" column="RCT" length="20" />    
+    <property name="rut" type="java.util.Date" column="RUT" length="20" />
+
+  
+
+</class>
+</hibernate-mapping>

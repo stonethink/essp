@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class name="db.essp.issue.IssueConclusionUg" table="issue_conclusion_ug" lazy="true">
+    <id name="rid" type="long" column="RID">
+        <generator class="assigned" />
+    </id>
+
+    <property name="urgedBy"        type="string" column="URGEDBY"/>
+    <property name="urgeTo"         type="string" column="URGETO"/>
+    <property name="urgedByScope"   type="string" column="URGEDBYSCOPE"/>
+    <property name="urgeToScope"    type="string" column="URGETOSCOPE"/>
+    <property name="urgDate"        type="date"   column="URGDATE"/>
+    <property name="description"    type="string" column="DESCRIPTION"/>
+    <property name="attachment"     type="string" column="ATTACHMENT"/>
+    <property name="attachmentId"   type="string" column="ATTACHMENT_ID"/>
+    <property name="attachmentdesc" type="string" column="ATTACHMENTDESC"/>
+    <property name="rst"            type="string" column="RST"/>
+    <property name="rct"            type="date"   column="RCT"/>
+    <property name="rut"            type="date"   column="RUT"/>
+    <!-- Associations -->
+
+    <!-- bi-directional many-to-one association to IssueConclusion -->
+    <many-to-one name="issueConclusion" class="db.essp.issue.IssueConclusion">
+        <column name="ISSUE_RID" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

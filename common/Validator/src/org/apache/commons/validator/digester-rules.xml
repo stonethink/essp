@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+
+<!--
+	digester-rules.xml defines the rules our Digester will use to transform
+	validation.xml files into Java objects.
+
+	$Id: digester-rules.xml,v 1.1.1.1 2005/08/15 06:10:36 huaxiao Exp $
+-->
+
+
+<!DOCTYPE digester-rules[
+<!--
+        "Digester" component of the Jakarta Commons Subproject
+        DTD for the definition of Digester rules in XML.
+        $Id: digester-rules.xml,v 1.1.1.1 2005/08/15 06:10:36 huaxiao Exp $
+-->
+
+<!-- This document type defines an XML format for defining Digester rules.
+     Digester is a framework for pattern-matching-based parsing of XML into
+     Java objects. See http://jakarta.apache.org/commons/digester.html.  -->
+
+<!ENTITY % rule-elements "bean-property-setter-rule | call-method-rule |
+                   call-param-rule | object-param-rule |
+                   factory-create-rule | object-create-rule |
+                   set-properties-rule | set-property-rule | set-top-rule |
+                   set-next-rule" >
+
+<!-- digester-rules is the root element. -->
+<!ELEMENT digester-rules (pattern | include | bean-property-setter-rule | call-method-rule | call-param-rule |  object-param-rule | factory-create-rule | object-create-rule | set-properties-rule | set-property-rule | set-top-rule | set-next-rule )*>
+
+
+<!-- <pattern> defines a matching pattern, or part of a matching pattern. Any
+     rule nested in a pattern element prepends its parent's to its pattern.
+     Patterns may be recursively nested.
+     Example:
+       <pattern value="foo">
+          <pattern value="bar">
+            <object-create-rule pattern="baz" classname="Fubar" />
+          </pattern>
+       </pattern>
+
+     The above sample fragment defines an ObjectCreateRule associated
+     with the pattern "foo/bar/baz".
+
+  Note that the use of pattern elements is optional; an alternative is for
+  each rule element to contain a 'pattern' attribute.   -->
+<!ELEMENT pattern (pattern | include | bean-property-setter-rule | call-method-rule | call-param-rule |
+                   factory-create-rule | object-create-rule |
+                   set-properties-rule | set-property-rule | set-top-rule |
+                   set-next-rule )*>
+<!ATTLIST pattern
+    value CDATA #REQUIRED>
+
+
+<!--
+  <include> allows one set of digester rules to be included inside
+  another. The 'path' attribute contains the URI of the document to
+  include. Inclusion behaves as if the included rules document is
+  'macro-expanded' within the outer document.
+  Programmatically initialized rules can be included as well, via the
+  'class' attribute. The 'class' attribute should contain the name
+  of a class that implements
+  org.apache.commons.digester.xmlrules.DigesterRulesSource.
+-->
+<!ELEMENT include EMPTY>
+<!ATTLIST include
+    path  CDATA #IMPLIED
+    class CDATA #IMPLIED>
+
+
+<!-- Each 'rule' element below corresponds to a concrete subclass
+     of org.apache.framework.digester.Rule.
+     Each 'rule' element has an optional 'pattern' attribute, which
+     defines the pattern for that rule instance. If the rule element
+     is nested inside one or more <pattern> elements, those patterns
+     will be prepended to the pattern specified in the rule's 'pattern'
+     attribute. -->
+
+<!-- Bean Property Setter Rule -->
+<!ELEMENT bean-property-setter-rule EMPTY>
+<!ATTLIST bean-property-setter-rule
+    pattern      CDATA #IMPLIED
+    propertyname CDATA #IMPLIED>
+
+<!-- CallMethodRule -->
+<!ELEMENT call-method-rule EMPTY>
+<!ATTLIST call-method-rule
+    pattern    CDATA #IMPLIED
+    methodname CDATA #REQUIRED
+    paramcount CDATA #IMPLIED
+    paramtypes CDATA #IMPLIED>
+
+<!--
+    CallParamRule
+    attrname - set param from attribute value (cannot be combined with from-stack)
+    from-stack - set param from stack (cannot be combined with attrname)
+    -->
+<!ELEMENT call-param-rule EMPTY>
+<!ATTLIST call-param-rule
+    pattern  CDATA #IMPLIED
+    paramnumber CDATA #REQUIRED
+    attrname CDATA #IMPLIED
+    from-stack CDATA #IMPLIED>
+
+<!--
+    ObjectParamRule
+    attrname
+           - an arbitrary Object defined programatically, assigned if the
+             element pattern AND specified attribute name are matched
+    param
+           - an arbitrary Object defined programatically, assigned when the
+             element pattern associated with the Rule is matched
+    type
+           - class name for object
+    value
+           - initial value for the object
+    -->
+<!ELEMENT object-param-rule EMPTY>
+<!ATTLIST object-param-rule
+    pattern  CDATA #IMPLIED
+    paramnumber CDATA #REQUIRED
+    param CDATA #REQUIRED
+    attrname CDATA #IMPLIED
+    type CDATA #REQUIRED
+    value CDATA #IMPLIED>
+
+<!--
+    FactoryCreateRule
+
+    ignore-exceptions - if this attribute is (ignore case) 'true' then any exceptions
+                        thrown by the object create rule will be ignore.
+                        This will allow processing to continue.
+    -->
+<!ELEMENT factory-create-rule EMPTY>
+<!ATTLIST factory-create-rule
+    pattern   CDATA #IMPLIED
+    classname CDATA #REQUIRED
+    attrname  CDATA #IMPLIED
+    ignore-exceptions  CDATA #IMPLIED>
+
+<!-- ObjectCreateRule -->
+<!ELEMENT object-create-rule EMPTY>
+<!ATTLIST object-create-rule
+    pattern   CDATA #IMPLIED
+    classname CDATA #REQUIRED
+    attrname  CDATA #IMPLIED>
+
+<!-- SetPropertiesRule -->
+<!ELEMENT set-properties-rule (alias)*>
+<!ATTLIST set-properties-rule
+    pattern   CDATA #IMPLIED>
+
+<!-- An alias is a custom attribute->property name mapping -->
+<!ELEMENT alias EMPTY>
+<!ATTLIST alias
+ attr-name CDATA #REQUIRED
+ prop-name CDATA #IMPLIED>
+
+<!-- SetPropertyRule -->
+<!ELEMENT set-property-rule EMPTY>
+<!ATTLIST set-property-rule
+    pattern   CDATA #IMPLIED
+    name      CDATA #IMPLIED
+    value     CDATA #IMPLIED>
+
+<!-- SetTopRule -->
+<!ELEMENT set-top-rule EMPTY>
+<!ATTLIST set-top-rule
+    pattern    CDATA #IMPLIED
+    methodname CDATA #REQUIRED
+    paramtype  CDATA #IMPLIED>
+
+<!-- SetNextRule -->
+<!ELEMENT set-next-rule EMPTY>
+<!ATTLIST set-next-rule
+    pattern    CDATA #IMPLIED
+    methodname CDATA #REQUIRED
+    paramtype  CDATA #IMPLIED>
+]>
+
+<digester-rules>
+
+	<pattern value="form-validation/global">
+
+		<pattern value="constant">
+			<call-method-rule methodname="addConstant" paramcount="2" />
+			<call-param-rule pattern="constant-name" paramnumber="0" />
+			<call-param-rule pattern="constant-value" paramnumber="1" />
+		</pattern>
+
+		<pattern value="validator">
+			<object-create-rule classname="org.apache.commons.validator.ValidatorAction" />
+			<set-properties-rule/>
+			<set-next-rule methodname="addValidatorAction" paramtype="org.apache.commons.validator.ValidatorAction" />
+			<call-method-rule pattern="javascript" methodname="setJavascript" paramcount="0" />
+		</pattern>
+
+	</pattern>
+
+
+	<pattern value="form-validation/formset">
+		<object-create-rule classname="org.apache.commons.validator.FormSet" />
+		<set-properties-rule/>
+		<set-next-rule methodname="addFormSet" paramtype="org.apache.commons.validator.FormSet" />
+
+		<pattern value="constant">
+			<call-method-rule methodname="addConstant" paramcount="2" />
+			<call-param-rule pattern="constant-name" paramnumber="0" />
+			<call-param-rule pattern="constant-value" paramnumber="1" />
+		</pattern>
+
+		<pattern value="form">
+			<object-create-rule classname="org.apache.commons.validator.Form" />
+			<set-properties-rule/>
+			<set-next-rule methodname="addForm" paramtype="org.apache.commons.validator.Form" />
+
+			<pattern value="field">
+				<object-create-rule classname="org.apache.commons.validator.Field" />
+				<set-properties-rule/>
+				<set-next-rule methodname="addField" paramtype="org.apache.commons.validator.Field" />
+
+				<pattern value="var">
+					<call-method-rule methodname="addVar" paramcount="3" />
+					<call-param-rule pattern="var-name" paramnumber="0" />
+					<call-param-rule pattern="var-value" paramnumber="1" />
+					<call-param-rule pattern="var-jstype" paramnumber="2" />
+				</pattern>
+
+				<pattern value="msg">
+					<object-create-rule classname="org.apache.commons.validator.Msg" />
+					<set-properties-rule/>
+					<set-next-rule methodname="addMsg" paramtype="org.apache.commons.validator.Msg" />
+				</pattern>
+
+				<pattern value="arg">
+					<object-create-rule classname="org.apache.commons.validator.Arg" />
+					<set-properties-rule/>
+					<set-next-rule methodname="addArg" paramtype="org.apache.commons.validator.Arg" />
+				</pattern>
+
+				<!-- The arg0, etc. elements are deprecated.  We can remove these definitions after 1.1 -->
+				<pattern value="arg0">
+					<object-create-rule classname="org.apache.commons.validator.Arg" />
+					<set-properties-rule/>
+					<set-next-rule methodname="addArg0" paramtype="org.apache.commons.validator.Arg" />
+				</pattern>
+				<pattern value="arg1">
+					<object-create-rule classname="org.apache.commons.validator.Arg" />
+					<set-properties-rule/>
+					<set-next-rule methodname="addArg1" paramtype="org.apache.commons.validator.Arg" />
+				</pattern>
+				<pattern value="arg2">
+					<object-create-rule classname="org.apache.commons.validator.Arg" />
+					<set-properties-rule/>
+					<set-next-rule methodname="addArg2" paramtype="org.apache.commons.validator.Arg" />
+				</pattern>
+				<pattern value="arg3">
+					<object-create-rule classname="org.apache.commons.validator.Arg" />
+					<set-properties-rule/>
+					<set-next-rule methodname="addArg3" paramtype="org.apache.commons.validator.Arg" />
+				</pattern>
+
+			</pattern>
+
+		</pattern>
+
+	</pattern>
+</digester-rules>

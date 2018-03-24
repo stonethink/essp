@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+  <class name="db.essp.pms.Account" table="PMS_ACNT" lazy="true">
+    <id name="rid" type="long" column="RID">
+      <generator class="assigned"/>
+    </id>
+    <property name="id" type="string" column="ACNT_ID" not-null="true" length="50"/>
+    <property name="name" type="string" column="ACNT_NAME" length="50"/>
+    <property name="currency" type="string" column="ACNT_CURRENCY" length="50"/>
+    <property name="manager" type="string" column="ACNT_MANAGER" length="50"/>
+    <property name="type" type="string" column="ACNT_TYPE" length="50"/>
+    <property name="organization" type="string" column="ACNT_ORGANIZATION" length="50"/>
+    <property name="anticipatedStart" type="date" column="ACNT_ANTICIPATED_START"/>
+    <property name="anticipatedFinish" type="date" column="ACNT_ANTICIPATED_FINISH"/>
+    <property name="plannedStart" type="date" column="ACNT_PLANNED_START"/>
+    <property name="plannedFinish" type="date" column="ACNT_PLANNED_FINISH"/>
+    <property name="actualStart" type="date" column="ACNT_ACTUAL_START"/>
+    <property name="actualFinish" type="date" column="ACNT_ACTUAL_FINISH"/>
+    <property name="status" type="string" column="ACNT_STATUS" length="50"/>
+    <property name="brief" type="string" column="ACNT_BRIEF" length="1000"/>
+    <property name="inner" type="string" column="ACNT_INNER" length="1"/>
+    <property name="rst" type="string" column="RST" length="1"/>
+    <property name="rct" type="date" column="RCT"/>
+    <property name="rut" type="date" column="RUT"/>
+    <property name="isTemplate" type="java.lang.Boolean" column="IS_TEMPLATE" length="1"/>
+    <property name="importTemplateRid" type="long" column="IMPORT_TEMPLATE_RID" length="8"/>
+    <property name="acntTailor" type="string" column="ACNT_TAILOR"/>
+
+    <set name="allwbs" inverse="true" lazy="true" cascade="none" >
+		<key column="ACNT_RID"/>
+		<one-to-many  class="db.essp.pms.Wbs"/>
+    </set>
+
+    <set name="ebss" table="EBS_EBS9ACNT" lazy="true" cascade="none">
+      <key column="ACNT_RID"/>
+      <many-to-many column="EBS_RID" class="db.essp.pms.Ebs"/>
+    </set>
+
+    <set name="laborResources" table="pms_labor_resources" lazy="true" cascade="none">
+        <key column="ACNT_RID"/>
+        <one-to-many class="db.essp.pms.LaborResource" />
+    </set>
+
+    <set name="keyPersons" table="pms_keypesonal" lazy="true" cascade="none">
+        <key column="ACNT_RID"/>
+        <one-to-many class="db.essp.pms.Keypesonal" />
+    </set>
+
+    <set name="noneLaborResources" table="pms_nonlabor_resources" lazy="true" cascade="none">
+        <key column="ACNT_RID"/>
+        <one-to-many class="db.essp.pms.NonlaborResource" />
+    </set>
+
+        <!--add by xh-->
+    <set name="acntCodes" lazy="true" table="PMS_ACNT_CODE">
+        <key>
+            <column name="ACNT_RID" />
+        </key>
+        <many-to-many class="db.essp.code.CodeValue" column="VALUE_RID"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ESSP System Mail</title>
+</head>
+
+<body>
+
+Dear $addressee,
+<br />
+<br />
+Your leave hours or overtime hours compare to appliying of ESSP system's is variant.
+<br>
+<br>
+#foreach ($cc in $content)
+<br />
+Leave Variant
+<br />
+<table width="1200" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF">
+  <tr>
+    <td width="110" bgcolor="#94AAD6"><font color="#FFFFFF">Employee Id</font></td>
+    <td width="150" bgcolor="#94AAD6"><font color="#FFFFFF">Employee Name</font></td>
+    <td width="120" bgcolor="#94AAD6"><font color="#FFFFFF">Date</font></td>
+    <td width="150" bgcolor="#94AAD6"><font color="#FFFFFF">Unit Code(TS)</font></td>
+    <td width="150" bgcolor="#94aad6"><font color="#FFFFFF">Leave Code(TS)</font></td>
+    <td width="150" bgcolor="#94AAD6"><font color="#FFFFFF">Leave Hours(TS)</font></td>
+    <td width="150" bgcolor="#94aad6"><font color="#FFFFFF">Unit Code(HR)</font></td>
+    <td width="150" bgcolor="#94AAD6"><font color="#FFFFFF">Leave Code(HR)</font></td>
+    <td width="150" bgcolor="#94aad6"><font color="#FFFFFF">Leave Hours(HR)</font></td>
+    
+  </tr>
+  #foreach ($c in $cc.leaveList)
+  <tr>
+    <td width="110">$c.loginId</td>
+    <td width="150">$c.fullName</td>
+    <td width="120">$c.attDate</td>
+    <td width="150">$c.tsUnitCode &nbsp;</td>
+    <td width="150">$c.tsCode &nbsp;</td>
+    <td width="150">$c.tsHours &nbsp;</td>
+    <td width="150">$c.hrUnitCode &nbsp;</td>
+    <td width="150">$c.hrCode &nbsp;</td>
+    <td width="150">$c.hrHours &nbsp;</td>
+  </tr>
+  #end
+</table>
+<br />
+Overtime Variant
+<br />
+<br />
+<table width="1200" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF">
+  <tr>
+    <td width="110" bgcolor="#94AAD6"><font color="#FFFFFF">Employee Id</font></td>
+    <td width="150" bgcolor="#94AAD6"><font color="#FFFFFF">Employee Name</font></td>
+    <td width="120" bgcolor="#94AAD6"><font color="#FFFFFF">Date</font></td>
+    <td width="150" bgcolor="#94AAD6"><font color="#FFFFFF">Unit Code(TS)</font></td>
+    <td width="180" bgcolor="#94aad6"><font color="#FFFFFF">Project Id(TS)</font></td>
+    <td width="180" bgcolor="#94AAD6"><font color="#FFFFFF">Overtime Hours(TS)</font></td>
+    <td width="180" bgcolor="#94aad6"><font color="#FFFFFF">Unit Code(HR)</font></td>
+    <td width="180" bgcolor="#94AAD6"><font color="#FFFFFF">Project Id(HR)</font></td>
+    <td width="180" bgcolor="#94aad6"><font color="#FFFFFF">Overtime Hours(HR)</font></td>
+    
+  </tr>
+  #foreach ($d in $cc.overtimeList)
+  <tr>
+     <tr>
+    <td width="110">$d.loginId</td>
+    <td width="150">$d.fullName</td>
+    <td width="120">$d.attDate</td>
+    <td width="150">$d.tsUnitCode &nbsp;</td>
+    <td width="180">$d.tsCode &nbsp;</td>
+    <td width="180">$d.tsHours &nbsp;</td>
+    <td width="180">$d.hrUnitCode &nbsp;</td>
+    <td width="180">$d.hrCode &nbsp;</td>
+    <td width="180">$d.hrHours &nbsp;</td>
+  </tr>
+  #end
+</table>
+#end
+<br />
+<br />
+--------------------------------------------------
+<br />
+This message was sent automatically by ESSP, please do not reply.<br />
+<br /> 
+Best regard,<br />
+$addresser<br />
+$date
+</body>
+</html>

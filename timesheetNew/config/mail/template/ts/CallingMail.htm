@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR>
+<STYLE></STYLE>
+</HEAD>
+<BODY >
+Dear $addressee,
+<br>
+<br>
+#foreach($dd in $content)
+Your timecard for the period of <strong>$!dd.beginDate</strong> to <strong>$!dd.endDate</strong> 
+ has variant hours.
+<br />
+<br />
+<table width="750" border="1" cellpadding="1" cellspacing="1" bordercolor="#0099FF">
+  <tr>
+    <td width="150" bgcolor="#94aad6"><font color="#FFFFFF">Standard Hours</font></td>
+    <td width="150" bgcolor="#94aad6"><font color="#FFFFFF">Actual Hours</font></td>
+    <td width="150" bgcolor="#94aad6"><font color="#FFFFFF">Normal Hours</font></td>
+    <td width="150" bgcolor="#94aad6"><font color="#FFFFFF">Overtime Hours</font></td>
+    <td width="150" bgcolor="#94aad6"><font color="#FFFFFF">Leave Hours</font></td>
+    <td width="150" bgcolor="#94aad6"><font color="#FFFFFF">Variant Hours</font></td>
+  </tr>
+  <tr>
+    <td width="150">$dd.standardHours</td>
+    <td width="150">$dd.actualHours</td>
+    <td width="150">$dd.normalHours</td>
+    <td width="150">$dd.overtimeHours</td>
+    <td width="150">$dd.leaveHours</td>
+    <td width="150"><font color="red">$dd.variantHours</font></td>
+  </tr>
+</table>
+<br />
+<br />
+Please log on at <a href="http://timecard.wistronits.com/">http://timecard.wistronits.com/</a> to review your timecard.
+<br />
+<br />
+#end
+--------------------------------------------------
+<br />
+This message was sent automatically by ESSP, please do not reply.
+<br />
+<br />
+Best regard,<br />
+$addresser<br />
+$date
+</BODY></HTML>

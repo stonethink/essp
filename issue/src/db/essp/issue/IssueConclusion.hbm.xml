@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class name="db.essp.issue.IssueConclusion" table="ISSUE_CONCLUSION" lazy="true">
+    <id name="rid" type="long" column="rid">
+        <generator class="assigned" />
+    </id>
+    <property name="actualInfluence"    type="string" column="ACTUAL_INFLUENCE"/>
+    <property name="solvedDescription"  type="string" column="SOLVED_DESCRIPTION"/>
+    <property name="finishedDate"       type="date"   column="FINISHED_DATE"/>
+    <property name="deliveredDate"      type="date"   column="DELIVERED_DATE"/>
+    <property name="attachment"         type="string" column="ATTACHMENT"/>
+    <property name="attachmentId"       type="string" column="ATTACHMENT_ID"/>
+    <property name="attachmentDesc"     type="string" column="ATTACHMENT_DESC"/>
+    <property name="closureStatus"      type="string" column="CLOSURE_STATUS"/>
+    <property name="confirmDate"        type="date"   column="CONFIRM_DATE"/>
+    <property name="confirmBy"          type="string" column="CONFIRM_BY"/>
+    <property name="instructionClosure" type="string" column="INSTRUCTION_CLOSURE"/>
+    <property name="rst"                type="string" column="RST"/>
+    <property name="rct"                type="date"   column="RCT"/>
+    <property name="rut"                type="date"   column="RUT"/>
+    <property name="confirmByScope"          type="string" column="CONFIRM_BY_SCOPE"/>
+
+    <!-- Associations -->
+
+    <!-- bi-directional one-to-one association to Issue -->
+    <one-to-one name="issue" class="db.essp.issue.Issue"/>
+    <!-- bi-directional one-to-many association to IssueConclusionUg -->
+    <set name="issueConclusionUgs" lazy="true" inverse="true" cascade="all-delete-orphan">
+        <key>
+            <column name="ISSUE_RID" />
+        </key>
+        <one-to-many class="db.essp.issue.IssueConclusionUg"/>
+    </set>
+
+</class>
+</hibernate-mapping>

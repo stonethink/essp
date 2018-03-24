@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class name="db.essp.issue.IssueReportStatus" table="ISSUE_REPORTSTATUS" lazy="true">
+    <id name="rid" type="long" column="rid">
+        <generator class="assigned" />
+    </id>
+
+    <property name="accountId"      type="long"   column="ACCOUNT_ID"/>
+    <property name="issueType"      type="string" column="ISSUE_TYPE"/>
+    <property name="issueStatus"    type="string" column="ISSUE_STATUS"/>
+    <property name="processingDate" type="date"   column="PROCESSINGDATE"/>
+    <property name="deliverdDate"   type="date"   column="DELIVERDDATE"/>
+    <property name="closedDate"     type="date"   column="CLOSEDDATE"/>
+    <property name="rejectDate"     type="date"   column="REJECTDATE"/>
+    <property name="duplationDate"  type="date"   column="DUPLATIONDATE"/>
+    <property name="rst"            type="string" column="RST"/>
+    <property name="rct"            type="date"   column="RCT"/>
+    <property name="rut"            type="date"   column="RUT"/>
+
+    <!-- Associations -->
+
+
+</class>
+</hibernate-mapping>
