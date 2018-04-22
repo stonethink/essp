@@ -74,24 +74,18 @@ public class VwActivityList extends VWTreeTableWorkArea implements
             timeLimitDisp.setMaxInputDecimalDigit(0);
             timeLimitDisp.setMaxInputIntegerDigit(8);
 
-            configs = new Object[][] { {"Name", "name",
-                      VMColumnConfig.EDITABLE, null}, {"Code", "code",
-                      VMColumnConfig.UNEDITABLE, new VWJText(), Boolean.TRUE}
-                      , {"Duration", "timeLimit", VMColumnConfig.UNEDITABLE,
-                      timeLimitDisp}, {"Planned Start", "plannedStart",
-                      VMColumnConfig.UNEDITABLE, new VWJDate()},
-                      {"Planned Finish", "plannedFinish",
-                      VMColumnConfig.UNEDITABLE, new VWJDate()},
-                      {"Actual Start", "actualStart",
-                      VMColumnConfig.UNEDITABLE, new VWJDate(), Boolean.TRUE},
-                      {"Actual Finish", "actualFinish",
-                      VMColumnConfig.UNEDITABLE, new VWJDate(), Boolean.TRUE}
-                      , {"Weight", "weight", VMColumnConfig.UNEDITABLE,
-                      weightDisp}, {"%Complete", "completeRate",
-                      VMColumnConfig.UNEDITABLE, completeRateDisp}, {"Manager",
-                      "manager", VMColumnConfig.UNEDITABLE,
-                      new VWJLoginId()}, {"Complete Method", "completeMethod",
-                      VMColumnConfig.UNEDITABLE, new VWJText(), Boolean.TRUE},
+            configs = new Object[][] { 
+			{"Name", "name", VMColumnConfig.EDITABLE, null},
+			{"Code", "code", VMColumnConfig.UNEDITABLE, new VWJText(), Boolean.TRUE}, 
+			{"Duration", "timeLimit", VMColumnConfig.UNEDITABLE, timeLimitDisp}, 
+			{"Planned Start", "plannedStart", VMColumnConfig.UNEDITABLE, new VWJDate()},
+			{"Planned Finish", "plannedFinish", VMColumnConfig.UNEDITABLE, new VWJDate()},
+			{"Actual Start", "actualStart", VMColumnConfig.UNEDITABLE, new VWJDate(), Boolean.TRUE},
+			{"Actual Finish", "actualFinish", VMColumnConfig.UNEDITABLE, new VWJDate(), Boolean.TRUE} , 
+			{"Weight", "weight", VMColumnConfig.UNEDITABLE, weightDisp}, 
+			{"%Complete", "completeRate", VMColumnConfig.UNEDITABLE, completeRateDisp}, 
+			{"Manager", "manager", VMColumnConfig.UNEDITABLE, new VWJLoginId()}, 
+			{"Complete Method", "completeMethod", VMColumnConfig.UNEDITABLE, new VWJText(), Boolean.TRUE},
             };
 
             super.jbInit(configs, treeColumnName,
